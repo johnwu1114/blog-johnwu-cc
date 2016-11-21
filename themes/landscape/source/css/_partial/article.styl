@@ -148,6 +148,9 @@
     text-decoration: none
     &:hover
       color: color-default
+  span
+    color: color-grey
+    text-decoration: none
 
 .article-tag-list-item
   float: left
@@ -157,8 +160,18 @@
   &:before
     content: "#"
 
+.article-pageviews-link
+  cursor: default;
+  float: right
+  margin-left: 20px
+  &:before
+    content: "\f118"
+    font-family: font-icon
+    padding-right: 8px
+	
 .article-comment-link
   float: right
+  margin-left: 20px
   &:before
     content: "\f075"
     font-family: font-icon
