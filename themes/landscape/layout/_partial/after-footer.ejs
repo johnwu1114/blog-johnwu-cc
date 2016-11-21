@@ -36,8 +36,10 @@
 		});
 	}
 	readVisits("visits", "#visits .count");
-	if(curUrl == "" || curUrl == "_") $("#pageviews").hide();
-	else readVisits("page/"+curUrl, "#pageviews .count");
+	if(curUrl && curUrl != "_") {
+		readVisits("page/"+curUrl, "#pageviews .count");
+		$("#pageviews").css("display","");
+	}
 </script>
 
 <% if (theme.fancybox){ %>

@@ -13,11 +13,11 @@ date: 2016-11-21 00:36:00
 ## 2. Create new project [[here]](https://console.firebase.google.com/)
 
 ## 3. Get your Firebase configs
-![pasted image](/images/pasted-2.png)
-![pasted image](/images/pasted-3.png)
+![](/images/pasted-2.png)
+![](/images/pasted-3.png)
 
 ## 4. Modify permission
-![pasted image](/images/pasted-4.png)
+![](/images/pasted-4.png)
 
 # Hexo
 ## Modify after-footer.ejs

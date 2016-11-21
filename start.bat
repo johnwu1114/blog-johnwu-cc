@@ -1,1 +1,1 @@
-hexo server -d
+hexo server -d -g
