@@ -1,0 +1,48 @@
+<% if (config.disqus_shortname){ %>
+<script>
+  var disqus_shortname = '<%= config.disqus_shortname %>';
+  <% if (page.permalink){ %>
+  var disqus_url = '<%= page.permalink %>';
+  <% } %>
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<% } %>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<%- js('js/firebase') %>
+<script>
+	var config = {
+		apiKey: "AIzaSyAKKANW-V9A83noXk9Spk6FTf93-zM1luk",
+		authDomain: "johnwu-19dd3.firebaseapp.com",
+		databaseURL: "https://johnwu-19dd3.firebaseio.com",
+	};
+	firebase.initializeApp(config);
+	
+	var database = firebase.database();
+	var curUrl = decodeURI(window.location.pathname.replace(new RegExp('\\/|\\.', 'g'), "_"));	
+	function readVisits(db_key, selector){
+		database.ref(db_key).once("value").then(function(result) {
+			  var count = parseInt(result.val() || 0) + 1;
+			  database.ref(db_key).set(count);
+			  if($(selector).length > 0){
+				  $(selector).html(count);
+			  };
+		});
+	}
+	readVisits("visits", "#visits .count");
+	if(curUrl == "" || curUrl == "_") $("#pageviews").hide();
+	else readVisits("page/"+curUrl, "#pageviews .count");
+</script>
+
+<% if (theme.fancybox){ %>
+  <%- css('fancybox/jquery.fancybox') %>
+  <%- js('fancybox/jquery.fancybox.pack') %>
+<% } %>
+
+<%- js('js/script') %>
