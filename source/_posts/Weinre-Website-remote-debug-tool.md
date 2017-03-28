@@ -24,7 +24,7 @@ npm -g install weinre
 
 ## Start
 Run “Node.js command prompt” as administrator
-![pasted image](/images/pasted-5.png)
+![](/images/pasted-5.png)
 ```
 cd {your weinre path}
 node weinre --httpPort 9090 --boundHost -all-
@@ -37,19 +37,19 @@ Adding below script to HTML to your web page.
 <script src="http://{Your IP}:9090/target/target-script-min.js#anonymous">
 </script>
 ```
-![pasted image](/images/pasted-7.png)
+![](/images/pasted-7.png)
 
 ## Run
 Open in your browser http://localhost:9090/
-![pasted image](/images/pasted-6.png)
+![](/images/pasted-6.png)
 
 Run your web page.
-![pasted image](/images/pasted-8.png)
+![](/images/pasted-8.png)
 
 Select target.
-![pasted image](/images/pasted-9.png)
+![](/images/pasted-9.png)
 
 ## Debug
-![pasted image](/images/pasted-16.png)
-![pasted image](/images/pasted-13.png)
-![pasted image](/images/pasted-14.png)
+![](/images/pasted-16.png)
+![](/images/pasted-13.png)
+![](/images/pasted-14.png)
