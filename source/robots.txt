@@ -10,4 +10,3 @@ Disallow: /images/
 Disallow: /js/
 
 Sitemap: http://blog.johnwu.cc/sitemap.xml
-Sitemap: http://blog.johnwu.cc/baidusitemap.xml

@@ -3,13 +3,11 @@ title: >-
   Hat
 author: John Wu
 tags:
-  - ELK Stack
-  - ''
   - Elasticsearch
-  - ''
   - Kibana
   - Linux
   - Logstash
+  - ELK
 categories:
   - ELK
 date: 2016-11-20 12:56:00

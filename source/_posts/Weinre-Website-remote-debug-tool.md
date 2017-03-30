@@ -4,6 +4,7 @@ tags:
   - Nodejs
   - Weinre
   - Web development
+  - Chrome
 categories:
   - Web development
 date: 2016-12-16 11:44:00
