@@ -18,7 +18,7 @@ date: 2017-03-28 22:07:00
 
 ![](/images/pasted-0.png)
 
-# 解法:
+# 解法
 
 1. 打開IE -> 工具 -> 網際網路選項  
 Open IE -> Tools -> Internet Options  
