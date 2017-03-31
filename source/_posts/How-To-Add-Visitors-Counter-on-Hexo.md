@@ -7,20 +7,20 @@ categories:
   - Hexo
 date: 2016-11-21 00:36:00
 ---
-# Firebase
-## 1. Register account on Firebase [[here]](https://firebase.google.com/)
+## Firebase
+### 1. Register account on Firebase [[here]](https://firebase.google.com/)
 
-## 2. Create new project [[here]](https://console.firebase.google.com/)
+### 2. Create new project [[here]](https://console.firebase.google.com/)
 
-## 3. Get your Firebase configs
+### 3. Get your Firebase configs
 ![](/images/pasted-2.png)
 ![](/images/pasted-3.png)
 
-## 4. Modify permission
+### 4. Modify permission
 ![](/images/pasted-4.png)
 
-# Hexo
-## Modify after-footer.ejs
+## Hexo
+### Modify after-footer.ejs
 File path: themes\\*{your themem}*\layout\_partial\after-footer.ejs
 ```html
 <!-- Add this code to bottom -->
@@ -49,7 +49,7 @@ File path: themes\\*{your themem}*\layout\_partial\after-footer.ejs
   if(curUrl != "_") readvisits("page/"+curUrl, "#pageviews");
 </script>
 ```
-## Modify footer.ejs
+### Modify footer.ejs
 File path: themes\\*{your themem}*\layout\_partial\footer.ejs
 ```html
 <footer id="footer">
