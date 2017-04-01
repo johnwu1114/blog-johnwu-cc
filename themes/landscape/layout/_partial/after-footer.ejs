@@ -26,7 +26,7 @@
 	firebase.initializeApp(config);
 	
 	var database = firebase.database();
-	var curUrl = decodeURI(window.location.pathname.replace(new RegExp('\\/|\\.', 'g'), "_"));	
+	var curUrl = decodeURI(window.location.href.replace(new RegExp('\\/|\\.', 'g'), "_"));	
 	function readVisits(db_key, selector){
 		database.ref(db_key).once("value").then(function(result) {
 			  var count = parseInt(result.val() || 0) + 1;

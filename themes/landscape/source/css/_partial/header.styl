@@ -39,7 +39,7 @@
   position: absolute
   top: 50%
   left: 0
-  margin-top: logo-size * -0.5
+  margin-top: logo-size * -0.9
 
 $logo-text
   text-decoration: none
@@ -52,7 +52,9 @@ $logo-text
   font-size: logo-size
   line-height: logo-size
   letter-spacing: 2px
-
+  position: relative;
+  z-index: 2;
+	
 #subtitle
   @extend $logo-text
   font-size: subtitle-size
@@ -60,7 +62,7 @@ $logo-text
   letter-spacing: 1px
 
 #subtitle-wrap
-  margin-top: subtitle-size
+  margin-top: subtitle-size * 0.5
 
 #main-nav
   float: left
@@ -122,6 +124,7 @@ $nav-link
   height: 30px
   right: -150px
   opacity: 0
+  z-index: 3
   transition: 0.2s ease-out
   &.on
     opacity: 1
