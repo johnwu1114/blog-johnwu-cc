@@ -21,7 +21,7 @@ date: 2016-11-21 00:36:00
 
 ## Hexo
 ### Modify after-footer.ejs
-File path: themes\\*{your themem}*\layout\_partial\after-footer.ejs
+File path: themes\\*{your themem}*\layout\\_partial\after-footer.ejs
 ```html
 <!-- Add this code to bottom -->
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
@@ -50,7 +50,7 @@ File path: themes\\*{your themem}*\layout\_partial\after-footer.ejs
 </script>
 ```
 ### Modify footer.ejs
-File path: themes\\*{your themem}*\layout\_partial\footer.ejs
+File path: themes\\*{your themem}*\layout\\_partial\footer.ejs
 ```html
 <footer id="footer">
 	<% if (theme.sidebar === 'bottom'){ %>
