@@ -1,10 +1,9 @@
 title: Weinre - Remote Debugging Website with Chrome
 author: John Wu
 tags:
+  - Chrome
   - Nodejs
   - Weinre
-  - Web development
-  - Chrome
 categories:
   - Web development
 date: 2016-12-16 11:44:00

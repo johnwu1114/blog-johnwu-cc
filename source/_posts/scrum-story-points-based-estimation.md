@@ -1,9 +1,8 @@
 title: Scrum - Story Point 估計方法
 author: John Wu
 tags:
-  - Agile
   - Scrum
-  - Planning
+  - Sprint Planning
   - ''
   - Story Point
 categories:
