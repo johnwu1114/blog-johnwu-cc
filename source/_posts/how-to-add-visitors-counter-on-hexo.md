@@ -35,9 +35,10 @@ File path: themes\\*{your themem}*\layout\\_partial\after-footer.ejs
   firebase.initializeApp(config);
     
   var database = firebase.database();
-  var oriUrl = window.location.origin;
-  var curUrl = decodeURI(oriUrl+window.location.pathname.replace(new RegExp('\\/|\\.', 'g'), "_"));
-  function readVisits(db_key, selector){
+  var oriUrl = window.location.host;
+  var curUrl = oriUrl + window.location.pathname;
+  function readVisits(url, selector) {
+    var db_key = decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
     database.ref(db_key).once("value").then(function(result) {
       var count = parseInt(result.val() || 0) + 1;
       database.ref(db_key).set(count);
