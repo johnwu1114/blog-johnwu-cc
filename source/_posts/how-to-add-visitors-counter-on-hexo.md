@@ -31,11 +31,12 @@ File path: themes\\*{your themem}*\layout\\_partial\after-footer.ejs
     apiKey: "{your apiKey}",
     authDomain: "{your authDomain}",
     databaseURL: "{your databaseURL}",
-    storageBucket: "{your storageBucket}",
-    messagingSenderId: "{your messagingSenderId}"
   };
   firebase.initializeApp(config);
     
+  var database = firebase.database();
+  var oriUrl = window.location.origin;
+  var curUrl = decodeURI(oriUrl+window.location.pathname.replace(new RegExp('\\/|\\.', 'g'), "_"));
   function readVisits(db_key, selector){
     database.ref(db_key).once("value").then(function(result) {
       var count = parseInt(result.val() || 0) + 1;
@@ -45,8 +46,10 @@ File path: themes\\*{your themem}*\layout\\_partial\after-footer.ejs
       };
     });
   }
-  readVisits("visits", "#visits");
-  if(curUrl != "_") readvisits("page/"+curUrl, "#pageviews");
+  readVisits(oriUrl, "#visits");
+  if(curUrl != "_"){
+    readvisits("page/"+curUrl, "#pageviews");
+  }
 </script>
 ```
 ### Modify footer.ejs
