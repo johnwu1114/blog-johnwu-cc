@@ -1,16 +1,20 @@
 ﻿$(function () {
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyAKKANW-V9A83noXk9Spk6FTf93-zM1luk",
-        authDomain: "johnwu-19dd3.firebaseapp.com",
-        databaseURL: "https://johnwu-19dd3.firebaseio.com",
+        apiKey: "AIzaSyCcY-L4ygQnu0Q4cUVoFBJNecNYvuFQ-zw",
+        authDomain: "blog-johnwu-cc.firebaseapp.com",
+        databaseURL: "https://blog-johnwu-cc.firebaseio.com",
+        projectId: "blog-johnwu-cc",
+        storageBucket: "blog-johnwu-cc.appspot.com",
+        messagingSenderId: "57548469306"
     };
     firebase.initializeApp(config);
 
     var database = firebase.database();
     var oriUrl = window.location.host;
-    function readVisits(url, selector, isReadOnly) {
-        var db_key = decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
+
+    function readVisits(selector, url, isReadOnly) {
+        var db_key = oriUrl + "/" + decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
         database.ref(db_key).once("value").then(function (result) {
             var count = parseInt(result.val() || 0);
             if (!isReadOnly) {
@@ -22,11 +26,11 @@
             };
         });
     }
-    readVisits(oriUrl, $("#visits .count"));
+    readVisits($("#visits .count"), "/");
 
     $(".pageviews").each(function () {
-        var postUrl = oriUrl + $(this).data("path");
+        var postUrl = $(this).data("path");
         var isReadOnly = window.location.pathname === "/";
-        readVisits("page/" + postUrl, $(this).find(".count"), isReadOnly);
+        readVisits($(this).find(".count"), postUrl, isReadOnly);
     });
 });
