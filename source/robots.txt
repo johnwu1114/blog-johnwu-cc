@@ -5,9 +5,9 @@ Allow: /categories/
 Allow: /tags/
 
 Disallow: /css/
-Disallow: /fancybox/
 Disallow: /images/
 Disallow: /js/
+Disallow: /lib/
 
 Sitemap: http://blog.johnwu.cc/sitemap.xml
 Sitemap: http://blog.johnwu.cc/baidusitemap.xml

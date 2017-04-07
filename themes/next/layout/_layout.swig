@@ -61,15 +61,17 @@
 
   </div>
 
-  {% include '_scripts/vendors.swig' %}
-  {% include '_scripts/commons.swig' %}
+  {# include '_scripts/vendors.swig' #}
+  {# include '_scripts/commons.swig' #}
+  {# include '_scripts/boostrap.swig' #}
+  <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js"></script>
+  <script type="text/javascript" src="/js/bundle.js"></script>
 
   {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %}
   {% include scheme_script %}
 
   {% block script_extra %}{% endblock %}
-
-  {% include '_scripts/boostrap.swig' %}
 
   {% include '_third-party/comments/index.swig' %}
   {% include '_third-party/search/index.swig' %}
