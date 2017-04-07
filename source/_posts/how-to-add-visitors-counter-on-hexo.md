@@ -8,67 +8,58 @@ categories:
 date: 2016-11-21 00:36:00
 ---
 ## Firebase
-### 1. Register account on Firebase [[here]](https://firebase.google.com/)
+Register account on Firebase [[here]](https://firebase.google.com/)  
+Create new project [[here]](https://console.firebase.google.com/)
 
-### 2. Create new project [[here]](https://console.firebase.google.com/)
-
-### 3. Get your Firebase configs
+### Get your Firebase configs
 ![](/images/pasted-2.png)
 ![](/images/pasted-3.png)
 
-### 4. Modify permission
+### Modify permission
 ![](/images/pasted-4.png)
 
 ## Hexo
-### Modify after-footer.ejs
-File path: themes\\*{your theme}*\layout\\_partial\after-footer.ejs
-```html
-<!-- Add this code to bottom -->
-<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "{your apiKey}",
-    authDomain: "{your authDomain}",
-    databaseURL: "{your databaseURL}",
-  };
-  firebase.initializeApp(config);
-    
-  var database = firebase.database();
-  var oriUrl = window.location.host;
-  var curUrl = oriUrl + window.location.pathname;
-  function readVisits(url, selector) {
-    var db_key = decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
-    database.ref(db_key).once("value").then(function(result) {
-      var count = parseInt(result.val() || 0) + 1;
-      database.ref(db_key).set(count);
-      if($(selector).length > 0){
-        $(selector).html(count);
-      };
-    });
-  }
-  readVisits(oriUrl, "#visits");
-  if(curUrl != "_"){
-    readvisits("page/"+curUrl, "#pageviews");
-  }
-</script>
+### Create custom.js
+File path: themes\\*{your theme}*\\source\\js\src\custom.js
+```javascript
+$(function () {
+    // Initialize Firebase
+    var config = {
+        apiKey: "{your apiKey}",
+        authDomain: "{your authDomain}",
+        databaseURL: "{your databaseURL}",
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+    var oriUrl = window.location.host;
+    var curUrl = oriUrl + window.location.pathname;
+    function readVisits(url, selector) {
+        var db_key = decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
+        database.ref(db_key).once("value").then(function (result) {
+            var count = parseInt(result.val() || 0) + 1;
+            database.ref(db_key).set(count);
+            if (selector.length > 0) {
+                selector.html(count);
+            };
+        });
+    }
+    readVisits(oriUrl, $("#visits .count"));
+    if (curUrl != "_") {
+        readvisits("page/" + curUrl, "#pageviews");
+    }
+});
 ```
-### Modify footer.ejs
-File path: themes\\*{your theme}*\layout\\_partial\footer.ejs
+### Modify layout
+Add below html to layout, in themes\\*{your theme}*\\layout\\{where you want to show}.
 ```html
-<footer id="footer">
-	<% if (theme.sidebar === 'bottom'){ %>
-	<%- partial('_partial/sidebar') %>
-	<% } %>
-	<div class="outer">
-		<div id="footer-info" class="inner">
-		&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
-		<%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
-		<br>
-		<!-- Add this code for showing visits count -->
-		Visits: <font id="visits"></font>
-		Pageviews: <font id="pageviews"></font>
-		</div>
-	</div>
-</footer>
+<span id="visits">Visits: <font class="count">--<font></span>
+<span id="pageviews">Pageviews: <font class="count">--<font></span>
+```
+
+### Add references
+Add below references to layout footer, must after jquery reference.
+```html
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script src="js/src/custom.js"></script>
 ```

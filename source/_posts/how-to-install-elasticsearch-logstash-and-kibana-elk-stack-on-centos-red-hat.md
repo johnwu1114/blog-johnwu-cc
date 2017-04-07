@@ -20,14 +20,14 @@ Download Java JDK RPM stable version from official site: http://www.oracle.com/t
 ```
 ## Elasticsearch
 
-### 1. Install
+### Install
 Download Elasticsearch RPM stable version from official site:
 https://www.elastic.co/downloads/elasticsearch
 ``` 
 [~]# rpm -ivh elasticsearch-*.rpm
 ```
 
-### 2. Modify settings
+### Modify settings
 ``` 
 [~]# vi /etc/sysconfig/elasticsearch
 ```
@@ -48,7 +48,7 @@ ES_HEAP_SIZE=4g
 network.bind_host: 0.0.0.0
 http.port: 9200
 ```
-### 3. Swap setting (Option)
+### Swap setting (Option)
 For elasticsearch get better performance.
 
 ```
@@ -58,7 +58,7 @@ For elasticsearch get better performance.
 # Minimum amount of swapping without disabling it entirely.
 vm.swappiness=1
 ```
-### 4. Cluster settings (Option)
+### Cluster settings (Option)
 If you have two or more elasticsearch server, you can set up cluster.
 
 ```
@@ -82,20 +82,20 @@ discovery.zen.ping.unicast.hosts: ["node01_IP", "node02_IP"]
 discovery.zen.ping.multicast.enabled: false
 
 ```
-### 5. Start
+### Start
 ```
 [~]# systemctl daemon-reload
 [~]# systemctl enable elasticsearch
 [~]# systemctl start elasticsearch
 ```
 ## Logstash
-### 1. Install
+### Install
 Download Logstash RPM stable version from official site:
 https://www.elastic.co/downloads/logstash
 ```
 [~]# rpm -ivh logstash-*.rpm
 ```
-### 2. Modify settings (Option)
+### Modify settings (Option)
 In my experience, Logstash need very much CPU resource, but low memory usage.
 ```
 [~]# vi /etc/init.d/logstash
@@ -107,20 +107,20 @@ LS_OPTS="-w 8"
 LS_HEAP_SIZE="3g"
 LS_OPEN_FILES=65535
 ```
-### 3. Start
+### Start
 ```
 [~]# systemctl daemon-reload
 [~]# systemctl enable logstash
 [~]# systemctl start logstash
 ```
 ## Kibana
-### 1. Install
+### Install
 Download Kibana RPM stable version from official site:
 https://www.elastic.co/downloads/kibana
 ```
 [~]# rpm -ivh kibana-*.rpm
 ```
-### 2. Modify settings (Option)
+### Modify settings (Option)
 In my experience, CPU and memory both low usage in Kibana. You can use default settings.
 
 ```
@@ -134,7 +134,7 @@ NODE_OPTIONS="$NODE_OPTIONS --gc_global "
 # In my case, I keep 1g system memory.
 NODE_OPTIONS="$NODE_OPTIONS --max-old-space-size=3072 "
 ```
-### 3. Register Kibana to systemctl
+### Register Kibana to systemctl
 ```
 [~]# vi /etc/systemd/system/kibana.service
 ```
@@ -152,7 +152,7 @@ ExecStop=/bin/kill -9 $(cat /var/run/kibana.pid)
 [Install]
 WantedBy=multi-user.target
 ```
-### 4. Start
+### Start
 ```
 [~]# systemctl daemon-reload
 [~]# systemctl kibana logstash

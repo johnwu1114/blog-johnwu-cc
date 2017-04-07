@@ -32,28 +32,28 @@ date: 2017-03-30 14:15:00
 ## 模擬物件
 
 由於授權資訊跟限制條件是在LicenseProvider載入，只要把他改寫，就可以成功延長授權，步驟如下：
-### 1. 用eclipse開新Java專案(或其它Java IDE)  
+### 用eclipse開新Java專案(或其它Java IDE)  
 ![](/images/pasted-20.png)
 
-### 2. 專案名稱跟LicenseProvider的package name相同  
+### 專案名稱跟LicenseProvider的package name相同  
 ![](/images/pasted-22.png)
 
-### 3. 在該專案建立新的class，名稱為LicenseProvider  
+### 在該專案建立新的class，名稱為LicenseProvider  
 ![](/images/pasted-23.png)
 
-### 4. 將Java Decompiler 讀到的LicenseProvider複製到LicenseProvider.java  
+### 將Java Decompiler 讀到的LicenseProvider複製到LicenseProvider.java  
 ![](/images/pasted-24.png)
 
-### 5. 改掉限制條件，並延長使用期限  
+### 改掉限制條件，並延長使用期限  
 ![](/images/pasted-25.png)
 
-### 6. 因程式碼少了外部reference，所以載入原本的**target.jar**  
+### 因程式碼少了外部reference，所以載入原本的**target.jar**  
 ![](/images/pasted-26.png)
 
-### 7. 進行編譯  
+### 進行編譯  
 ![](/images/pasted-27.png)
 
-### 8. 用WinRAR把原本的**target.jar**打開，並用編譯後的LicenseProvider.class取代  
+### 用WinRAR把原本的**target.jar**打開，並用編譯後的LicenseProvider.class取代  
 *※記得把eclipse跟Java Decompiler關掉，不然**target.jar**會被咬死不能編輯內容*  
 
 ![](/images/pasted-29.png)

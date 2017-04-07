@@ -25,11 +25,11 @@ date: 2017-04-02 16:03:00
 
 透過轉址方式將 Parent 轉換成 iframe.com，讓 Safari 認可 iframe.com 存取 cookie 後，再將網址轉回 parent.com。
 
-### 1. 判斷瀏覽器
+### 判斷瀏覽器
 
 當 iframe.con/index 被打開後，先判斷瀏覽器，如果是 Safari，我們就將 window.parent 轉向 iframe.com/redirect
 
-```javascript
+``` javascript
 /* iframe.con/index */  
 
 var userAgent = navigator.userAgent.toLowerCase();
@@ -38,7 +38,7 @@ if (userAgent.indexOf("safari") != -1 && userAgent.indexOf("chrome") > -1) {
 }
 ```
 
-### 2. 重新轉向到原網址
+### 重新轉向到原網址
 
 當 Safari 打開 iframe.com/redirect 時，意味著 iframe.com 已經被認可存取 cookie了。所以此時我們只要轉向回原來的頁面即可。
 
@@ -63,7 +63,7 @@ var ref = getParameterByName("ref");
 window.location = ref;
 ```
 
-### 3. 完成
+### 完成
 
 再度回到 parent.com/home 時，iframe.com 就能正常使用 cookie 跟 session 了。
 
