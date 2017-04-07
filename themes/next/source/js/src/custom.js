@@ -9,12 +9,14 @@
         messagingSenderId: "57548469306"
     };
     firebase.initializeApp(config);
-
     var database = firebase.database();
-    var oriUrl = window.location.host;
+
+    function changeUrlToKey(url) {
+        return url.replace(new RegExp('\\/|\\.', 'g'), "_");
+    }
 
     function readVisits(selector, url, isReadOnly) {
-        var db_key = oriUrl + "/" + decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
+        var db_key = changeUrlToKey(window.location.host) + "/" + changeUrlToKey(url);
         database.ref(db_key).once("value").then(function (result) {
             var count = parseInt(result.val() || 0);
             if (!isReadOnly) {
