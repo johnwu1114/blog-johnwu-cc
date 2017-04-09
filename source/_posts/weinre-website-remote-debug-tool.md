@@ -9,12 +9,12 @@ categories:
 date: 2016-12-16 11:44:00
 ---
 ## Install Node.js
-Download & install Node.js stable version from official site: http://nodejs.org/
+Download & install Node.js stable version from official site: http://nodejs.org/  
 *Weinre* base on Node.js, need to install Node.js first.
 
 ## Weinre
 ### Install
-Download & unzip Weinre latest version from official site:
+Download & unzip Weinre latest version from official site:  
 http://people.apache.org/~pmuellr/weinre/builds/
 
 *or install by npm*

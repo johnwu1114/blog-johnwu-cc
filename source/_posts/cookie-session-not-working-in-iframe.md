@@ -3,13 +3,13 @@ author: John Wu
 tags:
   - Safari
   - Cookie
-  - ''
   - Session
+  - Cross domain
 categories:
   - Web development
 date: 2017-04-02 16:03:00
 ---
-由於公司產品是以 IFrame 方式嵌入在別人家的頁面裡，在使用 Safari 開啟的情況下，會發生無法使用 cookie，導致每次的 request 帶的 session id 都不一樣。  
+由於公司部分產品是以 IFrame 方式嵌入在別人家的頁面裡，在使用 Safari 開啟的情況下，會發生無法使用 cookie，導致每次的 request 帶的 session id 都不一樣。在 response header 加入解決 cross domain 的 P3P : "CP=CAO PSA OUR" 也沒用。  
 
 實際原因是 Safari 的安全性問題。如果 IFrame 的 domain 沒有被 Safari 直接存取過，Safari 就不會認可你的 domain 存取 cookie。簡單的說就是你只要直接在網址列輸入你的 domain，Safari 就會認同你的 domain 存取 cookie。  
 

@@ -13,22 +13,24 @@ categories:
 date: 2016-11-20 12:56:00
 ---
 ## Install Java JDK
-Download Java JDK RPM stable version from official site: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+Download Java JDK RPM stable version from official site:  
+http://www.oracle.com/technetwork/java/javase/downloads/index.html  
 *Elasticsearch* and *Logstash* base on Java, need to install Java JDK first.
-``` 
+
+``` bash
 [~]# rpm -ivh jdk-*.rpm
 ```
 ## Elasticsearch
 
 ### Install
-Download Elasticsearch RPM stable version from official site:
+Download Elasticsearch RPM stable version from official site:  
 https://www.elastic.co/downloads/elasticsearch
 ``` 
 [~]# rpm -ivh elasticsearch-*.rpm
 ```
 
 ### Modify settings
-``` 
+``` bash
 [~]# vi /etc/sysconfig/elasticsearch
 ```
 ``` bash
@@ -39,10 +41,10 @@ ES_HEAP_SIZE=4g
 ```
 ---
 
-```
+``` bash
 [~]# vi /etc/elasticsearch/elasticsearch.yml
 ```
-```bash
+``` bash
 # ---------------------------------- Network ----------------------------------
 # 0.0.0.0 is binding all the address
 network.bind_host: 0.0.0.0
@@ -50,21 +52,20 @@ http.port: 9200
 ```
 ### Swap setting (Option)
 For elasticsearch get better performance.
-
-```
+``` bash
 [~]# vi /etc/sysctl.conf
 ```
-```bash
+``` bash
 # Minimum amount of swapping without disabling it entirely.
 vm.swappiness=1
 ```
 ### Cluster settings (Option)
 If you have two or more elasticsearch server, you can set up cluster.
 
-```
+``` bash
 [~]# vi /etc/elasticsearch/elasticsearch.yml
 ```
-```bash
+``` bash
 # ----------------------------------- Cluster -----------------------------------
 # Your cluster name, all the node need have same name
 cluster.name: mycluster
@@ -83,7 +84,7 @@ discovery.zen.ping.multicast.enabled: false
 
 ```
 ### Start
-```
+``` bash
 [~]# systemctl daemon-reload
 [~]# systemctl enable elasticsearch
 [~]# systemctl start elasticsearch
@@ -92,15 +93,15 @@ discovery.zen.ping.multicast.enabled: false
 ### Install
 Download Logstash RPM stable version from official site:
 https://www.elastic.co/downloads/logstash
-```
+``` bash
 [~]# rpm -ivh logstash-*.rpm
 ```
 ### Modify settings (Option)
 In my experience, Logstash need very much CPU resource, but low memory usage.
-```
+``` bash
 [~]# vi /etc/init.d/logstash
 ```
-```bash
+``` bash
 # You can using “lscpu” to get cpu threads, see column “CPU(s):”
 LS_OPTS="-w 8"
 # In my case, I keep 1g system memory.
@@ -108,25 +109,25 @@ LS_HEAP_SIZE="3g"
 LS_OPEN_FILES=65535
 ```
 ### Start
-```
+``` bash
 [~]# systemctl daemon-reload
 [~]# systemctl enable logstash
 [~]# systemctl start logstash
 ```
 ## Kibana
 ### Install
-Download Kibana RPM stable version from official site:
+Download Kibana RPM stable version from official site:  
 https://www.elastic.co/downloads/kibana
-```
+``` bash
 [~]# rpm -ivh kibana-*.rpm
 ```
 ### Modify settings (Option)
 In my experience, CPU and memory both low usage in Kibana. You can use default settings.
 
-```
+``` bash
 [~]# vi /opt/kibana/bin/kibana
 ```
-```bash
+``` bash
 # Add below before exec:
 # Always perform global GCs
 NODE_OPTIONS="$NODE_OPTIONS --gc_global "
@@ -135,10 +136,10 @@ NODE_OPTIONS="$NODE_OPTIONS --gc_global "
 NODE_OPTIONS="$NODE_OPTIONS --max-old-space-size=3072 "
 ```
 ### Register Kibana to systemctl
-```
+``` bash
 [~]# vi /etc/systemd/system/kibana.service
 ```
-```bash
+``` bash
 [Unit]
 Description=Kibana
 
@@ -153,7 +154,7 @@ ExecStop=/bin/kill -9 $(cat /var/run/kibana.pid)
 WantedBy=multi-user.target
 ```
 ### Start
-```
+``` bash
 [~]# systemctl daemon-reload
 [~]# systemctl kibana logstash
 ```
