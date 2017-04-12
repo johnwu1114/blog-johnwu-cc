@@ -1,10 +1,12 @@
 User-agent: *
 Allow: /
+Allow: /article
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
 
 Disallow: /css/
+Disallow: /fonts/
 Disallow: /images/
 Disallow: /js/
 Disallow: /lib/
