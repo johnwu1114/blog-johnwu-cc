@@ -19,6 +19,8 @@ date: 2017-04-01 00:04:00
 估點之前，PO (Product Owner) 要先產出 Product Backlog。  
 且 PO 要讓每個成員都了解 PBI (Product Backlog Item) 的需求。
 
+<!-- more -->
+
 ## 步驟
 
 ### 垂直欄位

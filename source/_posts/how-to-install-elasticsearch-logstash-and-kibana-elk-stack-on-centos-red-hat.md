@@ -29,6 +29,8 @@ https://www.elastic.co/downloads/elasticsearch
 [~]# rpm -ivh elasticsearch-*.rpm
 ```
 
+<!-- more -->
+
 ### Modify settings
 ``` bash
 [~]# vi /etc/sysconfig/elasticsearch

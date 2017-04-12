@@ -22,6 +22,8 @@ http://people.apache.org/~pmuellr/weinre/builds/
 npm -g install weinre
 ```
 
+<!-- more -->
+
 ### Start
 Run “Node.js command prompt” as administrator
 ![](/images/pasted-5.png)

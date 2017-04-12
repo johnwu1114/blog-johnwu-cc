@@ -11,6 +11,8 @@ date: 2016-11-21 00:36:00
 Register account on Firebase [[here]](https://firebase.google.com/)  
 Create new project [[here]](https://console.firebase.google.com/)
 
+<!-- more -->
+
 ### Get your Firebase configs
 ![](/images/pasted-2.png)
 ![](/images/pasted-3.png)
