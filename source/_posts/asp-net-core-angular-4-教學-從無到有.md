@@ -243,13 +243,19 @@ export class AppModule { }
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
+wwwroot\app\app.component.html  
+由於我個人不是很喜歡在 TypeScript 檔案內看到 html，所以我把 template 獨立出一個檔案
+```html
+<h1>Hello {{name}}</h1>
+```
+
 wwwroot\app\app.component.ts
 ``` ts
 import { Component } from "@angular/core";
 
 @Component({
     selector: "my-app",
-    template: `<h1>Hello {{name}}</h1>`
+    templateUrl: "/app/app.component.html"
 })
 export class AppComponent {
     name = "Angular 4";
@@ -267,7 +273,7 @@ export class AppComponent {
 
 ## 載點
 
-[ASP.NET Core + Angular 4 教學 - 從無到有.zip](https://1drv.ms/u/s!AlHB4uP4MF7Sh2vGcc8jTt2y3xY6)
+[ASP.NET Core + Angular 4 教學 - 從無到有.zip](https://1drv.ms/u/s!AlHB4uP4MF7Sh23mBZ9q7yH5FBMK)
 
 ## 參考
 
