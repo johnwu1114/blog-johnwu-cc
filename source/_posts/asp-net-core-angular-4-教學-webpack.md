@@ -1,6 +1,9 @@
 title: ASP.NET Core + Angular 4 教學 - Webpack打包
 author: John Wu
 tags:
+  - Nodejs
+  - ASP.NET Core
+  - .NET Core
   - Angular
   - Angular 4
   - Visual Studio
@@ -9,6 +12,7 @@ tags:
   - 'C#'
   - Webpack
 categories:
+  - ASP.NET Core
   - Angular
 date: 2017-04-15 13:35:58
 ---
@@ -31,7 +35,7 @@ npm install --save-dev webpack angular2-template-loader awesome-typescript-loade
 
 ## Webpack 設定
 
-在專案中新增 webpack.config.js ，內容如下：
+新增 webpack.config.js
 ```js
 /// <binding ProjectOpened='Watch - Development' />
 var webpack = require("webpack");
@@ -80,9 +84,9 @@ module.exports = {
 
 ## Webpack entry
 
-webpack.config.js 可以看到我設定了兩個進入點，我們在專案中新增兩個檔案如下：  
+webpack.config.js 可以看到我設定了兩個進入點，我們在專案中異動檔案如下：  
 
-wwwroot\app\bundle-vendors.ts
+新增 wwwroot\app\bundle-vendors.ts
 ```js
 // core
 require("core-js");
@@ -100,13 +104,13 @@ require("@angular/router");
 require("@angular/forms");
 ```
 
-wwwroot\app\bundle.ts
+新增 wwwroot\app\bundle.ts
 ```js
 require("../app/main");
 ```
 
 wwwroot\index.html  
-同時把 wwwroot\index.html 的 js 參考成 /js/bundle-vendors.js 及 /js/bundle.js 如下：
+把 js 參考成 /js/bundle-vendors.js 及 /js/bundle.js。
 ```html
 <!DOCTYPE html>
 <html>
@@ -143,6 +147,33 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
     name = "Angular 4";
+}
+```
+
+Startup.cs  
+特別為 node_modules 建立的虛擬路徑也可以移除了。
+``` cs
+using Microsoft.AspNetCore.Builder;
+//using Microsoft.AspNetCore.Http;
+//using Microsoft.Extensions.FileProviders;
+//using System.IO;
+
+namespace MyWebsite
+{
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(
+            //    Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
+            //    RequestPath = new PathString("/node_modules")
+            //});
+        }
+    }
 }
 ```
 

@@ -21,7 +21,7 @@ date: 2017-04-12 21:30:00
 
 開發工具：
 1. Visual Studio 2017 (可使用其他版，只要有支援 ASP.NET Core 開發就可以。)
-2. Node.js
+2. Nodejs
 
 開發語言：
 1. .NET Core 使用 C#
@@ -132,14 +132,12 @@ npm install --save-dev typescript@latest @types/jasmine @types/node
 }
 ```
 
-## ASP.NET Core + Angular 4
-
-### ASP.NET Core 前置作業
+## 安裝 NuGet 套件
 
 由於要讓 ASP.NET Core 可以支援讀取的靜態檔案，所以用管理 NuGet 套件安裝 Microsoft.AspNetCore.StaticFiles。
 
 ![管理 NuGet 套件](/images/pasted-42.png)
-![瀏覽 Microsoft.AspNetCore.StaticFiles](/images/pasted-43.png)
+![NuGet 瀏覽 Microsoft.AspNetCore.StaticFiles](/images/pasted-43.png)
 
 安裝完成後，編輯 Startup.cs：
 ``` cs
@@ -166,6 +164,18 @@ namespace MyWebsite
     }
 }
 ```
+
+由於預設 StaticFiles 只能拿到 wwwroot 資料夾底下的檔案，但用 npm 安裝的套件都放在專案底下的 node_modules，因此特別註冊一個虛擬路徑指向專案底下的 node_modules。
+```cs
+app.UseStaticFiles(new StaticFileOptions()
+{
+	FileProvider = new PhysicalFileProvider(
+	Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
+	RequestPath = new PathString("/node_modules")
+});
+```
+
+## ASP.NET Core + Angular 4
 
 ### 建立 Angular 4
 
