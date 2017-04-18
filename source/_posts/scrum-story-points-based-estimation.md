@@ -3,31 +3,32 @@ author: John Wu
 tags:
   - Scrum
   - Sprint Planning
-  - ''
   - Story Point
 categories:
   - Scrum
 date: 2017-04-01 00:04:00
 ---
-因大部分看到的 Story Point 估計方法都是用 Planning Poker。  
-實際導入的過程中，稍嫌用 Poker 有點麻煩，所以找了其他的估計方法。  
+從我學習 Scrum 開始，大部分看到 Sprint Planning 估計 Story Point 的方法是用 Planning Poker。  
+但實際導入的過程中，稍嫌用 Poker 有點麻煩，所以找了其他的估計方法。  
 
 推薦一種我個人比較喜歡的估計方式，雖然我不知道這個方法的名稱，姑且稱之為**九宮格估計法**。  
+
+![Story Point 預估](/images/pasted-34.png)
+
+<!-- more -->
 
 ## 前言
 
 估點之前，PO (Product Owner) 要先產出 Product Backlog。  
 且 PO 要讓每個成員都了解 PBI (Product Backlog Item) 的需求。
 
-<!-- more -->
-
 ## 步驟
 
 ### 垂直欄位
 
-首先在白板上畫出三個垂直欄為，分別寫上**小**、**中**、**大**，如下：
+首先在白板上畫出三個垂直欄位，分別寫上**小**、**中**、**大**，如下：
 
-![](/images/pasted-30.png)
+![垂直欄位 - 大中小](/images/pasted-30.png)
 
 ### 分類PBI
 
@@ -36,13 +37,13 @@ date: 2017-04-01 00:04:00
 
 在我個人經驗裡，將 PBI 分為三類應該不會花太多時間。結果大致如下：
 
-![](/images/pasted-31.png)
+![垂直欄位 - PBI 區分大中小](/images/pasted-31.png)
 
 ### 水平欄位
 
 橫向切出三個水平欄位，分別寫上**小**、**中**、**大**，如下：
 
-![](/images/pasted-32.png)
+![水平欄位 - 大中小](/images/pasted-32.png)
 
 ### 再次分類PBI
 
@@ -50,7 +51,7 @@ date: 2017-04-01 00:04:00
 
 強烈建議不要一開始就畫九宮格，混在一起分九類。這個過程是希望的是每一次將一群 PBI 比大小，比大小比分類簡單很多。結果大致如下：
 
-![](/images/pasted-33.png)
+![水平欄位 - PBI 區分大中小](/images/pasted-33.png)
 
 ### 點數估計
 
@@ -67,7 +68,7 @@ date: 2017-04-01 00:04:00
 7. *大小*跟*大中*比較，若*大小*為5，比較後難度相當，*大中*則為5
 8. *大中*跟*大大*比較，若*大中*為5，比較後難度較高，*大大*則為8
 
-![](/images/pasted-34.png)
+![Story Point 預估](/images/pasted-34.png)
 
 ## 結論
 
