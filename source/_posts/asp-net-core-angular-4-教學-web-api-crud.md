@@ -32,6 +32,8 @@ date: 2017-04-17 00:48:00
 
 ### 註冊 Mvc 服務
 
+Startup.cs  
+AddJsonOptions 的 SerializerSettings 可以參考 [ASP.NET Core - Web Api JSON 序列化設定](/article/asp-net-core-web-api-json-serializer-settings.html)
 ```cs
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
