@@ -7,19 +7,19 @@ tags:
   - TypeScript
   - 'C#'
   - ASP.NET Core
-  - .NET Core
   - Web Api
-  - Ajax
+  - AJAX
 categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-17 00:48:00
 ---
-本篇將介紹 Angular 4 跟 ASP.NET Core Web Api 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
+本篇將介紹 Angular 4 跟 ASP.NET Core Web Api 透過 AJAX 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
  
-![Angular 4 通訊錄範例](/images/pasted-48.png)
+![ASP.NET Core + Angular 4 教學 - 範例執行結果](/images/pasted-48.png)
 
-專案範例是承襲上篇[ASP.NET Core + Angular 4 教學 - Webpack打包](/article/asp-net-core-angular-4-教學-Webpack打包.html)  
+本篇範例是承襲 [ASP.NET Core + Angular 4 教學 - Webpack打包](/article/asp-net-core-angular-4-教學-Webpack打包.html)  
+
 <!-- more -->
 
 ## 安裝 NuGet 套件
@@ -183,7 +183,7 @@ namespace MyWebsite.Controllers
 ### NgModule
 
 這個範例會用到兩個模組:
-1. Web Api 用到的 Ajax 需要 HttpModule。
+1. Web Api 用到的 AJAX 需要 HttpModule。
 2. Form 的 ngModel 互動需要 FormsModule。  
 
 wwwroot\app\main.ts
@@ -210,6 +210,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
 ### Component
+
 wwwroot\app\app.component.ts
 ```js
 import { Component } from "@angular/core";
@@ -328,6 +329,7 @@ export class ContactModel {
 ```
 
 ### Views
+
 wwwroot\app\app.component.html
 ```html
 <h1>Hello {{name}}</h1>
@@ -373,8 +375,10 @@ wwwroot\app\app.component.html
     </div>
 </form>
 ```
-### 執行解果
-![Angular 4 通訊錄範例](/images/pasted-48.png)
+
+### 執行結果
+
+![ASP.NET Core + Angular 4 教學 - 範例執行結果](/images/pasted-48.png)
 
 ## 載點
 
