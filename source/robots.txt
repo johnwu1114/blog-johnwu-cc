@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Allow: /article
+Allow: /article/
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
@@ -11,5 +11,5 @@ Disallow: /images/
 Disallow: /js/
 Disallow: /lib/
 
-Sitemap: http://blog.johnwu.cc/sitemap.xml
-Sitemap: http://blog.johnwu.cc/baidusitemap.xml
+Sitemap: https://blog.johnwu.cc/sitemap.xml
+Sitemap: https://blog.johnwu.cc/baidusitemap.xml
