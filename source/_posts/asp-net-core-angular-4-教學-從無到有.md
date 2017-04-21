@@ -1,12 +1,8 @@
 title: ASP.NET Core + Angular 4 教學 - 從無到有
 author: John Wu
 tags:
-  - Nodejs
   - ASP.NET Core
-  - .NET Core
   - Angular
-  - Angular 4
-  - Visual Studio
   - npm
   - TypeScript
   - 'C#'
@@ -15,6 +11,12 @@ categories:
   - Angular
 date: 2017-04-12 21:30:00
 ---
+![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
+
+本篇將介紹如何建立 ASP.NET Core 專案及建立 Angular 4。包含各項套件的安裝說明及相依關係。
+
+<!-- more -->
+
 ## 前言
 
 安裝軟體的部分我就沒有詳細介紹，以下是我使用到的工具跟語言。
@@ -36,8 +38,6 @@ date: 2017-04-12 21:30:00
 我個人是喜歡一步一步自己建置需要的東西，所以我選擇*空白專案範本*。
 
 ![建立 ASP.NET Core 空白專案範本](/images/pasted-35.png)
-
-<!-- more -->
 
 ### 專案內容
 
@@ -72,7 +72,7 @@ namespace MyWebsite
 
 ![MyWebsite Write Message](/images/pasted-37.png)
 
-## 安裝 Angular 4 套件
+## 安裝 npm 套件
 
 ### 建立 npm package
 
@@ -137,7 +137,7 @@ npm install --save-dev typescript@latest @types/jasmine @types/node
 由於要讓 ASP.NET Core 可以支援讀取的靜態檔案，所以用管理 NuGet 套件安裝 Microsoft.AspNetCore.StaticFiles。
 
 ![管理 NuGet 套件](/images/pasted-42.png)
-![NuGet 瀏覽 Microsoft.AspNetCore.StaticFiles](/images/pasted-43.png)
+![NuGet 安裝 Microsoft.AspNetCore.StaticFiles](/images/pasted-43.png)
 
 安裝完成後，編輯 Startup.cs：
 ``` cs
@@ -279,7 +279,7 @@ export class AppComponent {
 
 ### 執行結果
 
-![MyWebsite Hello Angular 4](/images/pasted-44.png)
+![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
 
 ## 載點
 

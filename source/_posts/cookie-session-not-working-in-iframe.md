@@ -1,10 +1,8 @@
 title: IFrame 無法使用 cookie/session 問題
 author: John Wu
 tags:
-  - Safari
-  - Cookie
+  - Javacript
   - Session
-  - Cross domain
 categories:
   - Web development
 date: 2017-04-02 16:03:00

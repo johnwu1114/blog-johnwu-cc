@@ -2,7 +2,6 @@ title: Java 逆向工程
 author: John Wu
 tags:
   - Java
-  - 逆向工程
   - Reverse Engineering
 categories:
   - 逆向工程

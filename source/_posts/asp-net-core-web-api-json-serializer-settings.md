@@ -3,10 +3,7 @@ author: John Wu
 tags:
   - 'C#'
   - ASP.NET Core
-  - .NET Core
   - Web Api
-  - SerializerSettings
-  - JSON
 categories:
   - ASP.NET Core
 date: 2017-04-17 22:41:00
@@ -70,7 +67,6 @@ public void ConfigureServices(IServiceCollection services)
   "address": null
 }
 ```
-
 
 ## Pascal Case
 

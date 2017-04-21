@@ -1,12 +1,10 @@
 title: ASP.NET Core + Angular 4 教學 - Routing
 author: John Wu
 tags:
+  - ASP.NET Core
   - Angular
-  - Angular 4
-  - Visual Studio
   - TypeScript
   - 'C#'
-  - ASP.NET Core
   - Web Api
   - Routing
 categories:
@@ -14,7 +12,8 @@ categories:
   - Angular
 date: 2017-04-20 00:54:00
 ---
-![ASP.NET Core + Angular 4 教學 - 範例執行結果](/images/pasted-10.gif)
+![ASP.NET Core + Angular 4 教學 - Routing 範例執行結果](/images/pasted-10.gif)
+
 前端 Angular 4 Routing 產生的虛擬 URL，並不是真的存在於 ASP.NET Core 的 Routing，所以重載頁面或從瀏覽器網址輸入，會變成 404 找不到網頁。  
 本篇將介紹 Angular 4 的 Routing，以及 Angular 4 跟 ASP.NET Core 的 Routing 共存的方法。  
 
@@ -222,7 +221,7 @@ wwwroot\app\app.component.html
 ### 重載頁面
 
 此範例 Angular 4 進入點是 index.html，如果在 `http://{doamin}/` 以外的地方載入，就會變成 404 找不到網頁。  
-![ASP.NET Core + Angular 4 教學 - 範例重載頁面 Routing 失敗](/images/pasted-66.gif)
+![ASP.NET Core + Angular 4 教學 - Routing 範例重載頁面失敗](/images/pasted-66.gif)
 
 ## ASP.NET Core Routing
 
@@ -265,7 +264,7 @@ namespace MyWebsite
 
 ### 重載頁面
 
-![ASP.NET Core + Angular 4 教學 - 範例重載頁面 Routing 正常](/images/pasted-67.gif)
+![ASP.NET Core + Angular 4 教學 - Routing 範例重載頁面正常](/images/pasted-67.gif)
 
 ## 載點
 

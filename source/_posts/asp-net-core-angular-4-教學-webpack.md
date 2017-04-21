@@ -1,12 +1,8 @@
 title: ASP.NET Core + Angular 4 教學 - Webpack打包
 author: John Wu
 tags:
-  - Nodejs
   - ASP.NET Core
-  - .NET Core
   - Angular
-  - Angular 4
-  - Visual Studio
   - npm
   - TypeScript
   - 'C#'
@@ -16,10 +12,11 @@ categories:
   - Angular
 date: 2017-04-15 13:35:58
 ---
+![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果未完成](/images/pasted-46.png)
+
 Angular 官方的範例是使用 SystemJS 載入，但網頁一開就載入一大堆 js 檔。request 這麼多檔案，看了就很不舒服。  
 可以看到圖片底部有 **46 requests**...  
 
-![SystemJS 載入 requests](/images/pasted-46.png)
 
 接下來用 Webpack 打包 Angular 套件、TypeScript 及 HTML。把第三方套件跟自製的程式分成兩個 js 檔案。  
 範例是用上一篇 [ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)
@@ -185,7 +182,7 @@ webpack -p
 ```
 
 再打開網頁看一次 requset，只剩下三個 requsets，真是乾淨舒服～
-![WebPack 打包完的 requsets](/images/pasted-53.png)
+![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果完成](/images/pasted-53.png)
 
 
 ## Visual Studio Extension

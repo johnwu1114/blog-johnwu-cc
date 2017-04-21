@@ -1,12 +1,11 @@
 title: ASP.NET Core + Angular 4 教學 - Web Api CRUD
 author: John Wu
 tags:
+  - ASP.NET Core
   - Angular
-  - Angular 4
-  - Visual Studio
+  - npm
   - TypeScript
   - 'C#'
-  - ASP.NET Core
   - Web Api
   - AJAX
 categories:
@@ -14,10 +13,9 @@ categories:
   - Angular
 date: 2017-04-17 00:48:00
 ---
-本篇將介紹 Angular 4 跟 ASP.NET Core Web Api 透過 AJAX 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
- 
-![ASP.NET Core + Angular 4 教學 - 範例執行結果](/images/pasted-48.png)
+![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.png)
 
+本篇將介紹 Angular 4 跟 ASP.NET Core Web Api 透過 AJAX 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
 本篇範例是承襲 [ASP.NET Core + Angular 4 教學 - Webpack打包](/article/asp-net-core-angular-4-教學-Webpack打包.html)  
 
 <!-- more -->
@@ -26,7 +24,7 @@ date: 2017-04-17 00:48:00
 
 過往 ASP.NET MVC 是把 MVC 及 Web Api 的套件分開，但在 ASP.NET Core 中 MVC 及 Web Api 用的套件是相同的，在 NuGet 管理可以找到 Microsoft.AspNetCore.Mvc 並安裝。
 
-![NuGet 瀏覽 Microsoft.AspNetCore.Mvc](/images/pasted-56.png)
+![NuGet 安裝 Microsoft.AspNetCore.Mvc](/images/pasted-56.png)
 
 ## 建立 Web Api
 
@@ -378,7 +376,7 @@ wwwroot\app\app.component.html
 
 ### 執行結果
 
-![ASP.NET Core + Angular 4 教學 - 範例執行結果](/images/pasted-48.png)
+![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.png)
 
 ## 載點
 
