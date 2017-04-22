@@ -2,7 +2,7 @@ title: How To Add Visitors Counter on Hexo
 author: John Wu
 tags:
   - Hexo
-  - Javacript
+  - JavaScript
 categories:
   - Hexo
 date: 2016-11-21 00:36:00

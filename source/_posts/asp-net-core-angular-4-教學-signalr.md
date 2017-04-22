@@ -7,6 +7,7 @@ tags:
   - TypeScript
   - 'C#'
   - SignalR
+  - jQuery
 categories:
   - ASP.NET Core
   - Angular
@@ -14,7 +15,8 @@ date: 2017-04-22 00:25:26
 ---
 ![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-68.gif)
 
-本篇將介紹 Angular 4 跟 ASP.NET Core 透過 SignalR 的互動，範例是做一個簡單的即時聊天室。
+本篇將介紹 Angular 4 跟 ASP.NET Core 透過 SignalR 的互動，範例是做一個簡單的即時聊天室。  
+透過 TypeScript 把 jQuery 及 SignalR 包裝成 Injectable class，讓使用更為便利。  
 
 本篇範例是延續 [ASP.NET Core + Angular 4 教學 - Routing](/article/asp-net-core-angular-4-教學-routing.html)  
 
@@ -45,46 +47,21 @@ npm install --save signalr jquery
 
 ### 註冊 SignalR 服務
 
+在 Startup.cs 的 ConfigureServices 加入 SignalR 服務。  
+在 Configure 加入啟用 WebSockets 及 SignalR 的 middleware。   
 Startup.cs
 ```cs
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Serialization;
-using System.IO;
-
-namespace MyWebsite
+public void ConfigureServices(IServiceCollection services)
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
-			
-            // services 加入 SignalR
-            services.AddSignalR();
-        }
+	// ...
+	services.AddSignalR();
+}
 
-        public void Configure(IApplicationBuilder app)
-        {
-            app.Use(async (context, next) =>
-            {
-                await next();
-                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
-                {
-                    context.Request.Path = "/index.html";
-                    context.Response.StatusCode = 200;
-                    await next();
-                }
-            });
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-            app.UseMvc();
-			
-            // middleware 啟用 WebSockets 及 SignalR
-            app.UseWebSockets();
-            app.UseSignalR();
-        }
-    }
+public void Configure(IApplicationBuilder app)
+{
+	// ...
+	app.UseWebSockets();
+	app.UseSignalR();
 }
 ```
 
@@ -206,46 +183,22 @@ export class SignalRService {
 
 ### 載入套件
 
-在 NgModule 注入 SignalRService。  
+在 NgModule 的 providers 注入 SignalRService。  
 app\main.ts
 ```js
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { HttpModule } from "@angular/http";
-import { FormsModule } from "@angular/forms";
-import { Router, RouterModule } from "@angular/router";
-import { AppComponent } from "./app.component";
-import { AppRoutes } from "./app.routes";
-import { MenuComponent } from "./shared/components/menu.component";
 import { SignalRService } from "./shared/services/signalr.service";
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        HttpModule,
-        FormsModule,
-        RouterModule.forRoot(AppRoutes.getRoutes())
-    ],
-    declarations: [
-        AppComponent,
-        MenuComponent,
-        AppRoutes.getComponents(),
-        
-    ],
+    // ...
     providers: [
+        // ...
         SignalRService
     ],
-    bootstrap: [
-        AppComponent
-    ]
 })
 export class AppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
-app\bundle-vendors.ts 新增以下兩行：
+app\bundle-vendors.ts 加入以下程式碼：
 ```js
 // jquery
 require("jquery");
@@ -257,20 +210,20 @@ require("signalr");
 為了讓 jQuery 能在 Angular 中使用，所以在 plugins 加入了 ProvidePlugin。如下：  
 webpack.config.js
 ```js
-plugins: [
-	new webpack.ProvidePlugin({
-		$: "jquery",
-		jQuery: "jquery",
-		"window.jQuery": "jquery"
-	}),
-	new webpack.optimize.UglifyJsPlugin(),
-	new webpack.optimize.CommonsChunkPlugin({
-		name: "bundle-vendors"
-	})
-]
+module.exports = {
+    // ...
+    plugins: [
+        //...
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
+    ]
+}
 ```
 
-### Chat rooms
+### 範例
 
 app\components\chat.component.html
 ```html
@@ -352,4 +305,4 @@ export class ChatComponent {
 
 ## 載點
 
-[ASP.NET Core + Angular 4 教學 - SignalR.zip](https://1drv.ms/u/s!AlHB4uP4MF7SiBklA-jhoswAzJQR)
+[ASP.NET Core + Angular 4 教學 - SignalR.zip](https://1drv.ms/u/s!AlHB4uP4MF7SiBqLFVa3V9yuAI7d)
