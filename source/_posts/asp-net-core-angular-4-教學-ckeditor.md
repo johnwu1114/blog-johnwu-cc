@@ -17,7 +17,7 @@ date: 2017-04-23 03:36:00
 ![ASP.NET Core + Angular 4 教學 - CKEditor 範例執行結果](/images/pasted-69.png)
 
 本篇將介紹如何透過 TypeScript 把 CKeditor 包裝成 Angular 4 的 Directive，讓 Angular 4 能更方便使用 CKEditor。  
-建立一個簡單的 ASP.NET Core Web Api 存取資料在記憶體中。
+並建立一個簡單的 ASP.NET Core Web Api 跟 CKEditor 做存取資料的互動。
 
 範例是延續 [ASP.NET Core + Angular 4 教學 - SignalR](/article/asp-net-core-angular-4-教學-signalr.html)  
 
