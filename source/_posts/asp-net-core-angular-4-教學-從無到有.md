@@ -13,7 +13,7 @@ date: 2017-04-12 21:30:00
 ---
 ![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
 
-本篇將介紹如何建立 ASP.NET Core 專案及建立 Angular 4。包含各項套件的安裝說明及相依關係。
+本篇將介紹如何建立 ASP.NET Core 專案及建立 Angular 4 (Angular 2) 網站。包含各項套件的安裝說明及相依關係。
 
 <!-- more -->
 
@@ -23,7 +23,7 @@ date: 2017-04-12 21:30:00
 
 開發工具：
 1. Visual Studio 2017 (可使用其他版，只要有支援 ASP.NET Core 開發就可以。)
-2. Nodejs
+2. Nodejs 6.9.x 以上版本 及 npm 3 以上版本
 
 開發語言：
 1. .NET Core 使用 C#
@@ -175,7 +175,7 @@ app.UseStaticFiles(new StaticFileOptions()
 });
 ```
 
-## ASP.NET Core + Angular 4
+## 範例
 
 ### 建立 Angular 4
 
@@ -281,9 +281,9 @@ export class AppComponent {
 
 ![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
 
-## 載點
+## 範例程式碼
 
-[ASP.NET Core + Angular 4 教學 - 從無到有.zip](https://1drv.ms/u/s!AlHB4uP4MF7Sh23mBZ9q7yH5FBMK)
+[asp-net-core-angular](https://github.com/johnwu1114/asp-net-core-angular/commit/a5456582baf9dceb7afe09f386457a9a0b87a725)
 
 ## 參考
 

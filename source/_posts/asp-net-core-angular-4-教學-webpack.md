@@ -17,11 +17,11 @@ date: 2017-04-15 13:35:58
 Angular 官方的範例是使用 SystemJS 載入，但網頁一開就載入一大堆 js 檔。request 這麼多檔案，看了就很不舒服。  
 可以看到圖片底部有 **46 requests**...  
 
-
 接下來用 Webpack 打包 Angular 套件、TypeScript 及 HTML。把第三方套件跟自製的程式分成兩個 js 檔案。  
-範例是用上一篇 [ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)
 
 <!-- more -->
+
+本篇範例是延續 [ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
 
 ## 安裝 Webpack 套件
 
@@ -184,7 +184,6 @@ webpack -p
 再打開網頁看一次 requset，只剩下三個 requsets，真是乾淨舒服～
 ![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果完成](/images/pasted-53.png)
 
-
 ## Visual Studio Extension
 
 除了用指令安裝 npm package，還可以用 Visual Studio Extension 來安裝。  
@@ -221,6 +220,6 @@ webpack -p
 
 ![WebPack Task Runner: Run - Production](/images/pasted-54.png)
 
-## 載點
+## 範例程式碼
 
-[ASP.NET Core + Angular 4 教學 - Webpack打包.zip](https://1drv.ms/u/s!AlHB4uP4MF7Sh24fPkL5O1uonufR)
+[asp-net-core-angular](https://github.com/johnwu1114/asp-net-core-angular)
