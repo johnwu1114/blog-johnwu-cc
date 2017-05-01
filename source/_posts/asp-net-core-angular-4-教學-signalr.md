@@ -20,9 +20,9 @@ date: 2017-04-22 00:25:26
 
 <!-- more -->
 
-延續前兩篇的延伸範例  
-[ASP.NET Core + Angular 4 教學 - 從無到有](https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-%E5%BE%9E%E7%84%A1%E5%88%B0%E6%9C%89.html)  
-[ASP.NET Core + Angular 4 教學 - Webpack打包](https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-webpack.html)
+程式碼延續前兩篇的範例：  
+[ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
+[ASP.NET Core + Angular 4 教學 - Webpack打包](/article/asp-net-core-angular-4-教學-webpack.html)
 
 ## 安裝 NuGet 套件
 

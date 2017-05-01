@@ -13,25 +13,25 @@ categories:
   - Angular
 date: 2017-04-17 00:48:00
 ---
-![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.png)
+![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.gif)
 
 本篇將介紹 Angular 4 跟 ASP.NET Core Web Api 透過 AJAX 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
 
 <!-- more -->
 
-延續前兩篇的延伸範例  
-[ASP.NET Core + Angular 4 教學 - 從無到有](https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-%E5%BE%9E%E7%84%A1%E5%88%B0%E6%9C%89.html)  
-[ASP.NET Core + Angular 4 教學 - Webpack打包](https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-webpack.html)
+程式碼延續前兩篇的範例：  
+[ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
+[ASP.NET Core + Angular 4 教學 - Webpack打包](/article/asp-net-core-angular-4-教學-webpack.html)
 
-## 安裝 NuGet 套件
+## 1. 安裝 NuGet 套件
 
 過往 ASP.NET MVC 是把 MVC 及 Web Api 的套件分開，但在 ASP.NET Core 中 MVC 及 Web Api 用的套件是相同的，在 NuGet 管理可以找到 Microsoft.AspNetCore.Mvc 並安裝。
 
 ![NuGet 安裝 Microsoft.AspNetCore.Mvc](/images/pasted-56.png)
 
-## 建立 Web Api
+## 2. 建立 Web Api
 
-### 註冊 Mvc 服務
+### 2.1 註冊 Mvc 服務
 
 Startup.cs  
 AddJsonOptions 的 SerializerSettings 可以參考 [ASP.NET Core - Web Api JSON 序列化設定](/article/asp-net-core-web-api-json-serializer-settings.html)
@@ -62,7 +62,7 @@ namespace MyWebsite
 }
 ```
 
-### Models
+### 2.2 Models
 
 我習慣用一個 Result Model 來包裝每個 Service 的回傳內容，不論調用 Web Api 成功失敗都用此物件包裝，避免直接 throw exception 到 client，產生 http status 200 以外的狀態。  
 
@@ -103,7 +103,7 @@ namespace MyWebsite.Models
 }
 ```
 
-### Controllers
+### 2.3 Controllers
 
 建立一支符合 RESTful 的 CRUD Controller  
 Controllers\ContactController.cs
@@ -169,7 +169,7 @@ namespace MyWebsite.Controllers
 }
 ```
 
-### 執行結果
+### 2.4 執行結果
 
 直接用瀏覽器打開 /api/contact/1，就可以看到回傳畫面如下：  
 
@@ -179,9 +179,9 @@ namespace MyWebsite.Controllers
 
 ![Web Api Http Post 測試](/images/pasted-58.png)
 
-## 建立 Angular 4
+## 3. 建立 Angular 4
 
-### NgModule
+### 3.1 NgModule
 
 這個範例會用到兩個模組:
 1. Web Api 用到的 AJAX 需要 HttpModule。
@@ -210,7 +210,7 @@ export class AppModule { }
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
-### Component
+### 3.2 Component
 
 wwwroot\app\app.component.ts
 ```js
@@ -309,7 +309,7 @@ export class AppComponent {
 }
 ```
 
-### Models
+### 3.3 Models
 
 新增 wwwroot\app\models.ts
 ```js
@@ -329,7 +329,7 @@ export class ContactModel {
 }
 ```
 
-### Views
+### 3.4 Views
 
 wwwroot\app\app.component.html
 ```html
@@ -377,10 +377,10 @@ wwwroot\app\app.component.html
 </form>
 ```
 
-### 執行結果
+### 3.5 執行結果
 
-![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.png)
+![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.gif)
 
-## 範例程式碼
+## 程式碼下載
 
 [asp-net-core-angular-web-api-crud](https://github.com/johnwu1114/asp-net-core-angular-web-api-crud/commit/5b4f7f3af5dbe2b0e6a08a9a521448c487df86e9)

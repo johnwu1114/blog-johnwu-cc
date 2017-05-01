@@ -29,7 +29,7 @@ date: 2017-04-12 21:30:00
 1. .NET Core 使用 C#
 2. Angular 4 使用 TypeScript
 
-## 建立 ASP.NET Core 專案
+## 1. 建立 ASP.NET Core 專案
 
 打開 Visual Studio 2017 後，按下 `Ctrl` + `Shift` + `N`。
 
@@ -39,7 +39,7 @@ date: 2017-04-12 21:30:00
 
 ![建立 ASP.NET Core 空白專案範本](/images/pasted-35.png)
 
-### 專案內容
+### 1.1 專案內容
 
 建立完成後，可以看到方案總管很乾淨。
 
@@ -68,13 +68,13 @@ namespace MyWebsite
 }
 ```
 
-### 執行結果
+### 1.2 執行結果
 
 ![MyWebsite Write Message](/images/pasted-37.png)
 
-## 安裝 npm 套件
+## 2. 安裝 npm 套件
 
-### 建立 npm package
+### 2.1 建立 npm package
 
 npm package 可以直接在 ASP.NET Core 專案新增檔案 package.json，或者是用指令。  
 新增 npm package 指令如下：
@@ -97,14 +97,14 @@ npm init -y
 }
 ```
 
-### 主要套件
+### 2.2 主要套件
 
 安裝 Angular 4 執行時所需的套件，指令如下：
 ``` batch
 npm install --save @angular/common@latest @angular/compiler@latest @angular/core@latest @angular/forms@latest @angular/http@latest @angular/platform-browser@latest @angular/platform-browser-dynamic@latest @angular/router@latest core-js@latest rxjs@latest systemjs@latest zone.js@latest
 ```
 
-### 開發套件
+### 2.3 開發套件
 
 安裝開發 Angular 4 時所需的套件，指令如下：
 ``` batch
@@ -132,7 +132,7 @@ npm install --save-dev typescript@latest @types/jasmine @types/node
 }
 ```
 
-## 安裝 NuGet 套件
+## 3. 安裝 NuGet 套件
 
 由於要讓 ASP.NET Core 可以支援讀取的靜態檔案，所以用管理 NuGet 套件安裝 Microsoft.AspNetCore.StaticFiles。
 
@@ -175,9 +175,9 @@ app.UseStaticFiles(new StaticFileOptions()
 });
 ```
 
-## 範例
+## 4. 範例程式碼
 
-### 建立 Angular 4
+### 4.1 建立 Angular 4
 
 在 ASP.NET Core 專案建立以下檔案。
 
@@ -272,16 +272,16 @@ export class AppComponent {
 }
 ```
 
-### 專案內容
+### 4.2 專案內容
 
 完成上述步驟後，方案總管所有檔案的樣貌如下：
 ![方案總管 ASP.NET Core + Angular 4](/images/pasted-45.png)
 
-### 執行結果
+### 4.3 執行結果
 
 ![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
 
-## 範例程式碼
+## 程式碼下載
 
 [asp-net-core-angular](https://github.com/johnwu1114/asp-net-core-angular/commit/a5456582baf9dceb7afe09f386457a9a0b87a725)
 

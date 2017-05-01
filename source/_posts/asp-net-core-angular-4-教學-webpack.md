@@ -21,16 +21,16 @@ Angular 官方的範例是使用 SystemJS 載入，但網頁一開就載入一�
 
 <!-- more -->
 
-本篇範例是延續 [ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
+程式碼延續： [ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
 
-## 安裝 Webpack 套件
+## 1. 安裝 Webpack 套件
 
 安裝 Webpack 及接下來範例打包所需的開發套件，指令如下：
 ``` batch
 npm install --save-dev webpack angular2-template-loader awesome-typescript-loader raw-loader
 ```
 
-## Webpack 設定
+## 2. Webpack 設定
 
 新增 webpack.config.js
 ```js
@@ -79,7 +79,7 @@ module.exports = {
 
 *※比較值得一提的是 awesome-typescript-loader 打包速度比 ts-loader 快非常多。還在用 ts-loader 的可以考慮換一下。*
 
-## Webpack entry
+## 3. Webpack entry
 
 webpack.config.js 可以看到我設定了兩個進入點，我們在專案中異動檔案如下：  
 
@@ -174,7 +174,7 @@ namespace MyWebsite
 }
 ```
 
-## 執行 webpack
+## 4. 執行 webpack
 
 打包指令如下：
 ```batch
@@ -182,7 +182,7 @@ webpack -p
 ```
 
 再打開網頁看一次 requset，只剩下三個 requsets，真是乾淨舒服～
-![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果完成](/images/pasted-53.png)
+![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果完成](/images/pasted-53-1.png)
 
 ## Visual Studio Extension
 
@@ -220,6 +220,6 @@ webpack -p
 
 ![WebPack Task Runner: Run - Production](/images/pasted-54.png)
 
-## 範例程式碼
+## 程式碼下載
 
 [asp-net-core-angular](https://github.com/johnwu1114/asp-net-core-angular)

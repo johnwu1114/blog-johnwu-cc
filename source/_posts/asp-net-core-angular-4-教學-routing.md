@@ -12,21 +12,21 @@ categories:
   - Angular
 date: 2017-04-20 00:54:00
 ---
-![ASP.NET Core + Angular 4 教學 - Routing 範例執行結果](/images/pasted-10.gif)
+![ASP.NET Core + Angular 4 教學 - Routing 範例執行結果](/images/pasted-11.gif)
 
 本篇將介紹 Angular 4 的 Routing 實現 Single Page Application(SPA)，以及 Angular 4 跟 ASP.NET Core 的 Routing 共存的方法。  
 前端 Angular 4 Routing 產生的虛擬 URL，並不是真的存在於 ASP.NET Core 的 Routing，所以重載頁面或從瀏覽器網址輸入，會變成 404 找不到網頁。  
 
 <!-- more -->
 
-本篇範例是延續 [ASP.NET Core + Angular 4 教學 - Web Api CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
+程式碼延續： [ASP.NET Core + Angular 4 教學 - Web Api CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
 
-## Angular 4 Routing
+## 1. Angular 4 Routing
 
 我把上次範例中 `app.component.*` CRUD 的部分，移出到 `contacts.component.*`，並新增 `contacts-list.component.*` 及 `error.component.*`。  
 這三個 `contacts.component.*`、`contacts-list.component.*` 及 `error.component.*` 的程式碼會略過不說明，請直接參考底部的附件。  
 
-### 根路徑
+### 1.1 根路徑
 
 首先我們要設定 Angular 4 Routing 的根路徑，在 wwwroot\index.html 的 `<head>` 加入下面這行：
 ```html
@@ -34,7 +34,7 @@ date: 2017-04-20 00:54:00
 ```
 > 設定成 `/` 的意思是在 Angular 4 切換不同頁面時，都會以 `http://{doamin}/` 為主，如果你的 Angular 4 進入點是 `http://{doamin}/app/`，那 base 就要設定成 `/app/`。
 
-### Route Maps
+### 1.2 Route Maps
 
 新增 wwwroot\app\route-maps.ts  
 ```js
@@ -131,7 +131,7 @@ export class RouteMaps {
  * getComponents - 取得 routes 中全部的 Component。
  * findComponents - 遞迴找出 routes 中全部的 Component，並且過濾掉重複的 Component。
 
-### Menu
+### 1.3 Menu
 
 新增 wwwroot\app\shared\menu.component.ts  
 ```js
@@ -170,7 +170,7 @@ export class MenuComponent {
 </template>
 ```
 
-### Import routing
+### 1.4 Import routing
 
 wwwroot\app\main.ts
 ```js
@@ -214,16 +214,16 @@ wwwroot\app\app.component.html
 <router-outlet></router-outlet>
 ```
 
-### 執行結果
+### 1.5 執行結果
 
-![ASP.NET Core + Angular 4 教學 - 範例執行結果](/images/pasted-10.gif)
+![ASP.NET Core + Angular 4 教學 - 範例執行結果](/images/pasted-11.gif)
 
-### 重載頁面
+### 1.6 重載頁面
 
 此範例 Angular 4 進入點是 index.html，如果在 `http://{doamin}/` 以外的地方載入，就會變成 404 找不到網頁。  
 ![ASP.NET Core + Angular 4 教學 - Routing 範例重載頁面失敗](/images/pasted-66.gif)
 
-## ASP.NET Core Routing
+## 2. ASP.NET Core Routing
 
 為了讓 Angular 4 Routing 可以正常運作，我們要在 Startup.cs 做一點手腳。
 ```cs
@@ -266,6 +266,6 @@ namespace MyWebsite
 
 ![ASP.NET Core + Angular 4 教學 - Routing 範例重載頁面正常](/images/pasted-67.gif)
 
-## 範例程式碼
+## 程式碼下載
 
 [asp-net-core-angular-web-api-crud](https://github.com/johnwu1114/asp-net-core-angular-web-api-crud)
