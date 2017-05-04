@@ -21,7 +21,8 @@ Angular 官方的範例是使用 SystemJS 載入，但網頁一開就載入一�
 
 <!-- more -->
 
-程式碼延續： [ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
+程式碼延續之前範例：  
+[ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
 
 ## 1. 安裝 Webpack 套件
 

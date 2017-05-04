@@ -19,7 +19,8 @@ date: 2017-04-20 00:54:00
 
 <!-- more -->
 
-程式碼延續： [ASP.NET Core + Angular 4 教學 - Web Api CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
+程式碼延續之前範例：  
+[ASP.NET Core + Angular 4 教學 - Web Api CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
 
 ## 1. Angular 4 Routing
 

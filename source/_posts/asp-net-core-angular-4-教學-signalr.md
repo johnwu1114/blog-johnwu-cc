@@ -13,7 +13,7 @@ categories:
   - Angular
 date: 2017-04-22 00:25:26
 ---
-![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-68.gif)
+![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-69.gif)
 
 本篇將介紹 Angular 4 跟 ASP.NET Core 透過 SignalR 的互動，範例是做一個簡單的即時聊天室。  
 透過 TypeScript 把 jQuery 及 SignalR 包裝成 Injectable class，讓使用更為便利。  
@@ -225,7 +225,7 @@ module.exports = {
 }
 ```
 
-### 範例
+### Angular
 
 app\components\chat.component.html
 ```html
@@ -299,7 +299,7 @@ export class ChatComponent {
 
 ## 執行結果
 
-![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-68.gif)
+![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-69.gif)
 
 
 ## 範例程式碼
