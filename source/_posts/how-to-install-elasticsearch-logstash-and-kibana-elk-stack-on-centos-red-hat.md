@@ -12,7 +12,7 @@ categories:
   - ELK
 date: 2017-04-27 22:19
 ---
-![ELK 教學架構](/images/pasted-92.gif)
+![ELK 教學架構](/images/pasted-92p.png)
 
 ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐集、分析、查詢系統。  
 可以在**不改變**原系統架構的情況下，架設 ELK 蒐集、分析、查詢 Log，簡化過去繁鎖又沒效率的查 Log 工作。  

@@ -12,7 +12,7 @@ categories:
   - Angular
 date: 2017-05-04 23:21:00
 ---
-![ASP.NET Core + Angular 4 教學 - Captcha 範例執行結果](/images/pasted-110.gif)
+![ASP.NET Core + Angular 4 教學 - Captcha 範例執行結果](/images/pasted-110p.png)
 
 本篇將介紹用 ASP.NET Core 自製圖形驗證碼，Angular 4 做登入頁面的範例跟 ASP.NET Core 互動。
 

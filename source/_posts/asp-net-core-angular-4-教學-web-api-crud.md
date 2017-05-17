@@ -13,7 +13,7 @@ categories:
   - Angular
 date: 2017-04-17 00:48:00
 ---
-![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.gif)
+![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48p.png)
 
 本篇將介紹 Angular 4 跟 ASP.NET Core Web Api 透過 AJAX 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
 

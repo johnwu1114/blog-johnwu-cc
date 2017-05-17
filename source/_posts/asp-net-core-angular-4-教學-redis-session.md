@@ -13,7 +13,7 @@ categories:
   - Angular
 date: 2017-05-09 17:15:00
 ---
-![ASP.NET Core + Angular 4 教學 - Redis Session 運行方式](/images/pasted-113.gif)
+![ASP.NET Core + Angular 4 教學 - Redis Session 運行方式](/images/pasted-113p.png)
 
 本篇將介紹 ASP.NET Core 用 Redis Cache 存放 Session，避免 Web Application 重啟後，用戶要重新登入。  
 

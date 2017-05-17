@@ -12,7 +12,7 @@ categories:
   - Angular
 date: 2017-04-20 00:54:00
 ---
-![ASP.NET Core + Angular 4 教學 - Routing 範例執行結果](/images/pasted-11.gif)
+![ASP.NET Core + Angular 4 教學 - Routing 範例執行結果](/images/pasted-11p.png)
 
 本篇將介紹 Angular 4 的 Routing 實現 Single Page Application(SPA)，以及 Angular 4 跟 ASP.NET Core 的 Routing 共存的方法。  
 前端 Angular 4 Routing 產生的虛擬 URL，並不是真的存在於 ASP.NET Core 的 Routing，所以重載頁面或從瀏覽器網址輸入，會變成 404 找不到網頁。  

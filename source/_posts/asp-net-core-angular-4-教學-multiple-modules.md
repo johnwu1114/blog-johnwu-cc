@@ -12,7 +12,7 @@ categories:
   - Angular
 date: 2017-04-30 23:54:00
 ---
-![ASP.NET Core + Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107.gif)
+![ASP.NET Core + Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107p.png)
 
 本篇將介紹 Angular 4 的 Routing 在多個 Modules 的情況下，實現 Single Page Application(SPA)。  
 
