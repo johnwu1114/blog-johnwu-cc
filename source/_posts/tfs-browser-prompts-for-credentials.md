@@ -6,7 +6,7 @@ categories:
   - TFS
 date: 2017-03-28 22:07:00
 ---
-最近在測試Team Foundation Server 2017，用Chrome登入後，只要進到特定頁面就會一直跳出需要驗證，如下：
+最近在測試 Team Foundation Server 2017，用Chrome登入後，只要進到特定頁面就會一直跳出需要驗證，如下：
 
 > 需要驗證  
 > http://{doamin} 要求提供使用者名稱和密碼。您與這個網站建立了非私人連線。  

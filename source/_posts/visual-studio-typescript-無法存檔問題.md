@@ -5,7 +5,7 @@ tags:
   - TypeScript
   - Windows
 categories:
-  - Windows
+  - Visual Studio
 date: 2017-04-18 21:37:30
 ---
 最近在家用 Visual Studio 2017 寫 TypeScript 時，常常遇到無法儲存檔案，按下儲存就一直要我另存新檔，隔幾分鐘後再按儲存，才能成功儲存。用公司電腦就不會遇到此問題，搞的我很火大！  
