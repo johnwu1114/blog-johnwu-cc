@@ -8,17 +8,18 @@ categories:
   - ASP.NET Core
 date: 2017-05-11 11:07:00
 ---
+![ASP.NET Core - Middleware - 運作方式](/images/pasted-114p.png)
 
 本篇將介紹 ASP.NET Core 的 Middleware，透過 Middleware 掌握封包的進出。
+
+<!-- more -->
 
 ## Middleware 運作方式
 
 ASP.NET Core 的每個 Request 都會經過所有註冊的 Middleware，Response 也是逐一回傳，以先進後出的方式處裡封包。  
 
 Request 流程如下圖：
-![ASP.NET Core - Middleware - 運作方式](/images/pasted-114p.png)
-
-<!-- more -->
+![ASP.NET Core - Middleware - 運作方式](/images/pasted-114.gif)
 
 ## 1. 建立 Middleware
 
