@@ -24,7 +24,7 @@ date: 2017-06-05 11:07:00
  What were things that the team learned that they did not know before the sprint?  
  * **Lacked** Sprint 期間有什麼事能改善並做得更好？  
  What were the things that the team think could have done better in the sprint?  
- * **Longed For** Sprint 期間希望或期望什麼事，但確沒發生或不存在？  
+ * **Longed For** Sprint 期間希望或期望什麼事，但沒發生或不存在？  
  What were the things the team desired or wished for but were not present during the sprint?  
 3. 請團隊成員對每個問題提出想法，寫在便條紙上  
  > 一張便條紙只寫一件事  
