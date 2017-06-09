@@ -5,7 +5,6 @@ tags:
   - Sprint Retrospective
 categories:
   - Scrum
-  - Sprint Retrospective
 date: 2017-06-05 09:49:00
 ---
 ![Scrum - 回顧方法 - Circles](/images/pasted-163.png)

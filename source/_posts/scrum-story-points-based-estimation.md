@@ -6,7 +6,6 @@ tags:
   - Story Point
 categories:
   - Scrum
-  - Sprint Planning
 date: 2017-04-01 00:04:00
 ---
 從我學習 Scrum 開始，大部分看到 Sprint Planning 估計 Story Point 的方法是用 Planning Poker。  

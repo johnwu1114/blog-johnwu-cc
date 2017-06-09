@@ -5,7 +5,6 @@ tags:
   - Sprint Retrospective
 categories:
   - Scrum
-  - Sprint Retrospective
 date: 2017-05-17 10:56:00
 ---
 ![Scrum - 回顧方法 - The Wheel](/images/pasted-119.png)

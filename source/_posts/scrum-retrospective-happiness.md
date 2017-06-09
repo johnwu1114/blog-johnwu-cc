@@ -5,7 +5,6 @@ tags:
   - Sprint Retrospective
 categories:
   - Scrum
-  - Sprint Retrospective
 date: 2017-05-16 09:43:00
 ---
 ![Scrum - 回顧方法 - Happiness](/images/pasted-118.png)
