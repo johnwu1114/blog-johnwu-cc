@@ -10,7 +10,7 @@ date: 2017-06-09 09:54:00
 ![MSBuild - Result](/images/pasted-186.png)
 
 最近在重新檢視 CI/CD (Continuous Integration / Continuous Delivery) 流程，順手把 Build Config 的方式都改了。  
-目前有部分 Config 還是 XML 格式，其它大多以換成 JSON 格式，Config 我們都是透過 MSBuild 來置換個環境的變數。
+目前有部分 Config 還是 XML 格式，其它大多以換成 JSON 格式，Config 我們都是透過 MSBuild 來置換個環境的變數。  
 本篇將介紹透過 MSBuild 替換 XML 的內容。  
 
 <!-- more -->
@@ -114,6 +114,8 @@ MSBuild 專案是 XML 格式，所以建個 XML 檔案 Configuration.xml，如�
   
 </Project>
 ```
+> Import Project 中的路徑 `v15.0` 是 Visual Studio 2017 MSBuild 的路徑。    
+> 用不同版本的 MSBuild 記得更換。  
 
 ## 執行結果
 
