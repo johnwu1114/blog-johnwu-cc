@@ -11,7 +11,7 @@ date: 2017-06-12 10:32:00
 ---
 ![Angular 4 教學 - 從頭開始 範例執行結果](/images/pasted-192.png)
 
-有不只一位前端工程師問我，為什麼要用 Visual Studio 2017 做為 Angular 4 教學工具，他們又不寫 .NET，所以我重新改用 Visual Studio Code 來做為 Angular 4 的開發工具。  
+有不只一位前端工程師問我，為什麼要用 Visual Studio 2017 做為 Angular 4 教學工具，他們又不寫 .NET，所以我重新改用 Visual Studio Code 來做為 Angular 4 教學的開發工具。  
 本篇將介紹如何開始撰寫 Angular 4 (Angular 2)，包含各項套件的安裝說明及相依關係。
 
 <!-- more -->
@@ -66,7 +66,7 @@ npm install --save @angular/common@latest @angular/compiler@latest @angular/core
 
 因為要把 TypeScript 的 `*.ts` 檔案，透過 tsc 指令編譯成 `*.js` 檔，所以要把 TypeScript 安裝在全域範圍，指令如下：
 ```batch
-npm install -g --save-dev TypeScript
+npm install -g --save-dev typescript
 ```
 
 安裝開發 Angular 4 時所需的套件，指令如下：
@@ -80,7 +80,6 @@ npm install --save-dev lite-server @types/jasmine @types/node
 新增檔案 tsconfig.json，內容如下：
 ``` json
 {
-  "compileOnSave": true,
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -97,7 +96,7 @@ npm install --save-dev lite-server @types/jasmine @types/node
   ]
 }
 ```
-> 這個 tsconfig.json 是參考 [Angular 官網](https://angular.io/docs/ts/latest/guide/TypeScript-configuration.html)的設定。
+> 這個 tsconfig.json 是參考 [Angular 官網](https://angular.io/docs/ts/latest/guide/typescript-configuration.html)的設定。
 
 如果 tsconfig.json 想要用自動產生，可以使用 tsc 建立 tsconfig.json，指令如下：
 ```batch
@@ -241,6 +240,26 @@ node_modules/                       # npm 套件存放位置
 
 在 VS Code 可以開啟多個 Console，我在第一個 Console 啟動了 lite-server，我再多新增一個 Console 用來執行 tsc 編譯 TypeScript。如下：
 ![TypeScript compiler](/images/pasted-191.png)
+
+每次都要執行 tsc 編譯也蠻麻煩的，可以透過 VS Code 的 Task Runner 來自動執行。  
+在 VS Code 中按下 `Ctrl` + `Shift` + `P`，輸入tasks -> 選擇 Configure Task Runner -> 選擇 TypeScript。如下：
+![Configure Task Runner](/images/pasted-193.png)
+![Configure Task Runner - TypeScript](/images/pasted-194.png)
+
+打開 tsconfig.json，在 compilerOptions 中加入 watch，如下：
+```json
+...
+"compilerOptions": {
+  ...
+  "watch": true
+  ...
+},
+...
+```
+
+改完後按下 `Ctrl` + `Shift` + `B` 啟動 Task，之後改 `*.ts` 檔案就會自動編譯了。  
+要停止自動編譯的話按下 `Ctrl` + `Shift` + `P`，輸入tasks -> 選擇 Terminate Running Task。如下：
+![Terminate Running Task](/images/pasted-195.png)
 
 ### 3.4 執行結果
 
