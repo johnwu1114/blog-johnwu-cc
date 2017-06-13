@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 cache-s3-cf-deploy/
+.vs/
+package-lock.json

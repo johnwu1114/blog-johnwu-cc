@@ -40,7 +40,7 @@ Angular CLI 也是很方便的選擇喔！請參考 [Angular CLI 官網](https:/
 
 ## 2. 安裝 npm 套件
 
-### 2.1 建立 npm package
+### 2.1. 建立 npm package
 
 在 VS Code 中按下 `Ctrl` + `~`，可以在 VS Code 中打開 Console 介面。  
 
@@ -52,30 +52,32 @@ npm init -y
 執行完就可以看到自動建立了 package.json。如下：
 ![建立 npm package](/images/pasted-188.png)
 
-### 2.2 主要套件
+### 2.2. 開發套件
+
+因為要把 TypeScript 的 `*.ts` 檔案，透過 tsc 指令編譯成 `*.js` 檔，所以要把 TypeScript 安裝在全域範圍，指令如下：
+```batch
+npm install -g --save-dev typescript@latest
+```
+
+安裝開發 Angular 4 時所需的套件，指令如下：
+```batch
+npm install --save-dev lite-server@latest @types/jasmine@latest @types/node@latest
+```
+> 也可以把開發套件安裝在全域範圍，看個人需求。在參數中加入 `-g` 即可。
+
+### 2.3. 主要套件
 
 安裝 Angular 4 執行時所需的套件，指令如下：
 ``` batch
 npm install --save @angular/common@latest @angular/compiler@latest @angular/core@latest @angular/forms@latest @angular/http@latest @angular/platform-browser@latest @angular/platform-browser-dynamic@latest @angular/router@latest core-js@latest rxjs@latest systemjs@latest zone.js@latest
 ```
 
-它會把 packages 下載到 node_modules，同時自動修改 package.json。
+透過 npm install 會把需要的 packages 下載到 node_modules，同時自動修改 package.json。
 ![npm package install](/images/pasted-189.png)
 
-### 2.3 開發套件
+## 3. 組態設定
 
-因為要把 TypeScript 的 `*.ts` 檔案，透過 tsc 指令編譯成 `*.js` 檔，所以要把 TypeScript 安裝在全域範圍，指令如下：
-```batch
-npm install -g --save-dev typescript
-```
-
-安裝開發 Angular 4 時所需的套件，指令如下：
-```batch
-npm install --save-dev lite-server @types/jasmine @types/node
-```
-> 也可以把開發套件安裝在全域範圍，看個人需求。在參數中加入 `-g` 即可。
-
-### 2.4 設定 TypeScript
+### 3.1. TypeScript 設定
 
 新增檔案 tsconfig.json，內容如下：
 ``` json
@@ -104,7 +106,7 @@ tsc --init
 ```
 > 預設的內容不一定是你要的，所以還是要修改。
 
-### 2.5 設定開發伺服器
+### 3.2. 開發伺服器設定
 
 打開 package.json，在 scripts 中加入 lite-server，如下：
 ```json
@@ -126,9 +128,9 @@ npm run dev
 ![lite-server](/images/pasted-190.png)
 > 還沒建立頁面，所以回傳 *Cannot GET /*
 
-## 3. 範例程式碼
+## 4. 範例程式碼
 
-### 3.1 建立 Angular 4
+### 4.1. 建立 Angular 4
 
 index.html
 ``` html
@@ -205,23 +207,24 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 app\app.component.html  
 由於我個人不是很喜歡在 TypeScript 檔案內看到 html，所以我把 template 獨立出一個檔案
 ```html
-<h1>Hello {{name}}</h1>
+<h1>This is {{name}} {{version}}</h1>
 ```
 
 app\app.component.ts
 ``` ts
-import { Component } from "@angular/core";
+import { Component, VERSION } from "@angular/core";
 
 @Component({
     selector: "my-app",
     templateUrl: "/app/app.component.html"
 })
 export class AppComponent {
-    name = "Angular 4";
+    name = "Angular";
+    version = VERSION.full;
 }
 ```
 
-### 3.2 專案內容
+### 4.2. 專案內容
 
 完成上述步驟後，檔案結構如下：
 ```yml
@@ -236,7 +239,7 @@ app/                                # Angular 4 的主要目錄
 node_modules/                       # npm 套件存放位置
 ```
 
-### 3.3 編譯 TypeScript
+## 5. 編譯 TypeScript
 
 在 VS Code 可以開啟多個 Console，我在第一個 Console 啟動了 lite-server，我再多新增一個 Console 用來執行 tsc 編譯 TypeScript。如下：
 ![TypeScript compiler](/images/pasted-191.png)
@@ -261,7 +264,7 @@ node_modules/                       # npm 套件存放位置
 要停止自動編譯的話按下 `Ctrl` + `Shift` + `P`，輸入tasks -> 選擇 Terminate Running Task。如下：
 ![Terminate Running Task](/images/pasted-195.png)
 
-### 3.4 執行結果
+## 6. 執行結果
 
 ![Angular 4 教學 - 從頭開始 範例執行結果](/images/pasted-192.png)
 
