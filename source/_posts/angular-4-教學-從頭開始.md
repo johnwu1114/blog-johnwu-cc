@@ -264,7 +264,7 @@ node_modules/                       # npm 套件存放位置
 要停止自動編譯的話按下 `Ctrl` + `Shift` + `P`，輸入tasks -> 選擇 Terminate Running Task。如下：
 ![Terminate Running Task](/images/pasted-195.png)
 
-## 6. 執行結果
+## 執行結果
 
 ![Angular 4 教學 - 從頭開始 範例執行結果](/images/pasted-192.png)
 
