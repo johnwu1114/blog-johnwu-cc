@@ -41,7 +41,7 @@ loadChildren: "./first/first.routes#FirstModule"
 ```js
 loadChildren: () => new Promise(function (resolve) {
     (require as any).ensure([], function (require: any) {
-        resolve(require('.\\first\\first.routes')['SecondModule']);
+        resolve(require('.\\first\\first.routes')['FirstModule']);
     });
 })
 ```
