@@ -1,4 +1,4 @@
-title: ASP.NET Core - Application Lifetime
+title: ASP.NET Core 教學 - Application Lifetime
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,7 +7,7 @@ categories:
   - ASP.NET Core
 date: 2017-06-02 10:22:00
 ---
-![ASP.NET Core - Application Lifetime](/images/pasted-162.png)
+![ASP.NET Core 教學 - Application Lifetime](/images/pasted-162.png)
  
 本篇將介紹 ASP.NET Core 補捉 Application 啟動及停止事件。  
 
@@ -80,4 +80,4 @@ public class Startup
 
 ## 執行結果
 
-![ASP.NET Core - Application Lifetime](/images/pasted-162.png)
+![ASP.NET Core 教學 - Application Lifetime](/images/pasted-162.png)

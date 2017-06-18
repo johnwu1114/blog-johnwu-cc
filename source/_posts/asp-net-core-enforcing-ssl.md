@@ -1,4 +1,4 @@
-title: ASP.NET Core - 強制 SSL
+title: ASP.NET Core 教學 - 強制 SSL
 author: John Wu
 tags:
   - ASP.NET Core
@@ -9,7 +9,7 @@ categories:
   - ASP.NET Core
 date: 2017-06-01 08:56:00
 ---
-![ASP.NET Core - 強制 SSL](/images/pasted-161.png)
+![ASP.NET Core 教學 - 強制 SSL](/images/pasted-161.png)
 
 網站安全性越做越高，不免都要使用 HTTPS 加密連線，但本機用 localhost 都是 HTTP，想測試 HTTPS 需要額外的設定。  
 本篇將介紹 ASP.NET Core 強制使用 SSL 加密連線。  
@@ -19,7 +19,7 @@ date: 2017-06-01 08:56:00
 ## 啟用 SSL
 
 可以再 Web 專案點滑鼠右鍵，用圖形化的工具啟用 SSL Port，如下：  
-![ASP.NET Core - Launch Settings](/images/pasted-158.png)
+![ASP.NET Core 教學 - Launch Settings](/images/pasted-158.png)
 
 或直接編輯 Properties\launchSettings.json  
 ```json
@@ -42,8 +42,8 @@ date: 2017-06-01 08:56:00
 ```
 
 設定 SSL Port 後，就可以在 localhost 使用 HTTPS 了。但會遇到隱私權問題，因為我們沒有真的匯入憑證，可以先把他忽略。步驟如下：  
-![ASP.NET Core - 忽略憑證 - 1](/images/pasted-159.png)
-![ASP.NET Core - 忽略憑證 - 2](/images/pasted-160.png)
+![ASP.NET Core 教學 - 忽略憑證 - 1](/images/pasted-159.png)
+![ASP.NET Core 教學 - 忽略憑證 - 2](/images/pasted-160.png)
 
 ## 強制 SSL
 
@@ -93,7 +93,7 @@ public class Startup
 
 ## 執行結果
 
-![ASP.NET Core - 強制 SSL](/images/pasted-161.png)
+![ASP.NET Core 教學 - 強制 SSL](/images/pasted-161.png)
 
 ## 參考
 

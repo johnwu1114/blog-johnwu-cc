@@ -1,4 +1,4 @@
-title: ASP.NET Core - Routing
+title: ASP.NET Core 教學 - Routing
 author: John Wu
 tags:
   - ASP.NET Core
@@ -9,7 +9,7 @@ categories:
   - ASP.NET Core
 date: 2017-05-15 11:06:00
 ---
-![ASP.NET Core - Routing - 運作方式](/images/pasted-115.png)
+![ASP.NET Core 教學 - Routing - 運作方式](/images/pasted-115.png)
 
 本篇將介紹 ASP.NET Core 的 Routing，大致上跟 ASP.NET MVC Routing 的設定差不多，但有些小差異。
 
