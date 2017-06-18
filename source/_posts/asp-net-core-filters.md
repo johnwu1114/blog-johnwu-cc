@@ -262,10 +262,16 @@ namespace MyWebsite.Controllers
     [TypeFilter(typeof(AuthorizationFilter))]
     public class HomeController : Controller
     {
-        [MiddlewareFilter(typeof(ActionFilter))]
+        [TypeFilter(typeof(ActionFilter))]
         public void Index()
         {
             Response.WriteAsync("Hello World! \r\n");
+        }
+        
+        [TypeFilter(typeof(ActionFilter))]
+        public void Error()
+        {
+            throw new System.Exception("Error");
         }
     }
 }
