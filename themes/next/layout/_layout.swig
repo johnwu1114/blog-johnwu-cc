@@ -61,11 +61,8 @@
 
   </div>
 
-  {# include '_scripts/vendors.swig' #}
-  {# include '_scripts/commons.swig' #}
-  {# include '_scripts/boostrap.swig' #}
   <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
-  <script type="text/javascript" src="/lib/jquery/index.js"></script>
+  {% include '_scripts/vendors.swig' %}
   <script type="text/javascript" src="/js/bundle.js"></script>
 
   {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %}
