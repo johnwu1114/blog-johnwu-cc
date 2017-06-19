@@ -5,13 +5,13 @@
   {% set html_class = html_class + ' use-motion' %}
 {% endif %}
 
-<html class="{{ html_class | lower }}" lang="{{ config.language }}">
+<html class="{{ html_class | lower }}" lang="{{ config.language | replace('en', 'zh-tw')}}">
 <head>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
+<body itemscope itemtype="http://schema.org/WebPage" lang="{{ (page.lang || page.language || config.language) | replace('en', 'zh-tw')}}">
 
   {% include '_third-party/analytics/index.swig' %}
 
