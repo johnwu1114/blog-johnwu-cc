@@ -35,7 +35,8 @@ app/                                # Angular 4 的主要目錄
     contacts-list.component.css
   shared/                           # 共用的東西都放這，或者不會被路由開啟的 component
     config.ts                       # 自製的設定檔
-    typings.d.ts                    # 自訂的 type definitions 
+    definitions/
+      typings.d.ts                  # 自訂 TypeScript type 的定義檔 
     components/   
       dialog.component.ts           # 很多頁面都會共用的 component。如：對話框 (e.g. DialogComponent)
       dialog.component.html
@@ -78,7 +79,8 @@ app/                                # Angular 4 的主要目錄
       contacts.service.ts           # 自製的 service (e.g. ContactsService)
   shared/                           # 共用的東西都放這，或者不會被路由開啟的 component
     config.ts                       # 自製的設定檔
-    typings.d.ts                    # 自訂給 TypeScript 用的 type definitions 
+    definitions/
+      typings.d.ts                  # 自訂 TypeScript type 的定義檔 
     components/   
       dialog.component.ts           # 很多頁面都會共用的 component。如：對話框 (e.g. DialogComponent)
       dialog.component.html        

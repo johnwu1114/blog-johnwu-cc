@@ -11,7 +11,7 @@ date: 2017-06-13 10:20:00
 ![Angular 4 教學 - Data Binding](/images/pasted-196.png)
 
 Angular 透過 Data Binding 讓 TypeScript(Component) 及 HTML(Template) 兩邊互相傳遞資料，Data Binding 的方式有四種。  
-本篇將介紹 Angular 4 的四種 Data Binding 互動。  
+本篇將介紹 Angular 4 (Angular 2) 的四種 Data Binding 互動。  
 
 <!-- more -->
 
