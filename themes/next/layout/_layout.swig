@@ -5,13 +5,13 @@
   {% set html_class = html_class + ' use-motion' %}
 {% endif %}
 
-<html class="{{ html_class | lower }}" lang="{{ config.language }}">
+<html class="{{ html_class | lower }}" lang="{{ config.language | replace('en', 'zh-tw')}}">
 <head>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
+<body itemscope itemtype="http://schema.org/WebPage" lang="{{ (page.lang || page.language || config.language) | replace('en', 'zh-tw')}}">
 
   {% include '_third-party/analytics/index.swig' %}
 
@@ -61,11 +61,8 @@
 
   </div>
 
-  {# include '_scripts/vendors.swig' #}
-  {# include '_scripts/commons.swig' #}
-  {# include '_scripts/boostrap.swig' #}
   <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
-  <script type="text/javascript" src="/lib/jquery/index.js"></script>
+  {% include '_scripts/vendors.swig' %}
   <script type="text/javascript" src="/js/bundle.js"></script>
 
   {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %}
