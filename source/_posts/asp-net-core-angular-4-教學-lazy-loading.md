@@ -1,18 +1,16 @@
-title: ASP.NET Core + Angular 4 教學 - Lazy Loading
+title: Angular 4 教學 - Lazy Loading
 author: John Wu
 tags:
-  - ASP.NET Core
   - Angular
   - TypeScript
-  - 'C#'
-  - Web Api
   - Routing
+  - Webpack 
+  - Lazy Loading
 categories:
-  - ASP.NET Core
   - Angular
 date: 2017-05-02 23:21:00
 ---
-![ASP.NET Core + Angular 4 教學 - Lazy Loading 範例執行結果](/images/pasted-108p.png)
+![Angular 4 教學 - Lazy Loading 範例執行結果](/images/pasted-108p.png)
 
 本篇將介紹 Angular 4 的 Lazy Loading，避免寫 SPA 程式越做越大，啟動時載入全部的 JavaScript 檔很累贅又恨慢。  
 比較好的做法是用到什麼功能，再載入當下用到 Module 的 JavaScript 檔案，節省載入時間。  
@@ -20,7 +18,7 @@ date: 2017-05-02 23:21:00
 <!-- more -->
 
 程式碼延續之前範例：  
-[ASP.NET Core + Angular 4 教學 - Multiple Modules](/article/asp-net-core-angular-4-教學-multiple-modules.html)  
+[Angular 4 教學 - Multiple Modules](/article/asp-net-core-angular-4-教學-multiple-modules.html)  
 
 Routing不熟悉的話，請先參考：  
 [ASP.NET Core + Angular 4 教學 - Routing](/article/asp-net-core-angular-4-教學-routing.html)
@@ -100,7 +98,7 @@ module.exports = {
 2. output 要設定 publicPath  
 在 Webpack 轉換路徑時，會以 publicPath 作為 `*.js` 檔的根路徑，如果沒設定會發生錯誤，如下：  
 
-![ASP.NET Core + Angular 4 教學 - Lazy Loading 發生錯誤](/images/pasted-108.png)
+![Angular 4 教學 - Lazy Loading 發生錯誤](/images/pasted-108.png)
 
 可以看到上圖，angular-router-loader 產生了 `0.js` 這個檔案，但回應是 404 not found。  
 Console 也顯示 Error: Loading chunk 0 failed.  
@@ -173,10 +171,11 @@ export class AppRoutes {
 ## 執行結果
 
 上述都設定好後，就可以完成了，執行下面如下：
-![ASP.NET Core + Angular 4 教學 - Lazy Loading 範例執行結果](/images/pasted-108.gif)
+![Angular 4 教學 - Lazy Loading 範例執行結果](/images/pasted-108.gif)
 FirstModule 被打包成 `1.js`，SecondModule 被打包成 `0.js`。  
 首次載入時，兩個檔案都不會被載進來，只會載入 `bundle-vendors.js` 及 `bundle.js`，因預設路由是指向 FirstModule，所以隨後就載入 `1.js`，當我切換路由到 SecondModule 時，才載入 `0.js`。  
 
 ## 程式碼下載
 
-[asp-net-core-angular-lazy-loading](https://github.com/johnwu1114/asp-net-core-angular-lazy-loading)
+[asp-net-core-angular-lazy-loading](https://github.com/johnwu1114/asp-net-core-angular-lazy-loading)  
+> 範例程式是用 ASP.NET Core + Angular 4，Angular 4 要改成 lite-server 執行的話，可以參考 [Angular 4 教學 - 從頭開始](/article/angular-4-教學-從頭開始.html)

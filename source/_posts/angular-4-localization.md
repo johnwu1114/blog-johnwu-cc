@@ -3,7 +3,7 @@ author: John Wu
 tags:
   - Angular
   - TypeScript
-  - Visual Studio
+  - Localization
   - Pipe
 categories:
   - Angular

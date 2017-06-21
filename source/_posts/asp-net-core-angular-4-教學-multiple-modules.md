@@ -1,29 +1,25 @@
-title: ASP.NET Core + Angular 4 教學 - Multiple Modules
+title: Angular 4 教學 - Multiple Modules
 author: John Wu
 tags:
-  - ASP.NET Core
   - Angular
   - TypeScript
-  - 'C#'
-  - Web Api
   - Routing
 categories:
-  - ASP.NET Core
   - Angular
 date: 2017-04-30 23:54:00
 ---
-![ASP.NET Core + Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107p.png)
+![Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107p.png)
 
 本篇將介紹 Angular 4 的 Routing 在多個 Modules 的情況下，實現 Single Page Application(SPA)。  
 
 <!-- more -->
 
 程式碼延續前兩篇的範例：  
-[ASP.NET Core + Angular 4 教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
-[ASP.NET Core + Angular 4 教學 - Webpack打包](/article/asp-net-core-angular-4-教學-webpack.html)  
+[ASP.NET Core + Angular 4  教學 - 從無到有](/article/asp-net-core-angular-4-教學-從無到有.html)  
+[ASP.NET Core + Angular 4  教學 - Webpack打包](/article/asp-net-core-angular-4-教學-webpack.html)  
 
-Routing不熟悉的話，請先參考：  
-[ASP.NET Core + Angular 4 教學 - Routing](/article/asp-net-core-angular-4-教學-routing.html)
+ASP.NET Core Routing 不熟悉的話，請先參考：  
+[ASP.NET Core + Angular 4  教學 - Routing](/article/asp-net-core-angular-4-教學-routing.html)
 
 ## 1. Single Module
 
@@ -250,8 +246,9 @@ export class AppRoutes {
 
 ### 2.3 執行結果
 
-![ASP.NET Core + Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107.gif)
+![Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107.gif)
 
 ## 程式碼下載
 
-[asp-net-core-angular-routing](https://github.com/johnwu1114/asp-net-core-angular-routing)
+[asp-net-core-angular-routing](https://github.com/johnwu1114/asp-net-core-angular-routing)  
+> 範例程式是用 ASP.NET Core + Angular 4，Angular 4 要改成 lite-server 執行的話，可以參考 [Angular 4 教學 - 從頭開始](/article/angular-4-教學-從頭開始.html)

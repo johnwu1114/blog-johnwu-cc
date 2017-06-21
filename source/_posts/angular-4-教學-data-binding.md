@@ -3,7 +3,6 @@ author: John Wu
 tags:
   - Angular
   - TypeScript
-  - VS Code
 categories:
   - Angular
 date: 2017-06-13 10:20:00
