@@ -17,7 +17,7 @@ date: 2017-06-21 10:09:00
 
 ## File Structure
 
-此範例我見了兩個 Module 及一個 Pipe 檔案架構如下：
+此範例我建了兩個 Module 及一個 Pipe 檔案架構如下：
 
 ```yml
 index.html
@@ -60,10 +60,8 @@ export class FirstModule { }
 ```
 
 若使用如上述方法在 FirstModule 及 SecondModule 加入 LocalizationPipe，則會發生錯誤。  
-先被載入的模組會正常，當載入第二個模組時就會出錯。錯誤訊息如下：
-
-> Error: Uncaught (in promise): Error: Type e is part of the declarations of 2 modules: e and e! Please consider moving e to a higher module that imports e and e. You can also create a new NgModule that exports and includes e then import that NgModule in e and e.  
-> Error: Type e is part of the declarations of 2 modules: e and e! Please consider moving e to a higher module that imports e and e. You can also create a new NgModule that exports and includes e then import that NgModule in e and e.
+先被載入的模組會正常，當載入第二個模組時就會出錯。錯誤訊息如下：  
+> Error: Type e is part of the declarations of 2 modules: e and e! Please consider moving e to a higher module that imports e and e. You can also create a new NgModule that exports and includes e then import that NgModule in e and e.  
 
 ## 建立共用模組
 
