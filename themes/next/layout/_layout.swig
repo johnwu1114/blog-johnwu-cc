@@ -5,7 +5,10 @@
   {% set html_class = html_class + ' use-motion' %}
 {% endif %}
 
-<html class="{{ html_class | lower }}" lang="{{ config.language | replace('default', 'zh-tw')}}">
+<html class="{{ html_class | lower }}" lang="{{ config.language | replace('default', 'zh-tw')}}"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>

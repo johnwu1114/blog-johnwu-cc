@@ -336,6 +336,15 @@
 
       {% if not is_index %}
         {% if (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
+          
+          {% if theme.facebook_sdk.enable %}
+            <div class="fb-page" 
+            data-href="https://www.facebook.com/SoftwareENG.NET"
+            data-width="500"
+            data-height="214"
+            data-show-posts="false"></div>
+          {% endif %}
+
           <div class="social-like">
             {% if theme.vkontakte_api.enable and theme.vkontakte_api.like %}
               <div class="vk_like">
