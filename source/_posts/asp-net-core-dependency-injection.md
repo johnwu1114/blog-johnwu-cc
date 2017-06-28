@@ -5,9 +5,9 @@ tags:
   - 'C#'
 categories:
   - ASP.NET Core
-date: 2017-06-28 09:54:00
+date: 2017-06-28 22:21:00
 ---
-![ASP.NET Core 教學 - Dependency Injection - 模擬圖](/images/pasted-114p.png)
+![ASP.NET Core 教學 - Dependency Injection - 運作方式](/images/pasted-209.png)
 
 ASP.NET Core 使用了大量的 DI (Dependency Injection) 設計，有用過 Autofac 或類似的 DI Framework 對此應該不陌生。  
 本篇將介紹 ASP.NET Core 的 Dependency Injection。
@@ -45,6 +45,9 @@ public class Startup
 ```
 如此一來，在 ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型的參數，就把 Sample 的實例注入給該 Controller。  
 
+運作方式動畫：
+![ASP.NET Core 教學 - Dependency Injection - 運作方式動畫](/images/pasted-209.gif)
+
 ## 1. 建立 Service
 
 基本上要注入到 Service 的類別沒什麼限制，除了靜態類別。  
@@ -79,6 +82,7 @@ public class Sample : ISampleTransient, ISampleScoped, ISampleSingleton
 
     public Guid Id => _id;
 }
+
 ```
 
 ## 2. 註冊 Service
@@ -87,7 +91,7 @@ public class Sample : ISampleTransient, ISampleScoped, ISampleSingleton
 1. Transient  
 每次注入時，都重新 `new` 一個新的實體。  
 2. Scoped  
-每次 **Request** 時，都重新 `new` 一個新的實體。同一個 Requset 的 Service 會是同一個實體。  
+每個 **Request** 都重新 `new` 一個新的實體。  
 3. Singleton  
 程式啟動後會 `new` 一個實體。也就是運行期間只會有一個實體。  
 
@@ -107,7 +111,7 @@ public class Startup
 
 ## 3. 注入 Service
 
-被注入的 Service 可以在 Controller、View、Filter、Middleware 或自訂的 Service 等使用，只要在建構子定義型態即可。  
+被注入的 Service 可以在 Controller、View、Filter、Middleware 或自訂的 Service 等使用，只要是透過 ASP.NET Core 產生實例的類別，都可以在建構子定義型態注入。  
 此篇我只用 Controller、Service、View 做為範例。  
 
 ### 3.1. Controller
@@ -154,6 +158,18 @@ public class SampleService
 }
 ```
 
+註冊 SampleService
+```cs
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<SampleService, SampleService>();
+    }
+}
+```
+> 第一個泛型也可以是類別，不一定要是介面。    
+
 ### 3.3. View
 
 ```html
@@ -188,6 +204,10 @@ public class SampleService
 ```
 
 ## 執行結果
+
+1. Transient 如預期，每次都不一樣。  
+2. Scoped 在同一個 Requset 中，不論是在哪邊被注入，都是同樣的實體。(紅色箭頭)  
+3. Singleton 不管 Requset 多少次，都會是同一個實體。(藍色方框)  
 
 ![ASP.NET Core 教學 - Dependency Injection - 範例執行結果](/images/pasted-208.png)
 
