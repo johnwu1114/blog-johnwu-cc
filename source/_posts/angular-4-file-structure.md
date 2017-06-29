@@ -7,6 +7,7 @@ categories:
   - Angular
 date: 2017-04-25 11:41:00
 ---
+![angular](/images/angular.png)
 
 最近有一個新專案要用 Angular 4 開發，突然覺得之前開發 Angular 2 及 Angular 4 的目錄結構有點亂，想藉此機會整理一下檔案架構。  
 我重新檢視這一年來用 Angular 2 及 Angular 4 開發的專案。同時參考了國外 Angular 大師的 Blog 及一些 GitHub 專案，整理成這篇 Angular 4 File Structure。
