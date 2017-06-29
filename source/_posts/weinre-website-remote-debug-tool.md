@@ -4,7 +4,7 @@ tags:
   - npm
   - Weinre
 categories:
-  - Web development
+  - Web Development
 date: 2016-12-16 11:44:00
 ---
 ## Install Node.js

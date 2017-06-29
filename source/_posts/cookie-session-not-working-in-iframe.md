@@ -4,7 +4,7 @@ tags:
   - JavaScript
   - Session
 categories:
-  - Web development
+  - Web Development
 date: 2017-04-02 16:03:00
 ---
 由於公司部分產品是以 IFrame 方式嵌入在別人家的頁面裡，在使用 Safari 開啟的情況下，會發生無法使用 cookie，導致每次的 request 帶的 session id 都不一樣。在 response header 加入解決 cross domain 的 P3P : "CP=CAO PSA OUR" 也沒用。  

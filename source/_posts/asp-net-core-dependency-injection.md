@@ -45,9 +45,6 @@ public class Startup
 ```
 如此一來，在 ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型的參數，就把 Sample 的實例注入給該 Controller。  
 
-運作方式動畫：
-![ASP.NET Core 教學 - Dependency Injection - 運作方式動畫](/images/pasted-209.gif)
-
 ## 1. 建立 Service
 
 基本上要注入到 Service 的類別沒什麼限制，除了靜態類別。  
@@ -108,6 +105,12 @@ public class Startup
 ```
 > 第一個泛型為注入的類型，建議用 interface 來包裝，這樣在才能把相依關係拆除。  
 > 第二個泛型為實做的類別。  
+
+Service 實例產生方式：
+![ASP.NET Core 教學 - Dependency Injection - 運作方式動畫](/images/pasted-209.gif)
+* A 為 Singleton  
+* B 為 Scoped  
+* C 為 Transient  
 
 ## 3. 注入 Service
 
@@ -217,4 +220,5 @@ public class Startup
 
 ## 參考
 
-[Introduction to Dependency Injection in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
+[ASP.NET Core Dependency Injection Deep Dive](https://joonasw.net/view/aspnet-core-di-deep-dive)  
+[Introduction to Dependency Injection in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)  
