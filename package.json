@@ -11,6 +11,7 @@
     "hexo-admin": "^2.1.0",
     "hexo-all-minifier": "^0.1.0",
     "hexo-autonofollow": "^1.0.1",
+    "hexo-baidu-url-submit": "0.0.5",
     "hexo-deployer-git": "^0.2.0",
     "hexo-deployer-s3-cloudfront": "^0.1.4",
     "hexo-generator-archive": "^0.1.4",
