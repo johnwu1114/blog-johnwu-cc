@@ -8,7 +8,7 @@ categories:
   - IIS
 date: 2017-07-01 00:55:00
 ---
-![免費 SSL 申請 - SSL For Free](/images/pasted-210.png)
+![IIS - 安裝 SSL 憑證](/images/pasted-220.png)
 
 前篇[免費 SSL 申請](/article/ssl-for-free.html)介紹了如何取得 SSL 憑證。  
 本篇將介紹把 SSL 憑證匯入至 IIS，啟用網站的 HTTPS 連線。  
@@ -43,4 +43,29 @@ openssl pkcs12 -export -in certificate.crt -inkey private.key  -certfile ca_bund
 
 ## 1. 安裝憑證
 
+![Install SSL Certificate to IIS - 1](/images/pasted-221.png)
+![Install SSL Certificate to IIS - 2](/images/pasted-222.png)
+
+1. 首先打開 IIS，選取 IIS 站台首頁。  
+2. 找到伺服器憑證。  
+3. 在右變的動作列點選**匯入**。  
+4. 載入預先做好的 PFX 憑證檔。  
+5. 輸入當時製作 PFX 憑證檔的密碼。  
+(如果不幸忘記，就只能重做 PFX 了)  
+6. 完成
+
 ## 2. 綁定網域
+
+![Binding HTTPS in IIS](/images/pasted-223.png)
+
+1. 在左邊選擇要綁定 HTTPS 的站台。  
+2. 選擇站台後，在右邊動作列找到**繫結**。  
+3. 如果要讓 HTTP 及 HTTPS 共存，就選擇新增。  
+4. 類型選擇 HTTPS。  
+5. 輸入網域名稱。  
+6. 選擇 SSL 憑證。  
+7. 完成
+
+## 執行結果
+
+![IIS - 安裝 SSL 憑證](/images/pasted-220.png)
