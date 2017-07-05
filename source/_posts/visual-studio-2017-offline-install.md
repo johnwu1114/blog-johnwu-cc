@@ -4,6 +4,7 @@ tags:
   - Visual Studio
 categories:
   - Visual Studio
+  - VS2017
 date: 2017-05-22 19:27:30
 ---
 ![Visual Studio 2017 - 離線安裝](/images/pasted-129.png)
