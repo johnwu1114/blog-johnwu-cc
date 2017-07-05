@@ -43,7 +43,7 @@ Configuration\Settings.json
 
 ## 2. 載入組態設定
 
-我在 Startup.cs 的 ConfigureServices 載入組態設定，並註冊到 Services 中，讓組態設定之後可以被 DI。
+在 Startup.cs 的 ConfigureServices 載入組態設定，並註冊到 Services 中，讓組態設定之後可以被 DI。
 
 Startup.cs
 ```cs
@@ -122,7 +122,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-使用的 DI 改為要改成注入 `IOptions<T>`，如下：
+使用的 DI 改成注入 `IOptions<T>`，如下：
 ```cs
 public HomeController(IOptions<Settings> settings)
 {
