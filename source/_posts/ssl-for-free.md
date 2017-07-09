@@ -53,7 +53,20 @@ SSL For Free 要確認該網域是你所雍有，才會發憑證給你。
 ![免費 SSL 申請 - File Validation - 2](/images/pasted-214.png)
 1. 點擊圖中的 `Download File #1` 下載驗證檔。  
 2. 把驗證檔放到 Web Server 上的 /.well-known/acme-challenge/ 路徑。  
-> 例：`http://{domain}/.well-known/acme-challenge/{驗證檔}`  
+ * 例：`http://{domain}/.well-known/acme-challenge/{驗證檔}`  
+ * 由於路徑中多了一個 `.` 會導致該連結變成 404 Not Found，可以在 Web.config 加入 mimeMap 避免這個問題：
+ ```xml
+<configuration>
+  <!-- ... -->
+  <system.webServer>
+    <!-- ... -->
+    <staticContent>
+      <!-- ... -->
+      <mimeMap fileExtension="." mimeType="text/plain" />
+    </staticContent>
+  </system.webServer>
+</configuration>
+```
 3. 點擊 `Download SSL Certificate`
 
 ### 2.3. DNS 驗證
