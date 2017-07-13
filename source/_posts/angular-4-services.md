@@ -124,7 +124,56 @@ export class SingletonService  {
 }
 ```
 
-## 程式碼下載
+## 範例程式
+
+範例程式我建立了五個 Service：
+1. ControllerService  
+2. ModuleService  
+3. SharedModuleService  
+4. AppModuleService  
+5. SingletonService  
+
+分別註冊在不同的 Providers，如下：
+```ts
+@Component({
+    providers: [ ControllerService ]
+}) export class SampleComponent { }
+
+@NgModule({
+    imports: [ SharedModule ],
+    providers: [ ModuleService ]
+}) export class FirstModule { }
+
+@NgModule({
+    imports: [ SharedModule ],
+    providers: [ ModuleService ]
+}) export class SecondModule { }
+
+@NgModule({
+    imports: [ SharedModule ],
+    providers: [ ModuleService ]
+}) export class ThirdModule { }
+
+@NgModule({
+    providers: [ SharedModuleService ]
+}) export class SharedModule { }
+
+@NgModule({
+    providers: [
+        AppModuleService,
+        SingletonService
+    ]
+}) export class AppModule { }
+```
+> ThirdModule 是 Lazy Loading 的 Module  
+
+這個範例實際產生的 Service 實體如下：
+![Angular 4 教學 - Service - 範例](/images/pasted-235.png)
+
+> SharedModule 是比較容易被混淆的，被 Import 的 Module 會跟著使用的 Module 一起被實例化。  
+> 所以 First、Second 及 ThirdModule 雖然都是 Import SharedModule，但 SharedModule 確是三個不同的實例。  
+
+### 程式碼下載
 
 [my-angular-services](https://github.com/johnwu1114/my-angular-services)
 
