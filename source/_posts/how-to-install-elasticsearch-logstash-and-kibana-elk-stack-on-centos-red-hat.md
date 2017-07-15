@@ -116,8 +116,13 @@ vi /etc/elasticsearch/elasticsearch.yml
 ```
 找到以下兩個設定值：
 ```bash
-# 0.0.0.0 表示綁定所有 IP
-network.host: 0.0.0.0
+# 綁定特定 IP
+# network.bind_host: 192.168.56.101
+# 綁定多個 IP
+# network.host: ["192.168.56.101", "127.0.0.1"]
+# 綁定所有 IP
+network.bind_host: 0.0.0.0
+
 # 綁定 Port，預設其實就是 9200
 http.port: 9200
 ```
