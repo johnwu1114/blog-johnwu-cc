@@ -1,4 +1,4 @@
-title: Visual Studio - TypeScript 無法存檔問題
+title: Visual Studio 2017 - TypeScript 無法存檔問題
 author: John Wu
 tags:
   - Visual Studio
@@ -6,6 +6,7 @@ tags:
   - Windows
 categories:
   - Visual Studio
+  - VS2017
 date: 2017-04-18 21:37:30
 ---
 ![LockHunter - SearchProtocolHost.exe](/images/pasted-61.png)
@@ -16,7 +17,7 @@ date: 2017-04-18 21:37:30
 
 <!-- more -->
 
-今天跟同事聊天時，發現他是在 Visual Studio 專案中安裝 NuGet 套件後無法即時生效，必須要重啟 Visual Studio 才會套用。聽完敘述後，我猜也是類似的問題，過去看了一下 csproj 檔的索引方式，果然跟我預期的一樣。  
+今天跟同事聊天時，發現他是在 Visual Studio 2017 專案中安裝 NuGet 套件後無法即時生效，必須要重啟 Visual Studio 2017 才會套用。聽完敘述後，我猜也是類似的問題，過去看了一下 csproj 檔的索引方式，果然跟我預期的一樣。  
 
 ## 索引功能
 
