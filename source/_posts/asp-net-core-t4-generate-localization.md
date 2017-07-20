@@ -54,7 +54,7 @@ T4 Template 簡單的說，就是透過程式碼產生程式碼。
 
 Resources\Localizer.tt
 ```cs
-<#@ template  language="C#" hostspecific="true" #>
+<#@ template language="C#" hostspecific="true" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="EnvDTE" #>
 <#@ assembly name="System.Core.dll" #>
@@ -238,7 +238,6 @@ namespace Resources
 ### 2.2 Localizer.cs
 
 Localizer.cs 是透過 Localizer.tt 自動產生出來的檔案，只要 Localizer.tt 有異動，或者是點右鍵**執行自訂工具**，都會觸發自動產生 Localizer.cs。  
-當 `*.resx` 更新時，也可以透過**執行自訂工具**重新產生 Localizer.cs。  
 ![ASP.NET Core 教學 - 多國語言 - 執行自訂工具](/images/pasted-207.png)  
 
 Resources\Localizer.cs 程式碼內容會跟著 `*.resx` 而變動，大致如下：
