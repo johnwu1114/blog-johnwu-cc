@@ -58,3 +58,7 @@ Windows Registry Editor Version 5.00
 滑鼠左鍵雙擊 `VSCodeRightClick.reg` 然後同意註冊，完成後就可以在右鍵選單中看到 VS Code 了。
 
 ![Visual Studio Code - 右鍵開啟檔案或資料夾](/images/pasted-239.png)
+
+## 參考
+
+http://thisdavej.com/right-click-on-windows-folder-and-open-with-visual-studio-code/
