@@ -224,7 +224,6 @@ import * as models from "./models"
 })
 export class AppComponent {
     private api: string = "/api/contact";
-    name = "Angular 4";
     model: models.ContactModel;
     contactId: number;
     message: string;
@@ -333,10 +332,6 @@ export class ContactModel {
 
 wwwroot\app\app.component.html
 ```html
-<h1>Hello {{name}}</h1>
-
-<hr />
-
 <h2>Contact Card</h2>
 <div>
     <label>Find by Id</label>
