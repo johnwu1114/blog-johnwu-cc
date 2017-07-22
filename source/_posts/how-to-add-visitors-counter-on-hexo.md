@@ -37,7 +37,7 @@ $(function () {
     var oriUrl = window.location.host;
     var curUrl = oriUrl + window.location.pathname;
     function readVisits(url, selector) {
-        var db_key = decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
+		var db_key = decodeURI(url.replace(new RegExp('\\/|\\.', 'g'), "_"));
         database.ref(db_key).once("value").then(function (result) {
             var count = parseInt(result.val() || 0) + 1;
             database.ref(db_key).set(count);
@@ -47,8 +47,8 @@ $(function () {
         });
     }
     readVisits(oriUrl, $("#visits .count"));
-    if (curUrl != "_") {
-        readvisits("page/" + curUrl, "#pageviews");
+    if (curUrl && curUrl != "_") {
+        readVisits("page/" + curUrl, $("#pageviews .count"));
     }
 });
 ```
