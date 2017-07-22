@@ -3,6 +3,7 @@ author: John Wu
 tags:
   - Hexo
   - JavaScript
+  - jQuery
   - Firebase
 categories:
   - Hexo
