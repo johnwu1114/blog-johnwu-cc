@@ -2,30 +2,35 @@ title: How To Add Visitors Counter on Hexo
 author: John Wu
 tags:
   - Hexo
-  - JavaScript
   - jQuery
   - Firebase
 categories:
   - Hexo
 date: 2016-11-21 00:36:00
 ---
+![Add Visitors Counter on Hexo](/images/pasted-242.png)
+
 ## Firebase
+
 Register account on Firebase [[here]](https://firebase.google.com/)  
 Create new project [[here]](https://console.firebase.google.com/)
 
 <!-- more -->
 
 ### Get your Firebase configs
-![](/images/pasted-2.png)
-![](/images/pasted-3.png)
+
+![Firebase - Get configs - 1](/images/pasted-2.png)
+![Firebase - Get configs - 2](/images/pasted-3.png)
 
 ### Modify permission
-![](/images/pasted-4.png)
+![Firebase - Modify permission](/images/pasted-4.png)
 
 ## Hexo
+
 ### Create custom.js
+
 File path: themes\\*{your theme}*\\source\\js\src\custom.js
-```javascript
+```js
 $(function () {
     // Initialize Firebase
     var config = {
@@ -54,7 +59,9 @@ $(function () {
     }
 });
 ```
+
 ### Modify layout
+
 Add below html to layout, in themes\\*{your theme}*\\layout\\{where you want to show}.
 ```html
 <span id="visits">Visits: <font class="count">--<font></span>
@@ -62,8 +69,13 @@ Add below html to layout, in themes\\*{your theme}*\\layout\\{where you want to 
 ```
 
 ### Add references
+
 Add below references to layout footer, must after jquery reference.
 ```html
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script src="js/src/custom.js"></script>
 ```
+
+## Demo
+
+![Add Visitors Counter on Hexo](/images/pasted-242.png)
