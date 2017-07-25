@@ -138,7 +138,7 @@ curl "http://192.168.56.101:9200/_cat/nodes"
 > 記得換成你的 IP
 ![curl 打開 Elasticsearch](/images/pasted-97.png)
 
-你也可以試試看用瀏覽器打開 http://192.168.56.101:9200/_cat/nodes，你會發現打沒有回應！！！
+你也可以試試看用瀏覽器打開 [http://192.168.56.101:9200/_cat/nodes](http://192.168.56.101:9200/_cat/nodes)，你會發現打沒有回應！！！
 ![瀏覽器打開 Elasticsearch 沒有回應](/images/pasted-95.png)
 
 ### 2.5 防火牆
@@ -181,7 +181,7 @@ Filebeat 是一個 exe 的執行檔，為了方便常駐啟用，我們把它註
 .\install-service-filebeat.ps1
 ```
 
-如果提示 *檔案未經數位簽屬* 等訊息，請改用以下指令：
+如果提示**檔案未經數位簽屬**等訊息，請改用以下指令：
 ```bash
 powershell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1
 ```
@@ -203,7 +203,7 @@ output.elasticsearch:
   # index 名稱，可以把它想像成資料庫名稱
   index: "my-first-index"
 ```
-> 注意！注意！注意！ 
+> **注意！注意！注意！**  
 > 此 yml 絕對不能出現 `Tab` 也就是 **\t** 這個字元，排版只能用空格。  
 > 只要有 `Tab` 這個字元出現，就會無法啟動。  
 
