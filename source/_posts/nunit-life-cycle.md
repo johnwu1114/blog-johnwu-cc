@@ -117,3 +117,4 @@ namespace Example.NUnit
     }
 }
 ```
+> NUnit 預設會依照測試案例名稱排序執行，所以 FirstTest 會比 SecondTest 先執行。
