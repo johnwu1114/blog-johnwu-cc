@@ -8,7 +8,7 @@ categories:
   - ELK
 date: 2017-07-27 22:19
 ---
-![ELK 教學 - 定期清除 Elasticsearch 資料](/images/elasticsearch.png)
+![ELK 教學 - 定期清除 Elasticsearch 資料](/images/logo-elasticsearch.png)
 
 當開始使用 ELK 蒐集 Log 後，終究有一天 Elasticsearch 會把硬碟空間塞爆。  
 建議定期把 Log 清除，本篇將介紹定期清除 Elasticsearch 過舊的資料。  

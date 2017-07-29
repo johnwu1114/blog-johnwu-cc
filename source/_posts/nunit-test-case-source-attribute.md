@@ -8,7 +8,7 @@ categories:
   - Unit Test
 date: 2017-07-25 13:58:00
 ---
-![NUnit - 測試案例 TestCaseSourceAttribute](/images/nunit.png)
+![NUnit - 測試案例 TestCaseSourceAttribute](/images/logo-nunit.png)
 
 前篇介紹[NUnit - 測試案例 TestCaseAttribute](nunit-test-case-attribute.html)，簡化測試案例程式碼。  
 本篇將延伸介紹 NUnit 透過 TestCaseSourceAttribute 帶入較複雜的參數。  

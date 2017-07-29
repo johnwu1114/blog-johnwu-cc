@@ -7,7 +7,7 @@ categories:
   - ASP.NET Core
 date: 2017-07-11 11:07:00
 ---
-![ASP.NET Core 範例 - 跨專案 DI](/images/asp.net-core.png)
+![ASP.NET Core 範例 - 跨專案 DI](/images/logo-asp-net-core.png)
 
 先前介紹過 ASP.NET Core 的 Dependency Injection，後來有人問我如何再不同專案使用 DI。  
 例如：BLL (Business Logic Layer)、DAL(Data Access Layer) 抽出到其他專案。如何在 BLL 中使用 DAL。  

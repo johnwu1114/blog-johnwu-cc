@@ -10,7 +10,7 @@ categories:
   - AWS
 date: 2017-04-24 00:52:21
 ---
-![AWS](/images/AWS.png)
+![AWS](/images/logo-aws.png)
 
 之前把部落格架在 GitHub 上面，但 GitHub 不支援自訂網域使用 HTTPS，我又不想自己架伺服器搞 SSL，因為申請 SSL 憑證又很貴...  
 後來找到 AWS 可以申請免費 SSL 憑證(只支援 Elastic Beanstalk 跟 CloudFront)，於是我就立馬把部落格從 GitHub 跳槽到 AWS S3 + CloudFront。  

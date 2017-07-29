@@ -8,7 +8,7 @@ categories:
   - Angular
 date: 2017-06-21 10:09:00
 ---
-![angular](/images/angular.png)
+![angular](/images/logo-angular.png)
 
 當 Angular 4 開始拆分模組後，會有一些 Component、Pipe、Directive、Service 需要共用，此時就可以建立一個共用模組，包含這些可被共用的內容。  
 本篇將介紹 Angular 4 的 Lazy Loading 共用模組。
