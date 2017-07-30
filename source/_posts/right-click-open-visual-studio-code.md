@@ -9,7 +9,7 @@ categories:
   - VS Code
 date: 2017-07-20 23:12:30
 ---
-![Visual Studio Code - 右鍵開啟檔案或資料夾](/images/vs-code.png)
+![Visual Studio Code - 右鍵開啟檔案或資料夾](/images/logo-vs-code.png)
 
 有些檔案預設不是用 Visual Studio Code 開啟，但又想用 VS Code 編輯時，要先開啟 VS Code 再拖拉要編輯的檔案至 VS Code 裡面，操作起來步驟有點繁瑣。  
 比較方便的方法是在右鍵選單中加入開啟 VS Code 的選項。  

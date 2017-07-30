@@ -6,9 +6,8 @@
     "version": "3.3.8"
   },
   "dependencies": {
-    "aws-sdk": "^2.74.0",
-    "hexo": "^3.2.2",
-    "hexo-admin": "^2.1.0",
+    "aws-sdk": "^2.92.0",
+    "hexo": "^3.3.8",
     "hexo-all-minifier": "^0.1.0",
     "hexo-autonofollow": "^1.0.1",
     "hexo-baidu-url-submit": "0.0.5",
@@ -26,6 +25,6 @@
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-renderer-webpack": "^0.4.0",
-    "hexo-server": "^0.2.0"
+    "hexo-server": "^0.2.2"
   }
 }
