@@ -3,6 +3,7 @@ author: John Wu
 tags:
   - TFS
   - ASP.NET
+  - CI/CD
 categories:
   - TFS
 date: 2017-06-06 09:41:00

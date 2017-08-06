@@ -3,6 +3,7 @@ author: John Wu
 tags:
   - TFS
   - NuGet
+  - CI/CD
 categories:
   - TFS
 date: 2017-05-24 14:37:00

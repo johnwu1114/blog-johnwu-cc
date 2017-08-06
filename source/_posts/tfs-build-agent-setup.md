@@ -2,6 +2,7 @@ title: TFS - Build Agent 設定
 author: John Wu
 tags:
   - TFS
+  - CI/CD
 categories:
   - TFS
 date: 2017-05-23 10:17:00

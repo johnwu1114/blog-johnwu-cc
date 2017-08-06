@@ -3,8 +3,9 @@ author: John Wu
 tags:
   - MSBuild
   - Config
-categories:
   - CI/CD
+categories:
+  - MSBuild
 date: 2017-06-09 09:54:00
 ---
 ![MSBuild - Result](/images/pasted-186.png)
