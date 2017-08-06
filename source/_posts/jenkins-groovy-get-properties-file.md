@@ -1,4 +1,4 @@
-title: Jenkins 教學 - Groovy 從外部檔案取得變數
+title: Jenkins - Groovy 從外部檔案取得變數
 author: John Wu
 tags:
   - Jenkins

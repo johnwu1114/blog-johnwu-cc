@@ -1,4 +1,4 @@
-title: Jenkins 教學 - Pipeline Job using Groovy
+title: Jenkins - Pipeline Job using Groovy
 author: John Wu
 tags:
   - Jenkins

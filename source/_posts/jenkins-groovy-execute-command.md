@@ -1,4 +1,4 @@
-title: Jenkins 教學 - Groovy 執行系統指令
+title: Jenkins - Groovy 執行系統指令
 author: John Wu
 tags:
   - Jenkins
