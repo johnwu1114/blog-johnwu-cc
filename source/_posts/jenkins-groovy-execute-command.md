@@ -89,28 +89,14 @@ node {
 ```
 > 當使用 `error` 輸出訊息 `Third Stage` 就會顯示失敗狀態。
 
-## 3. 授權執行
 
-執行 Pipeline Job 後失敗，訊息顯示：
-```
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods execute java.lang.String
-```
+## 授權執行
 
-可以到 `Manage Jenkins` 找到 `In-process Script Approval`，授權 Groovy 的使用權限。如下：
-![Jenkins - Groovy 執行系統指令 - Manage Jenkins](/images/pasted-267.png)
-![Jenkins - Groovy 執行系統指令 - In-process Script Approval](/images/pasted-268.png)
-![Jenkins - Groovy 執行系統指令 - Approve](/images/pasted-269.png)
-
-> 授權完之後再執行，又會遇到其他的權限不足，重複以上步驟直到沒有再提示 `RejectedAccessException`。  
-> 此範例會有以下 6 個權限需要被授權：
+執行 Pipeline Job 後，若顯示失敗訊息：
 ```
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods execute java.lang.String
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use new java.io.File java.lang.String
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use new java.lang.StringBuffer
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods execute java.lang.String java.util.List java.io.File
-rg.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use staticMethod org.codehaus.groovy.runtime.ProcessGroovyMethods consumeProcessOutput java.lang.Process java.lang.Appendable java.lang.Appendable
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use method java.lang.Process waitFor
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: *****
 ```
+可以參考解法 [Jenkins - Groovy RejectedAccessException](/article/jenkins-groovy-rejected-access-exception.html)
 
 ## 執行結果
 

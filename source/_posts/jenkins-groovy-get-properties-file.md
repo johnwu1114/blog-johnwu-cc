@@ -39,31 +39,13 @@ echo props.getProperty("P1")
 echo props.getProperty("Custom")
 ```
 
-## 3. 授權執行
+## 授權執行
 
-執行 Pipeline Job 後失敗，訊息顯示：
+執行 Pipeline Job 後，若顯示失敗訊息：
 ```
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use new java.util.Properties
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: *****
 ```
-![Jenkins - Groovy 從外部檔案取得變數 - RejectedAccessException](/images/pasted-271.png)
-
-可以到 `Manage Jenkins` 找到 `In-process Script Approval`，授權 Groovy 的使用權限。如下：
-![Jenkins - Groovy 從外部檔案取得變數 - Manage Jenkins](/images/pasted-267.png)
-![Jenkins - Groovy 從外部檔案取得變數 - In-process Script Approval](/images/pasted-268.png)
-![Jenkins - Groovy 從外部檔案取得變數 - Approve](/images/pasted-269.png)
-
-> 授權完之後再執行，又會遇到其他的權限不足，重複以上步驟直到沒有再提示 `RejectedAccessException`。  
-> 此範例會有以下 5 個權限需要被授權：
-```
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use new java.util.Properties
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use new java.io.File java.lang.String
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods newDataInputStream java.io.File
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use method java.util.Properties load java.io.InputStream
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use method java.util.Properties getProperty java.lang.String
-```
-
-授權完成後的結果如下：
-![Jenkins - Groovy 從外部檔案取得變數 - Approved](/images/pasted-270.png)
+可以參考解法 [Jenkins - Groovy RejectedAccessException](/article/jenkins-groovy-rejected-access-exception.html)
 
 ## 執行結果
 
