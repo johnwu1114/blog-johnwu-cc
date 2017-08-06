@@ -1,4 +1,4 @@
-title: Jenkins - Groovy 從外部檔案取得變數
+title: Jenkins 教學 - Groovy 從外部檔案取得變數
 author: John Wu
 tags:
   - Jenkins
@@ -18,7 +18,7 @@ date: 2017-08-03 23:31:00
 ## 1. 建立變數檔案
 
 在 Jenkins 的目錄下建立一個存放變數的檔案。如下：  
-C:\Program Files (x86)\Jenkins\properties\sample.props
+C:\Program Files (x86)\Jenkins\properties\sample.properties
 ```
 HW=Hello World!
 P1=This is P1 value
@@ -28,15 +28,23 @@ Custom=Whatever you want
 ## 2. Groovy Script
 
 ```groovy
-def propdPath = env.JENKINS_HOME+"\\properties\\sample.props"
-Properties props = new Properties()
-File propsFile = new File(propdPath)
+def propsPath = env.JENKINS_HOME+"\\properties\\sample.properties"
+def props = new Properties()
+def propsFile = new File(propsPath)
+// 在 new File() 中，也可使用 ${環境變數} 。如下：
+// def propsFile = new File("${JENKINS_HOME}\\properties\\sample.properties")
+
 props.load(propsFile.newDataInputStream())
 
-echo "Get properties from file " + propdPath
+echo "Get properties from file " + propsPath
 echo props.getProperty("HW")
 echo props.getProperty("P1")
 echo props.getProperty("Custom")
+
+// 可以用 each 取得全部的 key, value
+//props.each { key, value ->
+//   echo "key: "+key +", value: "+value
+//}
 ```
 
 ## 授權執行
