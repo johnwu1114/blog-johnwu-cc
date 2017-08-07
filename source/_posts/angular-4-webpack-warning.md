@@ -53,4 +53,4 @@ tsconfig.json                       # TypeScript 設定檔
 webpack.config.js                   # Webpack 設定檔
 ```
 
-設定完成後，再次執行 `webpack -p` 就不會發生警告了。
+設定完成後，再次執行 `webpack` 就不會發生警告了。
