@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core 教學 - 移除 Response Header 資訊
 author: John Wu
 tags:

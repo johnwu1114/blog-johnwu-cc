@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core + Angular 4 教學 - T4 Template 產生 JavaScript 多國語言
 author: John Wu
 tags:

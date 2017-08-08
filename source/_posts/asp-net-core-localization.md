@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core 教學 - 多國語言
 author: John Wu
 tags:

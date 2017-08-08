@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core 範例 - 跨專案 DI
 author: John Wu
 tags:

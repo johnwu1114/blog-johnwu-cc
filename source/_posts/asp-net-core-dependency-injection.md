@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core 教學 - Dependency Injection
 author: John Wu
 tags:

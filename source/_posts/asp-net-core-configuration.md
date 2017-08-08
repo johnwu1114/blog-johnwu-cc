@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core 教學 - 自訂組態設定檔
 author: John Wu
 tags:

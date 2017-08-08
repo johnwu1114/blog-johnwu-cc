@@ -1,3 +1,4 @@
+---
 title: Visual Studio Code - 右鍵開啟檔案或資料夾
 author: John Wu
 tags:

@@ -1,3 +1,4 @@
+---
 title: Angular 4 教學 - Data Binding
 author: John Wu
 tags:

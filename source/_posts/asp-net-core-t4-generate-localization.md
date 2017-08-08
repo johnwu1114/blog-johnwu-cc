@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core 教學 - T4 Template 產生強行別多國語言
 author: John Wu
 tags:

@@ -1,3 +1,4 @@
+---
 title: ASP.NET Core 教學 - Application Lifetime
 author: John Wu
 tags:
