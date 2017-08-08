@@ -180,3 +180,8 @@ form.gsc-search-box{
 ![Hexo - 自訂搜尋 (Google Custom Search) - 執行結果](/images/x284.png)
 
 實例連結：[Search](/search/)
+
+## 備註
+
+要使用 Google Custom Search 服務，網站一定要先被 Google 建立索引，沒有被建立索引的頁面都搜尋不到。  
+可以使用 [Google 網站管理員](https://www.google.com/webmasters/) 建立索引。  
