@@ -12,6 +12,8 @@ Disallow: /fonts/
 Disallow: /images/
 Disallow: /js/
 Disallow: /lib/
+Disallow: /about/
+Disallow: /search/
 
 Sitemap: https://blog.johnwu.cc/sitemap.xml
 Sitemap: https://blog.johnwu.cc/baidusitemap.xml
