@@ -31,11 +31,31 @@ npm install --save angular2-ie9-shims
 
 ## 2. 載入套件
 
-由於只要在 IE9 以下版本載入此套件，所以可以透過 HTML 的 Conditional Comments 載入：
+把 `angular2-ie9-shims` 插入在載入之前，由於只要在 IE9 以下版本載入此套件，所以可以透過 HTML 的 Conditional Comments 載入：
 ```html
-<!--[if lte IE 9]>
-  <script src="/node_modules/angular2-ie9-shims/shims_for_IE.prod.js"></script>
-<![endif]-->
+<html>
+  <head>
+    <title>MyAngular4</title>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--[if lte IE 9]>
+      <script src="/node_modules/angular2-ie9-shims/shims_for_IE.prod.js"></script>
+    <![endif]-->
+
+    <script src="/node_modules/core-js/client/shim.min.js"></script>
+    <script src="/node_modules/zone.js/dist/zone.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="/systemjs.config.js"></script>
+    <script>
+        System.import("/app/main.js").catch(function (err) { console.error(err); });
+    </script>
+  </head>
+  <body>
+    <!-- body content ... -->
+  </body>
+</html>
 ```
 
 載入後再次執行就可以在 IE9 運行 Angular 了。

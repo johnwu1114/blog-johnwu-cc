@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core + Angular 4 教學 - Webpack打包
+title: ASP.NET Core + Angular 4 教學 - Webpack 打包
 author: John Wu
 tags:
   - ASP.NET Core
