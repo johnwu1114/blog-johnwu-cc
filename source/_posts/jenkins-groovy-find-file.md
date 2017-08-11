@@ -12,7 +12,7 @@ date: 2017-08-05 13:50:00
 
 ![Jenkins - Groovy 搜尋檔案 - 執行結果](/images/pasted-277.png)
 
-本篇將介紹 Jenkins 的 Pipeline Job 透過 Groovy 讀取搜尋檔案。  
+本篇將介紹 Jenkins 的 Pipeline Job 透過 Groovy 搜尋檔案。  
 
 <!-- more -->
 
