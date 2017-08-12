@@ -5,7 +5,6 @@ tags:
   - Jenkins
   - Groovy
   - Pipeline Job
-  - 
 categories:
   - Jenkins
 date: 2017-08-12 00:03:00
@@ -30,7 +29,7 @@ Jenkins 架在不同的作業系統，要使用不一樣的指令，以下提供
 ### Windows 版本
 
 ```groovy
-def searchFiles(path, pattern, func) {
+def recursiveSearch(path, pattern, func) {
     def sout = new StringBuffer()
     def serr = new StringBuffer()
     def proc = "cmd /c dir /b/s ${pattern}".execute(null, new File(path))
@@ -44,7 +43,7 @@ def searchFiles(path, pattern, func) {
 ### Linux 版本
 
 ```groovy
-def searchFiles(path, pattern, func) {
+def recursiveSearch(path, pattern, func) {
     def sout = new StringBuffer()
     def serr = new StringBuffer()
     def proc = "find `pwd` -name \"${pattern}\"".execute(null, new File(path))
@@ -58,7 +57,7 @@ def searchFiles(path, pattern, func) {
 ### 呼叫方法
 
 ```groovy
-searchFiles(env.JENKINS_HOME, "conf*.xml") { fileName ->
+recursiveSearch(env.JENKINS_HOME, "conf*.xml") { fileName ->
     echo "fileName = ${fileName}"
 }
 ```
