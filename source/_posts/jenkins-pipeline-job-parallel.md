@@ -58,7 +58,7 @@ parallel (
 
 ## 動態增加工作
 
-可以自行建立 `HashMap` 最後再把 `HashMap` 傳入 `parallel`：
+可以自行建立 `HashMap`，再把 `HashMap` 傳入 `parallel` 方法。範例如下：
 ```groovy
 def tasks = [:]
 
@@ -73,7 +73,7 @@ for (int i = 0; i < 5; i++) {
 parallel(tasks)
 ```
 
-實際執行上面範例，會發現根本不如你預期所想，`echo` 內容預期應該是：
+實際執行上面範例，會發現不如預期所想，`echo` 內容預期應該要是：
 ```
 Task 1
 Task 2
@@ -82,7 +82,7 @@ Task 4
 Task 5
 ```
 
-實際上 `echo` 內容是：
+實際上 `echo` 內容卻是：
 ```
 Task 6
 Task 6
@@ -91,7 +91,7 @@ Task 6
 Task 6
 ```
 
-主要是因為 `Delegate Method` 使用的外部變數，在實際執行 `parallel` 時，早就跑完迴圈被改成 6 了。  
+主要是因為 `Delegate Method` 使用的外部變數，在執行 `parallel` 時，早就跑完迴圈被改成 6 了。  
 如果真的想要在 `Delegate Method` 取得外部變數，建議另外用區域變數儲存，避免外部變數在執行前被改變。如下：
 ```groovy
 def tasks = [:]
@@ -135,4 +135,5 @@ stage ("Commit Artifacts") { }
 
 ## 執行結果
 
+如果有安裝 `Blue Ocean` 的話，就可以看到漂亮的圖形化平行處理執行結果：
 ![Jenkins - Pipeline Job 平行處理 - 執行結果](/images/x300.png)
