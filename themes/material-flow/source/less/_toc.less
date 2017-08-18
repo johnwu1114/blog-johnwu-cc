@@ -1,23 +1,21 @@
 .toc-wrapper{
   position:fixed;
   top: @header-height + @gap * 2;
-  right: 50%;
-  margin-right: -@container-width/2;
+  right: 20px;
+  //right: 50%;
+  //margin-right: -@container-width/2;
   transition: all .24s ease-out;
   // prevent toc is too heigh.
   overflow: auto;
   max-height: ~"calc(100% - @{header-height} - 2 * @{gap})";
-  @media(max-width: @container-width){
+
+  @media(max-width: @wide-container-width){
     right: 0;
     margin-right:0;
   }
 
   @media(max-width: @on-phone){
-    right: 3px - @side-width;
-    margin-right:0;
-    &.active{
-      transform: translateX(-@side-width);
-    }
+    display: none;
   }
 
   width: @side-width;
