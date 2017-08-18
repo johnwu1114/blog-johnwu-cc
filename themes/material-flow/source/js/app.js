@@ -12,10 +12,32 @@ var customSearch;
 
 	function setHeader() {
 		if (!window.subData) return;
+		const $tocWrapper = $('.toc-wrapper');
 		const $wrapper = $('header .wrapper');
 		const $comment = $('.s-comment', $wrapper);
 		const $toc = $('.s-toc', $wrapper);
-		const $top = $('.s-top',$wrapper);
+		const $top = $('.s-top', $wrapper);
+
+		var resetTocWrapperPosition = function(){
+			if ($tocWrapper.css("margin-top") < "50px") {
+				$tocWrapper.css("top", "");
+			} else {
+				var scrollTop = $(window).scrollTop();
+				var top = parseInt($tocWrapper.css("top"));
+				if (top > 0 || scrollTop <= 340) {
+					$tocWrapper.css("top", Math.max(0, (340 - scrollTop)));
+				}
+			}
+		}
+
+		resetTocWrapperPosition();
+		$(window).resize(function() {
+			var count = 0;
+			var interval = setInterval(function(){
+				resetTocWrapperPosition();
+				if(++count==3) clearInterval(interval);
+			} , 200);
+		});			
 
 		$wrapper.find('.nav-sub .logo').text(window.subData.title);
 		let pos = document.body.scrollTop;
@@ -28,7 +50,8 @@ var customSearch;
 			} else if (del <= -20) {
 				pos = scrollTop;
 				$wrapper.removeClass('sub');
-			}
+			}			
+			resetTocWrapperPosition();
 		});
 		// bind events to every btn
 		const $commentTarget = $('#comments');
@@ -41,7 +64,7 @@ var customSearch;
 			$toc.click((e) => { e.stopPropagation(); $tocTarget.toggleClass('active'); });
 		} else $toc.remove();
 
-		$top.click(()=>scrolltoElement(document.body));
+		$top.click(() => scrolltoElement(document.body));
 
 	}
 	function setHeaderMenu() {

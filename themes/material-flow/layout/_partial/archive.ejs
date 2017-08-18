@@ -4,7 +4,7 @@
   </script>
 <% } else if (is_archive()) { %>
   <script>
-    window.subData= { title:'Year : <%= page.year %><%= page.month ? '.' + page.month : '' %>'}
+    window.subData= { title:'Year : <%= page.year %><%= page.month ? "." + page.month : "" %>'}
   </script>
 <% } else if (is_category()) { %>
   <script>
