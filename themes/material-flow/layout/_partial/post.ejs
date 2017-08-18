@@ -8,9 +8,11 @@
     </h2>
     <% } %>
     <time>
-      <%= date(post.date, 'MMM D, YYYY') %>
+      <%= date(post.date, 'YYYY-MM-DD') %>
+      <i class="fa fa-eye"></i>
+      <span class="pageviews" data-path="<%= url_for(post.path) %>"> <font class="count">--<font></span>
     </time>
-		<%- partial('categories',{post:post}) %>
+    <%- partial('categories',{post:post}) %>
   </section>
   <section class="article typo">
 	  <%- post.excerpt || post.content %>
