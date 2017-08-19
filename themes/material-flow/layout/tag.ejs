@@ -1,1 +1,31 @@
-<%- partial('_partial/archive') %>
+<%
+var title = "Tag : " + page.tag;
+%>
+<script>
+    window.subData = { title: "<%= title %>" };
+</script>
+<article id="archive-page" class="post white-box">
+    <section class="meta">
+        <h2 class="title">
+            <a href="javascript:void(0);">
+                <%= title %>
+            </a>
+        </h2>
+    </section>
+    <section class="archive">
+        <%
+        page.posts.sort("date", -1).each(function(post) {
+        %>
+        <div class="archive-item archive-post mark">
+            <a href="<%= url_for(post.path) %>">
+                <time>
+                    <%= date(post.date, config.date_format) %>
+                </time>
+                <span class="title"><%= post.title %></span>
+            </a>
+        </div>
+        <% }); %>
+    </section>
+</article>
+
+<%- partial("_partial/pagination") %>

@@ -1,1 +1,10 @@
-<%- partial('_partial/archive') %>
+
+<section class="post-list">
+<% page.posts.each(function(post){ %>
+    <div class="post-wrapper">
+    <%- partial("_partial/post", {post: post}) %>
+    </div>
+<% }) %>
+</section>
+
+<%- partial("_partial/pagination") %>
