@@ -1,5 +1,14 @@
 <%
     var title = "Archives";
+    var posts = site.posts.filter(function(post){
+        var pass = true;
+        if(page.year && page.year != date(post.date, "YYYY")){
+            pass = false;
+        } else if(page.month && page.month != date(post.date, "MM")){
+            pass = false;
+        }
+        return pass;
+    }).sort("date", -1);
 %>
 <article class="archive-page post white-box">
     <section class="meta">
@@ -8,28 +17,38 @@
             <%= title %>
         </h2>
         <div class="count">
-            <%= site.posts.length %> posts in total
+            <%= posts.length %> posts in total
         </div>
     </section>
     <section class="archive">
         <%
-        var year = -1, postid = -1;
-        site.posts.sort("date", -1).each(function(post) {
+        var year = -1, month = -1, postid = -1;
+        posts.each(function(post) {
             post.year = date(post.date, "YYYY");
+            post.month = date(post.date, "MM");
             if (post.year && post.year !== year) {
-            year = post.year;
+                year = post.year;
         %>
             <div class="archive-item archive-year mark">
-                <a id="archive-year-<%= year %>" href="<%= url_for('/archives/' + year + '/') %>" >
+                <a href="<%= url_for('/archives/' + year + '/') %>" >
                 <%= year %>
+                </a>
+            </div>
+        <% } 
+            if (post.month && post.month !== month) { 
+                month = post.month;
+        %>
+            <div class="archive-item archive-month mark">
+                <a href="<%= url_for('/archives/' + year + '/' + month + '/') %>" >
+                <%= year + '-' + month %>
                 </a>
             </div>
         <% } %>
             <div class="archive-item archive-post mark">
-            <a href="<%= url_for(post.path) %>">
-                <time><%= date(post.date, "MM-DD") %></time>
-                <span class="title"><span><%= post.title %></span></span>
-            </a>
+                <a href="<%= url_for(post.path) %>">
+                    <time><%= date(post.date, "MM-DD") %></time>
+                    <span class="title"><span><%= post.title %></span></span>
+                </a>
             </div>
         <% }); %>
     </section>
