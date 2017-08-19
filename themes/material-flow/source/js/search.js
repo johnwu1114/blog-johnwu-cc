@@ -31,11 +31,8 @@ var SearchService = "";
         btn_prev: "#u-search .btn-prev"
       },
       brands: {
-        'google': {logo: 'google.svg', url: 'https://cse.google.com'},
-        'algolia': {logo: 'algolia.svg', url: 'https://www.algolia.com'},
+        'google': {logo: '', url: 'https://cse.google.com'},
         'hexo': {logo: '', url: ''},
-        'azure': {logo: 'azure.svg', url: 'https://azure.microsoft.com/en-us/services/search/'},
-        'baidu': {logo: 'baidu.svg', url: 'http://zn.baidu.com/cse/home/index'}
       },
       imagePath: ROOT + "img/"
     }, options);

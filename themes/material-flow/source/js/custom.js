@@ -33,8 +33,10 @@
     $(".pageviews").each(function () {
         var postUrl = $(this).data("path");
         var isReadOnly = (window.location.pathname === "/")
+        || window.location.pathname.startsWith("/page/")
         || window.location.pathname.startsWith("/tags/")
-        || window.location.pathname.startsWith("/categories/");
+        || window.location.pathname.startsWith("/categories/")
+        || window.location.pathname.startsWith("/archives/");
         readVisits($(this).find(".count"), postUrl, isReadOnly);
     });
 });
