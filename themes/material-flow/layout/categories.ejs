@@ -1,0 +1,42 @@
+<%
+    var title = "Categories";
+    var cates = {};
+    var total = 0;
+    site.categories.sort("name").each(function(item){ 
+        if(cates[item.name]==null) {
+            //var route = item.path.replace(/\/$/g, '').split("/");
+            cates[item.name] = {
+                title: item.name,
+                //path: route[0] + "/" + route[route.length - 1] + "/",
+                path: item.path,
+                count: 0
+            };
+            total++;
+        }
+        cates[item.name].count += item.posts.length;
+    });
+%>
+<article class="post white-box archive-page">
+    <section class="meta">
+        <h2 class="title">
+            <span class="fa fa-list"></span>
+            <%= title %>
+        </h2>
+        <div class="count">
+            <%= total %> categories in total
+        </div>
+    </section>
+    <section class="archive">
+        <% if (site.categories.length) { 
+            for(var key in cates) {
+                var cate = cates[key];
+        %> 
+            <div class="archive-item archive-post mark">
+                <a href="<%= url_for(cate.path) %>">
+                    <span class="title"><span><%= cate.title %></span></span>
+                </a>
+                <span class="count">(<%= cate.count %>)</div>
+            </div>
+        <% } } %>
+    </section>
+</article>

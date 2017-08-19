@@ -1,3 +1,9 @@
+<script>
+	window.subData = {
+		title: '<%= post.title %>',
+		tools: true
+	};
+</script>
 <article id="<%= post.layout %>-<%= post.slug %>"
   class="post white-box article-type-<%= post.layout %>"
   itemscope itemprop="blogPost">
@@ -56,9 +62,3 @@
 		</section>
 	<% } %>
 </article>
-<script>
-	window.subData = {
-		title: '<%= post.title %>',
-		tools: true
-	}
-</script>

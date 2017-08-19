@@ -1,26 +1,29 @@
 <%
-var title = "Category : " + page.category;
+    var title = "Category : " + page.category;
+    var posts = [];
+    var total = 0;
+    site.posts.sort("date", -1).each(function(post) {            
+        var display = false;
+        post.categories.forEach(function(cate) {
+            display = display || cate.name == page.category;
+        });
+        if(!display) return;
+        posts.push(post);
+        total++;
+    });
 %>
-<script>
-    window.subData = { title: "<%= title %>" };
-</script>
-<article id="archive-page" class="post white-box">
+<article class="post white-box archive-page">
     <section class="meta">
         <h2 class="title">
-            <a href="javascript:void(0);">
-                <%= title %>
-            </a>
+            <span class="fa fa-list"></span>
+            <%= title %>
         </h2>
+        <div class="count">
+            <%= total %> posts in <%= page.category %>
+        </div>
     </section>
     <section class="archive">
-        <%
-        site.posts.sort("date", -1).each(function(post) {            
-            var display = false;
-            post.categories.forEach(function(cate) {
-                display = display || cate.name == page.category;
-            });
-            if(!display) return;
-        %>
+        <% posts.forEach(function(post) { %>
         <div class="archive-item archive-post mark">
             <a href="<%= url_for(post.path) %>">
                 <time>

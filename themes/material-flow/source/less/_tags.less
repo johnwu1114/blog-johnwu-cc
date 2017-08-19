@@ -1,0 +1,15 @@
+.tags {    
+    .tagcloud {
+        text-align: center;
+        a {
+            display:inline-block;
+            .enable-trans(.1s);
+            line-height: 1.6em;
+            margin: 10px;
+            &:hover {
+                color: @accent-color !important; //to cover inline style.
+                text-decoration: underline
+            }
+        }
+    }
+}

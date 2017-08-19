@@ -1,31 +1,53 @@
-#archive-page {
-    margin-bottom: @gap * 2;
-    .archive {
-        position: relative;
-        .archive-year {
-            font-size: 16px;
-            margin: 10px 0px;
-            a {
-                color: @black;
-            }
-        }
-        .archive-post {
-            a {
-                display: inline-flex;
-                flex-flow: row nowrap;
-                justify-content: flex-start;
-                align-items: flex-start;
-            }
-            time {
-                color: @black;
-                flex: none;
-                font-size: 12px;
-                padding-right: 10px;
+.l_main {
+    .archive-page {
+        .meta {
+            margin-bottom: @gap;
+            .fa {
+                font-size: @article-title-size-sm;
             }
             .title {
-                flex: auto;
-                font-size: 14px;
-                color: @accent-color;
+                display: inline;
+                line-height: 1.25;
+                font-weight: normal;
+                color: lighten(@black, 2%);
+            }
+            .count {
+                margin-left: 32px;
+                color: fade(@black,60%);
+            }
+        }
+        .archive {
+            position: relative;
+            .archive-year {
+                font-size: @article-title-size-sm;
+                margin: 10px 0px;
+                a {
+                    color: @black;
+                }
+            }
+            .archive-post {
+                margin: 5px 0px;
+                a {
+                    display: inline-flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                }
+                time {
+                    color: @black;
+                    flex: none;
+                    font-size: @small-font-size;
+                    padding-right: 10px;
+                }
+                .title {
+                    flex: auto;
+                    font-size: @base-font-size;
+                    color: @accent-color;
+                }
+                .count {
+                    font-size: @small-font-size;
+                    color: fade(@black,60%);
+                }
             }
         }
     }

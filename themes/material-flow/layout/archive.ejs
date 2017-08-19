@@ -1,12 +1,15 @@
 <%
     var title = "Archives";
 %>
-<script>
-    window.subData= { title: "<%= title %>" }
-</script>
-<article id="archive-page" class="post white-box">
+<article class="archive-page post white-box">
     <section class="meta">
-        <h2 class="title"><a href="javascript:void(0);"><%= title %></a></h2>
+        <h2 class="title">
+            <span class="fa fa-archive"></span>
+            <%= title %>
+        </h2>
+        <div class="count">
+            <%= site.posts.length %> posts in total
+        </div>
     </section>
     <section class="archive">
         <%
