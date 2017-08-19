@@ -18,7 +18,7 @@ var customSearch;
 		const $toc = $('.s-toc', $wrapper);
 		const $top = $('.s-top', $wrapper);
 
-		var resetTocWrapperPosition = function(){
+		var resetTocWrapperPosition = function () {
 			if ($tocWrapper.css("margin-top") < "50px") {
 				$tocWrapper.css("top", "");
 			} else {
@@ -31,17 +31,17 @@ var customSearch;
 		}
 
 		resetTocWrapperPosition();
-		$(window).resize(function() {
+		$(window).resize(function () {
 			var count = 0;
-			var interval = setInterval(function(){
+			var interval = setInterval(function () {
 				resetTocWrapperPosition();
-				if(++count==3) clearInterval(interval);
-			} , 200);
-		});			
+				if (++count == 3) clearInterval(interval);
+			}, 200);
+		});
 
 		$wrapper.find('.nav-sub .logo').text(window.subData.title);
 		let pos = document.body.scrollTop;
-		$(document, window).scroll(function(){
+		$(document, window).scroll(function () {
 			const scrollTop = $(window).scrollTop();
 			const del = scrollTop - pos;
 			if (del >= 20) {
@@ -50,21 +50,21 @@ var customSearch;
 			} else if (del <= -20) {
 				pos = scrollTop;
 				$wrapper.removeClass('sub');
-			}			
+			}
 			resetTocWrapperPosition();
 		});
 		// bind events to every btn
 		const $commentTarget = $('#comments');
 		if ($commentTarget.length) {
-			$comment.click(e => { e.preventDefault(); e.stopPropagation(); scrolltoElement($commentTarget); });
+			$comment.click(function (e) { e.preventDefault(); e.stopPropagation(); scrolltoElement($commentTarget); });
 		} else $comment.remove();
 
 		const $tocTarget = $('.toc-wrapper');
 		if ($tocTarget.length && $tocTarget.children().length) {
-			$toc.click((e) => { e.stopPropagation(); $tocTarget.toggleClass('active'); });
+			$toc.click(function (e) { e.stopPropagation(); $tocTarget.toggleClass('active'); });
 		} else $toc.remove();
 
-		$top.click(() => scrolltoElement(document.body));
+		$top.click(function () { scrolltoElement(document.body) });
 
 	}
 	function setHeaderMenu() {
@@ -155,10 +155,10 @@ var customSearch;
 	function setTocToggle() {
 		const $toc = $('.toc-wrapper');
 		if ($toc.length === 0) return;
-		$toc.click((e) => { e.stopPropagation(); $toc.addClass('active'); });
-		$(document).click(() => $toc.removeClass('active'));
+		$toc.click(function (e) { e.stopPropagation(); $toc.addClass('active'); });
+		$(document).click(function () { $toc.removeClass('active') });
 
-		$toc.on('click', 'a', (e) => {
+		$toc.on('click', 'a', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
 			scrolltoElement(e.target.tagName.toLowerCase === 'a' ? e.target : e.target.parentElement);
@@ -166,10 +166,12 @@ var customSearch;
 
 		const liElements = Array.from($toc.find('li a'));
 		//function animate above will convert float to int.
-		const getAnchor = () => liElements.map(elem => Math.floor($(elem.getAttribute('href')).offset().top - scrollCorrection));
+		const getAnchor = function () {
+			liElements.map(function (elem) { Math.floor($(elem.getAttribute('href')).offset().top - scrollCorrection) });
+		};
 
 		let anchor = getAnchor();
-		const scrollListener = () => {
+		const scrollListener = function () {
 			const scrollTop = $('html').scrollTop() || $('body').scrollTop();
 			if (!anchor) return;
 			//binary search.
@@ -183,11 +185,11 @@ var customSearch;
 			$(liElements).removeClass('active').eq(l).addClass('active');
 		}
 		$(window)
-			.resize(() => {
+			.resize(function () {
 				anchor = getAnchor();
 				scrollListener();
 			})
-			.scroll(() => {
+			.scroll(function () {
 				scrollListener()
 			});
 		scrollListener();

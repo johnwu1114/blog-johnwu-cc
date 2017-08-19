@@ -1,12 +1,17 @@
-User-agent: *
+Sitemap: https://blog.johnwu.cc/sitemap.xml
+Sitemap: https://blog.johnwu.cc/baidusitemap.xml
 
+User-Agent: Googlebot
+Allow: *.js
+Allow: *.css
+
+User-agent: *
 Allow: /
 Allow: /archives/
 Allow: /article/
 Allow: /categories/
 Allow: /tags/
 Allow: /page/
-
 Disallow: /css/
 Disallow: /fonts/
 Disallow: /images/
@@ -14,6 +19,3 @@ Disallow: /js/
 Disallow: /lib/
 Disallow: /about/
 Disallow: /search/
-
-Sitemap: https://blog.johnwu.cc/sitemap.xml
-Sitemap: https://blog.johnwu.cc/baidusitemap.xml

@@ -13,7 +13,7 @@
   <% } else if (page.tags && page.tags.length) { %>
     <meta name="keywords" content="<%= page.tags.map(function(tag){ return tag.name;}).join(",") %>" />
   <% } else if (config.keywords) { %>
-    <meta name="keywords" content="<%= (config.keywords||[]).join(",") %>" />
+    <meta name="keywords" content="<%= config.keywords %>" />
   <% } %>
   <% if (theme.facebook_sdk.enable && theme.facebook_sdk.webmaster) { %>
     <meta property="fb:admins" content="<%= theme.facebook_sdk.fb_admin %>" />
