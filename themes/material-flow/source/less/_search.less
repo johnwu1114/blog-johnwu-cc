@@ -5,20 +5,23 @@
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 60px 20px;
+  padding: 2 * @gap + @header-height @side-width + @gap 0 0;
   z-index: 999999;
   
   @media (max-width: @modal-threshold) {
 		padding: 0px;
 	}
+  @media (max-width: @on-phone) {
+		padding: 0px;
+	}
   .modal {
-    position: fixed;
-    height: 80%;
+    position: relative;
+    height: 100%;
     width: 100%;
-    max-width: 640px;
-    left: 50%;
+    max-width: @container-width - @side-width - @gap;
+    left: 0;
     top: 0;
-    margin: 64px 0px 0px -320px;
+    margin: 0 auto;
     background: #fff;
     box-shadow: 0 7px 8px -4px rgba(0,0,0,.2),0 13px 19px 2px rgba(0,0,0,.14),0 5px 24px 4px rgba(0,0,0,.12);
     z-index: 3;
@@ -282,7 +285,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.3);
     z-index: 1;
   }
 }

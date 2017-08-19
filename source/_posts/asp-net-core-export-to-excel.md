@@ -105,7 +105,7 @@ sheetData.AppendChild(row);
 
 把 Open XML SDK 輸出的結果以 `FileStreamResult` 回傳，當用戶開啟這個連結，就會把處理完的檔案變成可下載的串流。  
 
-ExcelController
+ExcelController.cs
 ```cs
 using System.IO;
 using DocumentFormat.OpenXml;

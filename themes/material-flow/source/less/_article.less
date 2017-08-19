@@ -248,46 +248,46 @@
 }
 
 .highlight {
-  width: 100%;
-  margin: 20px 0px;
-  overflow: auto;
-  display: block;
-  background: #2d2d2d;
-  color: #cccccc;
-  font-size: .9rem;
-  font-family:@code-font-family;
-  line-height: 1.5;
-  border: 1px solid #ccc;
-  padding: 10px;
-  .gutter{
-    color: #999999;
-    padding-right: 20px;
-    text-align: right;
-  }
-  .code{
-      vertical-align: top;
-  }
-  &::-webkit-scrollbar { 
-    height: 6px;
-    width: 6px;
-  }
-  // /* Track */
+    width: 100%;
+    margin: 20px 0px;
+    overflow: auto;
+    display: block;
+    background: #2d2d2d;
+    color: #cccccc;
+    font-size: .8rem;
+    font-family:@code-font-family;
+    line-height: 1rem;
+    border: 1px solid #ccc;
+    padding: 10px;
+    .line {
+        height: 1rem;
+    }
+    .gutter{
+        color: #999999;
+        padding-right: 20px;
+        text-align: right;
+    }
+    .code{
+        vertical-align: top;
+    }
+    &::-webkit-scrollbar { 
+        height: 6px;
+        width: 6px;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track-piece {
+    background: transparent;
+    }
 
-&::-webkit-scrollbar-track-piece {
-background: transparent;
-}
-
-
-/* Handle */
-
-&::-webkit-scrollbar-thumb {
-background: #ccc;
-cursor: pointer;
-transition: all .2s ease-out;
-&:hover {
-background: darken(#ccc, 10%);
-}
-}
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        cursor: pointer;
+        transition: all .2s ease-out;
+        &:hover {
+        background: darken(#ccc, 10%);
+        }
+    }
 }
 
 .art-item-footer{
