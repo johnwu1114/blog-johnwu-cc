@@ -41,7 +41,7 @@ var customSearch;
 
 		$wrapper.find('.nav-sub .logo').text(window.subData.title);
 		let pos = document.body.scrollTop;
-		$(document, window).scroll(() => {
+		$(document, window).scroll(function(){
 			const scrollTop = $(window).scrollTop();
 			const del = scrollTop - pos;
 			if (del >= 20) {
