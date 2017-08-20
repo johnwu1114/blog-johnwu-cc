@@ -130,7 +130,7 @@ var SearchService = "";
       html += "<a class='result' href='" + url + "'>";
       html += "<span class='title'>" + title + "</span>";
       html += "<span class='digest'>" + digest + "</span>";
-      html += "<span class='icon icon-chevron-thin-right'></span>";
+      html += "<span class='fa fa-angle-right'></span>";
       html += "</a>";
       html += "</li>";
       return html;
@@ -229,7 +229,7 @@ var SearchService = "";
     self.init();
   };
 
-  var template = '<div id="u-search"><div class="modal"> <header class="modal-header" class="clearfix"><form id="u-search-modal-form" class="u-search-form" name="uSearchModalForm"> <input type="text" id="u-search-modal-input" class="u-search-input" /> <button type="submit" id="u-search-modal-btn-submit" class="u-search-btn-submit"> <span class="icon icon-search"></span> </button></form> <a class="btn-close"> <span class="icon icon-close"></span> </a><div class="modal-loading"><div class="modal-loading-bar"></div></div> </header> <main class="modal-body"><ul class="modal-results modal-ajax-content"></ul> </main> <footer class="modal-footer clearfix"><div class="modal-metadata modal-ajax-content"> <strong class="range"></strong> of <strong class="total"></strong></div><div class="modal-error"></div> <div class="logo"></div> <a class="nav btn-next modal-ajax-content"> <span class="text">NEXT</span> <span class="icon icon-chevron-right"></span> </a> <a class="nav btn-prev modal-ajax-content"> <span class="icon icon-chevron-left"></span> <span class="text">PREV</span> </a> </footer></div><div class="modal-overlay"></div></div>';
+  var template = '<div id="u-search"><div class="modal"> <header class="modal-header" class="clearfix"><form id="u-search-modal-form" class="u-search-form" name="uSearchModalForm"> <input type="text" id="u-search-modal-input" class="u-search-input" /> <button type="submit" id="u-search-modal-btn-submit" class="u-search-btn-submit"> <span class="fa fa-search"></span> </button></form> <a class="btn-close"> <span class="fa fa-times"></span> </a><div class="modal-loading"><div class="modal-loading-bar"></div></div> </header> <main class="modal-body"><ul class="modal-results modal-ajax-content"></ul> </main> <footer class="modal-footer clearfix"><div class="modal-metadata modal-ajax-content"> <strong class="range"></strong> of <strong class="total"></strong></div><div class="modal-error"></div> <div class="logo"></div> <a class="nav btn-next modal-ajax-content"> <span class="text">NEXT</span> <span class="fa fa-chevron-right"></span> </a> <a class="nav btn-prev modal-ajax-content"> <span class="fa fa-chevron-left"></span> <span class="text">PREV</span> </a> </footer></div><div class="modal-overlay"></div></div>';
 })(jQuery);
 
 (function ($) {
