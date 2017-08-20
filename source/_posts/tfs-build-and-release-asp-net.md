@@ -1,5 +1,5 @@
 ---
-title: TFS - Build &amp; Release ASP.NET Website
+title: TFS - Build & Release ASP.NET Website
 author: John Wu
 tags:
   - TFS
