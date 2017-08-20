@@ -5,6 +5,7 @@ module.exports = {
     cache: true,
     entry: {
         "bundle": [wwwroot + "/js/main.js"],
+        "style": [wwwroot + "/css/main.js"],
     },
     output: {
         path: wwwroot + "/js",
@@ -23,10 +24,14 @@ module.exports = {
                         presets: ["es2015"]
                     }
                 }
-            }
+            },
+            {
+                test: /\.(css|less)$/, loader: "style-loader!css-loader!less-loader"
+            },
         ]
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin(),        
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
