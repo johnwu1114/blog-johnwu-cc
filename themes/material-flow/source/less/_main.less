@@ -126,6 +126,12 @@
                 }
                 .pageviews {
                     display: inline-block;
+                    .text{
+                        display: inline-block;
+                        @media(max-width:@on-phone) {
+                            display: none;
+                        }
+                    }
                 }
             }
         }

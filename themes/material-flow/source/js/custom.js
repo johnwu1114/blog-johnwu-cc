@@ -24,7 +24,7 @@
                 database.ref(db_key).set(count);
             }
             if (selector.length > 0) {
-                selector.html(count);
+                selector.html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             };
         });
     }
