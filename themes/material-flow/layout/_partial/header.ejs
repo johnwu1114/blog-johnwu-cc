@@ -1,11 +1,25 @@
+<% 
+	var isShowWebsiteNameAsH2 = false;
+	if(page.title && page.type !== "categories" && page.type !== "tags") {
+		isShowWebsiteNameAsH2 = true;
+	}
+%>	
 <header class="l_header">
 	<div class="wrapper">
 		<div class="nav-main container container--flex">
+			<% if (isShowWebsiteNameAsH2){ %>
+			<h2 class="logo flat-box">
+				<a href="<%= url_for("/") %>" >
+					<%- config.title %>
+				</a>
+			</h2>
+			<% } else { %>
 			<h1 class="logo flat-box">
 				<a href="<%= url_for("/") %>" >
 					<%- config.title %>
 				</a>
 			</h1>
+			<% } %>
 			<div class="menu">
 				<ul class="h-list">
 					<% (theme.menu||[]).forEach(function(value){ %>

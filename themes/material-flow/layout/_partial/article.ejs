@@ -8,11 +8,11 @@
   class="post white-box article-type-<%= post.layout %>"
   itemscope itemprop="blogPost">
 	<section class="meta">
-	<h2 class="title">
+	<h1 class="title">
   	<a href="<%- url_for(post.path) %>">
     	<%= post.title %>
     </a>
-  </h2>
+  </h1>
 	<%- partial("post-info",{post:post}) %>	
 	</section>
 	<% if(post.toc!==false){ %>
