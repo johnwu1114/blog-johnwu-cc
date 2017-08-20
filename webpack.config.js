@@ -26,8 +26,16 @@ module.exports = {
                 }
             },
             {
-                test: /\.(css|less)$/, loader: "style-loader!css-loader!less-loader"
+                test: /\.(css|less)$/, 
+                loader: "style-loader!css-loader!less-loader"
             },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+                loader: "file-loader",
+                options: {
+                    name: "/fonts/[name].[ext]",
+                }
+            }
         ]
     },
     plugins: [
