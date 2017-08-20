@@ -21,7 +21,7 @@
         border-top: 1px solid fade(@black,10%); 
         padding: @gap/2 0;
     }
-     ul.entry > li > a{
+     ul.entry > li > a {
         padding: 0 @gap;
         line-height:@item-height;
         height: @item-height; 
@@ -75,9 +75,9 @@
         }
     }
 }
-.m_widget.tagcloud{
+.m_widget.tagcloud {
     .content{
-        padding: 10px 20px;
+        padding: @gap/2 @gap;
         a{
             display:inline-block;
             .enable-trans(.1s);
@@ -86,6 +86,24 @@
                 color: @accent-color !important; //to cover inline style.
                 text-decoration: underline
             }
+        }
+    }
+}
+.m_widget.recent {
+    ul.entry > li > a {
+        padding: 5px @gap;
+        height: initial;
+        line-height:1.2em;
+        display: block;
+        time {
+            display: inline-block;
+            font-size: .75rem;
+            color: lighten(@grey-color, 20%);
+        }
+        .name {
+            white-space: initial; 
+             overflow: initial; 
+             text-overflow: initial; 
         }
     }
 }

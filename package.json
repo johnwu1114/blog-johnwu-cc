@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "watch": "webpack -p --watch"
   },
   "hexo": {
     "version": "3.3.8"

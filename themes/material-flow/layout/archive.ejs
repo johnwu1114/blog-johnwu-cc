@@ -1,6 +1,6 @@
 <%
     var title = "Archives";
-    var posts = site.posts.filter(function(post){
+    var posts = site.posts.filter(function(post) {
         var pass = true;
         if(page.year && page.year != date(post.date, "YYYY")){
             pass = false;
@@ -47,7 +47,7 @@
             <div class="archive-item archive-post mark">
                 <a href="<%= url_for(post.path) %>">
                     <time><%= date(post.date, "MM-DD") %></time>
-                    <span class="title"><span><%= post.title %></span></span>
+                    <span class="title"><%= post.title %></span>
                 </a>
             </div>
         <% }); %>
