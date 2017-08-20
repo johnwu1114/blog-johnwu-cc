@@ -15,19 +15,21 @@
 <script id="dsq-count-scr" src="//<%= config.disqus_shortname %>.disqus.com/count.js" async></script>
 <% } %>
 
-<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
-<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
-<script src="//www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
-<%- js("js/jquery.fitvids.js") %>
 <script>
-	var GOOGLE_CUSTOM_SEARCH_API_KEY = "<%- theme.search.google_api_key %>";
-	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "<%- theme.search.google_engine_id %>";
+  var GOOGLE_CUSTOM_SEARCH_API_KEY = "<%- theme.search.google_api_key %>";
+  var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "<%- theme.search.google_engine_id %>";
   var SEARCH_SERVICE = "<%- theme.search.service %>";
   var ROOT = "<%- config.root %>"||"/";
   if(!ROOT.endsWith("/"))ROOT += "/";
 </script>
+
+<!-- <%- js("js/lib/firebase-app.js") %>
+<%- js("js/lib/firebase-database.js") %>
+<%- js("js/lib/waves.min.js") %>
+<%- js("js/lib/scrollreveal.min.js") %>
+<%- js("js/lib/jquery-2.2.4.min.js") %>
+<%- js("js/lib/jquery.fitvids.js") %>
 <%- js("js/search.js") %>
-<!-- <%- js("js/app.js") %>
+<%- js("js/app.js") %>
 <%- js("js/custom.js") %> -->
 <%- js("js/bundle.js") %>

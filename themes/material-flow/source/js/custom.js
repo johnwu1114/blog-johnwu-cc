@@ -8,8 +8,8 @@
         storageBucket: "blog-johnwu-cc.appspot.com",
         messagingSenderId: "57548469306"
     };
-    firebase.initializeApp(config);
-    var database = firebase.database();
+    window.firebase.initializeApp(config);
+    var database = window.firebase.database();
 
     function changeUrlToKey(url) {
         return url.replace(new RegExp('\\/|\\.', 'g'), "_");
