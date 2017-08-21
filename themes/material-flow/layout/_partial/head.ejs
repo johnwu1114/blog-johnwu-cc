@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<%= config.lang_code %>" xml:lang="<%= config.lang_code %>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,12 +29,15 @@
       else if (is_year())
         title += ": " + page.year;
     }
-    else if (is_category())
+    else if (is_category()) {
       title = "Category: " + page.category;
-    else if (is_tag())
+    }
+    else if (is_tag()) {
       title = "Tag: " + page.tag;
+    }
+    title = title ? (title + " | " + config.title) : config.title;
   %>
-  <title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
+  <title><%= title %></title>
   <%- favicon_tag(config.favicon) %>
   <%- feed_tag(config.feed.path, {title: config.title}) %>
   <%- open_graph({
