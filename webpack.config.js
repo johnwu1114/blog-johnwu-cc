@@ -18,11 +18,9 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                use: {
-                    loader: "babel-loader",
-                    query: {
-                        presets: ["es2015"]
-                    }
+                loader: "babel-loader",
+                query: {
+                    presets: ["es2015"]
                 }
             },
             {
@@ -41,11 +39,11 @@ module.exports = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),        
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery",
-            Waves: "./lib/waves.min.js",
-            ScrollReveal: "./lib/scrollreveal.min.js"
+            $: wwwroot+"/js/lib/jquery-2.2.4.min.js",
+            jQuery: wwwroot+"/js/lib/jquery-2.2.4.min.js",
+            "window.jQuery": wwwroot+"/js/lib/jquery-2.2.4.min.js",
+            Waves: wwwroot+"/js/lib/waves.min.js",
+            ScrollReveal: wwwroot+"/js/lib/scrollreveal.min.js"
         }),
     ]
 }
