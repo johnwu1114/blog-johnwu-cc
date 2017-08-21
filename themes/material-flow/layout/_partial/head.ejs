@@ -48,7 +48,7 @@
     <link rel="canonical" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>"/>
   <% } %>
   <link rel="alternate" hreflang="x-default" href="<%= config.url %>">
-  <%- js("js/style.js") %>  
+  <%- css("css/bundle.css") %>  
   <script>
     function setLoadingBarProgress(num) {
       document.getElementById("loading-bar").style.width=num+"%";

@@ -15,7 +15,6 @@
     "hexo-autonofollow": "^1.0.1",
     "hexo-autoprefixer": "^1.0.0",
     "hexo-baidu-url-submit": "0.0.5",
-    "hexo-deployer-git": "^0.2.0",
     "hexo-deployer-s3-cloudfront": "^0.1.4",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-baidu-sitemap": "^0.1.2",
@@ -23,27 +22,16 @@
     "hexo-generator-cname": "^0.3.0",
     "hexo-generator-feed": "^1.2.0",
     "hexo-generator-index": "^0.2.0",
-    "hexo-generator-json-content": "^3.0.1",
     "hexo-generator-sitemap": "^1.1.2",
     "hexo-generator-tag": "^0.2.0",
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-less": "^0.2.0",
-    "hexo-renderer-marked": "^0.2.10",
-    "hexo-renderer-stylus": "^0.3.1",
-    "hexo-renderer-webpack": "^0.4.0",
     "hexo-server": "^0.2.2"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
-    "css-loader": "^0.28.5",
-    "file-loader": "^0.11.2",
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5",
-    "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9",
     "webpack": "^3.5.5"
   }
 }
