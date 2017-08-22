@@ -1,0 +1,58 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="<%= config.author %>">
+  <meta name="copyright" content="<%= config.copyright %>">
+  <meta name="url" content="<%= config.url %>">
+  <% if(page && page.keywords) { %>
+    <meta name="keywords" content="<%= (page.keywords||[]).join(",") %>" />
+  <% } else if (page.tags && page.tags.length) { %>
+    <meta name="keywords" content="<%= page.tags.map(function(tag){ return tag.name;}).join(",") %>" />
+  <% } else if (config.keywords) { %>
+    <meta name="keywords" content="<%= config.keywords %>" />
+  <% } %>
+  <% if (theme.facebook_sdk.enable && theme.facebook_sdk.webmaster) { %>
+    <meta property="fb:admins" content="<%= theme.facebook_sdk.fb_admin %>" />
+    <meta property="fb:app_id" content="<%= theme.facebook_sdk.app_id %>" />
+  <% } %>
+  <%
+    var title = page.title;
+    if (is_archive()) {
+      title = "Archives";
+      if (is_month())
+        title += ": " + page.year + "/" + page.month;
+      else if (is_year())
+        title += ": " + page.year;
+    }
+    else if (is_category()) {
+      title = "Category: " + page.category;
+    }
+    else if (is_tag()) {
+      title = "Tag: " + page.tag;
+    }
+    title = title ? (title + " | " + config.title) : config.title;
+  %>
+  <title><%= title %></title>
+  <%- favicon_tag(config.favicon) %>
+  <%- feed_tag(config.feed.path, {title: config.title}) %>
+  <%- open_graph({
+    twitter_id: theme.twitter,
+    google_plus: theme.google_plus,
+    fb_admins: theme.facebook_sdk.fb_admin, 
+    fb_app_id: theme.facebook_sdk.app_id}) %>
+  <% if(theme.canonical) { %>
+    <link rel="canonical" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>"/>
+  <% } %>
+  <link rel="alternate" hreflang="x-default" href="<%= config.url %>">
+  <%- css("css/bundle.css") %>  
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById("loading-bar").style.width=num+"%";
+    };
+  </script>
+</head>

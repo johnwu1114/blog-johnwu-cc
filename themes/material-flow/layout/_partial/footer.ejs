@@ -1,0 +1,27 @@
+<footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	<% if (theme.social) { %>
+      <% theme.social.forEach(function(value, key) {
+           if (value.url && value.slug) { %>
+        <a href="<%= value.url %>" class="social <%= value.slug %>"
+          target="_blank" rel="external">
+          <span class="fa fa-<%= value.slug %>"></span>
+        </a>
+      <% } }); %>
+    <% } %>
+  </div>
+  
+  <div>
+    <%= config.copyright %>
+  </div>
+  <div>
+    Powered by <a href="https://hexo.io/" class="codename">Hexo</a> - 
+    Theme <a href="https://github.com/stkevintan/hexo-theme-material-flow" class="codename" rel="external nofollow noopener noreferrer" target="_blank">MaterialFlow</a>
+  </div>
+  <div>
+    <span id="visits">Visits: <span class="count">--<span></span>
+  </div>
+  
+</footer>
+

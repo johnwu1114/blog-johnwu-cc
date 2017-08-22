@@ -1,0 +1,24 @@
+<%
+var title = "Tags";
+%>
+<article class="post white-box archive-page tags">
+    <section class="meta">
+        <h2 class="title">
+            <span class="fa fa-tags"></span>
+            <%= title %>
+        </h2>
+        <div class="count">
+            <%= site.tags.length %> tags in total
+        </div>
+    </section>
+    <section class="tagcloud">
+        <%- tagcloud(site.tags, {
+            min_font: 14, 
+            max_font: 32,
+            amount: 200,  
+            color: true, 
+            start_color: "gray", 
+            end_color: "black"
+        }) %>
+    </section>
+</article>

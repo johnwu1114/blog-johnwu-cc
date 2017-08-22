@@ -1,0 +1,36 @@
+<% if (config.disqus_shortname){ %>
+<script>
+  var disqus_shortname = "<%= config.disqus_shortname %>";
+  <% if (page.permalink){ %>
+  var disqus_url = "<%= page.permalink %>";
+  <% } %>
+  (function(){
+    var dsq = document.createElement("script");
+    dsq.type = "text/javascript";
+    dsq.async = true;
+    dsq.src = "//" + disqus_shortname + ".disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>";
+    (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+  })();
+</script>
+<script id="dsq-count-scr" src="//<%= config.disqus_shortname %>.disqus.com/count.js" async></script>
+<% } %>
+
+<script>
+  var GOOGLE_CUSTOM_SEARCH_API_KEY = "<%- theme.search.google_api_key %>";
+  var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "<%- theme.search.google_engine_id %>";
+  var SEARCH_SERVICE = "<%- theme.search.service %>";
+  var ROOT = "<%- config.root %>"||"/";
+  if(!ROOT.endsWith("/"))ROOT += "/";
+</script>
+
+<!-- <%- js("js/lib/firebase-app.js") %>
+<%- js("js/lib/firebase-database.js") %>
+<%- js("js/lib/waves.min.js") %>
+<%- js("js/lib/scrollreveal.min.js") %>
+<%- js("js/lib/jquery-2.2.4.min.js") %>
+<%- js("js/lib/jquery.fitvids.js") %>
+<%- js("js/search.js") %>
+<%- js("js/app.js") %>
+<%- js("js/custom.js") %> -->
+
+<%- js("js/bundle.js") %>

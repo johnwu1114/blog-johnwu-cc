@@ -1,0 +1,61 @@
+.l_main {
+    .archive-page {
+        .meta {
+            margin-bottom: @gap;
+            .fa {
+                font-size: @article-title-size-sm;
+            }
+            .title {
+                display: inline;
+                line-height: 1.25;
+                font-weight: normal;
+                color: lighten(@black, 2%);
+            }
+            .count {
+                margin-left: 32px;
+                color: fade(@black,60%);
+            }
+        }
+        .archive {
+            position: relative;
+            .archive-year {
+                font-size: @article-title-size-sm;
+                margin: 10px 0px;
+                a {
+                    color: @black;
+                }
+            }
+            .archive-month {
+                font-size: @base-font-size;
+                margin: 5px 0px;
+                a {
+                    color: @black;
+                }
+            }
+            .archive-post {
+                margin: 5px @gap;
+                a {
+                    display: inline-flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                }
+                time {
+                    color: @black;
+                    flex: none;
+                    font-size: @small-font-size;
+                    padding-right: 10px;
+                }
+                .title {
+                    flex: auto;
+                    font-size: @base-font-size;
+                    color: @accent-color;
+                }
+                .count {
+                    font-size: @small-font-size;
+                    color: fade(@black,60%);
+                }
+            }
+        }
+    }
+}

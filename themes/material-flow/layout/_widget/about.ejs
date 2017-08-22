@@ -1,0 +1,28 @@
+<section class="m_widget about">
+    <% if(config.avatar) { %>
+        <img class="avatar waves-image" src="<%= url_for(config.avatar) %>" alt="<%= config.avatar %>" />
+    <%} %>
+    <div class="header fa fa-user">
+        <%=config.author %>
+    </div>
+    <div class="content">
+        <div class="desc">
+            <%= config.description %>
+        </div>
+    </div>
+    <div class="content">
+        <div class="social-wrapper">
+            <a href="https://github.com/johnwu1114" class="social github" target="_blank" rel="external">
+                <span class="fa fa-github"></span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/johnwu1114" class="social linkedin" target="_blank" rel="external nofollow noopener noreferrer">
+                <span class="fa fa-linkedin"></span>
+            </a>
+
+            <a href="/atom.xml" class="social rss" target="_blank" rel="external">
+                <span class="fa fa-rss"></span>
+            </a>
+        </div>
+    </div>
+</section>

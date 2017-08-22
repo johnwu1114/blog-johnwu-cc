@@ -1,0 +1,72 @@
+<% 
+	var isShowWebsiteNameAsH2 = false;
+	if(page.title && page.type !== "categories" && page.type !== "tags") {
+		isShowWebsiteNameAsH2 = true;
+	}
+%>	
+<header class="l_header">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<% if (isShowWebsiteNameAsH2){ %>
+			<h2 class="logo flat-box">
+				<a href="<%= url_for("/") %>" >
+					<%- config.title %>
+				</a>
+			</h2>
+			<% } else { %>
+			<h1 class="logo flat-box">
+				<a href="<%= url_for("/") %>" >
+					<%- config.title %>
+				</a>
+			</h1>
+			<% } %>
+			<div class="menu">
+				<ul class="h-list">
+					<% (theme.menu||[]).forEach(function(value){ %>
+						<li>
+							<a class="flat-box nav-<%=value.slug%>" href="<%=url_for(value.url)%>">
+								<%=value.name%>
+							</a>
+						</li>
+					<%})%>
+				</ul>
+				<div class="underline"></div>
+			</div>
+			<% if (theme.search.enable === true) { %>
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="fa fa-search"></span>
+					</form>
+				</div>
+			<% } %>
+			<ul class="switcher h-list">
+				<% if (theme.search.enable === true) { %>
+					<li class="s-search"><a href="javascript:void(0)"><span class="fa fa-search flat-box"></span></a></li>
+				<% } %>
+				<li class="s-menu"><a href="javascript:void(0)"><span class="fa fa-bars flat-box"></span></a></li>
+			</ul>
+		</div>
+		
+		<div class="nav-sub container container--flex">
+			<a class="logo" class="flat-box" href="javascript:void(0)">
+				Word of Forks
+			</a>
+
+			<ul class="switcher h-list">
+				<li class="s-comment"><a href="javascript:void(0)"><span class="fa fa-comment-o flat-box"></span></a></li>
+				<li class="s-top"><a href="javascript:void(0)"><span class="fa fa-long-arrow-up flat-box"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		<% (theme.menu||[]).forEach(function(value, key) {
+					if (value.url && value.slug && value.name) { %>
+			<a href="<%= url_for(value.url) %>" class="nav-<%= value.slug %> nav">
+				<%= value.name %>
+			</a>
+		<% } }); %>
+	</nav>
+</aside>
