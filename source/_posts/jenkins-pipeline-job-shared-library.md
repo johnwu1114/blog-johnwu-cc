@@ -1,5 +1,5 @@
 ---
-title: Jenkins - Pipeline Job 共用函數庫
+title: Jenkins - 製作 Pipeline Job 的 Groovy 共用函數庫
 author: John Wu
 tags:
   - Jenkins
@@ -12,7 +12,9 @@ date: 2017-08-16 09:36:00
 
 ![Jenkins - Pipeline Job 共用函數庫](/images/x299.png)
 
-本篇將介紹如何把 Groovy 的共用函數，製作成可被不同 Pipeline Job 調用的共用函數庫。  
+在 Pipeline Job 中撰寫的 Groovy 方法，沒有辦法互相共用，只能透過調用 Jenkins 的 Job 使用。  
+但共用方法拆成太多的 Jenkins Job，在維護上也不是很方便。  
+本篇將介紹如何製作 Pipeline Job 的 Groovy 共用函數庫，讓不同 Pipeline Job 都可以共同調用。  
 
 <!-- more -->
 
