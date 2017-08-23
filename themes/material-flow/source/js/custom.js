@@ -32,11 +32,34 @@
 
     $(".pageviews").each(function () {
         var postUrl = $(this).data("path");
-        var isReadOnly = (window.location.pathname === "/")
-        || window.location.pathname.startsWith("/page/")
-        || window.location.pathname.startsWith("/tags/")
-        || window.location.pathname.startsWith("/categories/")
-        || window.location.pathname.startsWith("/archives/");
+        var isReadOnly = (window.location.pathname === "/") ||
+            window.location.pathname.startsWith("/page/") ||
+            window.location.pathname.startsWith("/tags/") ||
+            window.location.pathname.startsWith("/categories/") ||
+            window.location.pathname.startsWith("/archives/");
         readVisits($(this).find(".count"), postUrl, isReadOnly);
     });
+
+    var SingleLine = "SingleLine";
+    var DoubleLine = "DoubleLine";
+    var postListMode = DoubleLine; // SingleLine or DoubleLine
+
+    var switchPostListMode = function () {
+        var postList = $(".post-list");
+        if (postListMode !== SingleLine && postList.width() < 800) {
+            var leftSideItems = postList.find(".left-side");
+            var rightSideItems = postList.find(".right-side").detach();
+            var index = 0;
+            leftSideItems.each(function () {
+                $(rightSideItems[index++]).insertAfter($(this));
+            });
+            postListMode = SingleLine;
+        } else if (postListMode !== DoubleLine && postList.width() >= 800) {
+            postList.find(".right-side").detach().appendTo(".post-list");
+            postListMode = DoubleLine;
+        }
+    }
+
+    $(window).load(switchPostListMode);
+    $(window).on("resize", switchPostListMode);
 });
