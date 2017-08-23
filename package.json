@@ -12,6 +12,7 @@
   "dependencies": {
     "aws-sdk": "^2.100.0",
     "hexo": "^3.3.8",
+    "hexo-all-minifier": "^0.2.4",
     "hexo-autonofollow": "^1.0.1",
     "hexo-baidu-url-submit": "0.0.5",
     "hexo-deployer-s3-cloudfront": "^0.1.4",
