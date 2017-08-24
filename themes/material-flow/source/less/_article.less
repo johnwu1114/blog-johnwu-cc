@@ -4,18 +4,6 @@
     line-height: 1.6;
     word-break: break-all;
     word-wrap: break-word;
-    // em {
-    //     position: relative;
-    //     &:before {
-    //         position: absolute;
-    //         top: 0.65em;
-    //         left: 0;
-    //         width: 100%;
-    //         overflow: hidden;
-    //         white-space: nowrap;
-    //         content: "・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・";
-    //     }
-    // }
     img {
         position: relative;
         display: block;
@@ -128,7 +116,6 @@
         background: lighten(@background-color, 5%);
     }
     .readmore {
-        // display: none; // howtodesign?
         font-size: 1.2rem;
         margin-top: @gap;
         a {
@@ -153,11 +140,7 @@
             position: relative;
             display: inline-block;
             word-spacing: 0;
-            // &+a{
-            //   margin-left: @gap/2;
-            // }
             .enable-trans(.1s);
-            //background:@material-light-grey;
             color: @grey-color;
             &:hover {
                 color: @accent-color;

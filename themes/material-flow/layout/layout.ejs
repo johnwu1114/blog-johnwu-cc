@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<%= config.lang_code %>" xml:lang="<%= config.lang_code %>">
-  <%- partial('_partial/head') %>
+  <%- partial("_partial/head") %>
   <body>
-    <%- partial('_partial/loading') %>
+    <%- partial("_partial/loading") %>
     <script>setLoadingBarProgress(20);</script>
-    <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+    <%- partial("_partial/header", null, {cache: !config.relative_link}) %>
     <script>setLoadingBarProgress(40);</script>
     <div class="l_body">
-      <div class='container clearfix'>
-        <div class='l_main'>
+      <div class="container clearfix">
+        <div class="l_main">
           <%- body %>
         </div>
-        <aside class='l_side'>
-          <%- partial('_partial/side') %>
+        <aside class="l_side">
+          <%- partial("_partial/side") %>
         </aside>
         <script>setLoadingBarProgress(60);</script>
       </div>
     </div>
-    <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    <%- partial("_partial/footer", null, {cache: !config.relative_link}) %>
     <script>setLoadingBarProgress(80);</script>
-    <%- partial('_partial/scripts') %>
+    <%- partial("_partial/scripts") %>
     <script>setLoadingBarProgress(90);</script>
-    <%- partial('_partial/google-analytics') %>
-    <%- partial('_partial/facebook-sdk') %>
+    <%- partial("_partial/google-analytics") %>
+    <%- partial("_partial/facebook-sdk") %>
     <script>setLoadingBarProgress(100);</script>
   </body>
 </html>
