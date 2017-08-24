@@ -8,6 +8,8 @@
 	line-height: @header-height;
 	height: @header-height;
 	overflow: hidden;
+	background: @primary-color;
+	padding: 0 @gap;
 	.wrapper{
 		transition: transform .2s ease-out;
 	}
@@ -17,15 +19,12 @@
 	.nav--main,.nav-sub{
 		height: @header-height;
 	}
-	background: @primary-color;
-	padding: 0 @gap;
 	&, a{
 		color: @white;
 	}
 	&:extend(.z-depth-1);
 	.logo {
 		flex: none;
-		padding: 0 @gap;
 		font-size: @header-logo-font-size;
 		font-weight: normal;
 		margin: 0;
@@ -89,6 +88,10 @@
 		display: flex;
 	}
 	@media (max-width: @on-phone)  {
+		padding: 0 @gap 0 0;
+		.logo {
+			padding: 0 @gap;
+		}
 		.m_search{
 			width:0;
 			overflow: hidden;

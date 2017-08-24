@@ -18,12 +18,13 @@ var customSearch;
 		const $toc = $(".s-toc", $wrapper);
 		const $top = $(".s-top", $wrapper);
 
-		var resetTocWrapperPosition = function () {
+		let resetTocWrapperPosition = function () {
+			if ($tocWrapper.is(":visible")) return;
 			if ($tocWrapper.css("margin-top") < "50px") {
 				$tocWrapper.css("top", "");
 			} else {
-				var scrollTop = $(window).scrollTop();
-				var top = parseInt($tocWrapper.css("top"));
+				let scrollTop = $(window).scrollTop();
+				let top = parseInt($tocWrapper.css("top"));
 				if (top > 0 || scrollTop <= 340) {
 					$tocWrapper.css("top", Math.max(0, (340 - scrollTop)));
 				}
@@ -32,19 +33,19 @@ var customSearch;
 
 		resetTocWrapperPosition();
 		$(window).resize(function () {
-			var count = 0;
-			var interval = setInterval(function () {
+			let count = 0;
+			let interval = setInterval(function () {
 				resetTocWrapperPosition();
 				if (++count == 3) clearInterval(interval);
 			}, 200);
 		});
 
 		$wrapper.find(".nav-sub .logo").text(window.subData.title);
-		let pos = document.body.scrollTop;
+		let pos = $(document).scrollTop();
 		$(document, window).scroll(function () {
-			const scrollTop = $(window).scrollTop();
+			const scrollTop = $(document).scrollTop();
 			const del = scrollTop - pos;
-			if (del >= 20) {
+			if (del >= 20 && scrollTop >= 50) {
 				pos = scrollTop;
 				$wrapper.addClass("sub");
 			} else if (del <= -20) {
@@ -68,8 +69,8 @@ var customSearch;
 
 	}
 	function setHeaderMenu() {
-		var $headerMenu = $("header .menu");
-		var $underline = $headerMenu.find(".underline");
+		let $headerMenu = $("header .menu");
+		let $underline = $headerMenu.find(".underline");
 		function setUnderline($item, transition) {
 			$item = $item || $headerMenu.find("li a.active");//get instant
 			transition = transition === undefined ? true : !!transition;
@@ -97,11 +98,11 @@ var customSearch;
 			setUnderline();
 		});
 		//set current active nav
-		var $active_link = null;
+		let $active_link = null;
 		if (location.pathname === "/" || location.pathname.startsWith("/page/")) {
 			$active_link = $(".nav-home", $headerMenu);
 		} else {
-			var name = location.pathname.match(/\/(.*?)\//);
+			let name = location.pathname.match(/\/(.*?)\//);
 			if (name.length > 1) {
 				$active_link = $(".nav-" + name[1], $headerMenu);
 			}
@@ -109,7 +110,7 @@ var customSearch;
 		setUnderline($active_link, false);
 	}
 	function setHeaderMenuPhone() {
-		var $switcher = $(".l_header .switcher .s-menu");
+		let $switcher = $(".l_header .switcher .s-menu");
 		$switcher.click(function (e) {
 			e.stopPropagation();
 			$("body").toggleClass("z_menu-open");
@@ -121,9 +122,9 @@ var customSearch;
 		});
 	}
 	function setHeaderSearch() {
-		var $switcher = $(".l_header .switcher .s-search");
-		var $header = $(".l_header");
-		var $search = $(".l_header .m_search");
+		let $switcher = $(".l_header .switcher .s-search");
+		let $header = $(".l_header");
+		let $search = $(".l_header .m_search");
 		if ($switcher.length === 0) return;
 		$switcher.click(function (e) {
 			e.stopPropagation();
