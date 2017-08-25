@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "webpack -p",
-    "watch": "webpack -p --watch"
+    "watch": "webpack -d --watch"
   },
   "hexo": {
     "version": "3.3.8"
