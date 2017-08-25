@@ -18,8 +18,8 @@ var customSearch;
 		const $toc = $(".s-toc", $wrapper);
 		const $top = $(".s-top", $wrapper);
 
-		let resetTocWrapperPosition = function () {
-			if ($tocWrapper.is(":visible")) return;
+		var resetTocWrapperPosition = function () {
+			if (!$tocWrapper.is(":visible")) return;
 			if ($tocWrapper.css("margin-top") < "50px") {
 				$tocWrapper.css("top", "");
 			} else {

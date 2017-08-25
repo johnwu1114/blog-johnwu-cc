@@ -7,12 +7,13 @@
     this.page.title = "<%= page.title %>";
   };
   var d = document, s = d.createElement("script");
-  s.src = '//<%= config.disqus_shortname %>.disqus.com/embed.js';
-  s.setAttribute("data-timestamp", '' + +new Date());
+  s.src = "//<%= config.disqus_shortname %>.disqus.com/embed.js";
+  s.async = true;
+  s.setAttribute("data-timestamp", "" + +new Date());
   (d.head || d.body).appendChild(s);
 </script>
 <% } %>
-<script id="dsq-count-scr" src="//<%= config.disqus_shortname %>.disqus.com/count.js"></script>
+<script id="dsq-count-scr" src="//<%= config.disqus_shortname %>.disqus.com/count.js" async></script>
 <% } %>
 
 <script>
