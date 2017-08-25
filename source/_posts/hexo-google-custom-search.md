@@ -84,7 +84,7 @@ menu_icons:
 
 ## 4. 修正 UI
 
-由於 GCS 是動態產生 HTML 在 Hexo 頁面，不是用 iFrame 包裝，所以 CSS 會被主頁影響。  
+由於 GCS 是動態產生 HTML 在 Hexo 頁面，不是用 IFrame 包裝，所以 CSS 會被主頁影響。  
 而 Hexo 的 CSS 複寫了 GCS 的樣式，所以導致 GCS 顯示不正常。  
 
 新建一個 `/themes/next/source/css/_common/components/google-custom-search.styl` 檔案來修正 GCS 跑版的問題。

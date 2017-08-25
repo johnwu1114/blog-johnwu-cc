@@ -1,11 +1,11 @@
 ---
-title: iframe 無法使用 Cookie & Session 問題
+title: IFrame 無法使用 Cookie & Session 問題
 author: John Wu
 tags:
   - JavaScript
   - Session
   - Cookie
-  - iframe
+  - IFrame
   - Cross Domain
   - Safari
 categories:
@@ -13,24 +13,24 @@ categories:
 date: 2017-04-02 16:03:00
 ---
 
-![Cross Domain iframe - Can't Access Cookie](/images/pasted-38.png)
+![Cross Domain IFrame - Can't Access Cookie](/images/pasted-38.png)
 
-在 Safari 使用 iframe 方式嵌入 Cross Domain 頁面，會發生 iframe 無法使用 Cookie，導致每次的 Request 帶的 Session id 都不一樣。  
+在 Safari 使用 IFrame 方式嵌入 Cross Domain 頁面，會發生 IFrame 無法使用 Cookie，導致每次的 Request 帶的 Session id 都不一樣。  
 改變 Safari 的安全性設定可以解掉此問題。但要請用戶改設定簡直天方夜譚。可以透過 JavaScript 變相解決此問題。  
 
 <!-- more -->
 
 ## 情境
 
-由於公司部分產品是以 iframe 方式嵌入在別人家的頁面裡，在使用 Safari 開啟的情況下，會發生無法使用 Cookie，導致每次的 Request 帶的 Session id 都不一樣。在 Response Header 加入解決 Cross Domain 的 P3P : "CP=CAO PSA OUR" 也沒用。  
+由於公司部分產品是以 IFrame 方式嵌入在別人家的頁面裡，在使用 Safari 開啟的情況下，會發生無法使用 Cookie，導致每次的 Request 帶的 Session id 都不一樣。在 Response Header 加入解決 Cross Domain 的 P3P : "CP=CAO PSA OUR" 也沒用。  
 
-實際原因是 Safari 的安全性問題。如果 iframe 的 Domain 沒有被 Safari 直接存取過，Safari 就不會認可你的 Domain 存取 Cookie。簡單的說就是你只要直接在網址列輸入你的 Domain，Safari 就會認同你的 domain 存取 Cookie。  
+實際原因是 Safari 的安全性問題。如果 IFrame 的 Domain 沒有被 Safari 直接存取過，Safari 就不會認可你的 Domain 存取 Cookie。簡單的說就是你只要直接在網址列輸入你的 Domain，Safari 就會認同你的 domain 存取 Cookie。  
 
 改變 Safari 的安全性設定，也可以解掉此問題。但我們的用戶散落在全世界，請他們改設定簡直天方夜譚。  
 
 我用一個偷吃步的方法，只需要修改 JavaScript 就能式解掉此問題。  
 
-如上圖 iframe.com 無法存取 Cookie，導致 Session 也跟著無法使用。由於 parent.com 不是我們能控制跟存取的頁面，所以解決方式只會從 iframe.com 著手。
+如上圖 iframe.com 無法存取 Cookie，導致 Session 也跟著無法使用。由於 parent.com 不是我們能控制跟存取的頁面，所以解決方式只會從 IFrame.com 著手。
 
 ## 解法
 
@@ -59,7 +59,7 @@ if (isSafari && !hasCookiePermission) {
 
 當 Safari 打開 iframe.com/redirect 時，意味著 iframe.com 已經被認可存取 Cookie 了。所以此時我們只要轉向回原來的頁面即可。
 
-![Cross Domain iframe - Get Cookie Access Permission](/images/pasted-39.png)
+![Cross Domain IFrame - Get Cookie Access Permission](/images/pasted-39.png)
 
 ```javascript
 /* iframe.com/redirect */  
@@ -86,7 +86,8 @@ window.location = ref;
 
 再度回到 parent.com/home 時，iframe.com 就能正常使用 Cookie 跟 Session 了。
 
-![Cross Domain iframe - Got Cookie Access Permission](/images/pasted-40.png)
+![Cross Domain IFrame - Got Cookie Access Permission](/images/pasted-40.png)
 
 ## 參考
-[Internet Explorer & Safari: iframe Session Cookie Problem](http://www.mendoweb.be/blog/internet-explorer-safari-third-party-cookie-problem/)
+
+[Internet Explorer & Safari: IFrame Session Cookie Problem](http://www.mendoweb.be/blog/internet-explorer-safari-third-party-cookie-problem/)

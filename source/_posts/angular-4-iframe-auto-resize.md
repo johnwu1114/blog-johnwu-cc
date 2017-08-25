@@ -1,42 +1,42 @@
 ---
-title: Angular 4 教學 - iframe 自動調整大小
+title: Angular 4 教學 - IFrame 自動調整大小
 author: John Wu
 tags:
   - Angular
-  - iframe
+  - IFrame
   - Component
 categories:
   - Angular
 date: 2017-08-11 13:37:00
 ---
-![Angular 4 教學 - iframe 自動調整大小](/images/x290.png)
+![Angular 4 教學 - IFrame 自動調整大小](/images/x290.png)
 
-在網頁新舊版本交界期，`iframe` 算是蠻常用的手法，在 Angular 4 (Angular 2) 的 SPA 頁面中，利用 `iframe` 插入舊版網頁，使系統整體感一致。  
-`iframe` 的寬高大小又不能固定不變，太小會留下很多空白，太大會使內外頁都產生 Scrollbar。  
-本篇將介紹如何讓 `iframe` 在  Angular 的 SPA 頁面中，隨著視窗自動調整大小。  
+在網頁新舊版本交界期，`IFrame` 算是蠻常用的手法，在 Angular 4 (Angular 2) 的 SPA 頁面中，利用 `IFrame` 插入舊版網頁，使系統整體感一致。  
+`IFrame` 的寬高大小又不能固定不變，太小會留下很多空白，太大會使內外頁都產生 Scrollbar。  
+本篇將介紹如何讓 `IFrame` 在  Angular 的 SPA 頁面中，隨著視窗自動調整大小。  
 
 <!-- more -->
 
-## iframe 太小
+## IFrame 太小
 
-如果只是把 `iframe` 設定寬高 `100%` 實際上他不會真的套用百分比的設定，視窗大於 `iframe` 時，就會空出空間。如下：
+如果只是把 `IFrame` 設定寬高 `100%` 實際上他不會真的套用百分比的設定，視窗大於 `IFrame` 時，就會空出空間。如下：
 
 ```html
 <iframe src="https://blog.johnwu.cc/" width="100%" height="100%"></iframe>
 ```
-![Angular 4 教學 - iframe 太小](/images/x291.png)
+![Angular 4 教學 - IFrame 太小](/images/x291.png)
 
-## iframe 太大
+## IFrame 太大
 
-若把 `iframe` 設定固定寬高，當視窗大於 `iframe` 時，就會空出空間；視窗小於 `iframe` 時，就會同時產生 `iframe` 及瀏覽器的 Scrollbar。如下：
+若把 `IFrame` 設定固定寬高，當視窗大於 `IFrame` 時，就會空出空間；視窗小於 `IFrame` 時，就會同時產生 `IFrame` 及瀏覽器的 Scrollbar。如下：
 ```html
 <iframe src="https://blog.johnwu.cc/" width="600px" height="800px"></iframe>
 ```
-![Angular 4 教學 - iframe 太小](/images/x292.png)
+![Angular 4 教學 - IFrame 太小](/images/x292.png)
 
 ## 動態計算
 
-比較好的方式是透過 Page Load 及 Window Resize 的事件，動態計算 `iframe` 的寬高，讓 `iframe` 隨著視窗大小自動改變。  
+比較好的方式是透過 Page Load 及 Window Resize 的事件，動態計算 `IFrame` 的寬高，讓 `IFrame` 隨著視窗大小自動改變。  
 
 此範例我是用 `Component` 包裝，也可以用 `Directive` 實現一樣的功能。
 
@@ -126,7 +126,7 @@ app.component.html
 
 ## 執行結果
 
-![Angular 4 教學 - iframe 自動調整大小 - 執行結果](/images/x290.gif)
+![Angular 4 教學 - IFrame 自動調整大小 - 執行結果](/images/x290.gif)
 
 ## 程式碼下載
 
