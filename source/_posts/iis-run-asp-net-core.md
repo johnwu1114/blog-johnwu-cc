@@ -33,7 +33,7 @@ net start w3svc
 ![IIS - 運行 ASP.NET Core 網站 - 新增站台](/images/pasted-251.png)
 ![IIS - 運行 ASP.NET Core 網站 - 網站資訊](/images/pasted-252.png)
 
-程網站新增完成後，到應用式集區，把 CLR 版本改為`沒有 Managed 程式碼`：
+程網站新增完成後，到應用程式集區，把 CLR 版本改為`沒有 Managed 程式碼`：
 ![IIS - 運行 ASP.NET Core 網站 - 網站資訊](/images/pasted-253.png)
 
 ## 3. 佈署網站
