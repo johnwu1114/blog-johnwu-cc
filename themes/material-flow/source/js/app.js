@@ -1,44 +1,20 @@
 /* eslint-disable */
 var customSearch;
 (function ($) {
-
 	"use strict";
 	const scrollCorrection = 70; // (header height = 50px) + (gap = 20px)
+
 	function scrolltoElement(elem, correction) {
 		correction = correction || scrollCorrection;
 		const $elem = elem.href ? $(elem.getAttribute("href")) : $(elem);
 		$("html, body").animate({ "scrollTop": $elem.offset().top - correction }, 400);
-	};
-
+	}
 	function setHeader() {
 		if (!window.subData) return;
-		const $tocWrapper = $(".toc-wrapper");
 		const $wrapper = $("header .wrapper");
 		const $comment = $(".s-comment", $wrapper);
 		const $toc = $(".s-toc", $wrapper);
 		const $top = $(".s-top", $wrapper);
-
-		var resetTocWrapperPosition = function () {
-			if (!$tocWrapper.is(":visible")) return;
-			if ($tocWrapper.css("margin-top") < "50px") {
-				$tocWrapper.css("top", "");
-			} else {
-				let scrollTop = $(window).scrollTop();
-				let top = parseInt($tocWrapper.css("top"));
-				if (top > 0 || scrollTop <= 340) {
-					$tocWrapper.css("top", Math.max(0, (340 - scrollTop)));
-				}
-			}
-		}
-
-		resetTocWrapperPosition();
-		$(window).resize(function () {
-			let count = 0;
-			let interval = setInterval(function () {
-				resetTocWrapperPosition();
-				if (++count == 3) clearInterval(interval);
-			}, 200);
-		});
 
 		$wrapper.find(".nav-sub .logo").text(window.subData.title);
 		let pos = $(document).scrollTop();
@@ -52,8 +28,8 @@ var customSearch;
 				pos = scrollTop;
 				$wrapper.removeClass("sub");
 			}
-			resetTocWrapperPosition();
 		});
+
 		// bind events to every btn
 		const $commentTarget = $("#comments");
 		if ($commentTarget.length) {
@@ -137,6 +113,40 @@ var customSearch;
 		$search.click(function (e) {
 			e.stopPropagation();
 		})
+		if (SEARCH_SERVICE === "google") {
+			customSearch = new window.GoogleCustomSearch({
+				apiKey: GOOGLE_CUSTOM_SEARCH_API_KEY,
+				engineId: GOOGLE_CUSTOM_SEARCH_ENGINE_ID,
+				imagePath: "/images/"
+			});
+		}
+		else if (SEARCH_SERVICE === "algolia") {
+			customSearch = new window.AlgoliaSearch({
+				apiKey: ALGOLIA_API_KEY,
+				appId: ALGOLIA_APP_ID,
+				indexName: ALGOLIA_INDEX_NAME,
+				imagePath: "/images/"
+			});
+		}
+		else if (SEARCH_SERVICE === "hexo") {
+			customSearch = new window.HexoSearch({
+				imagePath: "/images/"
+			});
+		}
+		else if (SEARCH_SERVICE === "azure") {
+			customSearch = new window.AzureSearch({
+				serviceName: AZURE_SERVICE_NAME,
+				indexName: AZURE_INDEX_NAME,
+				queryKey: AZURE_QUERY_KEY,
+				imagePath: "/images/"
+			});
+		}
+		else if (SEARCH_SERVICE === "baidu") {
+			customSearch = new window.BaiduSearch({
+				apiId: BAIDU_API_ID,
+				imagePath: "/images/"
+			});
+		}
 	}
 	function setWaves() {
 		Waves.attach(".flat-btn", ["waves-button"]);
@@ -173,6 +183,22 @@ var customSearch;
 
 		let anchor = getAnchor();
 		const scrollListener = function () {
+			if ($toc.is(":visible")) {
+				let count = 0;
+				let interval = setInterval(function () {
+					if ($toc.css("margin-top") < "50px") {
+						$toc.css("top", "");
+					} else {
+						let scrollTop = $(window).scrollTop();
+						let top = parseInt($toc.css("top"));
+						if (top > 0 || scrollTop <= 340) {
+							$toc.css("top", Math.max(0, (340 - scrollTop)));
+						}
+					}
+					if (++count == 3) clearInterval(interval);
+				}, 200);
+			}
+
 			const scrollTop = $("html").scrollTop() || $("body").scrollTop();
 			if (!anchor) return;
 			//binary search.
@@ -185,6 +211,7 @@ var customSearch;
 			}
 			$(liElements).removeClass("active").eq(l).addClass("active");
 		}
+
 		$(window)
 			.resize(function () {
 				anchor = getAnchor();
@@ -195,36 +222,76 @@ var customSearch;
 			});
 		scrollListener();
 	}
-
-	// function getPicture() {
-	// 	const $banner = $(".banner");
-	// 	if ($banner.length === 0) return;
-	// 	const url = ROOT + "js/lovewallpaper.json";
-	// 	$.get(url).done(res => {
-	// 		if (res.data.length > 0) {
-	// 			const index = Math.floor(Math.random() * res.data.length);
-	// 			$banner.css("background-image", "url(" + res.data[index].big + ")");
-	// 		}
-	// 	})
-	// }
-
-	// function getHitokoto() {
-	// 	const $hitokoto = $("#hitokoto");
-	// 	if($hitokoto.length === 0) return;
-	// 	const url = "http://api.hitokoto.us/rand?length=80&encode=jsc&fun=handlerHitokoto";
-	// 	$("body").append("<script	src="%s"></script>".replace("%s",url));
-	// 	window.handlerHitokoto = (data) => {
-	// 		$hitokoto
-	// 			.css("color","transparent")
-	// 			.text(data.hitokoto)
-	// 		if(data.source) $hitokoto.append("<cite> ——  %s</cite>".replace("%s",data.source));
-	// 		else if(data.author) $hitokoto.append("<cite> ——  %s</cite>".replace("%s",data.author));
-	// 		$hitokoto.css("color","white");
-	// 	}
-	// }
-
+	function setVisitsCount(){
+		const firebase = window.firebase;
+		let config = {
+			apiKey: "AIzaSyCcY-L4ygQnu0Q4cUVoFBJNecNYvuFQ-zw",
+			authDomain: "blog-johnwu-cc.firebaseapp.com",
+			databaseURL: "https://blog-johnwu-cc.firebaseio.com",
+			projectId: "blog-johnwu-cc",
+			storageBucket: "blog-johnwu-cc.appspot.com",
+			messagingSenderId: "57548469306"
+		};
+		firebase.initializeApp(config);
+		let database = firebase.database();
+	
+		const changeUrlToKey = function (url) {
+			return url.replace(new RegExp('\\/|\\.', 'g'), "_");
+		}
+	
+		const readVisits = function (selector, url, isReadOnly) {
+			let db_key = changeUrlToKey(window.location.host) + "/" + changeUrlToKey(url);
+			database.ref(db_key).once("value").then(function (result) {
+				let count = parseInt(result.val() || 0);
+				if (!isReadOnly) {
+					count += 1;
+					database.ref(db_key).set(count);
+				}
+				if (selector.length > 0) {
+					selector.html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+				};
+			});
+		}
+		readVisits($("#visits .count"), "/");
+	
+		$(".pageviews").each(function () {
+			let postUrl = $(this).data("path");
+			let isReadOnly = (window.location.pathname === "/") ||
+				window.location.pathname.startsWith("/page/") ||
+				window.location.pathname.startsWith("/tags/") ||
+				window.location.pathname.startsWith("/categories/") ||
+				window.location.pathname.startsWith("/archives/");
+			readVisits($(this).find(".count"), postUrl, isReadOnly);
+		});
+	}
+	function setPostList() {
+		let SingleLine = "SingleLine";
+		let DoubleLine = "DoubleLine";
+		let postListMode = DoubleLine; // SingleLine or DoubleLine
+	
+		let switchPostListMode = function () {
+			let postList = $(".post-list");
+			if (postListMode !== SingleLine && postList.width() < 800) {
+				let leftSideItems = postList.find(".left-side");
+				let rightSideItems = postList.find(".right-side").detach();
+				let index = 0;
+				leftSideItems.each(function () {
+					$(rightSideItems[index++]).insertAfter($(this));
+				});
+				postListMode = SingleLine;
+			} else if (postListMode !== DoubleLine && postList.width() >= 800) {
+				postList.find(".right-side").detach().appendTo(".post-list");
+				postListMode = DoubleLine;
+			}
+		}
+	
+		switchPostListMode();
+		$(window).load(switchPostListMode);
+		$(window).on("resize", switchPostListMode);
+	}
 
 	$(function () {
+		setPostList();
 		//set header
 		setHeader();
 		setHeaderMenu();
@@ -233,51 +300,14 @@ var customSearch;
 		setWaves();
 		setScrollReveal();
 		setTocToggle();
-		// getHitokoto();
-		// getPicture();
-
+		setVisitsCount();
+		setPostList();
 
 		$(".article .video-container").fitVids();
 
 		setTimeout(function () {
 			$("#loading-bar-wrapper").fadeOut(500);
 		}, 300);
-
-		if (SEARCH_SERVICE === "google") {
-			customSearch = new window.GoogleCustomSearch({
-				apiKey: GOOGLE_CUSTOM_SEARCH_API_KEY,
-				engineId: GOOGLE_CUSTOM_SEARCH_ENGINE_ID,
-				imagePath: "/images/"
-			});
-		}
-		else if (SEARCH_SERVICE === "algolia") {
-			customSearch = new window.AlgoliaSearch({
-				apiKey: ALGOLIA_API_KEY,
-				appId: ALGOLIA_APP_ID,
-				indexName: ALGOLIA_INDEX_NAME,
-				imagePath: "/images/"
-			});
-		}
-		else if (SEARCH_SERVICE === "hexo") {
-			customSearch = new window.HexoSearch({
-				imagePath: "/images/"
-			});
-		}
-		else if (SEARCH_SERVICE === "azure") {
-			customSearch = new window.AzureSearch({
-				serviceName: AZURE_SERVICE_NAME,
-				indexName: AZURE_INDEX_NAME,
-				queryKey: AZURE_QUERY_KEY,
-				imagePath: "/images/"
-			});
-		}
-		else if (SEARCH_SERVICE === "baidu") {
-			customSearch = new window.BaiduSearch({
-				apiId: BAIDU_API_ID,
-				imagePath: "/images/"
-			});
-		}
-
 	});
 
 })(jQuery);

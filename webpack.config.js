@@ -1,4 +1,5 @@
-var webpack = require("webpack");
+var HappyPack = require("happypack");
+var Webpack = require("webpack");
 var wwwroot = __dirname + "/themes/material-flow/source";
 
 module.exports = {
@@ -16,16 +17,16 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loader: "babel-loader",
-            query: {
-                presets: ["es2015"]
-            },
-            exclude: [/node_modules/]
+            exclude: [/node_modules/],
+            loader: "happypack/loader"
         }]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.ProvidePlugin({
+        new HappyPack({
+            loaders: ["babel-loader?presets[]=es2015"]
+        }),
+        new Webpack.optimize.UglifyJsPlugin(),
+        new Webpack.ProvidePlugin({
             $: wwwroot + "/js/lib/jquery-2.2.4.min.js",
             jQuery: wwwroot + "/js/lib/jquery-2.2.4.min.js",
             "window.jQuery": wwwroot + "/js/lib/jquery-2.2.4.min.js",

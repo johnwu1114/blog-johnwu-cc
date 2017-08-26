@@ -8,4 +8,3 @@ require("./lib/jquery.fitvids.js");
 
 require("./search.js");
 require("./app.js");
-require("./custom.js");
