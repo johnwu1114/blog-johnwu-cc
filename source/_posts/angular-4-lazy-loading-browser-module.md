@@ -5,6 +5,7 @@ tags:
   - Angular
   - TypeScript
   - Lazy Loading
+  - Angular Modules
 categories:
   - Angular
 date: 2017-06-21 22:39:00

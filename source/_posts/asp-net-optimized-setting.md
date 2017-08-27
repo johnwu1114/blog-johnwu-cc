@@ -4,8 +4,6 @@ author: John Wu
 tags:
   - ASP.NET
   - HTTP Modules
-  - View Engines
-  - HTTP Headers
 categories:
   - ASP.NET
 date: 2017-08-27 10:01:00

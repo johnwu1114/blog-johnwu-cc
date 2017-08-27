@@ -5,6 +5,7 @@ tags:
   - ASP.NET Core
   - 'C#'
   - Middleware
+  - HTTP Modules
 categories:
   - ASP.NET Core
 date: 2017-05-11 11:07:00
@@ -24,7 +25,7 @@ Request 流程如下圖：
 
 ## 1. 建立 Middleware
 
-Middleware 取代了 ASP.NET MVC 的 HTTP modules 及 handlers，使用方式更為簡潔。  
+Middleware 取代了 ASP.NET MVC 的 HTTP Modules 及 HTTP Handlers，使用方式更為簡潔。  
 此範例我建立了三個 Middleware，分別在 Request 及 Response 的部分輸出訊息。  
 如下：
 

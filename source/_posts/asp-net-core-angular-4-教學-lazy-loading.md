@@ -7,6 +7,7 @@ tags:
   - Routing
   - Webpack 
   - Lazy Loading
+  - Angular Modules
 categories:
   - Angular
 date: 2017-05-02 23:21:00
