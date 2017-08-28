@@ -1,4 +1,9 @@
 .l_main {
+    .count {
+        font-size: @small-font-size;
+        color: fade(@black,60%);
+        margin-left: 5px;
+    }
     .archive-page {
         .meta {
             margin-bottom: @gap;
@@ -13,7 +18,6 @@
             }
             .count {
                 margin-left: 32px;
-                color: fade(@black,60%);
             }
         }
         .archive {
@@ -50,10 +54,6 @@
                     flex: auto;
                     font-size: @base-font-size;
                     color: @accent-color;
-                }
-                .count {
-                    font-size: @small-font-size;
-                    color: fade(@black,60%);
                 }
             }
         }
