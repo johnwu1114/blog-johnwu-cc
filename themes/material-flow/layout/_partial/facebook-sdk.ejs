@@ -2,9 +2,9 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '<%= theme.facebook_sdk.app_id %>',
+      appId      : "<%= theme.facebook_sdk.app_id %>",
       xfbml      : true,
-      version    : 'v2.9'
+      version    : "v2.9"
     });
   };
 
@@ -14,6 +14,6 @@
      js = d.createElement(s); js.id = id;
      js.src = "//connect.facebook.net/<%= config.language.replace('-', '_') %>/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+   }(document, "script", "facebook-jssdk"));
 </script>
 <%} %>

@@ -1,7 +1,7 @@
 <%
-    var leftPosts = [];
-    var rightPosts = [];
-    var count = 0;
+    let leftPosts = [];
+    let rightPosts = [];
+    let count = 0;
 
     page.posts.each(function(post) {
         if(count%2==0){
@@ -14,7 +14,7 @@
         count++;
     });
     
-    var posts = leftPosts.concat(rightPosts);
+    let posts = leftPosts.concat(rightPosts);
 %>
 
 <section class="post-list">

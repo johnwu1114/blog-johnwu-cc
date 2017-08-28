@@ -1,9 +1,9 @@
 <%
-    var title = "Tag : " + page.tag;
-    var posts = [];
-    var total = 0;
+    let title = "Tag : " + page.tag;
+    let posts = [];
+    let total = 0;
     site.posts.sort("date", -1).each(function(post) {            
-        var display = false;
+        let display = false;
         post.tags.forEach(function(tag) {
             display = display || tag.name == page.tag;
         });

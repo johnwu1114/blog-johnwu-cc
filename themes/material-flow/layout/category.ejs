@@ -1,9 +1,9 @@
 <%
-    var title = "Category : " + page.category;
-    var posts = [];
-    var total = 0;
+    let title = "Category : " + page.category;
+    let posts = [];
+    let total = 0;
     site.posts.sort("date", -1).each(function(post) {            
-        var display = false;
+        let display = false;
         post.categories.forEach(function(cate) {
             display = display || cate.name == page.category;
         });

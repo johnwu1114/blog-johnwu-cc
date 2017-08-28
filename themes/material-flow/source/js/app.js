@@ -225,12 +225,12 @@ var customSearch;
 	function setVisitsCount(){
 		const firebase = window.firebase;
 		let config = {
-			apiKey: "AIzaSyCcY-L4ygQnu0Q4cUVoFBJNecNYvuFQ-zw",
-			authDomain: "blog-johnwu-cc.firebaseapp.com",
-			databaseURL: "https://blog-johnwu-cc.firebaseio.com",
-			projectId: "blog-johnwu-cc",
-			storageBucket: "blog-johnwu-cc.appspot.com",
-			messagingSenderId: "57548469306"
+			apiKey: FIREBASE_API_KEY,
+			authDomain: FIREBASE_AUTH_DOMAIN,
+			databaseURL: FIREBASE_DATABASE_URL,
+			projectId: FIREBASE_PROJECT_ID,
+			storageBucket: FIREBASE_STORAGE_BUCKET,
+			messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
 		};
 		firebase.initializeApp(config);
 		let database = firebase.database();
