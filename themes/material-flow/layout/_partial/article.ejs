@@ -14,6 +14,7 @@
     </a>
   </h1>
 	<%- partial("post-info",{post:post}) %>	
+	<%- partial("social-media-buttons",{post:post}) %>	
 	</section>
 	<% if(post.toc!==false){ %>
 		<section class="toc-wrapper"><%- toc(post.content, { list_number: false }) %></section>
