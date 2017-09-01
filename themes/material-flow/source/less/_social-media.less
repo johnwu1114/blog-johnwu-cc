@@ -6,6 +6,7 @@
         text-decoration: none;
         color: @white;
         width: 50px;
+        display: table-cell;
     }
     a.fa:hover {
         opacity: 0.7;
@@ -22,7 +23,18 @@
     .fa-twitter {
         background: @twitter-color;
     }  
+    .fa-weibo {
+        background: @weibo-color;
+    }  
     .fa-envelope-o {
         background: @material-grey;
-    }        
+    }   
+    .fa-print {
+        background: @black;
+    }      
+    @media (max-width: @on-phone) {
+        a.fa-print {
+            display: none;
+        }
+    }  
 }
