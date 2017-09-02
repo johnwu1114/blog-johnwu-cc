@@ -1,0 +1,123 @@
+/* Tomorrow Night Eighties Theme */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+pre .comment {
+  color: #008000;
+}
+
+pre .attr {
+    color: #f00;
+}
+
+pre .variable, pre .attribute,  pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #f00;
+}
+
+pre .title, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #000;
+}
+
+pre .class, pre .ruby .class .title, pre .css .rules .attribute, pre .meta {
+  color: #2b91af;
+}
+
+pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata, pre .tag .name, pre .meta-string {
+  color: #a31515;
+}
+
+pre .css .hexcolor {
+  color: #66cccc;
+}
+
+pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #000;
+}
+
+pre .keyword, pre .javascript .function, pre .tag, pre .tag .string {
+  color: #00f;
+}
+
+.cs pre {
+    .title {
+        color: #2b91af;
+    }
+}
+
+.json pre {
+    .attr{
+        color: #2b91af;
+    }
+    .string{
+        color: #a31515;
+    }
+}
+
+.js pre {
+    .attr{
+        color: #000;
+    }
+    .string, .regexp{
+        color: #a31515;
+    }
+}
+
+.yml pre {
+    .attr{
+        color: #a31515;
+    }
+    .string{
+        color: #00f;
+    }
+}
+
+.css pre,.sass pre,.less pre {
+    .selector-tag, .selector-class {        
+        color: #a31515;
+    }
+    .number {
+        color: #00f;
+    }
+}
+
+.highlight {
+    width: 100%;
+    margin: 20px 0px;
+    overflow: auto;
+    display: block;
+    background: #fafafa;
+    color: #000;
+    font-size: .8rem;
+    font-family:@code-font-family;
+    line-height: 1.2rem;
+    border: 1px solid #ccc;
+    padding: 10px;
+    .line {
+        height: 1.2rem;
+    }
+    .gutter{
+        color: #999999;
+        padding-right: 20px;
+        text-align: right;
+    }
+    .code{
+        vertical-align: top;
+    }
+    &::-webkit-scrollbar { 
+        height: 6px;
+        width: 6px;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track-piece {
+    background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        cursor: pointer;
+        transition: all .2s ease-out;
+        &:hover {
+        background: darken(#ccc, 10%);
+        }
+    }
+}
