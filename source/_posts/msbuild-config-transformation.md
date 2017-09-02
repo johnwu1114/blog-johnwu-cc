@@ -135,4 +135,4 @@ msbuild Configuration.xml /p:Configuration=Release /t:rebuild
 ## 參考
 
 [MSBuild 參考](https://msdn.microsoft.com/zh-tw/library/0k6kkbsd.aspx)
-[Web.Config Transformation - Transform on build](http://larrynung.github.io/2014/07/07/web-dot-config-transformation-transform-on-build/)
+[Web.config Transformation - Transform on build](http://larrynung.github.io/2014/07/07/web-dot-config-transformation-transform-on-build/)

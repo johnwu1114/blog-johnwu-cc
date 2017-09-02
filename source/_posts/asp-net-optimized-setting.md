@@ -4,6 +4,7 @@ author: John Wu
 tags:
   - ASP.NET
   - HTTP Modules
+  - Web.config
 categories:
   - ASP.NET
 date: 2017-08-27 10:01:00
@@ -28,7 +29,7 @@ var httpModules = HttpContext.ApplicationInstance.Modules;
 
 可以看到有 16 個 HTTP Modules，但並不是每一個都會需要，例如驗證相關的邏輯都自己實作，完全不會用到 `WindowsAuthentication`、`FormsAuthentication`、`DefaultAuthentication`，那這三個 HTTP Modules 就應該把它移除，省的在每個 Request 及 Response 都會經過它們。  
 
-可以在網站根目錄的 web.config 編輯，移除預設的 HTTP Modules。範例如下：
+可以在網站根目錄的 Web.config 編輯，移除預設的 HTTP Modules。範例如下：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
@@ -194,9 +195,9 @@ namespace MyWebsite
 移除 `X-Powered-By`，但 `X-Powered-By` 並不是在 ASP.NET 中產生出來的內容！  
 `X-Powered-By` 是由 IIS 加入的資訊，有兩種移除方式：  
 1. 從 IIS 移除  
-2. 從 web.config 移除  
+2. 從 Web.config 移除  
 
-以 web.config 為例，在網站根目錄的 web.config 編輯，移除預設的 HTTP Modules。範例如下：
+以 Web.config 為例，在網站根目錄的 Web.config 編輯，移除預設的 HTTP Modules。範例如下：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>

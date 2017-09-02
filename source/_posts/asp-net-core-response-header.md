@@ -4,6 +4,7 @@ author: John Wu
 tags:
   - ASP.NET Core
   - IIS
+  - Web.config
 categories:
   - ASP.NET Core
 date: 2017-08-01 22:48:00
@@ -44,7 +45,7 @@ public class Program
 你可能會想說從 Middleware 移除 `X-Powered-By`，但 `X-Powered-By` 並不是在 ASP.NET Core 中產生出來的內容！  
 `X-Powered-By` 是由 IIS 加入的資訊，有兩種移除方式：  
 1. 從 IIS 移除  
-2. 從 web.config 移除  
+2. 從 Web.config 移除  
 
 > 如果你的 ASP.NET Core 不是在 IIS 上執行，就不會遇到此問題。
 
@@ -52,9 +53,9 @@ public class Program
 
 ![ASP.NET Core 教學 - IIS 移除 X-Powered-By](/images/pasted-259.png)
 
-### web.config 
+### Web.config 
 
-在該網站的 web.config 中，找到 `<system.webServer>` 新增 `<httpProtocol>` 包含如下內容：
+在該網站的 Web.config 中，找到 `<system.webServer>` 新增 `<httpProtocol>` 包含如下內容：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
