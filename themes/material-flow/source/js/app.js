@@ -291,7 +291,6 @@ var customSearch;
 	}
 
 	$(function () {
-		setPostList();
 		//set header
 		setHeader();
 		setHeaderMenu();
