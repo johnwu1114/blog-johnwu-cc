@@ -100,7 +100,7 @@ app/                                # Angular 4 的主要目錄
 
 ## Visual Studio 2017
 
-Visual Studio 2017 網站專案的新功能，會自動收合同名 `*.html` 下的 `*.css`、`*.ts`、`*.js`及`*.js.map`。  
+Visual Studio 2017 開啟 **ASP.NET Core** 網站專案，會自動收合同名 `*.html` 下的 `*.css`、`*.ts`、`*.js`及`*.js.map`。  
 這個功能讓整個檔案架構看起來超清爽～～  
 
 如下圖，左邊是 Visual Studio 2017 方案總管的呈現，右邊是實際的檔案位置：  

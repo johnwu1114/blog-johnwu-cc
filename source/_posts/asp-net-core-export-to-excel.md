@@ -40,7 +40,11 @@ using (var document = SpreadsheetDocument.Create(memoryStream, SpreadsheetDocume
     worksheetPart.Worksheet = new Worksheet(new SheetData());
 
     var sheets = workbookPart.Workbook.AppendChild(new Sheets());
-    sheets.Append(new Sheet() { Id = workbookPart.GetIdOfPart(worksheetPart), SheetId = 1, Name = "Sheet 1" });
+    sheets.Append(new Sheet() { 
+        Id = workbookPart.GetIdOfPart(worksheetPart), 
+        SheetId = 1, 
+        Name = "Sheet 1" 
+    });
 }
 ```
 
@@ -139,15 +143,28 @@ namespace MyWebsite.Controllers
 
                 var sheets = workbookPart.Workbook.AppendChild(new Sheets());
 
-                sheets.Append(new Sheet() { Id = workbookPart.GetIdOfPart(worksheetPart), SheetId = 1, Name = "Sheet 1" });
+                sheets.Append(new Sheet() { 
+                    Id = workbookPart.GetIdOfPart(worksheetPart), 
+                    SheetId = 1, 
+                    Name = "Sheet 1" 
+                });
 
                 var sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
 
                 var row = new Row();
                 row.Append(
-                    new Cell() { CellValue = new CellValue("No."), DataType = CellValues.String },
-                    new Cell() { CellValue = new CellValue("Name"), DataType = CellValues.String },
-                    new Cell() { CellValue = new CellValue("Links"), DataType = CellValues.String }
+                    new Cell() { 
+                        CellValue = new CellValue("No."), 
+                        DataType = CellValues.String 
+                    },
+                    new Cell() { 
+                        CellValue = new CellValue("Name"), 
+                        DataType = CellValues.String 
+                    },
+                    new Cell() { 
+                        CellValue = new CellValue("Links"), 
+                        DataType = CellValues.String 
+                    }
                 );
                 sheetData.AppendChild(row);
 
@@ -156,16 +173,26 @@ namespace MyWebsite.Controllers
                     var data = _smapleData[i];
                     row = new Row();
                     row.Append(
-                        new Cell() { CellValue = new CellValue((i + 1).ToString()), DataType = CellValues.Number },
-                        new Cell() { CellValue = new CellValue(data[0]), DataType = CellValues.String },
-                        new Cell() { CellValue = new CellValue(data[1]), DataType = CellValues.String }
+                        new Cell() { 
+                            CellValue = new CellValue((i + 1).ToString()), 
+                            DataType = CellValues.Number 
+                        },
+                        new Cell() { 
+                            CellValue = new CellValue(data[0]), 
+                            DataType = CellValues.String 
+                        },
+                        new Cell() { 
+                            CellValue = new CellValue(data[1]), 
+                            DataType = CellValues.String 
+                        }
                     );
                     sheetData.AppendChild(row);
                 }
             }
 
             memoryStream.Seek(0, SeekOrigin.Begin);
-            return new FileStreamResult(memoryStream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            return new FileStreamResult(memoryStream, 
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
     }
 }
