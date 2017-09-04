@@ -45,7 +45,7 @@ import groovy.json.*
 
 def jsonPath = env.JENKINS_HOME+"\\properties\\test.json"
 def jsonSlurper = new JsonSlurper()
-def jsonObject = jsonSlurper.parseText( new File(jsonPath).getText("UTF-8"))
+def jsonObject = jsonSlurper.parseText(new File(jsonPath).getText("UTF-8"))
 
 echo "name=${jsonObject.name}"
 echo "P1=${jsonObject.P1}"

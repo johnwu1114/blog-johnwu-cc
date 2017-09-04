@@ -1,5 +1,5 @@
 ---
-title: Jenkins - Pipeline Job 平行處理
+title: Jenkins - Pipeline Job 平行處理 (一)
 author: John Wu
 tags:
   - Jenkins
