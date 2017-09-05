@@ -10,6 +10,7 @@ Allow: *.js
 Allow: *.css
 
 User-agent: *
+Allow: /
 Disallow: /css/
 Disallow: /fonts/
 Disallow: /images/
