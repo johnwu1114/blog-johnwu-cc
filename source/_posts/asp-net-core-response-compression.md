@@ -3,6 +3,7 @@ title: ASP.NET Core 教學 - Gzip 封包壓縮
 author: John Wu
 tags:
   - ASP.NET Core
+  - Gzip
 categories:
   - ASP.NET Core
 date: 2017-08-02 23:47:00
