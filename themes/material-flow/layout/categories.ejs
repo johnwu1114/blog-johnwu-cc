@@ -2,18 +2,18 @@
     let title = "Categories";
     let cates = {};
     let total = 0;
-    site.categories.sort("name").each(function(item){ 
-        if(cates[item.name]==null) {
-            //let route = item.path.replace(/\/$/g, '').split("/");
-            cates[item.name] = {
-                title: item.name,
+    site.categories.sort("name").each(function(category){ 
+        if(cates[category.name]==null) {
+            //let route = category.path.replace(/\/$/g, '').split("/");
+            cates[category.name] = {
+                title: category.name,
                 //path: route[0] + "/" + route[route.length - 1] + "/",
-                path: item.path,
+                path: category.path,
                 count: 0
             };
             total++;
         }
-        cates[item.name].count += item.posts.length;
+        cates[category.name].count += category.posts.length;
     });
 %>
 <article class="post white-box archive-page">

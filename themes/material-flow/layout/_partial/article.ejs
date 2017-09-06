@@ -5,8 +5,7 @@
 	};
 </script>
 <article id="<%= post.layout %>-<%= post.slug %>"
-  class="post white-box article-type-<%= post.layout %>"
-  itemscope itemprop="blogPost">
+  class="post white-box article-type-<%= post.layout %>">
 	<section class="meta">
 	<h1 class="title">
   	<a href="<%- url_for(post.path) %>">
@@ -20,7 +19,7 @@
 		<section class="toc-wrapper"><%- toc(post.content, { list_number: false }) %></section>
 	<% } %> 
 	<section class="article typo">
-  	<div class="article-entry" itemprop="articleBody">
+  	<div class="article-entry">
     	<%- post.content %>
   	</div>
 	  <% if (post.tags && post.tags.length) { %>
