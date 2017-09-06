@@ -15,8 +15,7 @@
         }
         cates[category.name].count += category.posts.length;
     });
-%>
-<article class="post white-box archive-page">
+%><div class="post white-box archive-page">
     <section class="meta">
         <h2 class="title">
             <span class="fa fa-list"></span>
@@ -32,11 +31,11 @@
                 let cate = cates[key];
         %> 
             <div class="archive-item archive-post mark">
-                <a href="<%= url_for(cate.path) %>">
+                <a itemprop="url" href="<%= url_for(cate.path) %>">
                     <span class="title"><%= cate.title %></span>
                     <span class="count">(<%= cate.count %>)</div>
                 </a>
             </div>
         <% } } %>
     </section>
-</article>
+</div>

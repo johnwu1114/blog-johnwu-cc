@@ -8,7 +8,7 @@ let posts = site.posts.sort("date", -1).slice(0, 5);
     <ul class="entry">
     <% posts.each(function(post) { %>
         <li>
-            <a class="flat-box" href="<%= url_for(post.path) %>">
+            <a itemprop="url" class="flat-box" href="<%= url_for(post.path) %>">
                 <time><%= date(post.date, config.date_format) %></time>
                 <div class="name"><%= post.title %></div>
             </a>

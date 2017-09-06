@@ -3,18 +3,17 @@
 	if(page.title && page.type !== "categories" && page.type !== "tags") {
 		isShowWebsiteNameAsH2 = true;
 	}
-%>	
-<header class="l_header">
+%><header itemscope itemtype="http://schema.org/WPHeader" class="l_header">
 	<div class="wrapper">
 		<div class="nav-main container container--flex">
 			<% if (isShowWebsiteNameAsH2){ %>
-			<h2 class="logo flat-box">
+			<h2 itemprop="headline" class="logo flat-box">
 				<a href="<%= url_for("/") %>" >
 					<%- config.title %>
 				</a>
 			</h2>
 			<% } else { %>
-			<h1 class="logo flat-box">
+			<h1 itemprop="headline" class="logo flat-box">
 				<a href="<%= url_for("/") %>" >
 					<%- config.title %>
 				</a>
@@ -24,8 +23,8 @@
 				<ul class="h-list">
 					<% (theme.menu||[]).forEach(function(value){ %>
 						<li>
-							<a class="flat-box nav-<%=value.slug%>" href="<%=url_for(value.url)%>">
-								<%=value.name%>
+							<a itemprop="url" class="flat-box nav-<%=value.slug%>" href="<%=url_for(value.url)%>">
+								<%= value.name %>
 							</a>
 						</li>
 					<%})%>
@@ -42,9 +41,9 @@
 			<% } %>
 			<ul class="switcher h-list">
 				<% if (theme.search.enable === true) { %>
-					<li class="s-search"><a href="javascript:void(0)"><span class="fa fa-search flat-box"></span></a></li>
+					<li class="s-search"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-search flat-box"></span></a></li>
 				<% } %>
-				<li class="s-menu"><a href="javascript:void(0)"><span class="fa fa-bars flat-box"></span></a></li>
+				<li class="s-menu"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-bars flat-box"></span></a></li>
 			</ul>
 		</div>
 		
@@ -54,19 +53,17 @@
 			</span>
 
 			<ul class="switcher h-list">
-				<li class="s-comment"><a href="javascript:void(0)"><span class="fa fa-comment-o flat-box"></span></a></li>
-				<li class="s-top"><a href="javascript:void(0)"><span class="fa fa-long-arrow-up flat-box"></span></a></li>
+				<li class="s-comment"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-comment-o flat-box"></span></a></li>
+				<li class="s-top"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-long-arrow-up flat-box"></span></a></li>
 			</ul>
 		</div>
 	</div>
 </header>
-<aside class="menu-phone">
-	<nav>
-		<% (theme.menu||[]).forEach(function(value, key) {
-					if (value.url && value.slug && value.name) { %>
-			<a href="<%= url_for(value.url) %>" class="nav-<%= value.slug %> nav">
+<aside itemscope itemtype="http://schema.org/WPSideBar" class="menu-phone">
+	<nav itemscope itemtype="http://schema.org/SiteNavigationElement"><% (theme.menu||[]).forEach(function(value, key) {
+			if (value.url && value.slug && value.name) { 
+		%>	<a itemprop="url" href="<%= url_for(value.url) %>" class="nav-<%= value.slug %> nav">
 				<%= value.name %>
-			</a>
-		<% } }); %>
+			</a><% } }); %>
 	</nav>
 </aside>

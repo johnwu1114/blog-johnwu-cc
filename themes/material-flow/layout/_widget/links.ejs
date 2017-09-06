@@ -3,9 +3,11 @@
 <div class="content">
     <ul class="entry">
     <% (theme.links||[]).forEach(function(link){ %>
-        <li><a class="flat-box" target="_blank" href="<%= url_for(link.url) %>">
-            <div class="name"><%= link.name %></div>
-        </a></li>
+        <li>
+            <a itemprop="url" class="flat-box" target="_blank" href="<%= url_for(link.url) %>">
+                <div class="name"><%= link.name %></div>
+            </a>
+        </li>
     <% }); %>
     </ul>
 </div>

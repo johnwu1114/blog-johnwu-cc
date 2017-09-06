@@ -1,27 +1,27 @@
-<article class="post reveal<%= (post.title) ? "" : "no-title" %>">
+<article itemscope itemtype="http://schema.org/Article" 
+  class="post reveal<%= (post.title) ? "" : "no-title" %>">
   <section class="meta">
     <% if (post.title) { %>
-    <h2 class="title">
+    <h2 itemprop="name" class="title">
       <a href="<%- url_for(post.path) %>">
         <%= post.title %>
       </a>
     </h2>
     <% } %>
-    <%- partial("post-info",{post:post}) %>
+    <%- partial("post-info", { post: post }) %>
   </section>
-  <section class="article typo">
-	  <%- post.excerpt || post.content %>
-
+  <section class="article typo" >
+    <div itemprop="description"><%- post.excerpt || post.content %><div>
     <% if (post.excerpt) { %>
 	  <div class="readmore">
-      <a href="<%- url_for(post.path) %>">Read More</a>
+      <a itemprop="url" href="<%- url_for(post.path) %>">Read More</a>
     </div>
     <% } %>
     
     <% if (post.tags && post.tags.length) { %>
-	  <div class="full-width auto-padding tags">
+	  <div itemprop="keywords" class="full-width auto-padding tags">
       <% post.tags.each(function(item){ %>
-        <a href="<%- url_for(item.path) %>"><%=item.name %></a>
+        <a href="<%- url_for(item.path) %>"><%= item.name %></a>
       <%})%>
 	  </div>
     <% } %>

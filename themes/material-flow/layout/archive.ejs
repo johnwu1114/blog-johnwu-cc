@@ -14,8 +14,7 @@
         postCounter[year+month] = (postCounter[year+month]||0)+1;        
         return ignore;
     }).sort("date", -1);
-%>
-<article class="archive-page post white-box">
+%><div class="archive-page post white-box">
     <section class="meta">
         <h2 class="title">
             <span class="fa fa-archive"></span>
@@ -35,7 +34,7 @@
                 year = post.year;
         %>
             <div class="archive-item archive-year">
-                <a href="<%= url_for('/archives/' + year + '/') %>" >
+                <a itemprop="url" href="<%= url_for('/archives/' + year + '/') %>" >
                 <%= year %>
                 <span class="count">(<%= postCounter[year] %>)</span>
                 </a>
@@ -45,18 +44,18 @@
                 month = post.month;
         %>
             <div class="archive-item archive-month">
-                <a href="<%= url_for('/archives/' + year + '/' + month + '/') %>" >
+                <a itemprop="url" href="<%= url_for('/archives/' + year + '/' + month + '/') %>" >
                 <%= year + "-" + month %>
                 <span class="count">(<%= postCounter[year+month] %>)</span>
                 </a>
             </div>
         <% } %>
             <div class="archive-item archive-post mark">
-                <a href="<%= url_for(post.path) %>">
+                <a itemprop="url" href="<%= url_for(post.path) %>">
                     <time><%= date(post.date, "MM-DD") %></time>
                     <span class="title"><%= post.title %></span>
                 </a>
             </div>
         <% }); %>
     </section>
-</article>
+</div>

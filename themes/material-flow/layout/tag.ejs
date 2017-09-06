@@ -11,8 +11,7 @@
         posts.push(post);
         total++;
     });
-%>
-<article class="archive-page post white-box">
+%><div class="archive-page post white-box">
     <section class="meta">
         <h2 class="title">
             <span class="fa fa-tag"></span>
@@ -25,7 +24,7 @@
     <section class="archive">
         <% posts.forEach(function(post) { %>
         <div class="archive-item archive-post mark">
-            <a href="<%= url_for(post.path) %>">
+            <a itemprop="url" href="<%= url_for(post.path) %>">
                 <time>
                     <%= date(post.date, config.date_format) %>
                 </time>
@@ -34,4 +33,4 @@
         </div>
         <% }); %>
     </section>
-</article>
+</div>

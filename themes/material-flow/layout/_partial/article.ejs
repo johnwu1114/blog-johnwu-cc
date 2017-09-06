@@ -4,26 +4,29 @@
 		tools: true
 	};
 </script>
-<article id="<%= post.layout %>-<%= post.slug %>"
+<main role="main" itemscope itemtype="http://schema.org/Blog">
+<meta itemprop="description" content="<%= page.title %> | <%= config.title %>"/>
+<article role="main" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"
+	id="<%= post.layout %>-<%= post.slug %>"
   class="post white-box article-type-<%= post.layout %>">
 	<section class="meta">
-	<h1 class="title">
+	<h1 itemprop="alternativeHeadline" class="title">
   	<a href="<%- url_for(post.path) %>">
     	<%= post.title %>
     </a>
   </h1>
-	<%- partial("post-info",{post:post}) %>	
-	<%- partial("social-media-buttons",{post:post}) %>	
+	<%- partial("post-info", { post: post }) %>	
+	<%- partial("social-media-buttons", { post: post }) %>	
 	</section>
 	<% if(post.toc!==false){ %>
 		<section class="toc-wrapper"><%- toc(post.content, { list_number: false }) %></section>
 	<% } %> 
 	<section class="article typo">
-  	<div class="article-entry">
+  	<div itemprop="articleBody" class="article-entry">
     	<%- post.content %>
   	</div>
 	  <% if (post.tags && post.tags.length) { %>
-	  <div class="article-tags tags">
+	  <div itemprop="keywords" class="article-tags tags">
       <% post.tags.each(function(item){ %>
         <a href="<%- url_for(item.path) %>"><%=item.name %></a>
       <%})%>
@@ -41,14 +44,14 @@
 				<% if(post.prev){ %>
 					<span class="art-item-left">
 						<i class="fa fa-angle-left"></i>prev：
-						<a href="<%=url_for(post.prev.path)%>" rel="prev"  title="<%=post.prev.title%>">
+						<a itemprop="url" href="<%=url_for(post.prev.path)%>" rel="prev"  title="<%= post.prev.title %>">
 							<%= post.prev.title %> 
 						</a>
 					</span>
 				<% } %>
 				<% if(post.next){ %>
 					<span class="art-item-right">next：
-						<a href="<%=url_for(post.next.path) %>" rel="next"  title="<%=post.next.title %>">
+						<a itemprop="url" href="<%=url_for(post.next.path) %>" rel="next"  title="<%= post.next.title %>">
 							<%=post.next.title  %>
 						</a>
 						<i class="fa fa-angle-right"></i>
@@ -63,3 +66,4 @@
 		</section>
 	<% } %>
 </article>
+</main>

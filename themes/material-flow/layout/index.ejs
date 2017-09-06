@@ -13,16 +13,13 @@
         }
         count++;
     });
-    
-    let posts = leftPosts.concat(rightPosts);
-%>
 
-<section class="post-list">
+    let posts = leftPosts.concat(rightPosts);
+%><section class="post-list">
 <% posts.forEach(function(post) { %>
     <div class="post-wrapper <%= post.side %>-side">
-    <%- partial("_partial/post", {post: post}) %>
+    <%- partial("_partial/post", { post: post }) %>
     </div>
 <% }) %>
 </section>
-
 <%- partial("_partial/pagination") %>

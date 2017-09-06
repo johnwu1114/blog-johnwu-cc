@@ -16,5 +16,5 @@
     <a class="fa fa-twitter" title="Share" target="_blank" href="javascript:window.open('https://twitter.com/share?url=<%= url %>&amp;text=<%= post.title %>&amp;hashtags=<%= tags.join() %>', 'Share on Twitter','width=600, height=260')"></a>
     <a class="fa fa-weibo" title="Share" target="_blank" href="javascript:window.open('http://service.weibo.com/share/share.php?url=<%= url %>&amp;title=<%= post.title %> : <%= url %>', 'Share on Weibo','width=600, height=400')"></a>
     <a class="fa fa-envelope-o" title="Mail" href="mailto:?Subject=<%= post.title %>&amp;Body=<%= post.title %> : <%= url %>" ></a>
-    <a class="fa fa-print" title="Print" href="javascript:;" onclick="window.print()" ></a>
+    <a class="fa fa-print" title="Print" href="javascript:void(0);" onclick="window.print()" ></a>
 </div>

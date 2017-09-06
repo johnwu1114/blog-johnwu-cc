@@ -1,17 +1,20 @@
-<footer id="footer" class="clearfix">
+<footer itemscope itemtype="http://schema.org/WPFooter"
+  id="footer" class="clearfix">
+  <meta itemprop="copyrightYear" content="<%= date(Date.now(), 'YYYY') %>"/>
+  <meta itemprop="copyrightHolder" content="<%= config.author %>"/>
 
   <div>
-    Powered by <a href="https://hexo.io/" class="codename">Hexo</a> - 
-    Theme <a href="https://github.com/stkevintan/hexo-theme-material-flow" class="codename" rel="external nofollow noopener noreferrer" target="_blank">MaterialFlow</a>
+    Powered by <a itemprop="url" href="https://hexo.io/" class="codename">Hexo</a> - 
+    Theme <a itemprop="url" href="https://github.com/stkevintan/hexo-theme-material-flow" class="codename" rel="external nofollow noopener noreferrer" target="_blank">MaterialFlow</a>
   </div>
 
   <div>
-    <%= config.copyright %>
+    <span>© <%= date(Date.now(), 'YYYY') %> <%= config.author %></span>
 
     <% if (theme.social) { %>
       <% theme.social.forEach(function(value, key) {
             if (value.url && value.slug) { %>
-        <a href="<%= value.url %>" class="social <%= value.slug %>"
+        <a itemprop="url" href="<%= value.url %>" class="social <%= value.slug %>"
           target="_blank" rel="external">
           <span class="fa fa-<%= value.slug %>"></span>
         </a>
@@ -20,7 +23,7 @@
   </div>
   
   <div>
-      <a class="license" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+      <a itemprop="url" class="license" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
       </a>
       <br />

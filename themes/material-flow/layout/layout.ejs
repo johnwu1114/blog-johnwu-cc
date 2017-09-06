@@ -1,23 +1,50 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<%= config.lang_code %>" xml:lang="<%= config.lang_code %>">
-  <%- partial("_partial/head") %>
-  <body>
+<%
+  let title = page.title;
+  if (is_archive()) {
+    title = "Archives";
+    if (is_month())
+      title += ": " + page.year + "/" + page.month;
+    else if (is_year())
+      title += ": " + page.year;
+  } else if (is_category()) {
+    title = "Category: " + page.category;
+  } else if (is_tag()) {
+    title = "Tag: " + page.tag;
+  }
+  title = title ? (title + " | " + config.title) : config.title;
+
+  let keywords = config.keywords;
+  if(page && page.keywords) {
+    keywords = (page.keywords||[]).join(",");
+  } else if (page.tags && page.tags.length) {
+    keywords = page.tags.map(function(tag){ return tag.name; }).join(",");
+  }
+%><!DOCTYPE html>
+<html lang="<%= config.lang_code %>" 
+  xml:lang="<%= config.lang_code %>"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:fb="https://www.facebook.com/2008/fbml">
+  <%- partial("_partial/head", { title: title, keywords: keywords }) %>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <meta itemprop="name" content="<%= title %>"/>
+    <meta itemprop="keywords" content="<%= keywords %>" />
     <%- partial("_partial/loading") %>
     <script>setLoadingBarProgress(20);</script>
-    <%- partial("_partial/header", null, {cache: !config.relative_link}) %>
+    <%- partial("_partial/header", { cache: !config.relative_link }) %>
     <script>setLoadingBarProgress(40);</script>
     <div class="l_body">
       <div class="container clearfix">
         <div class="l_main">
           <%- body %>
         </div>
-        <aside class="l_side">
+        <aside itemscope itemtype="http://schema.org/WPSideBar" class="l_side">
           <%- partial("_partial/side") %>
         </aside>
         <script>setLoadingBarProgress(60);</script>
       </div>
     </div>
-    <%- partial("_partial/footer", null, {cache: !config.relative_link}) %>
+    <%- partial("_partial/footer", { cache: !config.relative_link }) %>
     <script>setLoadingBarProgress(80);</script>
     <%- partial("_partial/scripts") %>
     <%- partial("_partial/google-analytics") %>
