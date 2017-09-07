@@ -15,7 +15,8 @@
     });
 
     let posts = leftPosts.concat(rightPosts);
-%><section class="post-list">
+%>
+<section class="post-list">
 <% posts.forEach(function(post) { %>
     <div class="post-wrapper <%= post.side %>-side">
     <%- partial("_partial/post", { post: post }) %>

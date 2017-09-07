@@ -1,4 +1,4 @@
-<head>
+<head itemscope itemtype="http://schema.org/WebSite">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -14,6 +14,9 @@
     <meta property="fb:admins" content="<%= theme.facebook_sdk.fb_admin %>" />
     <meta property="fb:app_id" content="<%= theme.facebook_sdk.app_id %>" />
   <% } %>
+  <meta itemprop="name" content="<%= config.title %>"/>
+  <meta itemprop="url" content="<%= config.url %>"/>
+  <meta itemprop="creator" content="<%= config.author %>"/>
   <title><%= title %></title>
   <%- favicon_tag(config.favicon) %>
   <%- feed_tag(config.feed.path, { title: config.title }) %>

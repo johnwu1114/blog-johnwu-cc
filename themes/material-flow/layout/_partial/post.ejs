@@ -1,4 +1,4 @@
-<article itemscope itemtype="http://schema.org/Article" 
+<article itemscope itemtype="http://schema.org/BlogPosting" 
   class="post reveal<%= (post.title) ? "" : "no-title" %>">
   <section class="meta">
     <% if (post.title) { %>
@@ -17,7 +17,6 @@
       <a itemprop="url" href="<%- url_for(post.path) %>">Read More</a>
     </div>
     <% } %>
-    
     <% if (post.tags && post.tags.length) { %>
 	  <div itemprop="keywords" class="full-width auto-padding tags">
       <% post.tags.each(function(item){ %>

@@ -1,7 +1,7 @@
 <% if (page.type === "categories") { %>
-    <%- partial("categories") %>
+    <%- partial("_partial/categories") %>
 <% } else if (page.type === "tags") { %>
-    <%- partial("tags") %>
+    <%- partial("_partial/tags") %>
 <% } else { %>
     <%- partial("_partial/article", { post: page, index: false }) %>
 <% } %>

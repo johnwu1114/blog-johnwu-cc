@@ -3,18 +3,19 @@
 </time>
 <% 
     if (post.categories && post.categories.length) { 
-    var cats = [];
-    post.categories.forEach(function(cat){
-        cats.push("<a itemprop='url' href='"+url_for(cat.path)+"'>" + cat.name + "</a>");
-    });
-%><div class="cats">
+        var cats = [];
+        post.categories.forEach(function(cat) {
+            cats.push("<a itemprop='url' href='"+url_for(cat.path)+"'>" + cat.name + "</a>");
+        });
+%>
+<div itemprop="keywords" class="cats">
     <%- cats.join(", ") %>
-</div><% } %>
+</div>
+<% } %>
 <div class="info">
     <i class="fa fa-comment-o"></i>
     <a itemprop="discussionUrl" href="<%= url_for(post.path) %>#comments">
-        <span itemprop="interactionCount" class="disqus-comment-count"
-              data-disqus-identifier="<%= post.path %>"></span>
+        <span class="disqus-comment-count" data-disqus-identifier="<%= post.path %>"></span>
     </a>
 </div>
 <div class="info">

@@ -19,16 +19,15 @@
   } else if (page.tags && page.tags.length) {
     keywords = page.tags.map(function(tag){ return tag.name; }).join(",");
   }
-%><!DOCTYPE html>
+%>
+<!DOCTYPE html>
 <html lang="<%= config.lang_code %>" 
   xml:lang="<%= config.lang_code %>"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:og="http://ogp.me/ns#"
   xmlns:fb="https://www.facebook.com/2008/fbml">
   <%- partial("_partial/head", { title: title, keywords: keywords }) %>
-  <body itemscope itemtype="http://schema.org/WebPage">
-    <meta itemprop="name" content="<%= title %>"/>
-    <meta itemprop="keywords" content="<%= keywords %>" />
+  <body itemscope itemtype="http://schema.org/Blog">
     <%- partial("_partial/loading") %>
     <script>setLoadingBarProgress(20);</script>
     <%- partial("_partial/header", { cache: !config.relative_link }) %>
