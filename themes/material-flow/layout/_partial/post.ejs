@@ -1,15 +1,6 @@
 <article itemscope itemtype="http://schema.org/BlogPosting" 
   class="post reveal<%= (post.title) ? "" : "no-title" %>">
-  <section class="meta">
-    <% if (post.title) { %>
-    <h2 itemprop="name" class="title">
-      <a href="<%- url_for(post.path) %>">
-        <%= post.title %>
-      </a>
-    </h2>
-    <% } %>
-    <%- partial("post-info", { post: post }) %>
-  </section>
+  <%- partial("article-header", { post: post }) %>
   <section class="article typo" >
     <div itemprop="description"><%- post.excerpt || post.content %><div>
     <% if (post.excerpt) { %>
