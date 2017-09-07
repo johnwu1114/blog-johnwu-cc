@@ -13,6 +13,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-05-10 10:23:00
+featured_image: /images/pasted-11p.png
 ---
 ![ASP.NET Core + Angular 4 教學 - Entity Framework Core 範例執行結果](/images/pasted-11p.png)
 

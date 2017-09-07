@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-03 23:31:00
+featured_image: /images/pasted-272.png
 ---
 
 ![Jenkins - Groovy 從外部檔案取得變數 - 執行結果](/images/pasted-272.png)

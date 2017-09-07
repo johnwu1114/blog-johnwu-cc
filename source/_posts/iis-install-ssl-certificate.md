@@ -8,6 +8,7 @@ tags:
 categories:
   - IIS
 date: 2017-07-01 00:55:00
+featured_image: /images/pasted-220.png
 ---
 ![IIS - 安裝 SSL 憑證](/images/pasted-220.png)
 

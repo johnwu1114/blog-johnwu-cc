@@ -7,6 +7,7 @@ tags:
 categories:
   - Angular
 date: 2017-08-06 16:55:00
+featured_image: /images/pasted-278.png
 ---
 ![Angular 4 - Webpack Warning](/images/pasted-278.png)
 

@@ -7,6 +7,7 @@ tags:
 categories:
   - IIS
 date: 2017-08-26 01:47:00
+featured_image: /images/x310.png
 ---
 
 運行 ASP.NET 基本上都是掛載在 IIS 上面，但 IIS 預設的設定，並不適合 24 小時不中斷的營運系統。  

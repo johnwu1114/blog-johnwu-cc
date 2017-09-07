@@ -11,6 +11,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-12 21:30:00
+featured_image: /images/pasted-44.png
 ---
 ![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
 

@@ -7,6 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-05 18:49:00
+featured_image: /images/logo-asp-net-core.png
 ---
 ![ASP.NET Core 教學 - 自訂組態設定檔](/images/logo-asp-net-core.png)
 

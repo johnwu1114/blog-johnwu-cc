@@ -10,6 +10,7 @@ tags:
 categories:
   - AWS
 date: 2017-04-24 00:52:21
+featured_image: /images/logo-aws.png
 ---
 ![AWS](/images/logo-aws.png)
 

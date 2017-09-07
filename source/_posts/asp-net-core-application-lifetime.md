@@ -7,6 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-02 10:22:00
+featured_image: /images/pasted-162.png
 ---
 ![ASP.NET Core 教學 - Application Lifetime](/images/pasted-162.png)
  

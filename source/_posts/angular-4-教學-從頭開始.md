@@ -9,6 +9,7 @@ tags:
 categories:
   - Angular
 date: 2017-06-12 10:32:00
+featured_image: /images/pasted-192.png
 ---
 ![Angular 4 教學 - 從頭開始 範例執行結果](/images/pasted-192.png)
 

@@ -7,6 +7,7 @@ tags:
 categories:
   - Angular
 date: 2017-08-07 21:07:00
+featured_image: /images/pasted-279.png
 ---
 ![Angular 4 - Webpack 打包檔案分析](/images/pasted-279.png)
 

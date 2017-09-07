@@ -14,6 +14,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-23 03:36:00
+featured_image: /images/pasted-69.png
 ---
 ![ASP.NET Core + Angular 4 教學 - CKEditor 範例執行結果](/images/pasted-69.png)
 

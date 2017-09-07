@@ -7,6 +7,7 @@ tags:
 categories:
   - Angular
 date: 2017-06-13 10:20:00
+featured_image: /images/pasted-196.png
 ---
 ![Angular 4 教學 - Data Binding](/images/pasted-196.png)
 

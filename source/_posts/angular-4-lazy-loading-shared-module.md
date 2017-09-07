@@ -9,6 +9,7 @@ tags:
 categories:
   - Angular
 date: 2017-06-21 10:09:00
+featured_image: /images/logo-angular.png
 ---
 ![angular](/images/logo-angular.png)
 

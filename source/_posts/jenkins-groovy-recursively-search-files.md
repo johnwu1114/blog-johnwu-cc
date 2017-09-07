@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-12 00:03:00
+featured_image: /images/x293.png
 ---
 
 ![Jenkins - Groovy 遞迴搜尋檔案 - 執行結果](/images/x293.png)

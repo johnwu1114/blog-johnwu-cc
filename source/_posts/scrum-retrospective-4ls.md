@@ -7,6 +7,7 @@ tags:
 categories:
   - Scrum
 date: 2017-06-05 11:07:00
+featured_image: /images/pasted-166.png
 ---
 ![Scrum - 回顧方法 - 4Ls](/images/pasted-166.png)
 

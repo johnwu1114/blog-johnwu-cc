@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-20 09:45:00
+featured_image: /images/pasted-206.png
 ---
 ![ASP.NET Core 教學 - Exception Handler 層級](/images/pasted-206.png)
 

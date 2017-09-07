@@ -6,6 +6,7 @@ tags:
 categories:
   - TFS
 date: 2017-03-28 22:07:00
+featured_image: /images/pasted-0.png
 ---
 ![TFS - 登入驗證提示關閉](/images/pasted-0.png)
 

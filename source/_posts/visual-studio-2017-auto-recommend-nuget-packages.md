@@ -7,6 +7,7 @@ categories:
   - Visual Studio
   - VS2017
 date: 2017-07-05 10:45:30
+featured_image: /images/pasted-229.png
 ---
 ![Visual Studio 2017 - 自動推薦 NuGet 套件](/images/pasted-229.png)
 

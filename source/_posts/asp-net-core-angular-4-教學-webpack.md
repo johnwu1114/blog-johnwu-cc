@@ -12,6 +12,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-15 13:35:58
+featured_image: /images/pasted-46.png
 ---
 ![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果未完成](/images/pasted-46.png)
 

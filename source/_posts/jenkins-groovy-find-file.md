@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-05 13:50:00
+featured_image: /images/pasted-277.png
 ---
 
 ![Jenkins - Groovy 搜尋檔案 - 執行結果](/images/pasted-277.png)

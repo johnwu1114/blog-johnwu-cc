@@ -13,6 +13,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-17 00:48:00
+featured_image: /images/pasted-48p.png
 ---
 ![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48p.png)
 

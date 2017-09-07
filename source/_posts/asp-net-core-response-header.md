@@ -8,6 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-08-01 22:48:00
+featured_image: /images/pasted-258.png
 ---
 ![ASP.NET Core 教學 - 移除 Response Header 資訊](/images/pasted-258.png)
 

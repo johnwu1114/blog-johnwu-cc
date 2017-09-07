@@ -8,6 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-16 12:07:00
+featured_image: /images/pasted-198.png
 ---
 ![ASP.NET Core 教學 - Filters - 運作方式](/images/pasted-198.png)
 

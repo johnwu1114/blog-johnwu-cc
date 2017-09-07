@@ -8,6 +8,7 @@ tags:
 categories:
   - Hexo
 date: 2016-11-21 00:36:00
+featured_image: /images/pasted-242.png
 ---
 ![Add Visitors Counter on Hexo](/images/pasted-242.png)
 

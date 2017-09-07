@@ -9,6 +9,7 @@ categories:
   - Visual Studio
   - VS Code
 date: 2017-07-20 23:12:30
+featured_image: /images/logo-vs-code.png
 ---
 ![Visual Studio Code - 右鍵開啟檔案或資料夾](/images/logo-vs-code.png)
 

@@ -8,6 +8,7 @@ tags:
 categories:
   - Angular
 date: 2017-04-30 23:54:00
+featured_image: /images/pasted-107p.png
 ---
 ![Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107p.png)
 

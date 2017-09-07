@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-22 21:28:00
+featured_image: /images/x303.png
 ---
 
 ![Jenkins - Groovy 調用其他工作 - 執行結果](/images/x303.png)

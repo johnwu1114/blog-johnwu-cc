@@ -8,6 +8,7 @@ tags:
 categories:
   - Unit Test
 date: 2017-07-25 13:08:00
+featured_image: /images/logo-nunit.png
 ---
 ![NUnit - 測試案例 TestCaseAttribute](/images/logo-nunit.png)
 

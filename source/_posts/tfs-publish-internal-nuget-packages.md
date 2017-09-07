@@ -8,6 +8,7 @@ tags:
 categories:
   - TFS
 date: 2017-05-24 14:37:00
+featured_image: /images/pasted-157.png
 ---
 ![TFS - NuGet Feed ](/images/pasted-157.png)
 

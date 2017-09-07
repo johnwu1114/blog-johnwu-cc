@@ -7,6 +7,7 @@ tags:
 categories:
   - Scrum
 date: 2017-05-17 10:56:00
+featured_image: /images/pasted-119.png
 ---
 ![Scrum - 回顧方法 - The Wheel](/images/pasted-119.png)
 

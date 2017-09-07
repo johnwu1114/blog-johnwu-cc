@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-05 12:53:00
+featured_image: /images/pasted-271.png
 ---
 ![Jenkins - Groovy RejectedAccessException - RejectedAccessException](/images/pasted-271.png)
 

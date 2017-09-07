@@ -9,6 +9,7 @@ tags:
 categories:
   - Angular
 date: 2017-06-19 10:50:00
+featured_image: /images/pasted-203.png
 ---
 ![Angular 4 教學 - 多國語言 - Switch culture](/images/pasted-203.png)
 

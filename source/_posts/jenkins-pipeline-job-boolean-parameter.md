@@ -9,6 +9,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-22 11:36:00
+featured_image: /images/x306.png
 ---
 
 ![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行結果 - 1](/images/x306.png)

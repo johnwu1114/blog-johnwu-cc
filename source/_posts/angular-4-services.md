@@ -8,6 +8,7 @@ tags:
 categories:
   - Angular
 date: 2017-07-09 22:27:00
+featured_image: /images/pasted-234.png
 ---
 ![Angular 4 教學 - Service - Module Providers](/images/pasted-234.png)
 

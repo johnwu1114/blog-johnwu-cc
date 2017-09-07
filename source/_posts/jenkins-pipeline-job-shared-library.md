@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-16 09:36:00
+featured_image: /images/x299.png
 ---
 
 ![Jenkins - Pipeline Job 共用函數庫](/images/x299.png)

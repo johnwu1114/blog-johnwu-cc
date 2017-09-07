@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-08-12 12:54:00
+featured_image: /images/x294.png
 ---
 ![ASP.NET Core 教學 - 匯出 Excel - 執行結果](/images/x294.png)
 

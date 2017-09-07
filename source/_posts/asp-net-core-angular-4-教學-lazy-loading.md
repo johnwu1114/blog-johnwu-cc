@@ -11,6 +11,7 @@ tags:
 categories:
   - Angular
 date: 2017-05-02 23:21:00
+featured_image: /images/pasted-108p.png
 ---
 ![Angular 4 教學 - Lazy Loading 範例執行結果](/images/pasted-108p.png)
 

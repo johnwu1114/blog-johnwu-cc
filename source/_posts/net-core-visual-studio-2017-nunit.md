@@ -10,6 +10,7 @@ tags:
 categories:
   - .NET Core
 date: 2017-06-08 12:44:00
+featured_image: /images/pasted-185.png
 ---
 ![NUnit Test Result](/images/pasted-185.png)
 

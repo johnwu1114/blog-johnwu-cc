@@ -13,6 +13,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-22 00:25:26
+featured_image: /images/pasted-69p.png
 ---
 ![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-69p.png)
 

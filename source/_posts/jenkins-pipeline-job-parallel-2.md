@@ -10,6 +10,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-09-04 12:11:00
+featured_image: /images/x324.png
 ---
 
 ![Jenkins - Pipeline Job 平行處理 - 執行結果 - 2](/images/x324.png)

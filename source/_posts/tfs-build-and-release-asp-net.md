@@ -8,6 +8,7 @@ tags:
 categories:
   - TFS
 date: 2017-06-06 09:41:00
+featured_image: /images/pasted-182.png
 ---
 ![TFS - ASP.NET Releases](/images/pasted-182.png)
 

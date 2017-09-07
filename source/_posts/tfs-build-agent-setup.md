@@ -7,6 +7,7 @@ tags:
 categories:
   - TFS
 date: 2017-05-23 10:17:00
+featured_image: /images/pasted-130.png
 ---
 ![TFS - Build Agent - No agent could be found](/images/pasted-130.png)
 

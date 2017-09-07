@@ -8,6 +8,7 @@ tags:
 categories:
   - .NET Core
 date: 2017-06-08 10:38:00
+featured_image: /images/pasted-183.png
 ---
 ![AES Cryptography](/images/pasted-183.png)
 

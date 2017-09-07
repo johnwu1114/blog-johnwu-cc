@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-09-05 02:07:00
+featured_image: /images/x325.png
 ---
 
 ![ASP.NET Core 教學 - 檔案上傳 - 執行結果](/images/x325.png)

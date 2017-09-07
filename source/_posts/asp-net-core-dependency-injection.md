@@ -7,6 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-28 22:21:00
+featured_image: /images/pasted-209.png
 ---
 ![ASP.NET Core 教學 - Dependency Injection - 運作方式](/images/pasted-209.png)
 

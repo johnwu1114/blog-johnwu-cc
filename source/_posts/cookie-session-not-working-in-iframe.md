@@ -11,6 +11,7 @@ tags:
 categories:
   - Web Development
 date: 2017-04-02 16:03:00
+featured_image: /images/pasted-38.png
 ---
 
 ![Cross Domain IFrame - Can't Access Cookie](/images/pasted-38.png)

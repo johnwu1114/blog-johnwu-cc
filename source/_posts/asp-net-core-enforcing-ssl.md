@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-01 08:56:00
+featured_image: /images/pasted-161.png
 ---
 ![ASP.NET Core 教學 - 強制 SSL](/images/pasted-161.png)
 

@@ -8,6 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-30 23:21:00
+featured_image: /images/pasted-247.png
 ---
 ![ASP.NET Core 教學 - 忽略 Global Filter](/images/pasted-247.png)
 

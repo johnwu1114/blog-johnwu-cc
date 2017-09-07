@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-04 03:19:00
+featured_image: /images/pasted-275.png
 ---
 
 ![Jenkins - Groovy 執行系統指令 - 執行結果](/images/pasted-275.png)

@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-05-15 11:06:00
+featured_image: /images/pasted-115.png
 ---
 ![ASP.NET Core 教學 - Routing - 運作方式](/images/pasted-115.png)
 

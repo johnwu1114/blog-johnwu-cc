@@ -13,6 +13,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-05-09 17:15:00
+featured_image: /images/pasted-113p.png
 ---
 ![ASP.NET Core + Angular 4 教學 - Redis Session 運行方式](/images/pasted-113p.png)
 

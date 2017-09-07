@@ -7,6 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-11 11:07:00
+featured_image: /images/logo-asp-net-core.png
 ---
 ![ASP.NET Core 範例 - 跨專案 DI](/images/logo-asp-net-core.png)
 

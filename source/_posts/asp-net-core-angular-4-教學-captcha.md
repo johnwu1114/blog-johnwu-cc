@@ -12,6 +12,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-05-04 23:21:00
+featured_image: /images/pasted-110p.png
 ---
 ![ASP.NET Core + Angular 4 教學 - Captcha 範例執行結果](/images/pasted-110p.png)
 

@@ -8,6 +8,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-03 20:19:00
+featured_image: /images/pasted-266.png
 ---
 ![Jenkins 教學 - Pipeline Job using Groovy - 執行結果](/images/pasted-266.png)
 

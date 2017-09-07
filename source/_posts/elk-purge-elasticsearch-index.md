@@ -8,6 +8,7 @@ tags:
 categories:
   - ELK
 date: 2017-07-27 22:19
+featured_image: /images/logo-elasticsearch.png
 ---
 ![ELK 教學 - 定期清除 Elasticsearch 資料](/images/logo-elasticsearch.png)
 

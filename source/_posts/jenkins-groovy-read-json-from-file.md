@@ -9,6 +9,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-23 12:31:00
+featured_image: /images/x309.png
 ---
 
 ![Jenkins - Groovy 從 JSON 檔案讀取變數 - 執行結果](/images/x309.png)

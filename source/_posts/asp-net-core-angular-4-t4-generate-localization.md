@@ -13,6 +13,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-07-20 21:03:00
+featured_image: /images/logo-asp-net-core-angular.png
 ---
 ![ASP.NET Core + Angular 4 教學 - T4 Template 產生多國語言](/images/logo-asp-net-core-angular.png)
 

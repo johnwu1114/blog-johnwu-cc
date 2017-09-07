@@ -8,6 +8,7 @@ tags:
 categories:
   - Unit Test
 date: 2017-07-22 22:05:00
+featured_image: /images/pasted-243.png
 ---
 ![NUnit - 測試案例生命週期](/images/pasted-243.png)
 

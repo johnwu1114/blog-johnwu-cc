@@ -12,6 +12,7 @@ tags:
 categories:
   - ELK
 date: 2017-04-27 22:19
+featured_image: /images/pasted-92p.png
 ---
 ![ELK 教學架構](/images/pasted-92p.png)
 

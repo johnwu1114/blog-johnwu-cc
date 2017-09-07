@@ -7,6 +7,7 @@ tags:
 categories:
   - Hexo
 date: 2017-08-08 22:50:00
+featured_image: /images/x284.png
 ---
 ![Hexo - 自訂站內搜尋 (Google Custom Search) - 執行結果](/images/x284.png)
 

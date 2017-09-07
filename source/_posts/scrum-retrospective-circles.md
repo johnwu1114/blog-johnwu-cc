@@ -7,6 +7,7 @@ tags:
 categories:
   - Scrum
 date: 2017-06-05 09:49:00
+featured_image: /images/pasted-163.png
 ---
 ![Scrum - 回顧方法 - Circles](/images/pasted-163.png)
 

@@ -7,6 +7,7 @@ tags:
 categories:
   - Scrum
 date: 2017-05-16 09:43:00
+featured_image: /images/pasted-118.png
 ---
 ![Scrum - 回顧方法 - Happiness](/images/pasted-118.png)
 

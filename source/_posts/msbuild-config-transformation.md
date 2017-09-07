@@ -8,6 +8,7 @@ tags:
 categories:
   - MSBuild
 date: 2017-06-09 09:54:00
+featured_image: /images/pasted-186.png
 ---
 ![MSBuild - Result](/images/pasted-186.png)
 

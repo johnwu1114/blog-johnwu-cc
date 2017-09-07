@@ -8,6 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-04-17 22:41:00
+featured_image: /images/pasted-59.png
 ---
 ![Camel](/images/pasted-59.png)
 

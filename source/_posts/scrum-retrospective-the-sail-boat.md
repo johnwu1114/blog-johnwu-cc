@@ -7,6 +7,7 @@ tags:
 categories:
   - Scrum
 date: 2017-07-04 10:41:00
+featured_image: /images/pasted-228.png
 ---
 ![Scrum - 回顧方法 - The Sail Boat](/images/pasted-227.gif)
 

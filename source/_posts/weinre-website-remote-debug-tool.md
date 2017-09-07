@@ -7,8 +7,10 @@ tags:
 categories:
   - Web Development
 date: 2016-12-16 11:44:00
+featured_image:
 ---
 ## Install Node.js
+
 Download & install Node.js stable version from official site: http://nodejs.org/  
 *Weinre* base on Node.js, need to install Node.js first.
 

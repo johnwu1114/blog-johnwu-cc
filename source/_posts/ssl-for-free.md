@@ -7,6 +7,7 @@ tags:
 categories:
   - Web Development
 date: 2017-06-29 10:29:00
+featured_image: /images/pasted-210.png
 ---
 ![免費 SSL 申請 - SSL For Free](/images/pasted-210.png)
 

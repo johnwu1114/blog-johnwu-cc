@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-26 22:11:00
+featured_image: /images/pasted-202.png
 ---
 ![ASP.NET Core 教學 - 多國語言 - 運作方式](/images/pasted-202.png)
 

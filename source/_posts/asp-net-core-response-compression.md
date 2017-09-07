@@ -7,6 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-08-02 23:47:00
+featured_image: /images/pasted-261.png
 ---
 ![ASP.NET Core 教學 - Gzip 封包壓縮](/images/pasted-261.png)
 

@@ -7,6 +7,7 @@ tags:
 categories:
   - Angular
 date: 2017-08-09 12:17:00
+featured_image: /images/x288.png
 ---
 ![Angular 4 - Webpack Ignore Plugin - moment](/images/x288.png)
 

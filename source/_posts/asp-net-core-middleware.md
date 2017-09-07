@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-05-11 11:07:00
+featured_image: /images/pasted-114p.png
 ---
 ![ASP.NET Core 教學 - Middleware - 運作方式](/images/pasted-114p.png)
 

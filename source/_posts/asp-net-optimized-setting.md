@@ -8,6 +8,7 @@ tags:
 categories:
   - ASP.NET
 date: 2017-08-27 10:01:00
+featured_image: /images/x312.png
 ---
 ![ASP.NET - 基本優化設定 - HTTP Modules 運作方式](/images/x312.png)
 

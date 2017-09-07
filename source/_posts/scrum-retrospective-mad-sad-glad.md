@@ -7,6 +7,7 @@ tags:
 categories:
   - Scrum
 date: 2017-07-03 09:15:00
+featured_image: /images/pasted-224.png
 ---
 ![Scrum - 回顧方法 - Mad Sad Glad](/images/pasted-224.png)
 

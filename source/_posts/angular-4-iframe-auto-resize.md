@@ -8,6 +8,7 @@ tags:
 categories:
   - Angular
 date: 2017-08-11 13:37:00
+featured_image: /images/x290.png
 ---
 ![Angular 4 教學 - IFrame 自動調整大小](/images/x290.png)
 

@@ -7,6 +7,7 @@ tags:
 categories:
   - Angular
 date: 2017-08-09 09:46:00
+featured_image: /images/x287.png
 ---
 ![Angular 4 - IE9 不支援 `apply` 錯誤](/images/x287.png)
 

@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-21 13:58:00
+featured_image: /images/pasted-240.png
 ---
 ![ASP.NET Core 教學 - 跨域請求 Cross-Origin Requests (CORS)](/images/pasted-240.png)
 

@@ -9,6 +9,7 @@ tags:
 categories:
   - IIS
 date: 2017-09-06 09:27:00
+featured_image: /images/x329.png
 ---
 ![IIS - 靜態檔案及動態內容壓縮 - 執行結果](/images/x329.png)
 
