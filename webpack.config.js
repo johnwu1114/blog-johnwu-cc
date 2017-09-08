@@ -5,7 +5,8 @@ var wwwroot = __dirname + "/themes/material-flow/source";
 module.exports = {
     cache: true,
     entry: {
-        "bundle": [wwwroot + "/js/main.js"]
+        "bundle": [wwwroot + "/js/main.js"],        
+        "site-stats.min": [wwwroot + "/js/site-stats.js"]
     },
     output: {
         path: wwwroot + "/js",
