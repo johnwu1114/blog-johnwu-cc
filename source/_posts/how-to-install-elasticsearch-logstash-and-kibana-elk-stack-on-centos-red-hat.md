@@ -56,6 +56,7 @@ ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐�
 Red Hat 及 CentOS 可以下載 rpm 安裝檔。其他 Linux 版本的話就下載 tar 解壓縮安裝。  
 [Download JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 ![Download JRE](/images/pasted-93.png)
+
 ### 1.2 安裝
 
 下載後，透過 SCP 或 WinSCP 放到 `/tmp/`，執行以下安裝指令。
