@@ -85,7 +85,7 @@ Site Status 除了會顯示 Traffic Rank 還會多加顯示外部網站連入的
 雖然插入程式碼後，成功的顯示了 Alexa Ranking 資訊，但是超連結是壞的！  
 如本文開頭所說，Alexa Widget 就停止更新了啊！改了位置導致異常也是很合理的事。  
 
-我小改了 http://xslt.alexa.com/site_stats/js/，並上傳到我部落格的 CDN，所以你可以改用以下程式碼插入至你的網站：  
+我小改了 `http://xslt.alexa.com/site_stats/js/`，並上傳到我部落格的 CDN，所以你可以改用以下程式碼插入至你的網站：  
 ```html
 <!-- Traffic Rank 120 x 65 -->
 <script type="text/javascript" 
@@ -119,7 +119,7 @@ Site Status 除了會顯示 Traffic Rank 還會多加顯示外部網站連入的
 ```
 > `&url={Your doamin}` 這個參數可以省略掉，我直接從 `document.location.hostname` 取得 Domain。
 
-修正後的 http://xslt.alexa.com/site_stats/js/ JavaScript 程式碼如下：
+修正後的 `http://xslt.alexa.com/site_stats/js/` JavaScript 程式碼如下：
 ```js
 function AlexaSiteStatsWidget() {
     var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -188,21 +188,21 @@ new AlexaSiteStatsWidget().replaceScripts();
 ```
 ### 插入 Image
 
-JavaScript 只是幫你把　URL 用 Base64 Encode，再透過 http://xsltcache.alexa.com/site_stats/gif/ API 取得圖片。  
-所以你可以透過以下輸入框，產生你的專屬 Alexa Widget 圖片連結：
+JavaScript 只是幫你把　URL 用 Base64 Encode，再透過 `http://xsltcache.alexa.com/site_stats/gif/` API 取得圖片。  
+所以我做了一個小工具，透過以下輸入資訊，產生你的專屬 Alexa Widget 圖片連結：  
 
 <form id="alexaWidgetTools">
     <div>
-        <label>網域: </label>
+        <label>網域：</label>
         <input type="text" id="domain" placeholder="e.g. blog.johnwu.cc" />
     </div>
     <div>
-        <label>類型: </label>
+        <label>類型：</label>
         <input type="radio" name="view" id="t" value="t" checked /><label for="t">Traffic Rank</label>
         <input type="radio" name="view" id="s" value="s" /><label for="s">Site Status</label>
     </div>
     <div>
-        <label>大小: </label>
+        <label>大小：</label>
         <input type="radio" name="size" id="ta" value="a" checked /><label for="ta">120 x 65</label>
         <input type="radio" name="size" id="tb" value="b" /><label for="tb">120 x 90</label>
         <input type="radio" name="size" id="sa" value="a" /><label for="sa">120 x 95</label>
@@ -214,8 +214,10 @@ JavaScript 只是幫你把　URL 用 Base64 Encode，再透過 http://xsltcache.
     </div>
 </form>
 
-HTML:
+HTML Output:
 <textarea id="output" rows="4" readonly style="width: 100%"></textarea>
+
+> 將產生出來的 HTML，複製貼上到網頁要顯示的地方即可。  
 
 <script>
 var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -270,8 +272,6 @@ function getRadio(name)
 }
 </script>
 
-> 將產生出來的 HTML，插入至網頁要顯示的地方即可。  
-
 ### 範例結果
 
 <script type="text/javascript" src="/js/site-stats.min.js?p=sa"></script>
@@ -281,7 +281,7 @@ function getRadio(name)
 使用 Alexa Widget 的話，還存在另一個缺點，就是 Alexa Widget 不支援 HTTPS。  
 如果你的網站是 HTTPS，而參考 HTTP 的話，可以改用 Alexa Graph，但 API 似乎也沒再更新了，參數都沒有作用。  
 
-Alexa Graph 的用法是在網址 https://traffic.alexa.com/graph?u=blog.johnwu.cc，`u=` 代入網域名稱，就會回傳圖片，所以可以直接在 `<img />` 的 src 輸入該網址即可。如下：
+Alexa Graph 的用法是在網址 `https://traffic.alexa.com/graph?u=blog.johnwu.cc`，`u=` 代入網域名稱，就會回傳圖片，所以可以直接在 `<img />` 的 src 輸入該網址即可。如下：
 
 ```html
 <a class="alexa" target="_blank" href="https://www.alexa.com/siteinfo/blog.johnwu.cc">
@@ -299,5 +299,5 @@ Alexa Graph 的用法是在網址 https://traffic.alexa.com/graph?u=blog.johnwu.
 
 ## 參考
 
-[How to create and add Alexa ranking widget in your website or blog](http://blogtimenow.com/how-to/alexa-ranking-widget/)  
+[How to create and add Alexa ranking widget in your website or blog](https://blogtimenow.com/how-to/alexa-ranking-widget/)  
 [Alexa Traffic Statistics: How to Display Them on Your Website?](https://dukeo.com/alexa-traffic-statistics/)
