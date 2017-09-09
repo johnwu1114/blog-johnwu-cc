@@ -10,11 +10,11 @@
         https://www.w3schools.com/howto/howto_css_social_media_buttons.asp
         https://simplesharebuttons.com/html-share-buttons/ 
     -->
-    <a class="fa fa-facebook" title="Share" target="_blank" href="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= post_path %>', 'Share on Facebook','width=600, height=600')"></a>
-    <a class="fa fa-linkedin" title="Share" target="_blank" href="javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= post_path %>', 'Share on Linkedin','width=600, height=600')"></a>
+    <a class="fa fa-facebook" title="Share" target="_blank" href="javascript:window.open('https://www.facebook.com/sharer.php?u=<%= post_path %>', 'Share on Facebook','width=600, height=600')"></a>
+    <a class="fa fa-linkedin" title="Share" target="_blank" href="javascript:window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= post_path %>', 'Share on Linkedin','width=600, height=600')"></a>
     <a class="fa fa-google" title="Share" target="_blank" href="javascript:window.open('https://plus.google.com/share?url=<%= post_path %>', 'Share on Google Plus','width=400, height=600')"></a>
     <a class="fa fa-twitter" title="Share" target="_blank" href="javascript:window.open('https://twitter.com/share?url=<%= post_path %>&amp;text=<%= post.title %>&amp;hashtags=<%= tags.join() %>', 'Share on Twitter','width=600, height=260')"></a>
-    <a class="fa fa-weibo" title="Share" target="_blank" href="javascript:window.open('http://service.weibo.com/share/share.php?url=<%= post_path %>&amp;title=<%= post.title %> : <%= post_path %>', 'Share on Weibo','width=600, height=400')"></a>
+    <a class="fa fa-weibo" title="Share" target="_blank" href="javascript:window.open('https://service.weibo.com/share/share.php?url=<%= post_path %>&amp;title=<%= post.title %> : <%= post_path %>', 'Share on Weibo','width=600, height=400')"></a>
     <a class="fa fa-envelope-o" title="Mail" href="mailto:?Subject=<%= post.title %>&amp;Body=<%= post.title %> : <%= post_path %>" ></a>
     <a class="fa fa-print" title="Print" href="javascript:void(0);" onclick="window.print()" ></a>
 </div>

@@ -23,11 +23,11 @@
 <!DOCTYPE html>
 <html lang="<%= config.lang_code %>" 
   xml:lang="<%= config.lang_code %>"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:og="http://ogp.me/ns#"
+  xmlns="https://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#" 
   xmlns:fb="https://www.facebook.com/2008/fbml">
   <%- partial("_partial/head", { title: title, keywords: keywords }) %>
-  <body itemscope itemtype="http://schema.org/Blog">
+  <body itemscope itemtype="https://schema.org/Blog">
     <%- partial("_partial/loading") %>
     <script>setLoadingBarProgress(20);</script>
     <%- partial("_partial/header", { cache: !config.relative_link }) %>
@@ -37,7 +37,7 @@
         <div class="l_main">
           <%- body %>
         </div>
-        <aside itemscope itemtype="http://schema.org/WPSideBar" class="l_side">
+        <aside itemscope itemtype="https://schema.org/WPSideBar" class="l_side">
           <%- partial("_partial/side") %>
         </aside>
         <script>setLoadingBarProgress(60);</script>

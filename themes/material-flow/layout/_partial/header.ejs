@@ -4,7 +4,7 @@
 		isShowWebsiteNameAsH2 = true;
 	}
 %>
-<header itemscope itemtype="http://schema.org/WPHeader" class="l_header">
+<header itemscope itemtype="https://schema.org/WPHeader" class="l_header">
 	<div class="wrapper">
 		<div class="nav-main container container--flex">
 			<% if (isShowWebsiteNameAsH2){ %>
@@ -60,8 +60,8 @@
 		</div>
 	</div>
 </header>
-<aside itemscope itemtype="http://schema.org/WPSideBar" class="menu-phone">
-	<nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+<aside itemscope itemtype="https://schema.org/WPSideBar" class="menu-phone">
+	<nav itemscope itemtype="https://schema.org/SiteNavigationElement">
 		<% (theme.menu||[]).forEach(function(value, key) {
 			if (value.url && value.slug && value.name) { 
 		%>

@@ -1,5 +1,5 @@
 <% if (page.total > 1) { %>
-<nav itemscope itemtype="http://schema.org/SiteNavigationElement" id="page-nav">
+<nav itemscope itemtype="https://schema.org/SiteNavigationElement" id="page-nav">
     <% if (page.prev != 0) { %>
     <a itemprop="url" class="prev" rel="prev" href="<%= url_for(page.prev_link) %>">
         <span class="fa fa-chevron-left"></span>
