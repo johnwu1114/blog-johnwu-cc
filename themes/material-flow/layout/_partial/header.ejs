@@ -1,6 +1,6 @@
 <% 
 	let isShowWebsiteNameAsH2 = false;
-	if(page.title && page.type !== "categories" && page.type !== "tags") {
+	if(page.title && !page.type) {
 		isShowWebsiteNameAsH2 = true;
 	}
 %>

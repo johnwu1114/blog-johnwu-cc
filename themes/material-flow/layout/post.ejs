@@ -2,6 +2,8 @@
     <%- partial("_partial/categories") %>
 <% } else if (page.type === "tags") { %>
     <%- partial("_partial/tags") %>
+<% } else if (page.type === "error") { %>
+    <%- partial("_partial/error") %>
 <% } else { %>
     <%- partial("_partial/article", { post: page, index: false }) %>
 <% } %>
