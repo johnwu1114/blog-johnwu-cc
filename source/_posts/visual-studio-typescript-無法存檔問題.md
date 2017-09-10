@@ -5,8 +5,8 @@ tags:
   - Visual Studio
   - TypeScript
   - Windows
+  - VS2017
 categories:
-  - Visual Studio
   - VS2017
 date: 2017-04-18 21:37:30
 featured_image: /images/pasted-61.png

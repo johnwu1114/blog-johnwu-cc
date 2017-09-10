@@ -6,7 +6,6 @@ tags:
   - VS Code
   - Windows
 categories:
-  - Visual Studio
   - VS Code
 date: 2017-07-20 23:12:30
 featured_image: /images/logo-vs-code.png

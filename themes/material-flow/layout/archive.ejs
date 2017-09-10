@@ -14,7 +14,45 @@
         postCounter[year+month] = (postCounter[year+month]||0)+1;        
         return ignore;
     }).sort("date", -1);
+
+    function padLeft(str, lenght = 2){
+        if(str.length >= lenght)
+            return str;
+        else
+            return padLeft("0" + str,lenght);
+    }
 %>
+<ol itemscope itemtype="https://schema.org/BreadcrumbList">
+	<meta itemprop="name" content="Breadcrumb"/>
+	<meta itemprop="description" content="Breadcrumb for Archives<%= (page.year ? " " + page.year : "") + (page.year && page.month ? "/" + padLeft(page.month):"") %>"/>
+	<li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="1" />
+		<a itemscope itemtype="https://schema.org/Thing"
+       	   itemprop="item" href="<%= config.url %>/archives/">
+			<meta itemprop="name" content="Archives"/>
+		</a>
+	</li>
+    <% if(page.year) { %>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="2" />
+		<a itemscope itemtype="https://schema.org/Thing"
+		   itemprop="item" href="<%= config.url + '/archives/' + page.year %>">
+			<meta itemprop="name" content="<%= page.year %>"/>
+		</a>
+	</li>
+    <% } if(page.year && page.month) { %>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="3" />
+		<a itemscope itemtype="https://schema.org/Thing"
+           itemprop="item" href="<%= config.url + '/archives/' + page.month %>">
+			<meta itemprop="name" content="<%= padLeft(page.month) %>"/>
+		</a>
+	</li>
+    <% } %>
+</ol>
 <div class="archive-page post white-box">
     <section class="meta">
         <h2 class="title">

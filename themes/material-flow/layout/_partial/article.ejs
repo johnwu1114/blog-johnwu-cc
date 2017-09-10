@@ -4,6 +4,41 @@
 		tools: true
 	};
 </script>
+<%
+	let position = 1;
+	if (post.categories && post.categories.length) { 
+		post.categories.forEach(function(cate) {
+%>
+<ol itemscope itemtype="https://schema.org/BreadcrumbList">
+	<meta itemprop="name" content="Breadcrumb"/>
+	<meta itemprop="description" content="Breadcrumb for <%= page.title %>"/>
+	<li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="1" />
+		<a itemscope itemtype="https://schema.org/Thing"
+       	   itemprop="item" href="<%= config.url %>/archives/">
+			<meta itemprop="name" content="Articles"/>
+		</a>
+	</li>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="2" />
+		<a itemscope itemtype="https://schema.org/Thing"
+		   itemprop="item" href="<%= config.url + url_for(cate.path) %>">
+			<meta itemprop="name" content="<%= cate.name %>"/>
+		</a>
+	</li>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="3" />
+		<a itemscope itemtype="https://schema.org/Thing"
+           itemprop="item" href="<%= config.url + url_for(post.path) %>">
+			<meta itemprop="name" content="<%= page.title %>"/>
+			<meta itemprop="image" content="<%= config.url + (post.featured_image ? post.featured_image : config.avatar) %>" />
+		</a>
+	</li>
+</ol>
+<% }); } %>
 <article itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting"
 	id="<%= post.layout %>-<%= post.slug %>"
   class="post white-box article-type-<%= post.layout %>">

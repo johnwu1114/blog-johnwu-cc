@@ -12,6 +12,26 @@
         total++;
     });
 %>
+<ol itemscope itemtype="https://schema.org/BreadcrumbList">
+	<meta itemprop="name" content="Breadcrumb"/>
+	<meta itemprop="description" content="Breadcrumb for <%= title %>"/>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="1" />
+		<a itemscope itemtype="https://schema.org/Thing"
+           itemprop="item" href="<%= config.url %>/tags/">
+            <meta itemprop="name" content="Tags"/>
+        </a>
+	</li>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="2" />
+		<a itemscope itemtype="https://schema.org/Thing"
+           itemprop="item" href="<%= config.url + url_for(page.path) %>">
+            <meta itemprop="name" content="<%= title %>"/>
+        </a>
+	</li>
+</ol>
 <div class="archive-page post white-box">
     <section class="meta">
         <h2 class="title">

@@ -1,6 +1,18 @@
 <%
     let title = "Tags";
 %>
+<ol itemscope itemtype="https://schema.org/BreadcrumbList">
+	<meta itemprop="name" content="Breadcrumb"/>
+	<meta itemprop="description" content="Breadcrumb for Tags"/>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="1" />
+		<a itemscope itemtype="https://schema.org/Thing"
+           itemprop="item" href="<%= config.url %>/tags/">
+            <meta itemprop="name" content="Tags"/>
+        </a>
+	</li>
+</ol>
 <div class="post white-box archive-page tags">
     <section class="meta">
         <h2 class="title">

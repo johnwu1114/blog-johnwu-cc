@@ -4,11 +4,11 @@
     let total = 0;
     site.categories.sort("name").each(function(category){ 
         if(cates[category.name]==null) {
-            //let route = category.path.replace(/\/$/g, '').split("/");
+            let route = category.path.replace(/\/$/g, '').split("/");
             cates[category.name] = {
                 title: category.name,
-                //path: route[0] + "/" + route[route.length - 1] + "/",
-                path: category.path,
+                path: route[0] + "/" + route[route.length - 1] + "/",
+                //path: category.path,
                 count: 0
             };
             total++;
@@ -16,6 +16,18 @@
         cates[category.name].count += category.posts.length;
     });
 %>
+<ol itemscope itemtype="https://schema.org/BreadcrumbList">
+	<meta itemprop="name" content="Breadcrumb"/>
+	<meta itemprop="description" content="Breadcrumb for Categories"/>
+	<li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+		<meta itemprop="position" content="1" />
+		<a itemscope itemtype="https://schema.org/Thing"
+           itemprop="item" href="<%= config.url %>/categories/">
+            <meta itemprop="name" content="Categories"/>
+        </a>
+	</li>
+</ol>
 <div class="post white-box archive-page">
     <section class="meta">
         <h2 class="title">
@@ -30,6 +42,7 @@
         <% if (site.categories.length) { 
             for(let key in cates) {
                 let cate = cates[key];
+                if(cate.count <= 0) break;
         %> 
         <div class="archive-item archive-post mark">
             <a itemprop="url" href="<%= url_for(cate.path) %>">

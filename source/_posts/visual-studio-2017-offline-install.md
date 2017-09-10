@@ -3,8 +3,8 @@ title: Visual Studio 2017 - 離線安裝
 author: John Wu
 tags:
   - Visual Studio
+  - VS2017
 categories:
-  - Visual Studio
   - VS2017
 date: 2017-05-22 19:27:30
 featured_image: /images/pasted-129.png
