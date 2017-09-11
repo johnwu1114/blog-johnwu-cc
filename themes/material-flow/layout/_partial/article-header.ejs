@@ -1,6 +1,6 @@
 <header class="meta">
     <meta itemprop="author" content="<%= page.author || config.author %>" />
-    <meta itemprop="dateModified" content="<%= date(post.date, config.date_format) %>" />
+    <meta itemprop="dateModified" content="<%= date(post.date_modified, config.date_format) %>" />
     <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="<%= config.url + url_for(post.path) %>"/>    
     <meta itemprop="image" content="<%= config.url + (post.featured_image ? post.featured_image : config.avatar) %>" />
     <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">

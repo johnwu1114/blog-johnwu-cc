@@ -9,6 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-26 22:11:00
+date_modified: 2017-09-11 23:00:00
 featured_image: /images/pasted-202.png
 ---
 ![ASP.NET Core 教學 - 多國語言 - 運作方式](/images/pasted-202.png)
@@ -513,6 +514,222 @@ public class HomeController : Controller
 CurrentCulture: @CultureInfo.CurrentCulture.Name <br />
 CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 @localizer.Text.Hello<br />
+```
+
+## 更正 T4 Template
+
+> 2017-09-11  
+> 更正 T4 Template  
+> 感謝網友陳奕翰回報 BUG
+
+在開發模式下可以正常讀取 `*.resx` 的內容，但發佈到正式環境之後只會產生 `*.{culture}.resources.dll`。  
+我更正了 T4 Template，把讀 `*.resx` 內容改為載入 `*.{culture}.resources.dll`，並使用 ResourceManager 取得語系，讓開發環境跟正式環境都可以正常的讀取內容。  
+程式碼如下：
+
+Resources\Localizer.tt
+```cs
+<#@ template  language="C#" hostspecific="true" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ assembly name="System.Xml.Linq.dll" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#
+  var defaultCulture = "en-gb";
+  var resources = GetResourcesByCulture(defaultCulture, this.Host.ResolvePath(""));
+#>
+namespace Resources
+{
+	using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+    using System.Resources;
+    using System.Runtime.Loader;
+    using System.Text.RegularExpressions;
+
+    public interface ILocalizer
+    {
+		string Culture { get; set; }
+
+<# foreach (var category in resources) { #>
+		<#= category.Key #> <#= category.Key #> { get; }
+
+<# } #>
+        string GetString(Type category, string resourceKey);
+
+        string GetString(string category, string resourceKey);
+
+        string GetString(Type category, string resourceKey, string culture);
+
+        string GetString(string category, string resourceKey, string culture);
+    }
+
+    public class Localizer : ILocalizer
+    {
+        private const string DefaultCulture = "<#= defaultCulture #>";
+        private static readonly Lazy<Dictionary<string, ResourceManager>> _resources = new Lazy<Dictionary<string, ResourceManager>>(LoadResourceManager);
+		private static string _assemblyPath;
+        private string _culture;
+<# foreach (var category in resources) { #>
+        private <#= category.Key #> _<#= category.Key.ToLower() #>;
+<# } #>
+
+		public Localizer() {
+			_assemblyPath = Assembly.GetEntryAssembly().Location;
+		}
+
+		public Localizer(string assemblyPath) {
+			_assemblyPath = assemblyPath;
+		}
+            
+        #region ILocalizer
+
+		public string Culture
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_culture))
+                {
+                    _culture = DefaultCulture;
+                }
+                return _culture;
+            }
+            set
+            {
+                var culture = value;
+                if (Regex.IsMatch(culture, @"^[A-Za-z]{2}-[A-Za-z]{2}$"))
+                {
+                    _culture = culture;
+                }
+                else
+                {
+                    _culture = DefaultCulture;
+                }
+            }
+        }
+<# foreach (var category in resources) { #>
+
+		public <#= category.Key #> <#= category.Key #> { get { if (_<#= category.Key.ToLower() #> == null) { _<#= category.Key.ToLower() #> = new <#= category.Key #>(this); } return _<#= category.Key.ToLower() #>; } }
+<# } #>
+
+        public string GetString(Type category, string resourceKey)
+        {
+            return GetString(category.Name.ToString(), resourceKey);
+        }
+
+        public string GetString(string category, string resourceKey)
+        {
+            return GetString(category, resourceKey, _culture);
+        }
+
+        public string GetString(Type category, string resourceKey, string culture)
+        {
+            return GetString(category.Name.ToString(), resourceKey, culture);
+        }
+
+        public string GetString(string category, string resourceKey, string culture)
+        {
+            var resource = GetResource($"{category}.{culture}") ?? GetResource($"{category}.{DefaultCulture}");
+            if (resource == null)
+            {
+                return resourceKey;
+            }
+            else
+            {
+                return resource.GetString(resourceKey);
+            }
+        }
+
+        #endregion ILocalizer
+
+        #region Private Methods
+
+        private static Dictionary<string, ResourceManager> LoadResourceManager()
+        {
+            var directory = Path.GetDirectoryName(_assemblyPath);
+            var files = Directory.GetFiles(directory, "*.resources.dll", SearchOption.AllDirectories);
+            
+            var resources = new Dictionary<string, ResourceManager>(StringComparer.CurrentCultureIgnoreCase);
+            foreach (var file in files)
+            {
+                var culture = Path.GetFileName(Path.GetDirectoryName(file));
+                var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file);
+                foreach(var resourceName in assembly.GetManifestResourceNames().Select(s=> Regex.Replace(s, ".resources$", "")))
+                {
+                    var category = Regex.Match(resourceName, $".*Resources\\.(.*)\\.{culture}").Groups[1].Value;
+                    var resourceManager = new ResourceManager(resourceName, assembly);
+                    resources.Add($"{category}.{culture}", resourceManager);
+                }
+            }
+
+            return resources;
+        }
+
+        private ResourceManager GetResource(string key)
+        {
+            if (_resources.Value.Keys.Contains(key))
+            {
+                return _resources.Value[key];
+            }
+            return null;
+        }
+
+        #endregion
+    }
+
+    public abstract class ResourceBase
+    {
+        protected ResourceBase(ILocalizer localizer)
+        {
+            Localizer = localizer;
+        }
+
+        protected ILocalizer Localizer { get; private set; }
+
+        protected string GetString(string resourceKey)
+        {
+            return Localizer.GetString(GetType(), resourceKey);
+        }
+    }
+<# foreach (var category in resources) { #>
+
+    public class <#= category.Key #> : ResourceBase
+    {
+        public <#= category.Key #>(ILocalizer localizer) : base(localizer)
+        {
+        }
+<# foreach (var resource in category.Value) { #>
+
+		public string <#= resource.Key #> { get { return GetString("<#= resource.Key #>"); } }
+<# } #>
+    }
+<# } #>
+}
+<#+
+	Dictionary<string, Dictionary<string, string>> GetResourcesByCulture(string culture, string resourceFolder) {
+        var files = Directory.GetFiles(resourceFolder, "*.resx");
+		var resources = files.GroupBy(file =>
+			{
+				var fileName = Path.GetFileNameWithoutExtension(file).Split('.');
+				return fileName.First();
+			}).ToDictionary(g => g.Key, g =>
+			{
+				var defaultFile = g.Single(s => s.IndexOf(culture, StringComparison.CurrentCultureIgnoreCase) != -1);
+				var xdoc = XDocument.Load(defaultFile);
+				var dictionary = xdoc.Root.Elements("data").ToDictionary(e => e.Attribute("name").Value, e => e.Element("value").Value);
+				return dictionary;
+			});
+		return resources;
+	}
+#>
 ```
 
 ## 程式碼下載
