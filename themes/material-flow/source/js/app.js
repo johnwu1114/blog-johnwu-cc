@@ -79,7 +79,7 @@ var customSearch;
 			$active_link = $(".nav-home", $headerMenu);
 		} else {
 			let name = location.pathname.match(/\/(.*?)\//);
-			if (name.length > 1) {
+			if (name && name.length > 1) {
 				$active_link = $(".nav-" + name[1], $headerMenu);
 			}
 		}
