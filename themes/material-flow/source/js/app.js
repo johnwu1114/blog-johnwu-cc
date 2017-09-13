@@ -7,8 +7,11 @@ var customSearch;
 	function scrolltoElement(elem, correction) {
 		correction = correction || scrollCorrection;
 		const $elem = elem.href ? $(elem.getAttribute("href")) : $(elem);
-		$("html, body").animate({ "scrollTop": $elem.offset().top - correction }, 400);
+		$("html, body").animate({
+			"scrollTop": $elem.offset().top - correction
+		}, 400);
 	}
+
 	function setHeader() {
 		if (!window.subData) return;
 		const $wrapper = $("header .wrapper");
@@ -33,22 +36,33 @@ var customSearch;
 		// bind events to every btn
 		const $commentTarget = $("#comments");
 		if ($commentTarget.length) {
-			$comment.click(function (e) { e.preventDefault(); e.stopPropagation(); scrolltoElement($commentTarget); });
+			$comment.click(function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				scrolltoElement($commentTarget);
+			});
 		} else $comment.remove();
 
 		const $tocTarget = $(".toc-wrapper");
 		if ($tocTarget.length && $tocTarget.children().length) {
-			$toc.click(function (e) { e.stopPropagation(); $tocTarget.toggleClass("active"); });
+			$toc.click(function (e) {
+				e.stopPropagation();
+				$tocTarget.toggleClass("active");
+			});
 		} else $toc.remove();
 
-		$top.click(function () { scrolltoElement(document.body) });
+		$top.click(function () {
+			scrolltoElement(document.body)
+		});
 
 	}
+
 	function setHeaderMenu() {
 		let $headerMenu = $("header .menu");
 		let $underline = $headerMenu.find(".underline");
+
 		function setUnderline($item, transition) {
-			$item = $item || $headerMenu.find("li a.active");//get instant
+			$item = $item || $headerMenu.find("li a.active"); //get instant
 			transition = transition === undefined ? true : !!transition;
 			if (!transition) $underline.addClass("disable-trans");
 			if ($item && $item.length) {
@@ -64,7 +78,9 @@ var customSearch;
 				});
 			}
 			if (!transition) {
-				setTimeout(function () { $underline.removeClass("disable-trans") }, 0);//get into the queue.
+				setTimeout(function () {
+					$underline.removeClass("disable-trans")
+				}, 0); //get into the queue.
 			}
 		}
 		$headerMenu.on("mouseenter", "li", function (e) {
@@ -85,6 +101,7 @@ var customSearch;
 		}
 		setUnderline($active_link, false);
 	}
+
 	function setHeaderMenuPhone() {
 		let $switcher = $(".l_header .switcher .s-menu");
 		$switcher.click(function (e) {
@@ -97,6 +114,7 @@ var customSearch;
 			$switcher.removeClass("active");
 		});
 	}
+
 	function setHeaderSearch() {
 		let $switcher = $(".l_header .switcher .s-search");
 		let $header = $(".l_header");
@@ -119,35 +137,32 @@ var customSearch;
 				engineId: GOOGLE_CUSTOM_SEARCH_ENGINE_ID,
 				imagePath: "/images/"
 			});
-		}
-		else if (SEARCH_SERVICE === "algolia") {
+		} else if (SEARCH_SERVICE === "algolia") {
 			customSearch = new window.AlgoliaSearch({
 				apiKey: ALGOLIA_API_KEY,
 				appId: ALGOLIA_APP_ID,
 				indexName: ALGOLIA_INDEX_NAME,
 				imagePath: "/images/"
 			});
-		}
-		else if (SEARCH_SERVICE === "hexo") {
+		} else if (SEARCH_SERVICE === "hexo") {
 			customSearch = new window.HexoSearch({
 				imagePath: "/images/"
 			});
-		}
-		else if (SEARCH_SERVICE === "azure") {
+		} else if (SEARCH_SERVICE === "azure") {
 			customSearch = new window.AzureSearch({
 				serviceName: AZURE_SERVICE_NAME,
 				indexName: AZURE_INDEX_NAME,
 				queryKey: AZURE_QUERY_KEY,
 				imagePath: "/images/"
 			});
-		}
-		else if (SEARCH_SERVICE === "baidu") {
+		} else if (SEARCH_SERVICE === "baidu") {
 			customSearch = new window.BaiduSearch({
 				apiId: BAIDU_API_ID,
 				imagePath: "/images/"
 			});
 		}
 	}
+
 	function setWaves() {
 		Waves.attach(".flat-btn", ["waves-button"]);
 		Waves.attach(".float-btn", ["waves-button", "waves-float"]);
@@ -157,17 +172,26 @@ var customSearch;
 		Waves.attach(".waves-image");
 		Waves.init();
 	}
+
 	function setScrollReveal() {
 		const $reveal = $(".reveal");
 		if ($reveal.length === 0) return;
-		const sr = ScrollReveal({ distance: 0 });
+		const sr = ScrollReveal({
+			distance: 0
+		});
 		sr.reveal(".reveal");
 	}
+
 	function setTocToggle() {
 		const $toc = $(".toc-wrapper");
 		if ($toc.length === 0) return;
-		$toc.click(function (e) { e.stopPropagation(); $toc.addClass("active"); });
-		$(document).click(function () { $toc.removeClass("active") });
+		$toc.click(function (e) {
+			e.stopPropagation();
+			$toc.addClass("active");
+		});
+		$(document).click(function () {
+			$toc.removeClass("active")
+		});
 
 		$toc.on("click", "a", function (e) {
 			e.preventDefault();
@@ -178,7 +202,9 @@ var customSearch;
 		const liElements = Array.from($toc.find("li a"));
 		//function animate above will convert float to int.
 		const getAnchor = function () {
-			liElements.map(function (elem) { Math.floor($(elem.getAttribute("href")).offset().top - scrollCorrection) });
+			liElements.map(function (elem) {
+				Math.floor($(elem.getAttribute("href")).offset().top - scrollCorrection)
+			});
 		};
 
 		let anchor = getAnchor();
@@ -202,7 +228,9 @@ var customSearch;
 			const scrollTop = $("html").scrollTop() || $("body").scrollTop();
 			if (!anchor) return;
 			//binary search.
-			let l = 0, r = anchor.length - 1, mid;
+			let l = 0,
+				r = anchor.length - 1,
+				mid;
 			while (l < r) {
 				mid = (l + r + 1) >> 1;
 				if (anchor[mid] === scrollTop) l = r = mid;
@@ -222,53 +250,49 @@ var customSearch;
 			});
 		scrollListener();
 	}
-	function setVisitsCount(){
-		const firebase = window.firebase;
-		let config = {
-			apiKey: FIREBASE_API_KEY,
-			authDomain: FIREBASE_AUTH_DOMAIN,
-			databaseURL: FIREBASE_DATABASE_URL,
-			projectId: FIREBASE_PROJECT_ID,
-			storageBucket: FIREBASE_STORAGE_BUCKET,
-			messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
-		};
-		firebase.initializeApp(config);
-		let database = firebase.database();
-	
+
+	function setVisitsCount() {
 		const changeUrlToKey = function (url) {
 			return url.replace(new RegExp('\\/|\\.', 'g'), "_");
 		}
-	
-		const readVisits = function (selector, url, isReadOnly) {
-			let db_key = changeUrlToKey(window.location.host) + "/" + changeUrlToKey(url);
-			database.ref(db_key).once("value").then(function (result) {
-				let count = parseInt(result.val() || 0);
+
+		let apiUrl = FIREBASE_DATABASE_URL + "/" +
+			changeUrlToKey(window.location.host);
+
+		$.ajax({
+			method: "GET",
+			url: apiUrl + ".json"
+		}).done(function (result) {
+			const readVisits = function (selector, url, isReadOnly) {
+				let key = changeUrlToKey(url);
+				let count = parseInt(result[key] || 0);
 				if (!isReadOnly) {
 					count += 1;
-					database.ref(db_key).set(count);
+					$.ajax({
+						method: "PUT",
+						url: apiUrl + "/" + key + ".json",
+						data: count.toString()
+					});
 				}
 				if (selector.length > 0) {
 					selector.html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 				};
+			}
+
+			let isReadOnly = window.location.pathname.endsWith("/");
+			readVisits($("#visits .count"), "/", isReadOnly);
+			$(".pageviews").each(function () {
+				let postUrl = $(this).data("path");
+				readVisits($(this).find(".count"), postUrl, isReadOnly);
 			});
-		}
-		readVisits($("#visits .count"), "/");
-	
-		$(".pageviews").each(function () {
-			let postUrl = $(this).data("path");
-			let isReadOnly = (window.location.pathname === "/") ||
-				window.location.pathname.startsWith("/page/") ||
-				window.location.pathname.startsWith("/tags/") ||
-				window.location.pathname.startsWith("/categories/") ||
-				window.location.pathname.startsWith("/archives/");
-			readVisits($(this).find(".count"), postUrl, isReadOnly);
 		});
 	}
+
 	function setPostList() {
 		let SingleLine = "SingleLine";
 		let DoubleLine = "DoubleLine";
 		let postListMode = DoubleLine; // SingleLine or DoubleLine
-	
+
 		let switchPostListMode = function () {
 			let postList = $(".post-list");
 			if (postListMode !== SingleLine && postList.width() < 800) {
@@ -284,7 +308,7 @@ var customSearch;
 				postListMode = DoubleLine;
 			}
 		}
-	
+
 		switchPostListMode();
 		$(window).load(switchPostListMode);
 		$(window).on("resize", switchPostListMode);
