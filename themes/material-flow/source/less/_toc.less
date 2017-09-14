@@ -2,9 +2,12 @@
   position: fixed;
   top: @header-height + @gap * 2;
   right: 20px;
+  border-left: 3px solid #3367d6;
+  width: 250px;
 
   @media(max-width: @wide-container-width){
     position: initial;
+    border-left: none;
   }
 
   @media(max-width: @on-phone){
@@ -38,6 +41,5 @@
     top: 50px;
     z-index: 10;
     right: inherit;
-    width: 250px;
   }
 }
