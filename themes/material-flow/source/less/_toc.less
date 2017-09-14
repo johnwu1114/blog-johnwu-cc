@@ -1,32 +1,19 @@
-.toc-wrapper{
-  position:fixed;
+.toc-wrapper {
+  position: fixed;
   top: @header-height + @gap * 2;
   right: 20px;
-  //right: 50%;
-  //margin-right: -@container-width/2;
-  transition: all .24s ease-out;
-  // prevent toc is too heigh.
-  overflow: auto;
-  max-height: ~"calc(100% - @{header-height} - 2 * @{gap})";
 
   @media(max-width: @wide-container-width){
-    right: 0;
-    margin-right:0;
-    margin-top: @header-height;
+    position: initial;
   }
 
   @media(max-width: @on-phone){
     display: none;
   }
-
-  width: @side-width;
-  z-index:3;
-  &:extend(.z-depth-2);
-  padding: @gap;
-  border-left: 3px solid @secondary-color;
-  background: @white;
+  
   a {
     display: inline-block;
+    padding: 2px @gap;
     &:hover,&:active,&.active{
       color: @accent-color;
     }
@@ -43,5 +30,14 @@
   }
   &:empty{
     display:none;
+  }
+}
+.toc-wrapper.fixed {
+  @media(max-width: @wide-container-width){
+    position: fixed;
+    top: 50px;
+    z-index: 10;
+    right: inherit;
+    width: 250px;
   }
 }

@@ -1,0 +1,20 @@
+<% 
+    let posts = site.posts.sort("date", -1).slice(0, 5);
+%>
+<section class="m_widget recent">
+    <div class="header fa fa-history">Recents</div>
+    <div class="content">
+        <% if (posts.length){ %>
+        <ul class="entry">
+        <% posts.each(function(post) { %>
+            <li>
+                <a itemprop="url" class="flat-box" href="<%= url_for(post.path) %>">
+                    <time><%= date(post.date, config.date_format) %></time>
+                    <div class="name"><%= post.title %></div>
+                </a>
+            </li>
+        <% }); %>
+        </ul>
+        <% } %>
+    </div>
+</section>

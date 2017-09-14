@@ -209,6 +209,7 @@ var customSearch;
 
 		let anchor = getAnchor();
 		const scrollListener = function () {
+			/*
 			if ($toc.is(":visible")) {
 				let count = 0;
 				let interval = setInterval(function () {
@@ -224,7 +225,7 @@ var customSearch;
 					if (++count == 3) clearInterval(interval);
 				}, 200);
 			}
-
+			*/
 			const scrollTop = $("html").scrollTop() || $("body").scrollTop();
 			if (!anchor) return;
 			//binary search.
@@ -242,7 +243,7 @@ var customSearch;
 
 		$(window)
 			.resize(function () {
-				anchor = getAnchor();
+				//anchor = getAnchor();
 				scrollListener();
 			})
 			.scroll(function () {
@@ -314,6 +315,19 @@ var customSearch;
 		$(window).on("resize", switchPostListMode);
 	}
 
+	$.fn.followTo = function (pos, className) {
+		var $this = this,
+			$window = $(window);
+
+		$window.scroll(function (e) {
+			if ($window.scrollTop() > pos) {
+				$this.addClass(className);
+			} else {
+				$this.removeClass(className);
+			}
+		});
+	};
+
 	$(function () {
 		//set header
 		setHeader();
@@ -325,7 +339,7 @@ var customSearch;
 		setTocToggle();
 		setVisitsCount();
 		setPostList();
-
+		$(".toc-wrapper").followTo(520, "fixed");
 		$(".article .video-container").fitVids();
 
 		setTimeout(function () {
