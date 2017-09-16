@@ -1,5 +1,5 @@
 ---
-title: C# - var隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed)
+title: C# - var 隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed)
 author: John Wu
 tags:
   - 'C#'
@@ -8,7 +8,7 @@ categories:
 date: 2017-09-13 13:18:00
 featured_image: /images/x344.png
 ---
-![C# - var隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - .NET Reflector](/images/x344.png)
+![C# - var 隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - .NET Reflector](/images/x344.png)
 
 每當部門有新來的 C# 工程師，在 Code Review 時幾乎都會看到顯式型別，我是強烈建議使用隱含型別。  
 所以我幾乎都要重講一次隱含型別(Implicitly Typed)及顯式型別(Explicitly Typed)的差異，索性就寫了這篇解說。  
@@ -40,7 +40,8 @@ List<Member> members = GetMembers();
 個人喜好的部分，比較不能論斷兩者之間的好壞，所以見仁見智。  
 
 > 但如果只是為了在撰寫期間想知道型別，現在的 IDE 都超強的，尤其 Visual Studio，只要滑鼠游標移上去就可以知道類別了。良好的變數命名規則，我相信會比宣告顯式型別容易閱讀。  
-![C# - var隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - Visual Studio](/images/x343.png)
+
+![C# - var 隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - Visual Studio](/images/x343.png)
 
 ## 執行效能差異
 
@@ -106,8 +107,9 @@ public int ExplicitlyTyped()
 }
 ```
 
-如果有裝 .NET Reflector 可以看到，編異後的 C# 程式碼：
-![C# - var隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - .NET Reflector](/images/x344.png)
+如果有裝 .NET Reflector，可以看到編異後的 C# 程式碼：  
+
+![C# - var 隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - .NET Reflector](/images/x344.png)
 
 > 兩個方法經過編譯後，根本一模一樣。  
 > 因此，不管用隱含型別或顯式型別，效能根本不會改變。  

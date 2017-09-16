@@ -34,9 +34,6 @@
 	id="<%= post.layout %>-<%= post.slug %>"
   class="post white-box article-type-<%= post.layout %>">
 	<%- partial("article-header", { post: post }) %>	
-	<% if(post.toc!==false){ %>
-		<section class="toc-wrapper"><%- toc(post.content, { list_number: false }) %></section>
-	<% } %> 
 	<section class="article typo">
   	<div itemprop="articleBody" class="article-entry">
     	<%- post.content %>

@@ -328,7 +328,7 @@ output.logstash:
 2017-03-30 02:03:10,965 [14] INFO MyWebsite.Global - Application_End
 ```
 
-用瀏覽器打開 [http://192.168.56.101:9200/_search?pretty](http://192.168.56.101:9200/_search?pretty)，就可以查到按照資料了。
+用瀏覽器打開 [http://192.168.56.101:9200/_search?pretty](http://192.168.56.101:9200/_search?pretty)，就可以查到資料了。
 ![Elasticsearch Search Pretty](/images/pasted-102.png)
 
 ## 5. Kibana
