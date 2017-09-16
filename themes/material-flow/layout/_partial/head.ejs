@@ -26,9 +26,9 @@
     fb_admins: theme.facebook_sdk.fb_admin, 
     fb_app_id: theme.facebook_sdk.app_id}) %>
   <% if(theme.canonical) { %>
-    <link rel="canonical" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>"/>
+    <link rel="canonical" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>" />
   <% } %>
-  <link rel="alternate" hreflang="x-default" href="<%= config.url %>">
+  <link rel="alternate" hreflang="x-default" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>" />
   <%- css("css/bundle.css") %>  
   <script>
     function setLoadingBarProgress(num) {

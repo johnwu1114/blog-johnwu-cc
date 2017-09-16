@@ -5,7 +5,6 @@
 	};
 </script>
 <%
-	let position = 1;
 	if (post.categories && post.categories.length) { 
 		post.categories.forEach(function(cate) {
 %>
@@ -13,16 +12,8 @@
 	<meta itemprop="name" content="Breadcrumb"/>
 	<meta itemprop="description" content="Breadcrumb for <%= page.title %>"/>
 	<li itemprop="itemListElement" itemscope
-      itemtype="https://schema.org/ListItem">
-		<meta itemprop="position" content="1" />
-		<a itemscope itemtype="https://schema.org/Thing"
-       	   itemprop="item" href="<%= config.url %>/archives/">
-			<meta itemprop="name" content="Articles"/>
-		</a>
-	</li>
-	<li itemprop="itemListElement" itemscope
         itemtype="https://schema.org/ListItem">
-		<meta itemprop="position" content="2" />
+		<meta itemprop="position" content="1" />
 		<a itemscope itemtype="https://schema.org/Thing"
 		   itemprop="item" href="<%= config.url + url_for(cate.path) %>">
 			<meta itemprop="name" content="<%= cate.name %>"/>
@@ -30,7 +21,7 @@
 	</li>
 	<li itemprop="itemListElement" itemscope
         itemtype="https://schema.org/ListItem">
-		<meta itemprop="position" content="3" />
+		<meta itemprop="position" content="2" />
 		<a itemscope itemtype="https://schema.org/Thing"
            itemprop="item" href="<%= config.url + url_for(post.path) %>">
 			<meta itemprop="name" content="<%= page.title %>"/>
