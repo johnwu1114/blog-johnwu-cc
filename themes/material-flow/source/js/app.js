@@ -196,35 +196,20 @@ var customSearch;
 		$toc.on("click", "a", function (e) {
 			e.preventDefault();
 			e.stopPropagation();
-			scrolltoElement(e.target.tagName.toLowerCase === "a" ? e.target : e.target.parentElement);
+			scrolltoElement(e.target.tagName.toLowerCase() === "a" ? e.target : e.target.parentElement);
 		});
 
 		const liElements = Array.from($toc.find("li a"));
 		//function animate above will convert float to int.
 		const getAnchor = function () {
-			liElements.map(function (elem) {
-				Math.floor($(elem.getAttribute("href")).offset().top - scrollCorrection)
+			return liElements.map(function (elem) {
+				return Math.floor($(elem.getAttribute("href")).offset().top - scrollCorrection);
 			});
 		};
 
 		let anchor = getAnchor();
 		const scrollListener = function () {
-			if ($toc.is(":visible")) {
-				let count = 0;
-				let interval = setInterval(function () {
-					if ($toc.css("margin-top") < "50px") {
-						$toc.css("top", "");
-					} else {
-						let scrollTop = $(window).scrollTop();
-						let top = parseInt($toc.css("top"));
-						if (top > 0 || scrollTop <= 340) {
-							$toc.css("top", Math.max(0, (340 - scrollTop)));
-						}
-					}
-					if (++count == 3) clearInterval(interval);
-				}, 200);
-			}
-
+			let anchor = getAnchor();
 			const scrollTop = $("html").scrollTop() || $("body").scrollTop();
 			if (!anchor) return;
 			//binary search.
@@ -314,6 +299,19 @@ var customSearch;
 		$(window).on("resize", switchPostListMode);
 	}
 
+	$.fn.followTo = function (pos, className) {
+		var $this = this,
+			$window = $(window);
+
+		$window.scroll(function (e) {
+			if ($window.scrollTop() > pos) {
+				$this.addClass(className);
+			} else {
+				$this.removeClass(className);
+			}
+		});
+	};
+
 	$(function () {
 		//set header
 		setHeader();
@@ -325,7 +323,7 @@ var customSearch;
 		setTocToggle();
 		setVisitsCount();
 		setPostList();
-
+		$(".toc-wrapper").followTo(520, "fixed");
 		$(".article .video-container").fitVids();
 
 		setTimeout(function () {

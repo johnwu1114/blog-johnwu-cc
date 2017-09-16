@@ -1,0 +1,8 @@
+<% if(page.toc !== false && page.content) { %>
+<section class="m_widget toc-wrapper">
+    <div class="header fa fa-bookmark">Table of Contents</div>
+    <div class="content">
+        <%- toc(page.content, { list_number: false }) %>
+    </div>
+</section>
+<% } %> 
