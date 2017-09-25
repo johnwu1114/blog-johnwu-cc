@@ -189,9 +189,8 @@ systemjs.config.js
 })(this);
 ```
 
-app\main.ts
+app\app.module.ts
 ``` ts
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
@@ -202,6 +201,12 @@ import { AppComponent } from "./app.component";
     bootstrap: [AppComponent]
 })
 export class AppModule { }
+```
+
+app\main.ts
+``` ts
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { AppModule } from "./app.module";
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
@@ -235,9 +240,10 @@ package.json                        # npm 套件設定檔
 systemjs.config.js                  # systemjs 設定檔
 tsconfig.json                       # TypeScript 設定檔
 app/                                # Angular 4 的主要目錄
-  main.ts                           # bootstrap 的程式進入點
+  main.ts                           # 程式進入點
+  app.module.ts                     # bootstrap 的第一個 module (e.g. AppModule)
   app.component.html                # app.component 用到的 template
-  app.component.ts                  # 給 bootstrap 啟動的第一個 component (e.g. AppComponent)
+  app.component.ts                  # AppModule bootstrap 的第一個 component (e.g. AppComponent)
 node_modules/                       # npm 套件存放位置
 ```
 
