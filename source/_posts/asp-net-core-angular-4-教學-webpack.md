@@ -12,7 +12,7 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-15 13:35:58
-featured_image: /images/pasted-46.png
+featured_image: /images/pasted-53-1.png
 ---
 ![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果未完成](/images/pasted-46.png)
 
@@ -80,7 +80,7 @@ module.exports = {
 }
 ```
 
-*※比較值得一提的是 awesome-typescript-loader 打包速度比 ts-loader 快非常多。還在用 ts-loader 的可以考慮換一下。*
+> *※比較值得一提的是 awesome-typescript-loader 打包速度比 ts-loader 快非常多。還在用 ts-loader 的可以考慮換一下。*
 
 ## 3. Webpack entry
 
