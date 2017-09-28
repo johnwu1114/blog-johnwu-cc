@@ -98,18 +98,19 @@ module.exports = {
 ```
 
 1. test: /\.ts$/ 的 loaders 加入 angular-router-loader。  
-2. output 要設定 publicPath  
-在 Webpack 轉換路徑時，會以 publicPath 作為 `*.js` 檔的根路徑，如果沒設定會發生錯誤，如下：  
+2. output 要設定 **publicPath**  
+在 Webpack 轉換路徑時，會以 **publicPath** 作為 `*.js` 檔的根路徑，如果沒設定會發生錯誤，如下：  
 
 ![Angular 4 教學 - Lazy Loading 發生錯誤](/images/pasted-108.png)
 
 可以看到上圖，angular-router-loader 產生了 `0.js` 這個檔案，但回應是 404 not found。  
 Console 也顯示 Error: Loading chunk 0 failed.  
 
-實際上，檔案是有被產生出來的，只是位置不在網站根目錄，而是跟 `bundle.js` 同層，如圖：
+實際上，檔案是有被產生出來的，只是位置不在網站根目錄，而是跟 `bundle.js` 同層，如圖：  
+
 ![angular-router-loader產出檔案](/images/pasted-109.png)
 
-所以我們在 output 設定提示 Webpack，之後打包時，`*.js` 檔的路徑要以 publicPath: "/js/" 為根目錄。
+所以我們在 output 設定提示 Webpack，之後打包時，`*.js` 檔的路徑要以 **publicPath: "/js/"** 為根目錄。
 
 ## 3. Lazy Loading
 
@@ -173,8 +174,10 @@ export class AppRoutes {
 
 ## 執行結果
 
-上述都設定好後，就可以完成了，執行下面如下：
-![Angular 4 教學 - Lazy Loading 範例執行結果](/images/pasted-108.gif)
+上述都設定好後，就可以完成了，執行下面如下：  
+
+![Angular 4 教學 - Lazy Loading 範例執行結果](/images/pasted-108.gif)  
+
 FirstModule 被打包成 `1.js`，SecondModule 被打包成 `0.js`。  
 首次載入時，兩個檔案都不會被載進來，只會載入 `bundle-vendors.js` 及 `bundle.js`，因預設路由是指向 FirstModule，所以隨後就載入 `1.js`，當我切換路由到 SecondModule 時，才載入 `0.js`。  
 

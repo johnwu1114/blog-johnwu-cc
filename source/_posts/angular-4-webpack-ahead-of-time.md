@@ -13,7 +13,7 @@ featured_image: /images/x349.png
 ---
 ![Angular 4 教學 - Webpack AOT](/images/x349.png)
 
-之前用 Angular 4 開發後台系統，使用者都是在 PC 上面使用，網站啟動速度都很快，所以沒有使用到 Ahead-of-Time (AOT) 預先編譯的需求。  
+之前用 Angular 4 (Angular 2) 開發後台系統，使用者都是在 PC 上面使用，網站啟動速度都很快，所以沒有使用到 Ahead-of-Time (AOT) 預先編譯的需求。  
 最近新產品上線，遇到很多 Android 的使用者開啟網站超級慢，舊一點的機型甚至開一分鐘才有畫面。事後才趕緊補上 AOT 編譯。  
 本篇將介紹用 Webpack 預先編譯 AOT 編譯。  
 
