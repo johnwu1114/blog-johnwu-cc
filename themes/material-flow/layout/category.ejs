@@ -14,7 +14,7 @@
 %>
 <ol itemscope itemtype="https://schema.org/BreadcrumbList">
 	<meta itemprop="name" content="Breadcrumb"/>
-	<meta itemprop="description" content="Breadcrumb for <%= title %>"/>
+	<meta itemprop="description" content="Breadcrumb for <%= page.category %>"/>
 	<li itemprop="itemListElement" itemscope
         itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="1" />
@@ -28,7 +28,7 @@
 		<meta itemprop="position" content="2" />
 		<a itemscope itemtype="https://schema.org/Thing"
            itemprop="item" href="<%= config.url + url_for(page.path) %>">
-            <meta itemprop="name" content="<%= title %>"/>
+            <meta itemprop="name" content="<%= page.category %>"/>
         </a>
 	</li>
 </ol>
