@@ -255,10 +255,10 @@ platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 ![Angular 4 教學 - Webpack AOT](/images/x349.png)
 
 可以看到 `bundle.js` 的檔案大小差異非常的大，從原本的 **1.8 KB** 變成 **4.6 KB**。  
-頁面載入速度稍微快了一點，從原本的 **400/ms** 變為 **300/ms** 左右，因為範例太簡單，所以速度差的沒有很多。  
+頁面載入速度稍微快了一點，從原本的 **400/ms** 變為 **250/ms** 左右，因為範例太簡單，所以速度差的沒有很多。  
 但隨著系統規模越做越大及程式複雜度提升，速度就會有非常明顯的差異。    
 
-> `bundle-vendors.js` 變小是因為在 AOT 編譯時，我把 `@angular/compiler` 及 `@angular/platform-browser-dynamic` 移除了。
+> `bundle-vendors.js` 變小是因為我把 `@angular/*` 移除了。
 
 ## 補充
 
@@ -268,7 +268,7 @@ npm uninstall systemjs --save
 ```
 system.config.js 也可以隨之移除。
 
-改成用 AOT 編譯後，前端不再需要動態編譯，所以在 `bundle-vendors` 中可以把 `@angular/compiler` 及 `@angular/platform-browser-dynamic` 移除：
+改成用 AOT 編譯後，前端不再需要動態編譯，所以在 `bundle-vendors` 中可以把 `@angular/*` 移除：
 ```js
 var webpack = require("webpack");
 
@@ -278,14 +278,14 @@ module.exports = {
             "core-js",
             "zone.js",
             "rxjs",
-            "@angular/core",
-            "@angular/common",
-            //"@angular/compiler",
-            "@angular/platform-browser",
-            //"@angular/platform-browser-dynamic",
-            "@angular/http",
-            "@angular/router",
-            "@angular/forms"
+            // "@angular/core",
+            // "@angular/common",
+            // "@angular/compiler",
+            // "@angular/platform-browser",
+            // "@angular/platform-browser-dynamic",
+            // "@angular/http",
+            // "@angular/router",
+            // "@angular/forms"
         ]
     },
     // ...
