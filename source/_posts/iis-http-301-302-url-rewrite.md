@@ -74,8 +74,43 @@ HTTP 302 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的�
 ![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 4](/images/x355.png)
 > 設定完成後套用即可。 上述的設定方式跟 `Web.config` 設定的內容是一樣的。 
 
+## 轉址參數
+
+用 IIS 的 UI 介面可以測試 URL 規則，同時可以擷取內容，變成轉址的參數：  
+
+![IIS - HTTP 301 / 302 轉址 - 測試模式](/images/x359.png)
+
+### 範例一
+
+```xml
+<rule name="Redirect to blog" stopProcessing="true">
+  <match url="(.*)/(.*)" />
+  <action 
+    type="Redirect" 
+    redirectType="Found" 
+    url="https://blog.johnwu.cc/?p1={R:1}&amp;p2={R:2}" />
+</rule>
+```
+> 當連到 `http://johnwu.cc/first/second`  
+> 轉址到 `https://blog.johnwu.cc/?p1=first&p2=second`  
+
+### 範例二
+
+```xml
+<rule name="Redirect to blog" stopProcessing="true">
+  <match url="api/latest/(.*)" />
+  <action 
+    type="Redirect" 
+    redirectType="Permanent" 
+    url="/v2/{R:1}" />
+</rule>
+```
+
+> 當連到 `http://johnwu.cc/api/latest/member/login`  
+> 轉址到 `http://johnwu.cc/v2/member/login`  
+
 ## 執行結果
 
-我的範例是，當連到 `johnwu.cc` 就轉址到我的部落格 `https://blog.johnwu.cc/`。  
+當連到 `johnwu.cc` 就轉址到我的部落格 `https://blog.johnwu.cc/`  
 
 ![IIS - HTTP 301 / 302 轉址 - 執行結果](/images/x356.gif)
