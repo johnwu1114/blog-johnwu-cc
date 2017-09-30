@@ -9,9 +9,9 @@ tags:
 categories:
   - Angular
 date: 2017-10-01 02:32:00
-featured_image: /images/x360.png
+featured_image: /images/x362.png
 ---
-![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack](/images/x360.png)
+![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 3](/images/x362.png)
 
 *Jasmine* 框架 + *Karma* 測試執行工具是 Angular 普遍使用的單元測試組合，也是官方推薦的方法。  
 而 *Webpack* 也算 Angular 打包程式碼的主流工具，為了讓**開發**、**測試**及**正式環境**都用一樣的方式打包程式碼；  
@@ -42,11 +42,7 @@ app/                                # Angular 4 的主要目錄
 
 ## 1. 安裝 npm 套件
 
-本篇用到跟單元測試相關的 7 個套件，安裝指令如下：
-
-```
-npm install --save-dev jasmine-core karma karma-jasmine karma-jasmine-html-reporter karma-webpack karma-chrome-launcher @types/webpack-env
-```
+本篇用到跟單元測試相關的 7 個套件，如下：
 
 * *Jasmine*+*Karma* 主要會用到的套件有：
  * **jasmine-core**  
@@ -69,6 +65,11 @@ npm install --save-dev jasmine-core karma karma-jasmine karma-jasmine-html-repor
 
 * 為了讓 `require.context()` 方法可以在 TypeScript 使用，所以要安裝定義檔：
  * **@types/webpack-env**  
+ 
+安裝指令：
+```
+npm install --save-dev jasmine-core karma karma-jasmine karma-jasmine-html-reporter karma-webpack karma-chrome-launcher @types/webpack-env
+```
 
 ## 2. 組態設定
 
@@ -177,7 +178,10 @@ module.exports = function (config) {
     config.set(_config);
 };
 ```
-> `app/main.test.ts` 是單元測試的程式進入點，可以換成自己的路徑。  
+* **files**: 是設定單元測試需要載入的檔案。可以換成自己的路徑。  
+* **preprocessors**: 啟動單元測試前要做的事。  
+ 這邊我做的是把 `app/main.test.ts` 用 *Webpack* 打包。  
+* **browsers**: 如果要用其他瀏覽器執行測試，除了要安裝套件，也要在這邊設定。  
 
 ### 2.3. 單元測試進入點
 
@@ -202,8 +206,6 @@ import {
     platformBrowserDynamicTesting
 } from "@angular/platform-browser-dynamic/testing";
 
-// 這邊會把指定路徑的符合 *.spec.ts 的檔案，都當作測試案例載入
-// 應為我把 main.test.ts 放在 app 資料夾，所以 "." 指的就是本資料夾(app)
 var appContext = require.context(".", true, /\.spec\.ts$/);
 appContext.keys().forEach(appContext);
 
@@ -213,7 +215,10 @@ TestBed.initTestEnvironment(
 );
 ```
 
-> 我是指定 `*.spec.ts` 的檔案都是單元測試的測試案例檔，也可以換成其他的檔案格式或名稱。  
+* **require.context()** 會把指定路徑的符合 *.spec.ts 的檔案，都當作測試案例載入。
+ * 參數1: 我把 main.test.ts 放在 app 資料夾，所以 `"."` 指的就是 `/app/` 資料夾。  
+ * 參數2: 是否包含子目錄。  
+ * 參數3: 這邊指定 `*.spec.ts` 檔案，都是單元測試的測試案例檔，也可以換成其他的檔案格式或名稱。  
 
 ### 2.4. NPM 指令設定
 
@@ -295,8 +300,8 @@ npm run test
 
 進入 `debug.html` 頁面後，可以看到全部測試案例的執行結果：
 ![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 1](/images/x360.png)
-![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 1](/images/x361.png)
-![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 1](/images/x362.png)
+![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 2](/images/x361.png)
+![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 3](/images/x362.png)
 
 ## 程式碼下載
 
