@@ -36,9 +36,9 @@
   <%- partial("_partial/head", { title: title, keywords: keywords }) %>
   <body itemscope itemtype="https://schema.org/Blog">
     <%- partial("_partial/loading") %>
-    <script>setLoadingBarProgress(20);</script>
+    <script>addLoadingBarProgress(20);</script>
     <%- partial("_partial/header", { cache: !config.relative_link }) %>
-    <script>setLoadingBarProgress(40);</script>
+    <script>addLoadingBarProgress(20);</script>
     <div class="l_body">
       <div class="container clearfix">
         <div class="l_main">
@@ -47,14 +47,13 @@
         <aside itemscope itemtype="https://schema.org/WPSideBar" class="l_side">
           <%- partial("_partial/side") %>
         </aside>
-        <script>setLoadingBarProgress(60);</script>
+        <script>addLoadingBarProgress(20);</script>
       </div>
     </div>
     <%- partial("_partial/footer", { cache: !config.relative_link }) %>
-    <script>setLoadingBarProgress(80);</script>
     <%- partial("_partial/scripts") %>
     <%- partial("_partial/google-analytics") %>
     <%- partial("_partial/facebook-sdk") %>
-    <script>setLoadingBarProgress(100);</script>
+    <script>addLoadingBarProgress(20);</script>
   </body>
 </html>

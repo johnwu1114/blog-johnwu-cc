@@ -1,7 +1,9 @@
 /* eslint-disable */
+"use strict";
+addLoadingBarProgress(10);
+
 var customSearch;
 (function ($) {
-	"use strict";
 	const scrollCorrection = 70; // (header height = 50px) + (gap = 20px)
 
 	function scrolltoElement(elem, correction) {
@@ -313,6 +315,7 @@ var customSearch;
 	};
 
 	$(function () {
+
 		//set header
 		setHeader();
 		setHeaderMenu();
@@ -329,6 +332,8 @@ var customSearch;
 		setTimeout(function () {
 			$("#loading-bar-wrapper").fadeOut(500);
 		}, 300);
+
+		addLoadingBarProgress(100);
 	});
 
 })(jQuery);
