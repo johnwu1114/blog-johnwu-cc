@@ -53,22 +53,22 @@
 
 	<% if(post.prev || post.next){ %>
 		<div class="art-item-footer">
-				<% if(post.prev){ %>
-					<span class="art-item-left">
-						<i class="fa fa-angle-left"></i>prev：
-						<a itemprop="url" href="<%=url_for(post.prev.path)%>" rel="prev"  title="<%= post.prev.title %>">
-							<%= post.prev.title %> 
-						</a>
-					</span>
-				<% } %>
-				<% if(post.next){ %>
-					<span class="art-item-right">next：
-						<a itemprop="url" href="<%=url_for(post.next.path) %>" rel="next"  title="<%= post.next.title %>">
-							<%=post.next.title  %>
-						</a>
-						<i class="fa fa-angle-right"></i>
-					</span>
-				<%} %>
+		<% if(post.prev){ %>
+			<span class="art-item-left">
+				<i class="fa fa-angle-left"></i>prev：
+				<a itemprop="url" href="<%=url_for(post.prev.path)%>" rel="prev"  title="<%= post.prev.title %>">
+					<%= post.prev.title %> 
+				</a>
+			</span>
+		<% } %>
+		<% if(post.next){ %>
+			<span class="art-item-right">next：
+				<a itemprop="url" href="<%=url_for(post.next.path) %>" rel="next"  title="<%= post.next.title %>">
+					<%=post.next.title  %>
+				</a>
+				<i class="fa fa-angle-right"></i>
+			</span>
+		<%} %>
 		</div>
 	<%} %>
 	</section>

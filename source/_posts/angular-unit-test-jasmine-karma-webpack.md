@@ -240,7 +240,31 @@ npm run test
 
 ## 3. 測試案例
 
-新增 app.component.spec.ts
+*Jasmine* 的測試的基本架構：  
+```ts
+describe("測試案例的描述", () => {
+    
+    beforeEach(() => {
+        // 每個測試案例開始前會做的事
+    });
+
+    afterEach(() => {
+        // 每個測試案例結束後會做的事
+    });
+
+    it("測試案例", function() {
+        // 預期結果
+        expect(expression).toEqual(true);
+    });
+});
+```
+
+我在 app.component.spec.ts 建立了 4 個簡單的測試案例：  
+* 驗證　AppComponent 是否能被實例化成功。  
+* 驗證 `<h1 />` 內的文字，是否符合預期。  
+* 必成功的測試案例。  
+* 必失敗的測試案例。  
+
 ```ts
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
@@ -284,12 +308,6 @@ describe("AppComponent", () => {
     it("Test Case 2", () => expect(true).toBe(false, "should return true"));
 });
 ```
-
-我簡單建立 4 個測試案例：
-* 驗證　AppComponent 是否能被實例化成功。  
-* 驗證 `<h1 />` 內的文字，是否符合預期。  
-* 必成功的測試案例。  
-* 必失敗的測試案例。  
 
 ## 執行結果
 
