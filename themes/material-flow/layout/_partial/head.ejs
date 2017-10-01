@@ -31,8 +31,11 @@
   <link rel="alternate" hreflang="x-default" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>" />
   <%- css("css/bundle.css") %>  
   <script>
-    function setLoadingBarProgress(num) {
-      document.getElementById("loading-bar").style.width=num+"%";
+    var progress = 0;
+    function addLoadingBarProgress(num) {
+      progress += num;
+      progress = Math.min(progress, 100);
+      document.getElementById("loading-bar").style.width = progress+"%";
     };
   </script>
 </head>
