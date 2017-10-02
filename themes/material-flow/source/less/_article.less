@@ -224,8 +224,20 @@
         }
     }
 
-  .fb_like {
-      height: 30px;
-      text-align: center;
-  }
+    .social-buttons {
+        height: 30px;
+        text-align: center;
+        .social-button {
+            margin: 0 10px;
+            display: inline-block;
+            &.linkedin {
+                position: relative;
+                top: 10px;
+            }
+            &.google {
+                position: relative;
+                top: 6px;
+            }
+        }
+    }
 }
