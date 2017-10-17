@@ -7,6 +7,7 @@ tags:
 categories:
   - SEO
 date: 2017-09-09 00:09:00
+update: 2017-10-15 22:11:00
 featured_image: /images/x339.png
 ---
 ![SEO - 網頁插入 Alexa Widget - Site Status](/images/x339.png)
@@ -296,6 +297,24 @@ Alexa Graph 的用法是在網址 `https://traffic.alexa.com/graph?u=blog.johnwu
 <a class="alexa" target="_blank" href="https://www.alexa.com/siteinfo/blog.johnwu.cc">
     <img src="https://traffic.alexa.com/graph?u=blog.johnwu.cc" alt="Alexa Traffic for blog.johnwu.cc">
 </a>
+
+## 補充
+
+2017/09/08 開始在 Alexa 查我部落格的網域，隔了一個月 2017/10/11 全球排名上升了約 30 萬名。  
+
+**2017/09/08**  
+
+![SEO - 網頁插入 Alexa Widget - 2017/09/08](/images/x363.png)  
+
+**2017/10/11**  
+
+![SEO - 網頁插入 Alexa Widget - 2017/10/11](/images/x364.png)  
+
+**2017/09 ~ 2017/10  Alexa Traffic Ranks 統計圖**  
+
+![SEO - 網頁插入 Alexa Widget - 2017/09 ~ 2017/10](/images/x365.png)
+
+> 三月份才開始寫部落格，九月以前都沒有用 Alexa 查網域，所以 Alexa Traffic Ranks 統計圖才會八月以前都是空的。
 
 ## 參考
 
