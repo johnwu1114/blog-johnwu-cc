@@ -38,21 +38,21 @@
   	<div itemprop="articleBody" class="article-entry">
     	<%- post.content %>
   	</div>
+
+	<div class="art-item-footer">	
 	<% if (post.tags && post.tags.length) { %>
-	<div itemprop="keywords" class="article-tags tags">
-	<% post.tags.each(function(item){ %>
-	<a href="<%- url_for(item.path) %>"><%=item.name %></a>
-	<%})%>
-	</div>
+		<div itemprop="keywords" class="article-tags tags">
+		<% post.tags.each(function(item){ %>
+			<a href="<%- url_for(item.path) %>"><%=item.name %></a>
+		<%})%>
+		</div>
     <% } %>
 	<% if(theme.facebook_sdk.enable && theme.facebook_sdk.like_button) { %>
-	<div class="fb_like">
-		<div class="fb-like" data-layout="button_count" data-share="true"></div>
-	</div>
+		<div class="fb_like">
+			<div class="fb-like" data-layout="button_count" data-share="true"></div>
+		</div>
     <% } %>
-
 	<% if(post.prev || post.next){ %>
-		<div class="art-item-footer">
 		<% if(post.prev){ %>
 			<span class="art-item-left">
 				<i class="fa fa-angle-left"></i>prev：
@@ -69,8 +69,9 @@
 				<i class="fa fa-angle-right"></i>
 			</span>
 		<%} %>
-		</div>
 	<%} %>
+	</div>
+
 	</section>
 </article>
 <% if (page.comments && config.disqus_shortname){ %>
