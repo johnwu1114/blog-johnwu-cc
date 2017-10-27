@@ -29,7 +29,7 @@ featured_image: /images/pasted-69p.png
 ## 安裝 NuGet 套件
 
 ASP.NET Core SignalR 的套件名稱為 Microsoft.AspNetCore.SignalR，是一個非常新的套件，還沒正式發布。在預設的 `nuget.org` 搜尋是找不到它滴！  
-首先我們先打開 NuGet 管理員，加入新的套件來源 *https://dotnet.myget.org/f/aspnetcore-ci-dev/api/v3/index.json*，如下：
+首先我們先打開 NuGet 管理員，加入新的套件來源 *https://dotnet.myget.org/f/aspnetcore-dev/api/v3/index.json*，如下：
 ![NuGet 新增 ASP.NET Core 套件來源](/images/pasted-10.png)
 
 新增來源後，套件管理員的右上角就可以切換來源了。選擇剛剛新增的 `asp.net core` 來源，並勾選搶鮮版(因為還沒正式發佈)，然後就可以搜尋到 Microsoft.AspNetCore.SignalR，但我們實際要安裝的是 **Microsoft.AspNetCore.SignalR.Server**。
