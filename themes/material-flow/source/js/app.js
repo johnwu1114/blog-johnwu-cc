@@ -250,27 +250,26 @@ var customSearch;
 			method: "GET",
 			url: apiUrl + ".json"
 		}).done(function (result) {
-			const readVisits = function (selector, url, isReadOnly) {
+			const readPageviews = function (selector, url, isReadOnly) {
 				let key = changeUrlToKey(url);
-				let count = parseInt(result[key] || 0);
+				let count = parseInt(result[key] || 0) + (isReadOnly ? 0 : 1);
+				if (selector.length > 0) {
+					selector.html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+				}
 				if (!isReadOnly) {
-					count += 1;
 					$.ajax({
 						method: "PUT",
 						url: apiUrl + "/" + key + ".json",
 						data: count.toString()
 					});
 				}
-				if (selector.length > 0) {
-					selector.html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				};
 			}
 
 			let isReadOnly = window.location.pathname.endsWith("/");
-			readVisits($("#visits .count"), "/", isReadOnly);
+			readPageviews($("#totalPageviews .count"), "/", false);
 			$(".pageviews").each(function () {
 				let postUrl = $(this).data("path");
-				readVisits($(this).find(".count"), postUrl, isReadOnly);
+				readPageviews($(this).find(".count"), postUrl, isReadOnly);
 			});
 		});
 	}

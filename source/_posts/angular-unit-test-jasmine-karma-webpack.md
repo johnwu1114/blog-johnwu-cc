@@ -240,7 +240,7 @@ npm run test
 
 ## 3. 測試案例
 
-*Jasmine* 的測試的基本架構：  
+*Jasmine* 測試框架的基本架構：  
 ```ts
 describe("測試案例的描述", () => {
     
