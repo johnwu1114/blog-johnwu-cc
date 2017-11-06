@@ -1,5 +1,5 @@
 ---
-title: Angular 4 教學 - *ngIf vs [hidden] 比較
+title: Angular 4 教學 - *ngIf vs [hidden] 差異
 author: John Wu
 tags:
   - Angular
@@ -10,10 +10,10 @@ date: 2017-10-29 21:45:00
 featured_image: /images/x376.png
 ---
 
-![Angular 4 教學 - *ngIf vs [hidden] 比較 - [hidden] 陷阱 - 1](/images/x376.png)
+![Angular 4 教學 - *ngIf vs [hidden] 差異 - [hidden] 陷阱 - 1](/images/x376.png)
 
 Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛開始寫 Angular 的人可能會有點混淆這兩個方法。  
-本篇將介紹 Angular 4 (Angular 2) 的 `*ngIf` 及 `[hidden]` 比較。  
+本篇將介紹 Angular 4 (Angular 2) 的 `*ngIf` 及 `[hidden]` 差異。  
 
 <!-- more -->
 
@@ -31,7 +31,7 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 
 ### 執行結果  
 
-![Angular 4 教學 - *ngIf vs [hidden] 比較 - *ngIf 範例](/images/x374.png)
+![Angular 4 教學 - *ngIf vs [hidden] 差異 - *ngIf 範例](/images/x374.png)
 
 ## [hidden]
 
@@ -46,7 +46,7 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 
 ### 執行結果  
 
-![Angular 4 教學 - *ngIf vs [hidden] 比較 - *ngIf [hidden]](/images/x375.png)
+![Angular 4 教學 - *ngIf vs [hidden] 差異 - *ngIf [hidden]](/images/x375.png)
 
 ## [hidden] 陷阱
 
@@ -83,8 +83,8 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 
 ### 執行結果  
 
-![Angular 4 教學 - *ngIf vs [hidden] 比較 - [hidden] 陷阱 - 1](/images/x376.png)
-![Angular 4 教學 - *ngIf vs [hidden] 比較 - [hidden] 陷阱 - 2](/images/x377.png)
+![Angular 4 教學 - *ngIf vs [hidden] 差異 - [hidden] 陷阱 - 1](/images/x376.png)
+![Angular 4 教學 - *ngIf vs [hidden] 差異 - [hidden] 陷阱 - 2](/images/x377.png)
 
 當 checked 為 false 時，預期結果是 4 個範例都不在畫面中顯示，但實際上 Sample 4 的 `display` 被 displayBlock 複寫了，所以還是顯示在畫面上。  
 > 由於 hidden 屬性並不是使用 `display: none !important;`，所以沒控制好 CSS 就可能會發生超出你預期的結果。
