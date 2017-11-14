@@ -151,11 +151,12 @@
             // }
         }
     }
-    table:not('.highlight table') {
+    :not(.highlight) > table {
         width: 100%;
         td,
         th {
-            padding: 12px 24px
+            padding: 12px 24px;
+            border: 1px black solid;
         }
         tr {
             border-bottom: 1px solid #ddd;
