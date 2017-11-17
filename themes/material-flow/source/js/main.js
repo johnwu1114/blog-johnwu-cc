@@ -1,3 +1,6 @@
+require("./lib/firebase-app.js"); 
+require("./lib/firebase-database.js"); 
+
 require("./lib/waves.min.js");
 require("./lib/scrollreveal.min.js");
 

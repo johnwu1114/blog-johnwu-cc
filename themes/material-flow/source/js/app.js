@@ -239,38 +239,40 @@ var customSearch;
 	}
 
 	function setVisitsCount() {
+		const firebase = window.firebase;
+		let config = {
+			apiKey: FIREBASE_API_KEY,
+			authDomain: FIREBASE_AUTH_DOMAIN,
+			databaseURL: FIREBASE_DATABASE_URL,
+			projectId: FIREBASE_PROJECT_ID,
+			storageBucket: FIREBASE_STORAGE_BUCKET,
+			messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
+		};
+		firebase.initializeApp(config);
+		let database = firebase.database();
+
 		const changeUrlToKey = function (url) {
 			return url.replace(new RegExp('\\/|\\.', 'g'), "_");
 		}
 
-		let apiUrl = FIREBASE_DATABASE_URL + "/" +
-			changeUrlToKey(window.location.host);
-
-		$.ajax({
-			method: "GET",
-			url: apiUrl + ".json"
-		}).done(function (result) {
-			const readPageviews = function (selector, url, isReadOnly) {
-				let key = changeUrlToKey(url);
-				let count = parseInt(result[key] || 0) + (isReadOnly ? 0 : 1);
+		const readPageviews = function (selector, url, isReadOnly) {
+			let key = changeUrlToKey(window.location.host) + "/" + changeUrlToKey(url);
+			database.ref(key).once("value").then(function (result) {
+				let count = parseInt(result.val() || 0) + (isReadOnly ? 0 : 1);
 				if (selector.length > 0) {
 					selector.html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 				}
 				if (!isReadOnly) {
-					$.ajax({
-						method: "PUT",
-						url: apiUrl + "/" + key + ".json",
-						data: count.toString()
-					});
+					database.ref(key).set(count.toString()); 
 				}
-			}
-
-			let isReadOnly = window.location.pathname.endsWith("/");
-			readPageviews($("#totalPageviews .count"), "/", false);
-			$(".pageviews").each(function () {
-				let postUrl = $(this).data("path");
-				readPageviews($(this).find(".count"), postUrl, isReadOnly);
 			});
+		}
+
+		let isReadOnly = window.location.pathname.endsWith("/");
+		readPageviews($("#totalPageviews .count"), "/", false);
+		$(".pageviews").each(function () {
+			let postUrl = $(this).data("path");
+			readPageviews($(this).find(".count"), postUrl, isReadOnly);
 		});
 	}
 

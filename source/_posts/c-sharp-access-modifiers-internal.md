@@ -63,7 +63,7 @@ namespace AssemblyB
 為了符合封裝原則，基本上我們不太希望把不該開放的類別或成員給外部的組件存取，但為了測試專案，不開放存取權限又顯得很難做事。  
 這時候我們可以透過 `InternalsVisibleTo` 開放特定的組件也能存取`internal`修飾詞的類別或成員。  
 
-例如我們有 *AssemblyA* 及 *AssemblyA.Tests*，我們希望 *AssemblyA.Tests* 可以存取 *AssemblyA* 的`internal`類別或成員。
+例如我們有 *AssemblyA* 及 *AssemblyA.Tests* 專案，我們希望 *AssemblyA.Tests* 專案可以存取 *AssemblyA* 專案的`internal`類別或成員。
 
 打開 *AssemblyA* 專案底下的 AssemblyInfo.cs 檔案編輯：
 Properties\AssemblyInfo.cs
