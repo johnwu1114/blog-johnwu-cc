@@ -6,6 +6,7 @@ tags:
 categories:
   - 'C#'
 date: 2017-11-17 22:28:00
+featured_image: /images/x381.png
 ---
 
 遇過不少 .NET 工程師，都知道 C# 存取修飾詞有四種，`public`、`protected`、`private`及`internal`。  
@@ -65,8 +66,10 @@ namespace AssemblyB
 
 例如我們有 *AssemblyA* 及 *AssemblyA.Tests* 專案，我們希望 *AssemblyA.Tests* 專案可以存取 *AssemblyA* 專案的`internal`類別或成員。
 
-打開 *AssemblyA* 專案底下的 AssemblyInfo.cs 檔案編輯：
-Properties\AssemblyInfo.cs
+打開 *AssemblyA* 專案底下的 Properties\AssemblyInfo.cs 檔案編輯：
+
+![C# 存取修飾詞 - internal Friend Assembly](/images/x381.png)
+
 ```cs
 using System.Runtime.CompilerServices;
 
