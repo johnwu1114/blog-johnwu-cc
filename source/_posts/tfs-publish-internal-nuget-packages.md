@@ -7,6 +7,7 @@ tags:
   - CI/CD
 categories:
   - TFS
+  - NuGet
 date: 2017-05-24 14:37:00
 featured_image: /images/pasted-157.png
 ---
