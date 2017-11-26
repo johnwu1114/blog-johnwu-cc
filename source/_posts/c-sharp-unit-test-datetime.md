@@ -1,9 +1,10 @@
 ---
-title: 單元測試 - 模擬系統時間 DateTime.Now
+title: C# 單元測試 - 模擬系統時間 DateTime.Now
 author: John Wu
 tags:
   - Unit Test
   - Microsoft Fakes
+  - 'C#'
 categories:
   - Unit Test
 date: 2017-11-22 23:28:00
@@ -17,7 +18,7 @@ featured_image: /images/x387.png
 
 以 DateTime.Now 為例，假設以下程式碼是要被測試的目標：
 ```cs
-public static decimal Discount(decimal amount)
+public decimal Discount(decimal amount)
 {
     var now = DateTime.Now;
     if (now.Month == 1 && now.Day == 1)
@@ -36,35 +37,94 @@ public static decimal Discount(decimal amount)
 }
 ```
 
-## 自製包裝
+## Interface 包裝
 
-建立一個 SystemTime 類別重新包裝 DateTime，程式碼如下：
+Interface 包裝是常見的控制翻轉 (Inversion Of Control, IoC) 方法，透過介面切斷相依，在測試方法中重新實作介面模擬回傳。  
+建立一個 ITimeWrapper 介面及 TimeWrapper 類別重新包裝 DateTime。程式碼如下：
+```cs
+public interface ITimeWrapper
+{
+    DateTime Now { get; }
+}
+
+public class TimeWrapper : ITimeWrapper
+{
+    public DateTime Now => DateTime.Now;
+} 
+```
+
+被測試的目標改為：
+```cs
+internal ITimeWrapper TimeWrapper = new TimeWrapper();
+
+public decimal Discount(decimal amount)
+{
+    var now = TimeWrapper.Now;
+    // ...
+}
+```
+> 自製包裝有一個不便之處，就是要改被測試的目標。也就是需要重構的意思。  
+
+測試程式碼如下：  
+```cs
+public class FakeTimeWrapper : ITimeWrapper
+{
+    internal DateTime MockTime;
+    public DateTime Now => MockTime;
+} 
+
+[Test]
+public void Christmas_Discount()
+{
+    // Arrange
+    decimal expected = 1897.4m;
+    decimal amount = 9487m;    
+    var fakeTimeWrapper = new FakeTimeWrapper();
+    fakeTimeWrapper.MockTime = Convert.ToDateTime("2017/12/25");
+    _target.TimeWrapper = fakeTimeWrapper;
+
+    // Act
+    var actual = _target.Discount(amount);
+
+    // Assert
+    Assert.AreEqual(expected, actual);
+}
+```
+> 可以用 Mock Framework 簡化測試程式碼。  
+
+## Static 包裝
+
+Static 包裝的好處是不用宣告實體，用法更接近 DateTime 的使用方式。  
+建立一個 SystemTime 類別重新包裝 DateTime。程式碼如下：
 ```cs
 public static class SystemTime
 {
-    internal static Func<DateTime> CurrentTime;
+    private static Func<DateTime> _currentTime;
 
     public static DateTime Now
     {
         get
         {
-            if (CurrentTime == null)
+            if (_currentTime == null)
             {
                 Reset();
             }
-            return CurrentTime();
+            return _currentTime();
+        }
+        internal set
+        {
+            _currentTime = () => value;
         }
     }
 
     internal static void Reset()
     {
-        CurrentTime = () => DateTime.Now;
+        _currentTime = () => DateTime.Now;
     }
 }
 ```
 
-自製包裝有一個不便之處，就是要改被測試的目標，必須要把 `var now = DateTime.Now;` 改成 `var now = SystemTime.Now;`。  
-如此一來就可以在測試方法中，透過 `SystemTime.CurrentTime` 模擬回傳值。  
+如此一來就可以在測試方法中，透過 internal set `SystemTime.Now` 模擬回傳值。  
 
 測試程式碼如下：  
 ```cs
@@ -74,7 +134,7 @@ public void Christmas_Discount()
     // Arrange
     decimal expected = 1897.4m;
     decimal amount = 9487m;
-    SystemTime.CurrentTime = () => Convert.ToDateTime("2017/12/25");
+    SystemTime.Now = Convert.ToDateTime("2017/12/25");
 
     // Act
     var actual = _target.Discount(amount);
@@ -119,7 +179,6 @@ public void Christmas_Discount()
 }
 ```
 
-
 ## 結論
 
 1. 自製包裝比較土法煉鋼的方式，優點是其他語言也能用此方法。缺點是必須要異動被測試目標。  
@@ -131,23 +190,27 @@ public void Christmas_Discount()
 public static class SystemTime
 {
     private static readonly TimeZoneInfo _timeZone = TimeZoneInfo.FindSystemTimeZoneById("Taipei Standard Time");
-    internal static Func<DateTime> CurrentTime;
+    private static Func<DateTime> _currentTime;
 
     public static DateTime Now
     {
         get
         {
-            if (CurrentTime == null)
+            if (_currentTime == null)
             {
                 Reset();
             }
-            return CurrentTime();
+            return _currentTime();
+        }
+        internal set
+        {
+            _currentTime = () => value;
         }
     }
 
     internal static void Reset()
     {
-        CurrentTime = () => TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, _timeZone);
+        _currentTime = () => TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, _timeZone);
     }
 }
 ```
