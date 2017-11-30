@@ -8,6 +8,7 @@ tags:
 categories:
   - ProGet
 date: 2017-11-23 15:17:00
+featured_image: /images/x386.png
 ---
 
 架設內部用的 NuGet Server，可以解決模組相依問題，但要偵錯(Debug)就變的比較麻煩。  
@@ -21,6 +22,7 @@ date: 2017-11-23 15:17:00
 ### ProGet 設定
 
 > 由於我的 NuGet Server 是用 ProGet 架設，所以此節會說明 ProGet 的設定，若是以其它方式架設 NuGet Server，可以跳錯此節。  
+> ProGet 架設可以參考這篇：[ProGet - 架設內部 NuGet Server](/article/proget-internal-nuget-server.html)  
 
 在 ProGet 的 NuGet Feed 管理中，找到 Symbols Server 設定，啟動 Symbols 服務：  
 
@@ -57,7 +59,11 @@ dotnet pack --include-symbols Sample.csproj
 
 ### Enable Source Server Support
 
-在 Visual Studio 中打開 **Debug** > **Options** > **General**，把 `Enable Just My Code` 取消勾選 ，並勾選 `Enable source server support`。如圖：  
+在 Visual Studio 中打開 **Debug** > **Options** > **General**，找到以下設定：
+* ☐ `Enable Just My Code` *(取消勾選)*  
+* ☑ `Enable source server support` *(勾選)*  
+
+如圖：  
 
 ![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - Enable Source Server Support](/images/x384.png)
 
