@@ -242,16 +242,17 @@ Logstash 主要的工作是把收到的資料，做特定的規則處理，例�
 * Logstash 可以透過 grok 正則表示，把這筆 Log 拆分成好幾個欄位
 ```
 grok {		
-	match => [ "message", "%{TIMESTAMP_ISO8601:log_timestamp} \[%{NUMBER:thread}\] %{DATA:log_type} %{DATA:logger} - %{GREEDYDATA:detail}" ]
+	match => [ "message", "%{TIMESTAMP_ISO8601:logTimestamp} \[%{NUMBER:thread}\] %{DATA:logType} %{DATA:logger} - %{GREEDYDATA:detail}" ]
 }
 ```
- * log_timestamp(時間): 2017-03-30 01:46:09,858
- * thread(數字): 1
- * log_type(字串): INFO
+ * logTimestamp(字串): 2017-03-30 01:46:09,858
+ * thread(字串): 1
+ * logType(字串): INFO
  * logger(字串): MyWebsite.Global
  * detail(字串): Application_Start
 
-> 字串不容易被統計，透過轉換成數值、日期或其它能被統計的格式，才能對 Log 做分析。
+> 字串不容易被統計，透過轉換成數值、日期或其它能被統計的格式，才能對 Log 做分析。  
+> 不要懷疑 logTimestamp 及 thread 真的是字串，Grok Filter 及轉型可以參考這篇：[ELK 教學 - Logstash Grok Filter 建立欄位](/article/elk-logstash-grok-filter.html)
 
 ### 4.1 下載
 
@@ -293,7 +294,7 @@ input {
 }
 filter {
   grok {		
-      match => [ "message", "%{TIMESTAMP_ISO8601:log_timestamp} \[%{NUMBER:thread}\] %{DATA:log_type} %{DATA:logger} - %{GREEDYDATA:detail}" ]
+      match => [ "message", "%{TIMESTAMP_ISO8601:logTimestamp} \[%{NUMBER:thread}\] %{DATA:logType} %{DATA:logger} - %{GREEDYDATA:detail}" ]
   }
   mutate {
     add_tag => ["logstash"]
