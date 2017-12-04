@@ -12,7 +12,7 @@ featured_image: /images/x386.png
 ---
 
 架設內部用的 NuGet Server，可以解決模組相依問題，但要偵錯(Debug)就變的比較麻煩。  
-如果是用專案相依參考，可以直接 Debug Source Code，但從 NuGet Server 下載的套件沒有 Source Code，Debug 就要靠 Symbol(pdb) 了。  
+如果是用專案相依參考，能直接對 Source Code Debug，但從 NuGet Server 下載的套件沒有 Source Code，Debug 就要靠 Symbol(pdb) 了。  
 本篇介紹如何透過 Visual Studio 對自製的 NuGet 套件進行偵錯。  
 
 <!-- more -->
@@ -60,8 +60,8 @@ dotnet pack --include-symbols Sample.csproj
 ### Enable Source Server Support
 
 在 Visual Studio 中打開 **Debug** > **Options** > **General**，找到以下設定：
-* ☐ `Enable Just My Code` *(取消勾選)*  
-* ☑ `Enable source server support` *(勾選)*  
+* ☐ `Enable Just My Code` *啟用 Just My Cod* **(取消勾選)**  
+* ☑ `Enable source server support` *啟用來源伺服器支援* **(勾選)**  
 
 如圖：  
 

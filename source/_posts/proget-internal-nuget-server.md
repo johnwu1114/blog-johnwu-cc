@@ -10,7 +10,8 @@ date: 2017-11-30 14:47:00
 featured_image: /images/x401.png
 ---
 
-系統規模較大或模組較多時，並不適合用專案相依。手工的方式是將 DLL 編譯出來給需要的專案參考，但同步 DLL 的過程需要控管，以免拿錯版本。  
+系統規模較大或模組較多時，並不適合用專案相依，避免編譯太久及程式碼管理的問題等。  
+常見的方式是將 DLL 編譯出來，再給需要的專案參考，但同步 DLL 的過程需要控管，以免拿錯版本。  
 比較好的方式是透過 Dependency Service 解決專案相依的問題，而 .NET 的 Dependency Service 主要是 NuGet。  
 本篇介紹如何透過 ProGet 架設內部 NuGet Server。  
 
@@ -38,7 +39,7 @@ ProGet 有分**付費版**跟**免費版**，免費版支援的 Feed 跟付費�
 先下載 ProGet 安裝檔：[下載](https://inedo.com/proget/download)  
 
 安裝步驟如下：  
-![ProGet - 架設內部 NuGet Server](/images/x387.png)
+![ProGet - 架設內部 NuGet Server](/images/x388-1.png)
 
 選擇版本，我直接選免費版，要試用企業版的人，也可以選企業版：  
 ![ProGet - 架設內部 NuGet Server](/images/x388.png)
@@ -100,13 +101,14 @@ ProGet 有提供四種上傳 NuGet Package 的方式：
 
 ### 打包
 
-假設要打包 *SampleLibrary* 的專案，先用 Visual Studio 或 MSBuild 建置，建置完成後就可以透過 NuGet pack 打包出 `*.nupkg`。  
-指令如下：  
+假設要打包 *SampleLibrary* 的專案，先用 Visual Studio 或 MSBuild 建置，建置完成後就可以透過 NuGet pack 指令打包 `*.nupkg` 檔案。指令如下：  
 ```
-NuGet.exe pack SampleLibrary\SampleLibrary.csproj -Version 1.0.0.1 -Properties "Configuration=Release;OutDir=C:\Users\john.wu\source\repos\SampleLibrary\SampleLibrary\bin\Release" 
+NuGet.exe pack C:\SampleLibrary\SampleLibrary.csproj -Version 1.0.0.1 -Properties "Configuration=Release;OutDir=C:\SampleLibrary\SampleLibrary\bin\Release" 
 ```
 * `Version`：要上傳到 NuGet Server 的版本不能重複。  
 * `OutDir`：編譯後 DLL 的位置。  
+
+> 如果是 .NET Core 專案，用 `dotnet pack` 指令打包，參數可以參考[官網](https://docs.microsoft.com/zh-tw/dotnet/core/tools/dotnet-pack?tabs=netcore2x)。  
 
 ### 上傳
 
@@ -115,7 +117,7 @@ NuGet.exe pack SampleLibrary\SampleLibrary.csproj -Version 1.0.0.1 -Properties "
 ```sh
 NuGet.exe push SampleLibrary.1.0.0.1.nupkg -ApiKey Admin:Admin -Source http://localhost:81/nuget/internal/
 ```
-* `ApiKey`：可以用 ProGet 的帳號密碼，可以從 ProGet 的管理中設定 ApiKey，有興趣的自己研究。  
+* `ApiKey`：預設可以用 ProGet 的帳號密碼當做 NuGet ApiKey，從 ProGet 的管理中也能設定專用的 ApiKey，有興趣的可以研究看看。  
 
 在 NuGet 管理中新增 NuGet Feed，如下：  
 
