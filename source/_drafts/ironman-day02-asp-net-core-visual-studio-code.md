@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core 系列 - Day02 - 開發工具 Visual Studio Code
+title: '[鐵人賽 Day02] ASP.NET Core 系列 - 開發工具 Visual Studio Code'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -26,31 +26,31 @@ Visual Studio Code(VS Code) 是一套可安裝擴充套件的文字編輯器，�
 
 打開 VS Code 可以在左邊看到五個 Icon，點選最下面的那個 Extensions 圖示，並在 Extensions 搜尋列輸入 **C#**，便可以找到 `C#` 的擴充套件安裝。如下圖：
 
-![Day02 - ASP.NET Core 開發工具 Visual Studio Code - C# 擴充套件](/images/i4.png)
+![[鐵人賽 Day02] ASP.NET Core 系列 - 開發工具 Visual Studio Code - C# 擴充套件](/images/i4.png)
 
 ## 開啟專案
 
 VS Code 跟一般文字編輯器有些不同，它是以資料夾為工作區域，開啟一個目錄，就等通於是開啟一個專案。  
 從上方工具列 **File** -> **Open Folder** 選擇 ASP.NET Core 專案目錄，大概隔幾秒後，VS Code 會提示是否要幫此專案加入 Build/Debug 的設定。如下圖：  
 
-![Day02 - ASP.NET Core 開發工具 Visual Studio Code - 開啟專案](/images/i5.png)
+![[鐵人賽 Day02] ASP.NET Core 系列 - 開發工具 Visual Studio Code - 開啟專案](/images/i5.png)
 
 ### Build/Debug 設定
 
 如果沒有自動提示加入 Build/Debug 設定，可以在左邊 Icon，點選倒數第二個 Debug 圖示，手動加入 Build/Debug 設定。如下步驟：  
 
-![Day02 - ASP.NET Core 開發工具 Visual Studio Code - Build/Debug 設定](/images/i6.png)
-![Day02 - ASP.NET Core 開發工具 Visual Studio Code - Build/Debug 設定](/images/i7.png)
+![[鐵人賽 Day02] ASP.NET Core 系列 - 開發工具 Visual Studio Code - Build/Debug 設定](/images/i6.png)
+![[鐵人賽 Day02] ASP.NET Core 系列 - 開發工具 Visual Studio Code - Build/Debug 設定](/images/i7.png)
 
 ## 中斷點除錯
 
 在程式碼行號左邊點擊滑鼠就可以下中斷點了，跟一般 IDE 差不多。然後在 Debug 側欄啟動偵錯：  
 
-![Day02 - ASP.NET Core 開發工具 Visual Studio Code - 中斷點除錯](/images/i8.png)
+![[鐵人賽 Day02] ASP.NET Core 系列 - 開發工具 Visual Studio Code - 中斷點除錯](/images/i8.png)
 
 當執行到該中斷點後，就會停下來，並在 Debug 側欄顯示當前變數狀態等，也可以用滑鼠移到變數上面檢視該變數的內容。如下：
 
-![Day02 - ASP.NET Core 開發工具 Visual Studio Code - 中斷點除錯](/images/i9.png)
+![[鐵人賽 Day02] ASP.NET Core 系列 - 開發工具 Visual Studio Code - 中斷點除錯](/images/i9.png)
 
 > 偵錯方式跟大部分的 IDE 都差不多，可以 Step over、Step in/out 等。  
 > 如此一來就可以用 VS Code 輕鬆開發 ASP.NET Core。

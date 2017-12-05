@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core 系列 - Day01 - 從頭開始
+title: '[鐵人賽 Day01] ASP.NET Core 系列 - 從頭開始'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -36,11 +36,11 @@ dotnet --version
 dotnet new web
 ```
 
-![Day01 - ASP.NET Core 從頭開始 - 建立專案](/images/i1.png)
+![[鐵人賽 Day01] ASP.NET Core 系列 - 從頭開始 - 建立專案](/images/i1.png)
 
 dotnet cli 會在該資料夾，建立一個空的 ASP.NET Core 專案，內容如下：  
 
-![Day01 - ASP.NET Core 從頭開始 - 專案目錄](/images/i2.png)
+![[鐵人賽 Day01] ASP.NET Core 系列 - 從頭開始 - 專案目錄](/images/i2.png)
 ```yml
 obj/                            # 專案暫存目錄
 wwwroot/                        # 網站根目錄(空的)
@@ -57,4 +57,4 @@ dotnet run
 ```
 dotnet cli 預設會起一個[http://localhost:5000/](#)的站台，用瀏覽器打開此連結就可以看到 ASP.NET Core 網站了。如下：  
 
-![Day01 - ASP.NET Core 從頭開始 - 啟動網站](/images/i3.png)
+![[鐵人賽 Day01] ASP.NET Core 系列 - 從頭開始 - 啟動網站](/images/i3.png)

@@ -9,7 +9,8 @@ Logstash - Dissect
 Logstash - KV
 Logstash - Ruby
 Kibana 架設
-Kibana Discover 搜尋
+Kibana - Discover 搜尋
+Kibana - Regex
 Kibana - Area/Line
 Kibana - Bar/Pie
 Kibana - Heat Map
