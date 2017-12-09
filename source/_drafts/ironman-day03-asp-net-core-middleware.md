@@ -19,17 +19,17 @@ Middleware 除了簡化了 HTTP Modules/Handlers 的使用方式，還帶入了 
 
 ## Middleware 概念
 
-ASP.NET Core 在 Middleware 的官方說明中，使用了 Pipeline 這個名詞，意旨 Middleware 像水管一樣，所有的 Request 及 Response 都會層層經過這些水管。  
+ASP.NET Core 在 Middleware 的官方說明中，使用了 Pipeline 這個名詞，意旨 Middleware 像水管一樣可以串聯在一起，所有的 Request 及 Response 都會層層經過這些水管。  
 用圖例可以很容易理解，如下圖：  
 
 ![[鐵人賽 Day03] ASP.NET Core 系列 - Middleware - 概念](/images/i10.png)
 
 ## App.Use
 
-Middleware 的註冊方式是在啟動網站設定的 `IApplicationBuilder` 使用 `.Use` 方法註冊。  
-大部分擴充的 Middleware 也都是以 `.Use` 開頭的方法註冊，例如：  
-* `.UseMvc()`：MVC 的 Middleware  
-* `.UseRewriter()`：URL rewriting 的 Middleware  
+Middleware 的註冊方式是在 `Startup.cs` 的 `Configure` 使用 `Use` 方法註冊。  
+大部分擴充的 Middleware 也都是以 `Use` 開頭的方法註冊，例如：  
+* `UseMvc()`：MVC 的 Middleware  
+* `UseRewriter()`：URL rewriting 的 Middleware  
 
 一個簡單的 Middleware 範例。如下：
 ```cs
@@ -68,7 +68,7 @@ public class Startup
 }
 ```
 
-Output：
+用瀏覽器打開網站任意連結，會顯示：
 ```
 First Middleware in. 
 Second Middleware in. 
@@ -80,6 +80,121 @@ First Middleware out.
 ```
 
 > 在 Pipeline 的概念中，註冊順序是很重要的事情。資料經過的順序一定是**先進後出**。
+
+Middleware 也可以作為攔截使用，如下：
+```cs
+// ...
+public class Startup
+{
+    // ...
+    public void Configure(IApplicationBuilder app)
+    {
+        app.Use(async (context, next) => 
+        {
+            await context.Response.WriteAsync("First Middleware in. \r\n");
+            await next.Invoke();
+            await context.Response.WriteAsync("First Middleware out. \r\n");
+        });
+
+        app.Use(async (context, next) => 
+        {
+            await context.Response.WriteAsync("Second Middleware in. \r\n");
+            
+            var condition = false;
+            if(condition) {
+                await next.Invoke();
+            }
+
+            await context.Response.WriteAsync("Second Middleware out. \r\n");
+        });
+
+        app.Use(async (context, next) => 
+        {
+            await context.Response.WriteAsync("Third Middleware in. \r\n");
+            await next.Invoke();
+            await context.Response.WriteAsync("Third Middleware out. \r\n");
+        });
+
+        app.Run(async (context) =>
+        {
+            await context.Response.WriteAsync("Hello World! \r\n");
+        });
+    }
+}
+```
+
+會顯示：
+```
+First Middleware in. 
+Second Middleware in. 
+Second Middleware out. 
+First Middleware out. 
+```
+
+在 Second Middleware 中，因為沒有達成條件，所以封包也就不在往後面的水管傳送。如圖：  
+
+![[鐵人賽 Day03] ASP.NET Core 系列 - Middleware - 概念](/images/i11.png)  
+
+## App.Run
+
+`Run` 是 Middleware 的最後一個行為，以上面圖例來說，就是最末端的 Action。  
+它不像 `Use` 能串聯其他 Middleware，但 `Run` 還是能完整的使用 Request 及 Response。  
+
+## App.Map
+
+`Map` 是能用來處理一些簡單路由的 Middleware，可依照不同的 URL 指向不同的 `Run` 及註冊不同的 `Use`。  
+新增一個路由如下：
+```cs
+// ...
+public class Startup
+{
+    // ...
+    public void Configure(IApplicationBuilder app)
+    {
+        app.Use(async (context, next) => 
+        {
+            await context.Response.WriteAsync("First Middleware in. \r\n");
+            await next.Invoke();
+            await context.Response.WriteAsync("First Middleware out. \r\n");
+        });
+
+        app.Map("/second", mapApp =>
+        {
+            mapApp.Use(async (context, next) => 
+            {
+                await context.Response.WriteAsync("Second Middleware in. \r\n");
+                await next.Invoke();
+                await context.Response.WriteAsync("Second Middleware out. \r\n");
+            });
+            mapApp.Run(async context =>
+            {
+                await context.Response.WriteAsync("Second. \r\n");
+            });
+        });
+
+        app.Run(async context =>
+        {
+            await context.Response.WriteAsync("Hello World! \r\n");
+        });
+    }
+}
+```
+
+開啟網站任意連結，會顯示：
+```
+First Middleware in. 
+Hello World! 
+First Middleware out. 
+```
+
+開啟網站 `/second`，則會顯示：
+```
+First Middleware in. 
+Second Middleware in. 
+Second. 
+Second Middleware out. 
+First Middleware out. 
+```
 
 ## 建立 Middleware 類別
 
@@ -124,7 +239,7 @@ public class Startup
 
 ### Extensions
 
-大部分擴充的 Middleware 都會用一個靜態方法包裝，如：`.UseMvc()`、`.UseRewriter()`等。  
+大部分擴充的 Middleware 都會用一個靜態方法包裝，如：`UseMvc()`、`UseRewriter()`等。  
 自製的 Middleware 當然也可以透過靜態方法包，範例如下：
 ```cs
 public static class CustomMiddlewareExtensions

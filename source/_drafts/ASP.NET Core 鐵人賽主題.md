@@ -1,11 +1,13 @@
 # Fundamentals (14)
 開發環境準備
+VSCode
 Middleware
 Static Files
-Routing
-URL Rewriting
+[X] URL Rewriting
 MVC
+Routing
 WebAPI
+swagger
 Dependency Injection
 Filters
 Exception Handler
@@ -13,6 +15,7 @@ Application Lifetime
 Logging
 Configuration
 Localization
+NUnit
 
 # Sample (12)
 Log4net
