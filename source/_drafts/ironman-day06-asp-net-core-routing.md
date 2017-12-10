@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-18 23:17
-featured_image: /images/i11.png
+featured_image: /images/i16.png
 ---
 
 ASP.NET Core 透過路由(Routing)設定，將定義的 URL 規則找到相對應的行為；當使用者 Request 的 URL 滿足特定規則條件時，則自動對應到的相符的行為處理。  
@@ -50,6 +50,14 @@ public class Startup
 RouterMiddleware 除了方便搭配 ASP.NET Core MVC 外，也可以比較彈性的使用路由定義。  
 
 ## 路由
+
+RouterMiddleware 的路由註冊方式大致分為兩種：  
+* 廣域註冊。如：`MapRoute`。  
+* 區域註冊。如：`RouteAttribute`。
+
+預設路由的順序如下：  
+
+![[鐵人賽 Day06] ASP.NET Core 系列 - 路由(Routing) - 流程](/images/i16.png)
 
 ### 安裝套件
 
@@ -169,6 +177,68 @@ public class Startup
 * `http://localhost:5000` 會對應到 HomeController 的 Index()。
 * `http://localhost:5000/about` 會對應到 HomeController 的 About()。
 * `http://localhost:5000/home/test` 會對應到 HomeController 的 Test()。
+
+## RouteAttribute
+
+預設 RouteAttribute 的優先順序高於 Startup 註冊的 MapRoute，所以當使用 `[Route]` 後，原本的 MapRoute 將不再對 Controller 或 Action 產生作用。  
+
+```cs
+[Route("[controller]")]
+public class UserController : Controller
+{
+    [Route("")]
+    public IActionResult Profile()
+    {
+        return View();
+    }
+
+    [Route("change-password")]
+    public IActionResult ChangePassword()
+    {
+        return View();
+    }
+
+    [Route("[action]")]
+    public IActionResult Other()
+    {
+        return View();
+    }
+}
+```
+
+以上設定的路由結果如下：  
+* `http://localhost:5000/user` 會對應到 UserController 的 Profile()。  
+* `http://localhost:5000/user/change-password` 會對應到 UserController 的 ChangePassword()。  
+* `http://localhost:5000/user/other` 會對應到 UserController 的 Other()。  
+
+> 若 Controller 設定了 `[Route]`，Action 就要跟著加 `[Route]`，不然會發生錯誤。  
+
+如果只有特定的 Action 需要改路由，也可以只加 Action。如下：
+```cs
+public class UserController : Controller
+{
+    public IActionResult Profile()
+    {
+        return View();
+    }
+
+    [Route("change-password")]
+    public IActionResult ChangePassword()
+    {
+        return View();
+    }
+
+    public IActionResult Other()
+    {
+        return View();
+    }
+}
+```
+* `http://localhost:5000/profile/profile` 會對應到 UserController 的 Profile()。  
+* `http://localhost:5000/change-password` 會對應到 UserController 的 ChangePassword()。  
+* `http://localhost:5000/user/other` 會對應到 UserController 的 Other()。  
+
+> 注意！如果 `[Route]` 是設定在 Action，路徑是由網站根路徑開始算。  
 
 ## 參考
 

@@ -11,7 +11,7 @@ featured_image: /images/i13.png
 ---
 
 ASP.NET Core MVC 跟 ASP.NET MVC 觀念是一致的，使用上也沒有什麼太大的變化。  
-過往 ASP.NET MVC 把 MVC 及 Web Api 的套件分開，但在 ASP.NET Core 中 MVC 及 Web Api 用的套件是相同的。  
+過往 ASP.NET MVC 把 MVC 及 Web API 的套件分開，但在 ASP.NET Core 中 MVC 及 Web API 用的套件是相同的。  
 本篇將介紹 ASP.NET Core MVC 設定方式。  
 
 <!-- more -->
@@ -62,9 +62,9 @@ public class Startup
 ### Model 
 
 建立一個簡單的 Model 讓 Controller 跟 View 互動。  
-Models/User.cs
+Models/UserModel.cs
 ```cs
-public class User
+public class UserModel
 {
     public string Name { get; set; } = "John Wu";
 }
@@ -73,7 +73,7 @@ public class User
 ### Controller
 
 在專案目錄下建立一個 Controllers 資料夾，把 Controller 都放這個目錄。  
-過去 ASP.NET 把 MVC 及 Web Api 用的 Controller 分為 `Controller` 及 `ApiController`，現在 ASP.NET Core 把兩者合一，不再區分 `ApiController`。  
+過去 ASP.NET 把 MVC 及 Web API 用的 Controller 分為 `Controller` 及 `ApiController`，現在 ASP.NET Core 把兩者合一，不再區分 `ApiController`。  
 所以要建立 Controller 都只要繼承 `Controller`即可。如下：
 
 Controllers/HomeController.cs
@@ -82,7 +82,7 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        var user = new User();
+        var user = new UserModel();
         return View(model: user);
     }
 }
@@ -95,7 +95,7 @@ View 跟 Controller 有相互的對應關係，預設 Controller 會到 Views �
 
 Views/Home/Index.cshtml
 ```html
-@model MyWebsite.Models.User
+@model MyWebsite.Models.UserModel
 
 Hello~ 我是 @Model.Name
 ```
