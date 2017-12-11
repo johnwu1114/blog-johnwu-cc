@@ -10,9 +10,9 @@ WebAPI
 swagger
 Dependency Injection
 Filters
+Logging
 Exception Handler
 Application Lifetime
-Logging
 Configuration
 Localization
 NUnit
