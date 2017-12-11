@@ -6,7 +6,7 @@ tags:
   - 2018 iT 邦幫忙鐵人賽
 categories:
   - ASP.NET Core
-date: 2017-12-21 23:17
+date: 2017-12-28 23:17
 featured_image: /images/i21.png
 ---
 
@@ -108,11 +108,11 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 
 註冊在 IoC 容器的 Service 有分三種生命週期：
 * **Transient**  
-每次注入時，都重新 `new` 一個新的實體。  
+ 每次注入時，都重新 `new` 一個新的實體。  
 * **Scoped**  
-每個 **Request** 都重新 `new` 一個新的實體。上例所使用的就是 **Scoped**。  
+ 每個 **Request** 都重新 `new` 一個新的實體。上例所使用的就是 **Scoped**。  
 * **Singleton**  
-程式啟動後會 `new` 一個實體。也就是運行期間只會有一個實體。  
+ 被實例化後就不會消失，程式運行期間只會有一個實體。  
 
 小改一下 Sample 類別的範例程式：
 ```cs
@@ -200,23 +200,28 @@ public class HomeController : Controller
     }
 
     public IActionResult Index() {
-        var html = "<table border='1'>"
-            + $"<tr><td colspan='3'>Controller</td></tr>"
-            + $"<tr><td>Lifetimes</td><td>Id</td><td>Hash Code</td></tr>"
-            + $"<tr><td>Transient</td><td>{_transient.Id}</td><td>{_transient.GetHashCode()}</td></tr>"
-            + $"<tr><td>Scoped</td><td>{_scoped.Id}</td><td>{_scoped.GetHashCode()}</td></tr>"
-            + $"<tr><td>Singleton</td><td>{_singleton.Id}</td><td>{_singleton.GetHashCode()}</td></tr>"
-            + "</table>";
-        return View(model: html);
+        ViewBag.TransientId = _transient.Id;
+        ViewBag.TransientHashCode = _transient.GetHashCode();
+
+        ViewBag.ScopedId = _scoped.Id;
+        ViewBag.ScopedHashCode = _scoped.GetHashCode();
+
+        ViewBag.SingletonId = _singleton.Id;
+        ViewBag.SingletonHashCode = _singleton.GetHashCode();
+        return View();
     }
 }
 ```
 
 Views\Home\Index.cshtml
 ```html
-@model string
-
-@Html.Raw(Model)
+<table border="1">
+    <tr><td colspan="3">Cotroller</td></tr>
+    <tr><td>Lifetimes</td><td>Id</td><td>Hash Code</td></tr>
+    <tr><td>Transient</td><td>@ViewBag.TransientId</td><td>@ViewBag.TransientHashCode</td></tr>
+    <tr><td>Scoped</td><td>@ViewBag.ScopedId</td><td>@ViewBag.ScopedHashCode</td></tr>
+    <tr><td>Singleton</td><td>@ViewBag.SingletonId</td><td>@ViewBag.SingletonHashCode</td></tr>
+</table>
 ```
 
 輸出內容如下：  
@@ -230,18 +235,22 @@ View 注入 Service 的方式，直接在 `*.cshtml` 使用 `@inject`：
 
 Views\Home\Index.cshtml
 ```html
-@model string
-
 @using MyWebsite
 
 @inject ISampleTransient transient
 @inject ISampleScoped scoped
 @inject ISampleSingleton singleton
 
-@Html.Raw(Model)
+<table border="1">
+    <tr><td colspan="3">Cotroller</td></tr>
+    <tr><td>Lifetimes</td><td>Id</td><td>Hash Code</td></tr>
+    <tr><td>Transient</td><td>@ViewBag.TransientId</td><td>@ViewBag.TransientHashCode</td></tr>
+    <tr><td>Scoped</td><td>@ViewBag.ScopedId</td><td>@ViewBag.ScopedHashCode</td></tr>
+    <tr><td>Singleton</td><td>@ViewBag.SingletonId</td><td>@ViewBag.SingletonHashCode</td></tr>
+</table>
 <hr />
-<table border='1'>
-    <tr><td colspan='3'>View</td></tr>
+<table border="1">
+    <tr><td colspan="3">View</td></tr>
     <tr><td>Lifetimes</td><td>Id</td><td>Hash Code</td></tr>
     <tr><td>Transient</td><td>@transient.Id</td><td>@transient.GetHashCode()</td></tr>
     <tr><td>Scoped</td><td>@scoped.Id</td><td>@scoped.GetHashCode()</td></tr>
@@ -293,8 +302,6 @@ public class Startup
 在 View 注入 CustomService：  
 Views\Home\Index.cshtml
 ```html
-@model string
-
 @using MyWebsite
 
 @inject ISampleTransient transient
@@ -302,18 +309,24 @@ Views\Home\Index.cshtml
 @inject ISampleSingleton singleton
 @inject CustomService customService
 
-@Html.Raw(Model)
+<table border="1">
+    <tr><td colspan="3">Cotroller</td></tr>
+    <tr><td>Lifetimes</td><td>Id</td><td>Hash Code</td></tr>
+    <tr><td>Transient</td><td>@ViewBag.TransientId</td><td>@ViewBag.TransientHashCode</td></tr>
+    <tr><td>Scoped</td><td>@ViewBag.ScopedId</td><td>@ViewBag.ScopedHashCode</td></tr>
+    <tr><td>Singleton</td><td>@ViewBag.SingletonId</td><td>@ViewBag.SingletonHashCode</td></tr>
+</table>
 <hr />
-<table border='1'>
-    <tr><td colspan='3'>View</td></tr>
+<table border="1">
+    <tr><td colspan="3">View</td></tr>
     <tr><td>Lifetimes</td><td>Id</td><td>Hash Code</td></tr>
     <tr><td>Transient</td><td>@transient.Id</td><td>@transient.GetHashCode()</td></tr>
     <tr><td>Scoped</td><td>@scoped.Id</td><td>@scoped.GetHashCode()</td></tr>
     <tr><td>Singleton</td><td>@singleton.Id</td><td>@singleton.GetHashCode()</td></tr>
 </table>
 <hr />
-<table border='1'>
-    <tr><td colspan='3'>Custom Service</td></tr>
+<table border="1">
+    <tr><td colspan="3">Custom Service</td></tr>
     <tr><td>Lifetimes</td><td>Id</td><td>Hash Code</td></tr>
     <tr><td>Transient</td><td>@customService.Transient.Id</td><td>@customService.Transient.GetHashCode()</td></tr>
     <tr><td>Scoped</td><td>@customService.Scoped.Id</td><td>@customService.Scoped.GetHashCode()</td></tr>
