@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day12] ASP.NET Core 系列 - 例外處理(Exception Handler)'
+title: '[鐵人賽 Day13] ASP.NET Core 系列 - 例外處理(Exception Handler)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,7 +8,7 @@ tags:
   - 2018 iT 邦幫忙鐵人賽
 categories:
   - ASP.NET Core
-date: 2017-12-31 23:17
+date: 2018-01-01 23:17
 featured_image: /images/pasted-206.png
 ---
 

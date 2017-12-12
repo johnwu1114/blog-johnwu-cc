@@ -10,21 +10,20 @@ WebAPI
 swagger
 Dependency Injection
 Filters
-Logging
+Configuration
+Logging(Log4net)
 Exception Handler
 Application Lifetime
-Configuration
 Localization
 NUnit
 
 # Sample (12)
-Log4net
-Redis Session
-Redis Cache
-SignalR
 Entity Framework Core
 Repository Pattern
 Firebase
+Redis Session
+Redis Cache
+SignalR
 Random Captcha
 Upload File
 CKEditor
