@@ -30,9 +30,9 @@ ASP.NET Core 的組態設定可以有以下幾種來源：
 ## 組態設定檔
 
 可以依照個人喜好或團隊習慣的方式建立組態檔，檔名跟路徑並沒有特別的規則。  
-此例，我在專案當中建立一個 Configuration 的資料夾，並建立 Settings.json。  
+此例，我在專案當中建立一個 Configuration 的資料夾，並建立 settings.json。  
 
-Configuration\Settings.json
+Configuration\settings.json
 ```json
 {
   "SupportedCultures": [
@@ -68,7 +68,7 @@ public class Startup
     {
         return new ConfigurationBuilder()
             .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "Configuration"))
-            .AddJsonFile(path: "Settings.json", optional: true, reloadOnChange: true)
+            .AddJsonFile(path: "settings.json", optional: true, reloadOnChange: true)
             .Build();
     }
 }
@@ -81,7 +81,7 @@ public class Startup
  * **reloadOnChange**：如果檔案被更新，就同步更新 IConfigurationRoot 實例的值。  
 
 透過 DI 取用 IConfigurationRoot 實例，以 Dictionary 的方式取用組態檔的值。  
-> 如果不了解 DI 可以參考這篇：[ASP.NET Core 教學 - Dependency Injection](/article/asp-net-core-dependency-injection)  
+> 如果不了解 DI 可以參考這篇：[[鐵人賽 Day09] ASP.NET Core 系列 - 依賴注入(Dependency Injection)](/article/ironman-day09-asp-net-core-dependency-injection.html)  
 
 ```cs
 // ..
@@ -108,7 +108,7 @@ public class HomeController : Controller
     }
 }
 ```
-> 從上述範例可以看出，Key 值就是 Settings.json 內容的 Node 名稱，並以 `:` 符號區分階層。  
+> 從上述範例可以看出，Key 值就是 settings.json 內容的 Node 名稱，並以 `:` 符號區分階層。  
 
 輸出結果如下：
 ```
@@ -124,7 +124,7 @@ subProperty3(System.String): This is sub property.
 1. 使用字串當做 Key 是弱型別，沒辦法在編譯期間檢查出打錯字。  
 2. 型態不符合預期，不管是數值或布林值全都是變字串型態。  
 
-要使用強型別，首先要建立相對應的類別，Settings.json 的對應類別如下：
+要使用強型別，首先要建立相對應的類別，settings.json 的對應類別如下：
 ```cs
 public class Settings
 {
@@ -260,7 +260,7 @@ SETX Sample "This is environment variable sample." /M
 > 需要用**系統管理員**權限執行。  
 > 不論用 UI 或指令設定，都**需要重新登入**才會生效。
 
-Linux\macOS 可以用指令：
+Linux\macOS 可以在 `/etc/profile` 加入環境變數：
 ```sh
 export Sample="This is environment variable sample."
 ```
@@ -273,11 +273,10 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton(
-            new ConfigurationBuilder()
-                .AddEnvironmentVariables()
-                .Build()
-        );
+        var configuration = new ConfigurationBuilder()
+            .AddEnvironmentVariables()
+            .Build();
+        services.AddSingleton(configuration);
     }
 }
 ```
@@ -317,17 +316,15 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton(
-            new ConfigurationBuilder()
-                .AddInMemoryCollection(
-                    new Dictionary<string, string>
-                    {
-                        { "Site:Name", "John Wu's Blog" },
-                        { "Site:Domain", "blog.johnwu.cc" }
-                    }
-                )
-                .Build()
-        );
+        var dictionary =  new Dictionary<string, string>
+            {
+                { "Site:Name", "John Wu's Blog" },
+                { "Site:Domain", "blog.johnwu.cc" }
+            };
+        var configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(dictionary)
+            .Build();
+        services.AddSingleton(configuration);
     }
 }
 ```
@@ -399,11 +396,10 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton(
-            new ConfigurationBuilder()
-                .Add(new CustomConfigurationSource())
-                .Build()
-        );
+        var configuration = new ConfigurationBuilder()
+            .Add(new CustomConfigurationSource())
+            .Build();
+        services.AddSingleton(configuration);
     }
 }
 ```
@@ -439,4 +435,4 @@ Custom.Site.Domain(System.String): blog.johnwu.cc
 
 ## 參考
 
-[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration)
+[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration)
