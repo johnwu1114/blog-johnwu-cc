@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day11] ASP.NET Core 2 系列 - 多重環境控制(Multiple Environments)'
+title: '[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境控制(Multiple Environments)'
 author: John Wu
 tags:
   - ASP.NET Core

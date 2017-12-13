@@ -224,7 +224,7 @@ public class Startup
 }
 ```
 > `env.IsDevelopment()` 是從 `ASPNETCORE_ENVIRONMENT` 而來。  
- 詳細情參考這篇：[[鐵人賽 Day11] ASP.NET Core 2 系列 - 多重環境控制(Multiple Environments)](/article/ironman-day11-asp-net-core-multiple-environments.html)
+ 詳細情參考這篇：[[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境控制(Multiple Environments)](/article/ironman-day12-asp-net-core-multiple-environments.html)
 
 開發環境的錯誤資訊頁面如下：  
 

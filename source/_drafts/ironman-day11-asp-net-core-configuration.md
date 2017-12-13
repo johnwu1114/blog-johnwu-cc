@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day12] ASP.NET Core 2 系列 - 組態設定(Configuration)'
+title: '[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-31 23:17
-featured_image: /images/i12-1.png
+featured_image: /images/i11-1.png
 ---
 
 ASP.NET Core 不再把 Web.config 當作預設的組態設定，而且 .NET Core 讀取組態設定的方式也跟過去不同，也不再使用 ConfigurationManager 讀組態設定值。
@@ -251,8 +251,8 @@ Domain(System.String): blog.johnwu.cc
 
 ASP.NET Core 可以取用系統的環境變數。以 Windows 為例：  
  **控制台** -> **系統及安全性**  -> **系統**
-![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數1](/images/i12-1.png)  
-![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數2](/images/i12-2.png)  
+![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數1](/images/i11-1.png)  
+![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數2](/images/i11-2.png)  
 
 Windows 也可以用指令：
 ```sh
