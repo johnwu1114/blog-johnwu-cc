@@ -7,12 +7,24 @@ tags:
   - Configuration
 categories:
   - ASP.NET Core
-date: 2017-12-30 23:17
+date: 2017-12-31 23:17
 featured_image: /images/.png
 ---
 
 
 <!-- more -->
+
+## 環境名稱
+
+## 環境設定
+
+### Visual Studio Code
+
+### Visual Studio IDE
+
+### Server
+
+## 環境組態設定
 
 ## 參考
 
