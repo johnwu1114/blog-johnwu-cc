@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day07] ASP.NET Core 系列 - RESTful API'
+title: '[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-26 23:17
-featured_image: /images/i17.png
+featured_image: /images/i07-1.png
 ---
 
 RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱 CRUD 四種資料存取方式，簡約又直覺的風格，讓人用的愛不釋手。  
@@ -319,13 +319,13 @@ public class UserController : Controller
 透過 Postman 測試 API。
 
 * 新增(Create)  
-![[鐵人賽 Day07] ASP.NET Core 系列 - RESTful API - 新增(Create)](/images/i17.png)  
+![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 新增(Create)](/images/i07-1.png)  
 * 查詢(Read)  
-![[鐵人賽 Day07] ASP.NET Core 系列 - RESTful API - 查詢(Read)](/images/i18.png)  
+![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 查詢(Read)](/images/i07-2.png)  
 * 修改(Update)  
-![[鐵人賽 Day07] ASP.NET Core 系列 - RESTful API - 修改(Update)](/images/i19.png)  
+![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 修改(Update)](/images/i07-3.png)  
 * 刪除(Delete)  
-![[鐵人賽 Day07] ASP.NET Core 系列 - RESTful API - 刪除(Delete)](/images/i20.png)  
+![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 刪除(Delete)](/images/i07-4.png)  
 
 ## 參考
 

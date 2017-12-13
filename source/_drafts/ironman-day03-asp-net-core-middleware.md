@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day03] ASP.NET Core 系列 - Middleware'
+title: '[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-22 23:17
-featured_image: /images/i10.png
+featured_image: /images/i03-1.png
 ---
 
 過去 ASP.NET 中使用的 HTTP Modules 及 HTTP Handlers，在 ASP.NET Core 中已不復存在，取而代之的是 Middleware。  
@@ -22,7 +22,7 @@ Middleware 除了簡化了 HTTP Modules/Handlers 的使用方式，還帶入了 
 ASP.NET Core 在 Middleware 的官方說明中，使用了 Pipeline 這個名詞，意旨 Middleware 像水管一樣可以串聯在一起，所有的 Request 及 Response 都會層層經過這些水管。  
 用圖例可以很容易理解，如下圖：  
 
-![[鐵人賽 Day03] ASP.NET Core 系列 - Middleware - 概念](/images/i10.png)
+![[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware - 概念](/images/i03-1.png)
 
 ## App.Use
 
@@ -133,7 +133,7 @@ First Middleware out.
 
 在 Second Middleware 中，因為沒有達成條件，所以封包也就不在往後面的水管傳送。如圖：  
 
-![[鐵人賽 Day03] ASP.NET Core 系列 - Middleware - 概念](/images/i11.png)  
+![[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware - 概念](/images/i03-2.png)  
 
 ## App.Run
 

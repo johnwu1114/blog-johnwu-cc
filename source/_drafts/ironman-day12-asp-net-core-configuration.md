@@ -1,13 +1,14 @@
 ---
-title: '[鐵人賽 Day11] ASP.NET Core 系列 - 組態設定(Configuration)'
+title: '[鐵人賽 Day12] ASP.NET Core 2 系列 - 組態設定(Configuration)'
 author: John Wu
 tags:
   - ASP.NET Core
   - 2018 iT 邦幫忙鐵人賽
+  - Configuration
 categories:
   - ASP.NET Core
-date: 2017-12-30 23:17
-featured_image: /images/i27.png
+date: 2017-12-31 23:17
+featured_image: /images/i12-1.png
 ---
 
 ASP.NET Core 不再把 Web.config 當作預設的組態設定，而且 .NET Core 讀取組態設定的方式也跟過去不同，也不再使用 ConfigurationManager 讀組態設定值。
@@ -81,7 +82,7 @@ public class Startup
  * **reloadOnChange**：如果檔案被更新，就同步更新 IConfigurationRoot 實例的值。  
 
 透過 DI 取用 IConfigurationRoot 實例，以 Dictionary 的方式取用組態檔的值。  
-> 如果不了解 DI 可以參考這篇：[[鐵人賽 Day09] ASP.NET Core 系列 - 依賴注入(Dependency Injection)](/article/ironman-day09-asp-net-core-dependency-injection.html)  
+> 如果不了解 DI 可以參考這篇：[[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection)](/article/ironman-day09-asp-net-core-dependency-injection.html)  
 
 ```cs
 // ..
@@ -250,15 +251,15 @@ Domain(System.String): blog.johnwu.cc
 
 ASP.NET Core 可以取用系統的環境變數。以 Windows 為例：  
  **控制台** -> **系統及安全性**  -> **系統**
-![[鐵人賽 Day11] ASP.NET Core 系列 - 組態設定(Configuration) - 環境變數1](/images/i27.png)  
-![[鐵人賽 Day11] ASP.NET Core 系列 - 組態設定(Configuration) - 環境變數2](/images/i28.png)  
+![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數1](/images/i12-1.png)  
+![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數2](/images/i12-2.png)  
 
 Windows 也可以用指令：
 ```sh
 SETX Sample "This is environment variable sample." /M
 ```
 > 需要用**系統管理員**權限執行。  
-> 不論用 UI 或指令設定，都**需要重新登入**才會生效。
+> 如果設定完沒有生效，試著重新登入或重開機。  
 
 Linux\macOS 可以在 `/etc/profile` 加入環境變數：
 ```sh

@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day04] ASP.NET Core 系列 - 讀取靜態檔案'
+title: '[鐵人賽 Day04] ASP.NET Core 2 系列 - 靜態檔案'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,11 +8,11 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-23 23:17
-featured_image: /images/i12.png
+featured_image: /images/i04-1.png
 ---
 
-過去 ASP.NET 網站，只要把 `*.html`、`*.css`、`*.jpg`、`*.png`、`*.js` 等靜態檔案放在專案根目錄，預設都可以直接被讀取；但 ASP.NET Core 小改了讀取靜態檔案的方式，不在預設根目錄可讀取靜態檔案，需要指定靜態檔案的目錄，才可以被讀取。  
-本篇將介紹 ASP.NET Core 讀取靜態檔案的方法。  
+過去 ASP.NET 網站，只要把 `*.html`、`*.css`、`*.jpg`、`*.png`、`*.js` 等靜態檔案放在專案根目錄，預設都可以直接被瀏覽；但 ASP.NET Core 小改了瀏覽靜態檔案的方式，預設根目錄不再能瀏覽靜態檔案，需要指定靜態檔案的目錄，才可以被瀏覽。  
+本篇將介紹 ASP.NET Core 瀏覽靜態檔案的方法。  
 
 <!-- more -->
 
@@ -52,12 +52,12 @@ featured_image: /images/i12.png
 
 ## 安裝套件
 
-要使用 ASP.NET Core 讀取靜態檔案，需要安裝 `Microsoft.AspNetCore.StaticFiles` 套件。  
+要使用 ASP.NET Core 瀏覽靜態檔案，需要安裝 `Microsoft.AspNetCore.StaticFiles` 套件。  
 透過 dotnet cli 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Microsoft.AspNetCore.StaticFiles
 ```
-> 如果是用 .NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.StaticFiles`，所以不用再安裝。  
+> ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.StaticFiles`，所以不用再安裝。  
 
 ## 啟用靜態檔案
 
@@ -88,7 +88,7 @@ public class Startup
 
 `UseStaticFiles` 註冊的順序可以在外層一點，比較不會經過太多不必要的 Middleware。如圖：  
 
-![[鐵人賽 Day04] ASP.NET Core 系列 - 讀取靜態檔案](/images/i12.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 瀏覽靜態檔案](/images/i04-1.png)  
 > 當 Requset 的 URL 檔案不存在，則會轉向到 `Run` 的事件(如灰色箭頭)。
 
 ### 指定目錄

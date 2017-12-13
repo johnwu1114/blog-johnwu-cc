@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day09] ASP.NET Core 系列 - 依賴注入(Dependency Injection)'
+title: '[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-28 23:17
-featured_image: /images/i23.png
+featured_image: /images/i09-1.png
 ---
 
 ASP.NET Core 使用了大量的依賴注入 (Dependency Injection, DI)，把控制翻轉 (Inversion Of Control, IoC) 運用的相當落實。
@@ -163,7 +163,7 @@ public class Startup
 ```
 
 Service 實例產生方式：
-![[鐵人賽 Day09] ASP.NET Core 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/pasted-209.gif)
+![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/pasted-209.gif)
 
 圖例說明：
 * **A** 為 **Singleton** 物件實例  
@@ -226,7 +226,7 @@ Views\Home\Index.cshtml
 
 輸出內容如下：  
 
-![[鐵人賽 Day09] ASP.NET Core 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i23.png)  
+![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i09-1.png)  
 從左到又打開頁面三次，可以發現 **Singleton** 的 Id 及 HashCode 都是一樣的，此例還看不太出來 **Transient** 及 **Scoped** 的差異。
 
 ### View
@@ -260,7 +260,7 @@ Views\Home\Index.cshtml
 
 輸出內容如下：  
 
-![[鐵人賽 Day09] ASP.NET Core 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/i24.png)  
+![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/i09-2.png)  
 從左到又打開頁面三次，**Singleton** 的 Id 及 HashCode 如前例是一樣的。  
 **Transient** 及 **Scoped** 的差異在這次就有明顯差異，**Scoped** 在同一次 Request 的 Id 及 HashCode 都是一樣的，如紅綠籃框。
 
@@ -336,7 +336,7 @@ Views\Home\Index.cshtml
 
 輸出內容如下：  
 
-![[鐵人賽 Day09] ASP.NET Core 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i25.png)  
+![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i09-3.png)  
 
 從左到又打開頁面三次：  
 * **Transient** 如預期，每次都不一樣。  

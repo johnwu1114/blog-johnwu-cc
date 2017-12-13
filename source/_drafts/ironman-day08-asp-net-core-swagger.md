@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day08] ASP.NET Core 系列 - Swagger'
+title: '[鐵人賽 Day08] ASP.NET Core 2 系列 - Swagger'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-27 23:17
-featured_image: /images/i21.png
+featured_image: /images/i08-1.png
 ---
 
 Swagger 也算是行之有年的 API 文件產生器，只要在 API 上使用 C# 的 `<summary />` 文件註解標籤，就可以產生精美的線上文件，並且對 RESTful API 有良好的支援。不僅支援產生文件，還支援模擬調用的互動功能，連 Postman 都不用打開就能測 API。  
@@ -89,7 +89,7 @@ public class Startup
 
 設定完成後，啟動網站就能開啟 Swagger UI 了。下面如下：  
 
-![[鐵人賽 Day08] ASP.NET Core 系列 - Swagger UI](/images/i21.png)  
+![[鐵人賽 Day08] ASP.NET Core 2 系列 - Swagger UI](/images/i08-1.png)  
 
 ## 文件註解標籤
 
@@ -204,7 +204,7 @@ public class UserController : Controller
 
 ## 執行結果
 
-![[鐵人賽 Day08] ASP.NET Core 系列 - Swagger - 執行結果](/images/i22.png)  
+![[鐵人賽 Day08] ASP.NET Core 2 系列 - Swagger - 執行結果](/images/i08-2.png)  
 
 ## 參考
 

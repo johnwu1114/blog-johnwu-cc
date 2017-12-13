@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day06] ASP.NET Core 系列 - 路由(Routing)'
+title: '[鐵人賽 Day06] ASP.NET Core 2 系列 - 路由(Routing)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-25 23:17
-featured_image: /images/i16.png
+featured_image: /images/i06-1.png
 ---
 
 ASP.NET Core 透過路由(Routing)設定，將定義的 URL 規則找到相對應的行為；當使用者 Request 的 URL 滿足特定規則條件時，則自動對應到的相符的行為處理。  
@@ -57,7 +57,7 @@ RouterMiddleware 的路由註冊方式大致分為兩種：
 
 預設路由的順序如下：  
 
-![[鐵人賽 Day06] ASP.NET Core 系列 - 路由(Routing) - 流程](/images/i16.png)
+![[鐵人賽 Day06] ASP.NET Core 2 系列 - 路由(Routing) - 流程](/images/i06-1.png)
 
 ### 安裝套件
 
@@ -66,7 +66,7 @@ RouterMiddleware 的路由註冊方式大致分為兩種：
 ```sh
 dotnet add package Microsoft.AspNetCore.Routing
 ```
-> 如果是用 .NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Routing`，所以不用再安裝。  
+> ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Routing`，所以不用再安裝。  
 
 ## 註冊路由
 

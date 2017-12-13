@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day10] ASP.NET Core 系列 - Filter'
+title: '[鐵人賽 Day10] ASP.NET Core 2 系列 - Filters'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -38,7 +38,7 @@ Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執
 ASP.NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 預設都會以先進後出的方式處裡封包。  
 Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖：  
 
-![[鐵人賽 Day10] ASP.NET Core 系列 - Filter - 運作方式](/images/pasted-198.png)
+![[鐵人賽 Day10] ASP.NET Core 2 系列 - Filter - 運作方式](/images/pasted-198.png)
 * 黃色箭頭是正常情況流程  
 * 灰色箭頭是異常處理流程  
 
@@ -346,7 +346,7 @@ ResourceFilter out.
 
 預設註冊同類型的 Filter 是以先進後出的方式處裡封包，註冊層級也會影響執行順序。  
 
-![[鐵人賽 Day10] ASP.NET Core 系列 - Filter - 執行順序](/images/i26.png)
+![[鐵人賽 Day10] ASP.NET Core 2 系列 - Filter - 執行順序](/images/i10-1.png)
 
 但也可以透過實作 IOrderedFilter 更改執行順序。例如：  
 ```cs
