@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day15] ASP.NET Core 2 系列 - 多國語言(Localization)'
+title: '[鐵人賽 Day15] ASP.NET Core 2 系列 - 多國語言 (Localization)'
 author: John Wu
 tags:
   - ASP.NET Core

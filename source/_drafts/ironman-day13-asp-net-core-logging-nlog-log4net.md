@@ -233,18 +233,18 @@ namespace MyWebsite
 ```
 
 輸出結果如下：  
-*C:\Logs\MyWebsite\nlog-all_2017-12-31.log*  
+*C:\Logs\MyWebsite\nlog-all_2018-01-01.log*  
 ```log
-2017-12-31 00:27:32.6339||INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\john.wu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2017-12-31 00:27:33.1149||INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:5000/   
-2017-12-31 00:27:33.1969||INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method MyWebsite.HomeController.Index (MyWebsite) with arguments ((null)) - ModelState is Valid 
-2017-12-31 00:27:33.1999||INFO|MyWebsite.HomeController|This information log from Home.Index() 
-2017-12-31 00:27:33.1999||WARN|MyWebsite.HomeController|This warning log from Home.Index() 
-2017-12-31 00:27:33.1999||ERROR|MyWebsite.HomeController|This error log from Home.Index() 
-2017-12-31 00:27:33.1999||FATAL|MyWebsite.HomeController|This critical log from Home.Index() 
-2017-12-31 00:27:33.2219||INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
-2017-12-31 00:27:33.2459||INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action MyWebsite.HomeController.Index (MyWebsite) in 56.8935ms 
-2017-12-31 00:27:33.2519||INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 137.5115ms 200 text/plain; charset=utf-8 
+2018-01-01 00:27:32.6339||INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\john.wu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2018-01-01 00:27:33.1149||INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:5000/   
+2018-01-01 00:27:33.1969||INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method MyWebsite.HomeController.Index (MyWebsite) with arguments ((null)) - ModelState is Valid 
+2018-01-01 00:27:33.1999||INFO|MyWebsite.HomeController|This information log from Home.Index() 
+2018-01-01 00:27:33.1999||WARN|MyWebsite.HomeController|This warning log from Home.Index() 
+2018-01-01 00:27:33.1999||ERROR|MyWebsite.HomeController|This error log from Home.Index() 
+2018-01-01 00:27:33.1999||FATAL|MyWebsite.HomeController|This critical log from Home.Index() 
+2018-01-01 00:27:33.2219||INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-01-01 00:27:33.2459||INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action MyWebsite.HomeController.Index (MyWebsite) in 56.8935ms 
+2018-01-01 00:27:33.2519||INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 137.5115ms 200 text/plain; charset=utf-8 
 ```
 
 ## Log4net
@@ -447,34 +447,50 @@ namespace MyWebsite
 }
 ```
 
-在 `Startup.ConfigureServices` 將 `Log4netProvider` 註冊到 Services 中。  
-*Startup.cs*
+將 `Log4netProvider` 註冊到 WebHost 的 `ConfigureLogging` 中。  
+*Program.cs*
 ```cs
-// ...
-public class Startup
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+
+namespace MyWebsite
 {
-    public void ConfigureServices(IServiceCollection services)
+    public class Program
     {
-        services.AddSingleton<ILoggerProvider>(new Log4netProvider("log4net.config"));
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging => {
+                    logging.AddProvider(new Log4netProvider("log4net.config"));
+                })
+                .UseStartup<Startup>()
+                .Build();
+        }
     }
 }
 ```
 
-如此一來，Log4net 也能使用 ASP.NET Core 的 Logger API 了。  
+如此一來，也能透過 ASP.NET Core 的 Logger API 寫出 Log4net 的 Log 了。  
 
 輸出結果如下：  
-*C:\Logs\MyWebsite\log4net-all_2017-12-31.log*  
+*C:\Logs\MyWebsite\log4net-all_2018-01-01.log*  
 ```log
-2017-12-31 00:56:46,673 [1] INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\john.wu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-2017-12-31 00:56:47,167 [17] INFO Microsoft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/  
-2017-12-31 00:56:47,261 [17] INFO Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker - Executing action method MyWebsite.HomeController.Index (MyWebsite) with arguments ((null)) - ModelState is Valid
-2017-12-31 00:56:47,265 [17] INFO MyWebsite.HomeController - This information log from Home.Index()
-2017-12-31 00:56:47,266 [17] WARN MyWebsite.HomeController - This warning log from Home.Index()
-2017-12-31 00:56:47,268 [17] ERROR MyWebsite.HomeController - This error log from Home.Index()
-2017-12-31 00:56:47,269 [17] FATAL MyWebsite.HomeController - This critical log from Home.Index()
-2017-12-31 00:56:47,278 [17] INFO Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
-2017-12-31 00:56:47,303 [17] INFO Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker - Executed action MyWebsite.HomeController.Index (MyWebsite) in 52.7449ms
-2017-12-31 00:56:47,305 [17] INFO Microsoft.AspNetCore.Hosting.Internal.WebHost - Request finished in 141.4295ms 200 text/plain; charset=utf-8
+2018-01-01 00:56:46,673 [1] INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\john.wu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-01-01 00:56:47,167 [17] INFO Microsoft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/  
+2018-01-01 00:56:47,261 [17] INFO Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker - Executing action method MyWebsite.HomeController.Index (MyWebsite) with arguments ((null)) - ModelState is Valid
+2018-01-01 00:56:47,265 [17] INFO MyWebsite.HomeController - This information log from Home.Index()
+2018-01-01 00:56:47,266 [17] WARN MyWebsite.HomeController - This warning log from Home.Index()
+2018-01-01 00:56:47,268 [17] ERROR MyWebsite.HomeController - This error log from Home.Index()
+2018-01-01 00:56:47,269 [17] FATAL MyWebsite.HomeController - This critical log from Home.Index()
+2018-01-01 00:56:47,278 [17] INFO Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-01-01 00:56:47,303 [17] INFO Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker - Executed action MyWebsite.HomeController.Index (MyWebsite) in 52.7449ms
+2018-01-01 00:56:47,305 [17] INFO Microsoft.AspNetCore.Hosting.Internal.WebHost - Request finished in 141.4295ms 200 text/plain; charset=utf-8
 ```
 
 ## 參考

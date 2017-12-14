@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day06] ASP.NET Core 2 系列 - 路由(Routing)'
+title: '[鐵人賽 Day06] ASP.NET Core 2 系列 - 路由 (Routing)'
 author: John Wu
 tags:
   - ASP.NET Core

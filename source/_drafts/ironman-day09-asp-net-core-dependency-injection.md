@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection)'
+title: '[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入 (Dependency Injection)'
 author: John Wu
 tags:
   - ASP.NET Core
