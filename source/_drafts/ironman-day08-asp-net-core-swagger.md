@@ -19,7 +19,7 @@ Swagger 也算是行之有年的 API 文件產生器，只要在 API 上使用 C
 ## 安裝套件
 
 要在 ASP.NET Core 使用 Swagger 需要安裝 `Swashbuckle.AspNetCore` 套件。  
-透過 dotnet cli 在專案資料夾執行安裝指令：  
+透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Swashbuckle.AspNetCore
 ```

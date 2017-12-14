@@ -1,22 +1,20 @@
 # Fundamentals (14)
-開發環境準備
-VSCode
-Middleware
-Static Files
-[X] URL Rewriting
-MVC
-Routing
-WebAPI
-swagger
-Dependency Injection
-Filters
-多重環境控制(multiple environments)
-Configuration
-Logging(Log4net)
-Exception Handler
-Application Lifetime
-Localization
-NUnit
+01 從頭開始(VSCode)
+`02 Application Lifetime`
+03 Middleware
+04 Static Files
+`05 MVC`
+06 Routing
+07 WebAPI
+08 swagger
+09 Dependency Injection
+10 Filters
+11 Configuration
+`12 多重環境控制(Multiple Environments)`
+13 Logging(NLog & Log4net)
+14 Exception Handler
+`15 Localization`
+NUnit(VS Code test runner)
 
 # Sample (12)
 Entity Framework Core

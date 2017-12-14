@@ -436,4 +436,4 @@ Custom.Site.Domain(System.String): blog.johnwu.cc
 
 ## 參考
 
-[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration)
+[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration)  

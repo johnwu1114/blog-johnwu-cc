@@ -173,7 +173,7 @@ NLog 是 .NET 的熱門 Logging Framework；而且還是 ASP.NET Core 官方第�
 ### 安裝套件
 
 NLog 需要安裝 `NLog` 及 `NLog.Web.AspNetCore` 套件。  
-透過 dotnet cli 在專案資料夾執行安裝指令：  
+透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package NLog -v 4.5.0-rc02
 dotnet add package NLog.Web.AspNetCore -v 4.5.0-rc2
@@ -254,7 +254,7 @@ namespace MyWebsite
 ### 安裝套件
 
 Log4net 需要安裝 `log4net` 套件。  
-透過 dotnet cli 在專案資料夾執行安裝指令：  
+透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package log4net
 ```

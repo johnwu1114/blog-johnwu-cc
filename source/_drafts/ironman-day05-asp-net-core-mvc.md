@@ -29,18 +29,16 @@ ASP.NET Core 的 MVC(Model-View-Controller) 架構模式延續 ASP.NET MVC，把
 * **Controller**  
  負責將使用者 Requset 找到相對應的 Model 及 View，做為控制流程的角色。  
 
-## MVC 範例
-
-### 安裝套件
+## 安裝套件
 
 要在 ASP.NET Core 中使用 MVC 或 Web Api，需要安裝 `Microsoft.AspNetCore.Mvc` 套件。  
-透過 dotnet cli 在專案資料夾執行安裝指令：  
+透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Microsoft.AspNetCore.Mvc
 ```
 > ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Mvc`，所以不用再安裝。  
 
-### 註冊 MVC 服務
+## 註冊 MVC 服務
 
 安裝完成後，在 `Startup.cs` 的 `ConfigureServices` 加入 MVC 的服務，並在 `Configure` 註冊 `UseMvcWithDefaultRoute` Middleware。如下：
 ```cs
@@ -58,6 +56,8 @@ public class Startup
     }
 }
 ```
+
+## MVC 範例
 
 ### Model 
 

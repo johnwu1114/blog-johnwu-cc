@@ -53,7 +53,7 @@ featured_image: /images/i04-1.png
 ## 安裝套件
 
 要使用 ASP.NET Core 瀏覽靜態檔案，需要安裝 `Microsoft.AspNetCore.StaticFiles` 套件。  
-透過 dotnet cli 在專案資料夾執行安裝指令：  
+透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Microsoft.AspNetCore.StaticFiles
 ```

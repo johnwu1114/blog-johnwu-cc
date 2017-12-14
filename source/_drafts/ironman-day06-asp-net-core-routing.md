@@ -62,7 +62,7 @@ RouterMiddleware 的路由註冊方式大致分為兩種：
 ### 安裝套件
 
 要使用 ASP.NET Core 路由的 Middleware 需要安裝 `Microsoft.AspNetCore.Routing` 套件。  
-透過 dotnet cli 在專案資料夾執行安裝指令：  
+透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Microsoft.AspNetCore.Routing
 ```
