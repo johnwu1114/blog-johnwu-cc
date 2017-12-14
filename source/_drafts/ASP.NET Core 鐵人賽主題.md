@@ -1,12 +1,12 @@
-# Fundamentals (14)
+# Fundamentals (16)
 01 從頭開始(VSCode)
-`02 Application Lifetime`
+02 Application Lifetime
 03 Middleware
-04 Static Files
+`04 Static Files`
 `05 MVC`
 06 Routing
-07 WebAPI
-08 swagger
+07 RESTful API
+08 Swagger
 09 Dependency Injection
 10 Filters
 11 Configuration
