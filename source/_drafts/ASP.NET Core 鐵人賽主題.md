@@ -10,10 +10,10 @@
 09 Dependency Injection
 10 Filters
 11 Configuration
-`12 多重環境控制(Multiple Environments)`
+12 多重環境控制(Multiple Environments)
 13 Logging(NLog & Log4net)
 14 Exception Handler
-`15 Localization`
+15 Localization
 NUnit(VS Code test runner)
 
 # Sample (12)

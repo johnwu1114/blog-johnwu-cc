@@ -223,7 +223,11 @@ public class FirstMiddleware
 }
 ```
 
-註冊 Middleware 的方式如下：
+### 全域註冊
+
+在 `Startup.Configure` 註冊 Middleware 就可以套用到所有的 Request。如下：
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -232,6 +236,24 @@ public class Startup
     public void Configure(IApplicationBuilder app)
     {
         app.UseMiddleware<FirstMiddleware>();
+        // ...
+    }
+}
+```
+
+### 區域註冊
+
+Middleware 也可以只套用在特定的 Controller 或 Action。註冊方式如下：  
+```cs
+// ..
+[MiddlewareFilter(typeof(FirstMiddleware))]
+public class HomeController : Controller
+{
+    // ...
+
+    [MiddlewareFilter(typeof(SecondMiddleware))]
+    public IActionResult Index()
+    {
         // ...
     }
 }
