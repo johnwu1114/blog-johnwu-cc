@@ -2,23 +2,24 @@
 01 從頭開始(VSCode)
 02 Application Lifetime
 03 Middleware
+09 Dependency Injection
 `04 Static Files`
 `05 MVC`
 06 Routing
 07 RESTful API
 08 Swagger
-09 Dependency Injection
 10 Filters
-11 Configuration
-12 多重環境控制(Multiple Environments)
-13 Logging(NLog & Log4net)
 14 Exception Handler
+11 Configuration
+`12 多重環境控制(Multiple Environments)`
+13 Logging(NLog & Log4net)
 15 Localization
+16 Entity Framework Core + Repository Pattern
+
 NUnit(VS Code test runner)
 
 # Sample (12)
-Entity Framework Core
-Repository Pattern
+
 Firebase
 Redis Session
 Redis Cache

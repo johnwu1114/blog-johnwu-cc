@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day04] ASP.NET Core 2 系列 - 靜態檔案'
+title: '[鐵人賽 Day04] ASP.NET Core 2 系列 - 靜態檔案 (Static Files)'
 author: John Wu
 tags:
   - ASP.NET Core

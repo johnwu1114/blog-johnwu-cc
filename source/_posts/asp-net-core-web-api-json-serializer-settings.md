@@ -34,7 +34,7 @@ public class ContactModel
     public string Address { get; set; }
 }
 
-[HttpGet()]
+[HttpGet]
 public ContactModel Get()
 {
 	return new ContactModel
