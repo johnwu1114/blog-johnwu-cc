@@ -11,10 +11,11 @@
 10 Filters
 14 Exception Handler
 11 Configuration
-`12 多重環境控制(Multiple Environments)`
+12 多重環境控制(Multiple Environments)
 13 Logging(NLog & Log4net)
 15 Localization
 16 Entity Framework Core + Repository Pattern
+`17 SignalR`
 
 NUnit(VS Code test runner)
 
@@ -23,7 +24,6 @@ NUnit(VS Code test runner)
 Firebase
 Redis Session
 Redis Cache
-SignalR
 Random Captcha
 Upload File
 CKEditor
