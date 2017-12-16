@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-05 23:17
-featured_image: /images/i17-1.png
+featured_image: /images/pasted-69p.png
 ---
 
 SignalR 是一套能讓 ASP.NET 輕鬆實現與 Client 即時互動的套件。  
@@ -18,8 +18,6 @@ SignalR 是一套能讓 ASP.NET 輕鬆實現與 Client 即時互動的套件。
 <!-- more -->
 
 ## 安裝套件
-
-### NuGet 套件
 
 ASP.NET Core 架設 SignalR Server 需安裝的套件 `Microsoft.AspNetCore.SignalR.Server`，由於還沒正式發布。所以在預設的 `nuget.org` 沒有辦法安裝它。  
 透過 .NET Core CLI 在專案資料夾執行安裝指令：  
@@ -47,34 +45,17 @@ error: Package 'Microsoft.AspNetCore.SignalR.Server' is incompatible with 'all' 
 dotnet add package Microsoft.AspNetCore.SignalR.Server -v 0.2.0-preview2-* -s https://dotnet.myget.org/f/aspnetcore-dev/api/v3/index.json
 ```
 
-過去 ASP.NET 安裝 SignalR 時，因為 SignalR 相依 WebSockets Server，所以一併安裝 WebSockets Server 套件。 
-但現在 ASP.NET Core 底層都是改用 DI 的機制，因此 WebSockets Server 對 SignalR 不再是必要的套件，所以要用 WebSockets 連線的話要自己安裝 `Microsoft.AspNetCore.WebSockets.Server` 套件。指令如下：
-```sh
-dotnet add package Microsoft.AspNetCore.WebSockets.Server
-```
-
-> SignalR 有四種連線模式，就算不用 WebSockets 也能透過 Long Polling 連線。  
- 但目前版本 Long Polling 極度不穩定，連線速度超級慢，而且會一直斷線。 
-
-### npm 套件
-
-透過 npm 安裝 ASP.NET Core SignalR Client 需要的安裝，指令如下：
-``` batch
-npm install --save @aspnet/signalr-client
-```
-
 ## SignalR Server
 
 ### 註冊 SignalR 服務
 
-在 `Startup.ConfigureServices` 加入 SignalR 的服務，同時在 `Startup.Configure` 加入 WebSockets 及 SignalR 的 Pipeline。   
+在 `Startup.ConfigureServices` 加入 SignalR 的服務，同時在 `Startup.Configure` 將 SignalR 加入至 Pipeline。  
+由於 ASP.NET Core 底層都是改用 DI 的機制注入需要的功能；因此，要用 WebSockets 連線的話要自己加至 Pipeline。  
+
 **Startup.cs**  
 ```cs
-using System.IO;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 
 namespace MyWebsite
 {
@@ -82,26 +63,15 @@ namespace MyWebsite
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
             services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseMvcWithDefaultRoute();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseWebSockets();
             app.UseSignalR();
-
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(
-                        Directory.GetCurrentDirectory(),
-                        "node_modules/@aspnet/signalr-client/dist/browser/"
-                    )
-                ),
-                RequestPath = new PathString("/js")
-            });
         }
     }
 }
@@ -165,12 +135,62 @@ namespace MyWebsite.Hubs
 
 ## SignalR Client
 
-TODO
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ASP.NET Core SignalR Chat</title>
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.2.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Chat rooms</h1>
+        <div id="chat" style="height:300px; overflow-y: scroll;"></div>
+        <div>
+            <label>Name</label><br />
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <label>Message</label><br />
+            <input type="text" id="message" />
+        </div>
+        <div>
+            <input type="button" value="Send" id="send" />
+            <input type="button" value="Clear" id="clear" />
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var hubConnection = $.hubConnection();
+            var hubProxy = hubConnection.createHubProxy("chathub");
+            hubProxy.on("ServerMessage", function (data) {
+                $("#chat").append(data + "<br />");
+            });
+            hubConnection.start();
+
+            $(document).on("click", "#send", function () {
+                hubProxy.invoke("ClientMessage", {
+                    "name": $("#name").val(),
+                    "message": $("#message").val()
+                });
+            });
+
+            $(document).on("click", "#clear", function () {
+                $("#chat").html("");
+            });
+        });
+    </script>
+</body>
+</html>
+```
 
 ## 執行結果
 
-![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-69.gif)
+![[鐵人賽 Day17] ASP.NET Core 2 系列 - SignalR - 範例執行結果](/images/pasted-69.gif)
 
 ## 參考
 
 [ASP.NET Core SignalR](https://github.com/aspnet/SignalR/)  
+[SignalR - Documentation](https://github.com/SignalR/SignalR/wiki)
