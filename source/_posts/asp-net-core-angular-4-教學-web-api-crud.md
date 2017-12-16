@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core + Angular 4 教學 - Web Api CRUD
+title: ASP.NET Core + Angular 4 教學 - Web API CRUD
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,7 +7,7 @@ tags:
   - npm
   - TypeScript
   - 'C#'
-  - Web Api
+  - Web API
   - AJAX
 categories:
   - ASP.NET Core
@@ -15,9 +15,9 @@ categories:
 date: 2017-04-17 00:48:00
 featured_image: /images/pasted-48p.png
 ---
-![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48p.png)
+![ASP.NET Core + Angular 4 教學 - Web API CRUD 範例執行結果](/images/pasted-48p.png)
 
-本篇將介紹 Angular 4 跟 ASP.NET Core Web Api 透過 AJAX 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
+本篇將介紹 Angular 4 跟 ASP.NET Core Web API 透過 AJAX 的互動，範例是做一個簡單的通訊錄。功能包含新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱CRUD。  
 
 <!-- more -->
 
@@ -27,16 +27,16 @@ featured_image: /images/pasted-48p.png
 
 ## 1. 安裝 NuGet 套件
 
-過往 ASP.NET MVC 是把 MVC 及 Web Api 的套件分開，但在 ASP.NET Core 中 MVC 及 Web Api 用的套件是相同的，在 NuGet 管理可以找到 Microsoft.AspNetCore.Mvc 並安裝。
+過往 ASP.NET MVC 是把 MVC 及 Web API 的套件分開，但在 ASP.NET Core 中 MVC 及 Web API 用的套件是相同的，在 NuGet 管理可以找到 Microsoft.AspNetCore.Mvc 並安裝。
 
 ![NuGet 安裝 Microsoft.AspNetCore.Mvc](/images/pasted-56.png)
 
-## 2. 建立 Web Api
+## 2. 建立 Web API
 
 ### 2.1 註冊 Mvc 服務
 
 Startup.cs  
-AddJsonOptions 的 SerializerSettings 可以參考 [ASP.NET Core - Web Api JSON 序列化設定](/article/asp-net-core-web-api-json-serializer-settings.html)
+AddJsonOptions 的 SerializerSettings 可以參考 [ASP.NET Core - Web API JSON 序列化設定](/article/asp-net-core-web-api-json-serializer-settings.html)
 ```cs
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -66,7 +66,7 @@ namespace MyWebsite
 
 ### 2.2 Models
 
-我習慣用一個 Result Model 來包裝每個 Service 的回傳內容，不論調用 Web Api 成功失敗都用此物件包裝，避免直接 throw exception 到 client，產生 http status 200 以外的狀態。  
+我習慣用一個 Result Model 來包裝每個 Service 的回傳內容，不論調用 Web API 成功失敗都用此物件包裝，避免直接 throw exception 到 client，產生 http status 200 以外的狀態。  
 
 Models\ResultModel.cs
 ```cs
@@ -175,18 +175,18 @@ namespace MyWebsite.Controllers
 
 直接用瀏覽器打開 /api/contact/1，就可以看到回傳畫面如下：  
 
-![Web Api Http Get 測試](/images/pasted-57.png)
+![Web API Http Get 測試](/images/pasted-57.png)
 
 如果有安裝 Postman 或類似工具的話可以測測看其他的 methods：  
 
-![Web Api Http Post 測試](/images/pasted-58.png)
+![Web API Http Post 測試](/images/pasted-58.png)
 
 ## 3. 建立 Angular 4
 
 ### 3.1 NgModule
 
 這個範例會用到兩個模組:
-1. Web Api 用到的 AJAX 需要 HttpModule。
+1. Web API 用到的 AJAX 需要 HttpModule。
 2. Form 的 ngModel 互動需要 FormsModule。  
 
 wwwroot\app\main.ts
@@ -376,7 +376,7 @@ wwwroot\app\app.component.html
 
 ### 3.5 執行結果
 
-![ASP.NET Core + Angular 4 教學 - Web Api CRUD 範例執行結果](/images/pasted-48.gif)
+![ASP.NET Core + Angular 4 教學 - Web API CRUD 範例執行結果](/images/pasted-48.gif)
 
 ## 程式碼下載
 

@@ -31,7 +31,7 @@ ASP.NET Core 的 MVC(Model-View-Controller) 架構模式延續 ASP.NET MVC，把
 
 ## 安裝套件
 
-要在 ASP.NET Core 中使用 MVC 或 Web Api，需要安裝 `Microsoft.AspNetCore.Mvc` 套件。  
+要在 ASP.NET Core 中使用 MVC 或 Web API，需要安裝 `Microsoft.AspNetCore.Mvc` 套件。  
 透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Microsoft.AspNetCore.Mvc

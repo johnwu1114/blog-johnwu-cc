@@ -6,7 +6,7 @@ tags:
   - Angular
   - TypeScript
   - 'C#'
-  - Web Api
+  - Web API
   - Redis
   - Session
 categories:

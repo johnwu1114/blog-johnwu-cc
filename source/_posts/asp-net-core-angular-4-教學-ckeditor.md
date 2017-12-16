@@ -7,7 +7,7 @@ tags:
   - npm
   - TypeScript
   - 'C#'
-  - Web Api
+  - Web API
   - CKEditor
   - JavaScript
 categories:
@@ -19,7 +19,7 @@ featured_image: /images/pasted-69.png
 ![ASP.NET Core + Angular 4 教學 - CKEditor 範例執行結果](/images/pasted-69.png)
 
 本篇將介紹如何透過 TypeScript 把 CKeditor 包裝成 Angular 4 的 Directive，讓 Angular 4 能更方便使用 CKEditor。  
-並建立一個簡單的 ASP.NET Core Web Api 跟 CKEditor 做存取資料的互動。
+並建立一個簡單的 ASP.NET Core Web API 跟 CKEditor 做存取資料的互動。
 
 <!-- more -->
 
