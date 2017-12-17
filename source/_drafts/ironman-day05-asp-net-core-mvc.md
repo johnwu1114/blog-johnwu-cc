@@ -4,6 +4,7 @@ author: John Wu
 tags:
   - ASP.NET Core
   - 2018 iT 邦幫忙鐵人賽
+  - MVC
 categories:
   - ASP.NET Core
 date: 2017-12-24 23:17

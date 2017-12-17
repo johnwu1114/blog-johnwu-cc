@@ -13,7 +13,8 @@
 14 例外處理 (Exception Handler)
 11 組態設定 (Configuration)
 12 多重環境組態管理 (Multiple Environments)
-13 Logging(NLog & Log4net)
+13 Logging
+13 NLog & Log4net
 15 多國語言 (Localization)
 16 Entity Framework Core
 17 SignalR
@@ -23,19 +24,10 @@
 匯出 Excel
 Redis Session
 NUnit(VS Code test runner)
-
-# Sample (12)
-
-(x) Firebase
-
 Redis Cache
 Random Captcha
 CKEditor
-
-# Deploy (3)
 IIS
 Linus
 Docker
-
-# Final (1)
 優化(封包,安全性)
