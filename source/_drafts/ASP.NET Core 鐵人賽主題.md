@@ -17,9 +17,10 @@
 13 NLog & Log4net
 15 多國語言 (Localization)
 16 Entity Framework Core
-17 SignalR
 18 上傳/下載檔案
+17 SignalR
 
+WebClient
 匯入及匯出 CSV
 匯出 Excel
 Redis Session
