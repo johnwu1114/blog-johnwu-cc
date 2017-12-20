@@ -57,13 +57,17 @@ public class Startup
     }
 }
 ```
+* **UseMvcWithDefaultRoute**  
+ 這個是 ASP.NET Core 的預設路由，會將 Request 來的 URL 找到對應的 Controller 及 Action。  
+ *(之後的文章會介紹路由)*  
 
 ## MVC 範例
 
 ### Model 
 
 建立一個簡單的 Model 讓 Controller 跟 View 互動。  
-Models/UserModel.cs
+
+*Models/UserModel.cs*
 ```cs
 public class UserModel
 {
@@ -77,7 +81,7 @@ public class UserModel
 過去 ASP.NET 把 MVC 及 Web API 用的 Controller 分為 `Controller` 及 `ApiController`，現在 ASP.NET Core 把兩者合一，不再區分 `ApiController`。  
 所以要建立 Controller 都只要繼承 `Controller`即可。如下：
 
-Controllers/HomeController.cs
+*Controllers/HomeController.cs*
 ```cs
 public class HomeController : Controller
 {
@@ -88,13 +92,16 @@ public class HomeController : Controller
     }
 }
 ```
+* **View**  
+ 透過回傳 View 方法，可以找到該 Controller & Action 對應的 `*.cshtml`。  
+ View 方法中可以帶入要傳到 View 的 Model。  
 
 ### View
 
-View 跟 Controller 有相互的對應關係，預設 Controller 會到 Views 目錄尋找與 Controller 同名的子目錄，在找到與 Action 同名的 `*.cshtml`。  
+View 跟 Controller 有相互的對應關係，預設 Controller 會到 Views 目錄尋找與 Controller 同名的子目錄，再找到與 Action 同名的 `*.cshtml`。  
 如上面 HomeController.Index()，就會找專案目錄下的 `Views/Home/Index.cshtml` 檔案。  
 
-Views/Home/Index.cshtml
+*Views/Home/Index.cshtml*
 ```html
 @model MyWebsite.Models.UserModel
 

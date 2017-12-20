@@ -5,16 +5,16 @@
 09 Dependency Injection
 `04 Static Files`
 `05 MVC`
+06 Routing
 `Model Bindding`
 `Views`
-06 Routing
 05 Session Cookies
 07 RESTful API
 08 Swagger
 10 Filters
-14 例外處理 (Exception Handler)
 11 組態設定 (Configuration)
 12 多重環境組態管理 (Multiple Environments)
+14 例外處理 (Exception Handler)
 13 Logging
 13 NLog & Log4net
 15 多國語言 (Localization)
