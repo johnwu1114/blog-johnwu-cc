@@ -17,7 +17,7 @@ featured_image: /images/logo-asp-net-core-angular.png
 ---
 ![ASP.NET Core + Angular 4 教學 - T4 Template 產生多國語言](/images/logo-asp-net-core-angular.png)
 
-之前介紹過 [ASP.NET Core 教學 - T4 Template 產生強行別多國語言](/article/asp-net-core-t4-generate-localization.html)，JavaScript 的多國語言也可以透過 T4 Template 建立出來。  
+之前介紹過 [ASP.NET Core 教學 - T4 Template 產生強型別多國語言](/article/asp-net-core-t4-generate-localization.html)，JavaScript 的多國語言也可以透過 T4 Template 建立出來。  
 本篇將介紹用 T4 Template 製作 JavaScript 的多國語言檔，同時產生 Angular 需要的 TypeScript 定義檔。  
 
 <!-- more -->
@@ -262,6 +262,6 @@ wwwroot\app\app.component.html
 
 ## 相關文章
 
-[ASP.NET Core 教學 - T4 Template 產生強行別多國語言](/article/asp-net-core-t4-generate-localization.html)  
+[ASP.NET Core 教學 - T4 Template 產生強型別多國語言](/article/asp-net-core-t4-generate-localization.html)  
 [Angular 4 教學 - 多國語言](/article/angular-4-localization.html)  
 [ASP.NET Core 教學 - 多國語言](/article/asp-net-core-localization.html)  

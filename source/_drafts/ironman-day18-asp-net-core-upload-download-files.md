@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core 教學 - 檔案上傳
+title: '[鐵人賽 Day18] ASP.NET Core 2 系列 - 上傳/下載檔案'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,38 +8,21 @@ tags:
   - Stream
 categories:
   - ASP.NET Core
-date: 2017-09-05 02:07:00
-featured_image: /images/x325.png
+date: 2018-01-06 23:17
+featured_image: /images/i18-1.png
 ---
 
-![ASP.NET Core 教學 - 檔案上傳 - 執行結果](/images/x325.png)
-
-在 ASP.NET Core 實作基本的檔案上傳功能算蠻簡易的，但對於大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 死翹翹。  
-本篇將介紹如何在 ASP.NET Core 檔案上傳。  
+在 ASP.NET Core 實作上傳檔案及下載檔案功能算蠻簡易的，  
+但對於上傳大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 網站崩潰。  
+本篇將介紹如何在 ASP.NET Core 實作上傳/下載檔案 API。  
 
 <!-- more -->
 
-## 1. 檔案上傳
+## 簡易上傳/下載
 
-### 1.1. View
-
-首先建立一個 HTML Form，`enctype` 使用 **multipart/form-data**，把 `action` 指向接收上傳資料的 API。如下：
-
-```html
-<form method="post" enctype="multipart/form-data" action="/api/upload">
-    <input type="file" name="files" multiple />
-    <br />
-    <input type="submit" value="送出" />
-</form>
-```
-
-### 1.2. Controller
-
-建立一個接收檔案的 Controller 及 Action，在 Action 的參數中，使用 `IFormFile` 型別，就可以接收到 HTML Form 傳來的檔案。
-由於上例 HTML Form 允許多檔傳送，所以在 Action 的參數中使用 `List<IFormFile>` 集合來接收參數。  
-
-範例如下：
-
+建立一個接收檔案的 Controller，在 Action 的參數中，使用 `IFormFile` 型別，就可以接收到 HTML Form 傳來的檔案。
+如果要允許多檔上傳，就在 Action 的參數中使用 `List<IFormFile>` 集合來接收參數。範例如下：  
+*Controllers\FileController.cs*
 ```cs
 using System.Collections.Generic;
 using System.IO;
@@ -51,60 +34,85 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MyWebsite.Controllers
 {
-    [Route("api/[controller]")]
-    public class UploadController : Controller
+    [Route("api/[controller]s")]
+    public class FileController : Controller
     {
-        private readonly string _uploadFolder;
-
-        public UploadController(IHostingEnvironment hostingEnvironment)
+        private readonly static Dictionary<string, string> _contentTypes = new Dictionary<string, string>
         {
-            _uploadFolder = $"{hostingEnvironment.WebRootPath}\\Upload";
+            {".png", "image/png"},
+            {".jpg", "image/jpeg"},
+            {".jpeg", "image/jpeg"},
+            {".gif", "image/gif"}
+        };
+        private readonly string _folder;
+
+        public FileController(IHostingEnvironment hostingEnvironment)
+        {
+            // 把上傳目錄設為：wwwroot\UploadFolder
+            _folder = $@"{hostingEnvironment.WebRootPath}\UploadFolder";
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(List<IFormFile> files)
+        public async Task<IActionResult> Upload(List<IFormFile> files)
         {
             var size = files.Sum(f => f.Length);
 
-            foreach (var formFile in files)
+            foreach (var file in files)
             {
-                if (formFile.Length > 0)
+                if (file.Length > 0)
                 {
-                    // 要存放的位置
-                    var savePath = $"{_uploadFolder}\\{formFile.FileName}";
-                    using (var stream = new FileStream(savePath, FileMode.Create))
+                    var path = $@"{_folder}\{file.FileName}";
+                    using (var stream = new FileStream(path, FileMode.Create))
                     {
-                        await formFile.CopyToAsync(stream);
+                        await file.CopyToAsync(stream);
                     }
                 }
             }
 
             return Ok(new { count = files.Count, size });
         }
+
+        [HttpGet("{fileName}")]
+        public async Task<IActionResult> Download(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                return NotFound();
+            }
+
+            var path = $@"{_folder}\{fileName}";
+            var memoryStream = new MemoryStream();
+            using (var stream = new FileStream(path, FileMode.Open))
+            {
+                await stream.CopyToAsync(memoryStream);
+            }
+            memoryStream.Seek(0, SeekOrigin.Begin);
+
+            // 回傳檔案到 Client 需要附上 Content Type，否則瀏覽器會解析失敗。
+            return new FileStreamResult(memoryStream, _contentTypes[Path.GetExtension(path).ToLowerInvariant()]);
+        }
+
     }
 }
 ```
-> 此範例有個小缺陷，就是檔名不能重複，如果檔名重複會被複寫。
+> 此範例有個小缺陷，就是上傳檔名不能重複，如果檔名重複會被複寫。  
 
-## 2. 資料及檔案上傳
-
-如果上傳檔案要伴隨著表單資料的話，可以透過 Model 包裝 `IFormFile`。  
-範例如下：
-
-### 2.1. View 
-
+* **HTTP POST**  
+ 前端用 HTML Form 上傳檔案。`enctype` 使用 **multipart/form-data**，把 `action` 指向接收上傳資料的 API，可以用 `accept` 限制上傳檔案類型。如下：  
 ```html
-<h1>相簿</h1>
-<form method="post" enctype="multipart/form-data" action="/api/upload/album">
-    名稱：<input type="text" name="Title" /><br />
-    日期：<input type="date" name="Date" /><br />
-    相片：<input type="file" name="Photos" multiple accept="image/*" /><br />
-    <input type="submit" value="送出" />
+<form method="post" enctype="multipart/form-data" action="/api/files">
+    <input type="file" name="files" multiple accept="image/*"/>
+    <br />
+    <input type="submit" value="Upload" />
 </form>
 ```
+* **HTTP GET**  
+ 下載檔案就用 HTTP Get 請求 `http://localhost:5000/api/files/{檔名}` 即可。  
 
-### 2.2. Model
+## 表單資料
 
+如果上傳檔案要伴隨著表單資料的話，可以透過 Model 包裝 `IFormFile`。如下：  
+*Models\AlbumModel.cs*
 ```cs
 using System;
 using System.Collections.Generic;
@@ -123,59 +131,45 @@ namespace MyWebsite.Models
 }
 ```
 
-### 2.3. Controller
-
+Action 在接收的參數就改為包裝後的 Model。例如：  
 ```cs
-[Route("api/[controller]")]
-public class UploadController : Controller
+[Route("album")]
+[HttpPost]
+public async Task<IActionResult> Album(AlbumModel model)
 {
     // ...
-
-    [Route("album")]
-    [HttpPost]
-    public async Task<IActionResult> Album(AlbumModel model)
+    return Ok(new
     {
-        // ...
-
-        return Ok(new
-        {
-            title = model.Title,
-            date = model.Date.ToString("yyyy/MM/dd"),
-            photoCount = model.Photos.Count,
-            photoSize = model.Photos.Sum(f => f.Length)
-        })
-    }
+        title = model.Title,
+        date = model.Date.ToString("yyyy/MM/dd"),
+        photoCount = model.Photos.Count
+    });
 }
 ```
+> 上傳檔案邏輯同上例 `FileController.Upload`。  
 
-### 2.4. 執行結果
-
-![ASP.NET Core 教學 - 檔案上傳 - 執行結果](/images/x325.png)
-
-## 3. 大型檔案上傳
-
-透過 `IFormFile` 上傳檔案，是由 ASP.NET Core 幫你控制緩衝記憶體，如果檔案太大或很頻繁耗用緩衝記憶體，當 ASP.NET Core 能使用的緩衝記憶體到達上限，它就會死給你看了。  
-所以，如果你的系統會有上傳大檔的需求，又或者是會很頻繁的上傳檔案，強烈建議改用串流的方式，自己實作寫入硬碟位置，避免 ASP.NET Core 幫你控制緩衝記憶體。  
-
-### 3.1. View
-
-改一下 API 位置：
-
+HTML Form 如下：  
 ```html
-<h1>大型檔案</h1>
-<form method="post" enctype="multipart/form-data" action="/api/upload/large">
-    <input type="file" name="files" multiple />
-    <br />
+<form method="post" enctype="multipart/form-data" action="/api/users/album">
+    名稱：<input type="text" name="title" /><br />
+    日期：<input type="date" name="date" /><br />
+    相片：<input type="file" name="photos" multiple accept="image/*" /><br />
     <input type="submit" value="送出" />
 </form>
 ```
 
-### 3.2. DisableFormValueModelBindingAttribute
+![[鐵人賽 Day18] ASP.NET Core 2 系列 - 上傳/下載檔案 - 表單資料執行結果](/images/i18-1.png)
+
+## 大型檔案上傳
+
+透過 `IFormFile` 上傳檔案，是由 ASP.NET Core 控制緩衝記憶體，如果檔案太大或很頻繁耗用緩衝記憶體，容易使 ASP.NET Core 的緩衝記憶體到達上限，屆時就是它死給你看的時候了。  
+所以，如果系統會有上傳大檔的需求，又或者是會很頻繁的上傳檔案，強烈建議改用串流的方式，自己實作寫入硬碟位置，避免 ASP.NET Core 控制緩衝記憶體控制到溢位。  
+
+### DisableFormValueModelBindingFilter
 
 由於要自行處理 Request 來的資料，所以要把原本 API 的 Model Binding 移除。  
-建立一個 Attribute 註冊在大型檔案上傳的 API，透過 Resource Filter 在 Model Binding 之前把它移除。
-
-DisableFormValueModelBindingAttribute.cs
+建立一個 Attribute 註冊在大型檔案上傳的 API，透過 Resource Filter 在 Model Binding 之前把它移除。  
+*Filters\DisableFormValueModelBindingFilter.cs*  
 ```cs
 using System;
 using System.Linq;
@@ -185,7 +179,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace MyWebsite.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class DisableFormValueModelBindingAttribute : Attribute, IResourceFilter
+    public class DisableFormValueModelBindingFilter : Attribute, IResourceFilter
     {
         public void OnResourceExecuting(ResourceExecutingContext context)
         {
@@ -213,19 +207,16 @@ namespace MyWebsite.Filters
 }
 ```
 
-> 寫 ASP.NET Core 最好要了解 Filters 的使用方法，不熟的話可以參考這篇 [ASP.NET Core 教學 - Filters](/article/asp-net-core-filters.html)。
+### MultipartRequestHelper
 
-### 3.3. MultipartRequestHelper
-
-從微軟官方範例直接複製 [MultipartRequestHelper](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample/MultipartRequestHelper.cs) 使用，這個類別是用來判斷 HTML Form 送來的 `multipart/form-data` 內容使用。
-
-MultipartRequestHelper.cs
+從微軟官方範例直接複製 [MultipartRequestHelper.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample/MultipartRequestHelper.cs) 使用，這個類別是用來判斷 HTML Form 送來的 `multipart/form-data` 內容使用。  
+*Helpers\MultipartRequestHelper.cs*
 ```cs
 using System;
 using System.IO;
 using Microsoft.Net.Http.Headers;
 
-namespace MyWebsite
+namespace MyWebsite.Helpers
 {
     public static class MultipartRequestHelper
     {
@@ -234,51 +225,49 @@ namespace MyWebsite
         public static string GetBoundary(MediaTypeHeaderValue contentType, int lengthLimit)
         {
             var boundary = HeaderUtilities.RemoveQuotes(contentType.Boundary);
-            if (string.IsNullOrWhiteSpace(boundary))
+            if (string.IsNullOrWhiteSpace(boundary.Value))
             {
                 throw new InvalidDataException("Missing content-type boundary.");
             }
 
             if (boundary.Length > lengthLimit)
             {
-                throw new InvalidDataException(
-                    $"Multipart boundary length limit {lengthLimit} exceeded.");
+                throw new InvalidDataException($"Multipart boundary length limit {lengthLimit} exceeded.");
             }
-
-            return boundary;
+            return boundary.Value;
         }
 
         public static bool IsMultipartContentType(string contentType)
         {
             return !string.IsNullOrEmpty(contentType)
-                   && contentType.IndexOf("multipart/", StringComparison.OrdinalIgnoreCase) >= 0;
+                && contentType.IndexOf("multipart/", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
         public static bool HasFormDataContentDisposition(ContentDispositionHeaderValue contentDisposition)
         {
             // Content-Disposition: form-data; name="key";
             return contentDisposition != null
-                   && contentDisposition.DispositionType.Equals("form-data")
-                   && string.IsNullOrEmpty(contentDisposition.FileName)
-                   && string.IsNullOrEmpty(contentDisposition.FileNameStar);
+                && contentDisposition.DispositionType.Equals("form-data")
+                && string.IsNullOrEmpty(contentDisposition.FileName.Value)
+                && string.IsNullOrEmpty(contentDisposition.FileNameStar.Value);
         }
 
         public static bool HasFileContentDisposition(ContentDispositionHeaderValue contentDisposition)
         {
             // Content-Disposition: form-data; name="myfile1"; filename="Misc 002.jpg"
             return contentDisposition != null
-                   && contentDisposition.DispositionType.Equals("form-data")
-                   && (!string.IsNullOrEmpty(contentDisposition.FileName)
-                       || !string.IsNullOrEmpty(contentDisposition.FileNameStar));
+                && contentDisposition.DispositionType.Equals("form-data")
+                && (!string.IsNullOrEmpty(contentDisposition.FileName.Value)
+                 || !string.IsNullOrEmpty(contentDisposition.FileNameStar.Value));
         }
     }
 }
 ```
 
-### 3.4. FileStreamingHelper
+### FileStreamingHelper
 
-FileStreamingHelper 是從官方範例 [StreamingController](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs) 抽出的邏輯，可以讓 Controller 程式碼更簡潔，`Stream` 實體透過委派傳入，使用上較為彈性。
-
+FileStreamingHelper 是從官方範例 [StreamingController.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs) 抽出的邏輯，可以讓 Controller 程式碼更簡潔，`Stream` 實體透過委派傳入，使用上較為彈性。  
+*Helpers\FileStreamingHelper.cs*
 ```cs
 using System;
 using System.Globalization;
@@ -291,7 +280,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Net.Http.Headers;
 
-namespace MyWebsite
+namespace MyWebsite.Helpers
 {
     public static class FileStreamingHelper
     {
@@ -332,7 +321,7 @@ namespace MyWebsite
                     else if (MultipartRequestHelper.HasFormDataContentDisposition(contentDisposition))
                     {
                         // 若此欄位不是檔案，就把 Key 及 Value 取出，存入 formAccumulator
-                        var key = HeaderUtilities.RemoveQuotes(contentDisposition.Name);
+                        var key = HeaderUtilities.RemoveQuotes(contentDisposition.Name).Value;
                         var encoding = GetEncoding(section);
                         using (var streamReader = new StreamReader(
                             section.Body,
@@ -385,37 +374,46 @@ namespace MyWebsite
 }
 ```
 
-### 3.5. Controller
+### 上傳 API
+
+HTML Form 使用同上述**表單資料**的範例，上傳檔案的 API 改成如下：
 
 ```cs
-[Route("api/[controller]")]
-public class UploadController : Controller
+[Route("album")]
+[HttpPost]
+[DisableFormValueModelBindingFilter]
+public async Task<IActionResult> Album()
 {
+    var photoCount = 0;
+    var formValueProvider = await Request.StreamFile((file) =>
+    {
+        photoCount++;
+        return System.IO.File.Create($"{_folder}\\{file.FileName}");
+    });
+
+    var model = new AlbumModel{
+        Title = formValueProvider.GetValue("title").ToString(),
+        Date = Convert.ToDateTime(formValueProvider.GetValue("date").ToString())
+    };
+
     // ...
 
-    [Route("large")]
-    [HttpPost]
-    [DisableFormValueModelBinding]
-    public async Task<IActionResult> Large()
+    return Ok(new
     {
-        var fileCount = 0;
-
-        await Request.StreamFile((file) =>
-        {
-            fileCount++;
-            return System.IO.File.Create($"{_uploadFolder}\\{file.FileName}");
-        });
-
-        return Ok(new { fileCount = fileCount });
-    }
+        title = model.Title,
+        date = model.Date.ToString("yyyy/MM/dd"),
+        photoCount = photoCount
+    });
 }
 ```
+* **DisableFormValueModelBindingFilter**  
+ Action 套用此 Filter 後，HTML Form 就不會被轉換成物件傳入 Action，因此也就可以移除 Action 的參數了。  
+* **StreamFile**  
+ StreamFile 會將 HTML Form 的內容以 FormValueProvider 包裝後回傳，並以委派方法讓你實做上傳的事件，以此例來說就是直接以串流的方式直接寫檔。  
+ 這樣就能避免 ASP.NET Core 依賴緩衝記憶體上傳檔案。  
 
-終於完成了！
-
-## 4. 上傳大小限制
-
-單次 Request 上傳的大小限制可以在 Web.config 修改 `maxAllowedContentLength`，預設 **30000000** 大約是 28.6MB。
+> 若是將 ASP.NET Core 運行在 `IIS` 上，可能還會遇到單一檔案大小過大的錯誤。  
+ `IIS` 預設單一上傳封包是 **30000000 Bits** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 Web.config 修改 `maxAllowedContentLength`。如下：  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
@@ -429,10 +427,6 @@ public class UploadController : Controller
   </system.webServer>
 </configuration>
 ```
-
-## 程式碼下載
-
-[asp-net-core-upload-files](https://github.com/johnwu1114/asp-net-core-upload-files)
 
 ## 參考
 

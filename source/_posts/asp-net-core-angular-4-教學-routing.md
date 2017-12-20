@@ -6,7 +6,7 @@ tags:
   - Angular
   - TypeScript
   - 'C#'
-  - Web Api
+  - Web API
   - Routing
 categories:
   - ASP.NET Core
@@ -22,7 +22,7 @@ featured_image: /images/pasted-11p.png
 <!-- more -->
 
 程式碼延續之前範例：  
-[ASP.NET Core + Angular 4 教學 - Web Api CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
+[ASP.NET Core + Angular 4 教學 - Web API CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
 
 ## 1. Angular 4 Routing
 

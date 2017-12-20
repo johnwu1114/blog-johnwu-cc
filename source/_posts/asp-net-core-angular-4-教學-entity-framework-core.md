@@ -6,7 +6,7 @@ tags:
   - Angular
   - TypeScript
   - 'C#'
-  - Web Api
+  - Web API
   - Entity Framework Core
   - Code First
 categories:
@@ -22,7 +22,7 @@ featured_image: /images/pasted-11p.png
 <!-- more -->
 
 程式碼延續之前範例：  
-[ASP.NET Core + Angular 4 教學 - Web Api CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
+[ASP.NET Core + Angular 4 教學 - Web API CRUD](/article/asp-net-core-angular-4-教學-web-api-crud.html)  
 
 ## 1. 安裝 NuGet 套件
 
@@ -132,7 +132,7 @@ public class Startup
 }
 ```
 
-## 3. Web Api CRUD
+## 3. Web API CRUD
 
 原本把資料存在 `List<ContactModel> _contacts`，現在可以透過 MyContext 把資料存到資料庫。  
 > 因為在 Startup 注入了 MyContext，所以在 Controller 的建構子就可以取得 MyContext 使用。  

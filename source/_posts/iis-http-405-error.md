@@ -3,7 +3,7 @@ title: IIS - HTTP 405 錯誤
 author: John Wu
 tags:
   - ASP.NET Core
-  - Web Api
+  - Web API
   - IIS
   - Web.config
 categories:

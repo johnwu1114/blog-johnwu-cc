@@ -75,7 +75,7 @@ public class Startup
 ## 3. 使用組態設定
 
 透過 DI 取用 IConfigurationRoot 實例，以 Dictionary 的方式取用組態檔的值。  
-> 如果不了解 DI 可以參考這篇：[ASP.NET Core 教學 - Dependency Injection](/article/asp-net-core-dependency-injection)  
+> 如果不了解 DI 可以參考這篇：[ASP.NET Core 教學 - Dependency Injection](/article/asp-net-core-dependency-injection.html)  
 
 ```cs
 public HomeController(IConfigurationRoot config)

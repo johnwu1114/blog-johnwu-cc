@@ -1,10 +1,10 @@
 ---
-title: ASP.NET Core 教學 - Web Api JSON 序列化設定
+title: ASP.NET Core 教學 - Web API JSON 序列化設定
 author: John Wu
 tags:
   - 'C#'
   - ASP.NET Core
-  - Web Api
+  - Web API
 categories:
   - ASP.NET Core
 date: 2017-04-17 22:41:00
@@ -12,7 +12,7 @@ featured_image: /images/pasted-59.png
 ---
 ![Camel](/images/pasted-59.png)
 
-用 JSON 作為 Web Api 資料傳遞格式，並使用 camelCase 作為名稱命名規則，幾乎已成為通用的標準。ASP.NET Core Web Api 也很貼心的把回傳物件格式預設為 JSON camelCase。  
+用 JSON 作為 Web API 資料傳遞格式，並使用 camelCase 作為名稱命名規則，幾乎已成為通用的標準。ASP.NET Core Web API 也很貼心的把回傳物件格式預設為 JSON camelCase。  
 
 通常 C# 端定義的物件欄位都是 PascalCase，但有時候為了讓前端 JavaScript 物件可以跟後端保持一致，也會把前端 JavaScript 物件欄位定義成 PascalCase 格式。  
 
@@ -20,9 +20,9 @@ featured_image: /images/pasted-59.png
 
 <!-- more -->
 
-## Define Web Api
+## Define Web API
 
-假設我們有一個 Web Api 回傳 ContactModel 物件如下：
+假設我們有一個 Web API 回傳 ContactModel 物件如下：
 ```cs
 public class ContactModel
 {
@@ -34,7 +34,7 @@ public class ContactModel
     public string Address { get; set; }
 }
 
-[HttpGet()]
+[HttpGet]
 public ContactModel Get()
 {
 	return new ContactModel
@@ -58,7 +58,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-呼叫 Web Api 會回傳 JSON 如下：
+呼叫 Web API 會回傳 JSON 如下：
 ```json
 {
   "id": 1,
@@ -80,7 +80,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-呼叫 Web Api 會回傳 JSON 如下：
+呼叫 Web API 會回傳 JSON 如下：
 ```json
 {
   "Id": 1,
@@ -108,7 +108,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-呼叫 Web Api 會回傳 JSON 如下：
+呼叫 Web API 會回傳 JSON 如下：
 ```json
 {
   "Id": 1,

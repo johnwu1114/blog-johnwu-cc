@@ -6,7 +6,7 @@ tags:
   - Angular
   - TypeScript
   - 'C#'
-  - Web Api
+  - Web API
   - Routing
 categories:
   - ASP.NET Core
@@ -32,7 +32,7 @@ featured_image: /images/pasted-110p.png
 以下是我用到的 NuGet 套件：
 ![ASP.NET Core + Angular 4 教學 - Captcha 安裝 NuGet 套件](/images/pasted-110.png)
 
-## 2. 建立 Web Api
+## 2. 建立 Web API
 
 我建了一個 AuthenticationController 要給登入頁面使用，有 4 支 Api 可以調用，分別是：  
 1. HttpGet /api/authentication 取得已登入的帳號  
@@ -334,7 +334,7 @@ namespace MyWebsite.BLL
 
 ## 4. Angular
 
-Web Api 完成後，就來建立 Angular 的 UI 互動。  
+Web API 完成後，就來建立 Angular 的 UI 互動。  
 我把圖形驗證碼設為 input text 的背景圖，每當 /api/authentication/captcha 被呼叫的時候，驗證碼就會刷新，為了避免瀏覽器暫存，我在 URL 後面加上了時間當作 query string。  
 
 app.component.html
