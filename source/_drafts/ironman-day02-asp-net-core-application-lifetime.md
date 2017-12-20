@@ -3,7 +3,7 @@ title: '[鐵人賽 Day02] ASP.NET Core 2 系列 - 程式生命週期 (Applicatio
 author: John Wu
 tags:
   - ASP.NET Core
-  - 2018 iT 邦幫忙鐵人賽
+  - iT 邦幫忙 2018 鐵人賽
 categories:
   - ASP.NET Core
 date: 2017-12-21 23:17

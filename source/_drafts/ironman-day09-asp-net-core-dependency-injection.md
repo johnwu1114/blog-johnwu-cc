@@ -3,7 +3,7 @@ title: '[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入 (Dependency Injec
 author: John Wu
 tags:
   - ASP.NET Core
-  - 2018 iT 邦幫忙鐵人賽
+  - iT 邦幫忙 2018 鐵人賽
 categories:
   - ASP.NET Core
 date: 2017-12-28 23:17

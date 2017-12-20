@@ -3,7 +3,7 @@ title: '[鐵人賽 Day05] ASP.NET Core 2 系列 - MVC'
 author: John Wu
 tags:
   - ASP.NET Core
-  - 2018 iT 邦幫忙鐵人賽
+  - iT 邦幫忙 2018 鐵人賽
   - MVC
 categories:
   - ASP.NET Core
