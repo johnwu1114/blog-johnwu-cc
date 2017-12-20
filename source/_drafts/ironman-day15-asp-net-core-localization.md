@@ -260,7 +260,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 ## 共用語系檔
 
 ASP.NET Core 語系檔命名規則為了與 Controllers、Views、Models 相互對應，可能會產生一大堆檔案，造成維護上的困擾。
-因此，可以利用 ASP.NET Core DI 的特性，建立一個共用的語系檔，再將該語系資訊注入至 IoC 容器。
+因此，可以利用 ASP.NET Core DI 的特性，建立一個共用的語系檔，再將該語系資訊注入至 DI 容器。
 
 建立共用的語系檔 *Resources\SharedResource.en-GB.resx*，同時建立一個對應的 *SharedResource.cs* 檔案，內容如下：  
 

@@ -5,8 +5,10 @@
 09 Dependency Injection
 `04 Static Files`
 `05 MVC`
-`Session Cookies`
+`Model Bindding`
+`Views`
 06 Routing
+05 Session Cookies
 07 RESTful API
 08 Swagger
 10 Filters
@@ -19,16 +21,15 @@
 16 Entity Framework Core
 18 上傳/下載檔案
 17 SignalR
+* 優化(封包,安全性, cors)
+* Redis Session/Cache
+* NUnit(VS Code test runner)
+* IIS
+* Linus
+* Docker
 
 WebClient
 匯入及匯出 CSV
 匯出 Excel
-Redis Session
-NUnit(VS Code test runner)
-Redis Cache
 Random Captcha
 CKEditor
-IIS
-Linus
-Docker
-優化(封包,安全性)

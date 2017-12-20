@@ -91,7 +91,7 @@ namespace MyWebsite
  * **optional**：如果是必要組態檔 optional 就要設定為 false，當檔案不存在就會拋出 FileNotFoundException。  
  * **reloadOnChange**：如果檔案被更新，就同步更新 `IConfiguration` 實例的值。  
 
-`IConfigurationBuilder` 在 WebHost 實例化後，就會建立 `IConfiguration` 實例，並將 `IConfiguration` 放入 IoC 容器供 DI 使用，並以 Dictionary 的方式取用組態設定的值。  
+`IConfigurationBuilder` 在 WebHost 實例化後，就會建立 `IConfiguration` 實例，並將 `IConfiguration` 放入 DI 容器供 DI 使用，並以 Dictionary 的方式取用組態設定的值。  
 > 如果不了解 DI 可以參考這篇：[[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection)](/article/ironman-day09-asp-net-core-dependency-injection.html)  
 
 *Controllers\HomeController.cs*
@@ -162,7 +162,7 @@ public class Property1
 }
 ```
 
-在 `Startup.ConfigureServices` 透過 `services.Configure<T>()`以強型別對應 `IConfiguration` 實例的方式，加入至 IoC 容器：   
+在 `Startup.ConfigureServices` 透過 `services.Configure<T>()`以強型別對應 `IConfiguration` 實例的方式，加入至 DI 容器：   
 *Startup.cs*  
 ```cs
 // ...

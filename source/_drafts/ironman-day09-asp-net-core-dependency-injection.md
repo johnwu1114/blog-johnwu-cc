@@ -16,7 +16,7 @@ DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的
 
 <!-- more -->
 
-## IoC 容器介紹
+## DI 容器介紹
 
 前幾篇的一些例子，會看到在 `Startup.ConfigureServices` 註冊服務。如下：
 ```cs
@@ -29,8 +29,8 @@ public class Startup
     }
 }
 ```
-> **services** 就是一個 IoC 容器。  
- 把 MVC 的服務註冊到 IoC 容器，等到需要用到 MVC 服務時，才從 IoC 容器取得物件實例。  
+> **services** 就是一個 DI 容器。  
+ 把 MVC 的服務註冊到 DI 容器，等到需要用到 MVC 服務時，才從 DI 容器取得物件實例。  
 
 基本上要注入到 Service 的類別沒什麼限制，除了靜態類別。  
 以下範例程式就只是一般的 Class 繼承 Interface：  
@@ -73,7 +73,7 @@ public class Startup
 ## DI 運作方式
 
 ASP.NET Core 的 DI 是採用 Constructor Injection，也就是說會把實例化的物件從建構子傳入。  
-如果要取用 IoC 容器內的物件，只要在建構子加入相對的 Interface 即可。例如：
+如果要取用 DI 容器內的物件，只要在建構子加入相對的 Interface 即可。例如：
 ```cs
 public class HomeController : Controller
 {
@@ -102,11 +102,11 @@ Tpye: MyWebsite.Sample
 ```
 
 ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型的參數，就把 Sample 的實例注入給該 Controller。  
-> 每個 Request 都會把 Controller 實例化，所以 IoC 容器會從建構子注入 ISample 的實例，把 sample 存到欄位 _sample 中，就能確保 Action 能夠使用到被注入進來的 ISample 實例。  
+> 每個 Request 都會把 Controller 實例化，所以 DI 容器會從建構子注入 ISample 的實例，把 sample 存到欄位 _sample 中，就能確保 Action 能夠使用到被注入進來的 ISample 實例。  
 
 ## Service 生命週期
 
-註冊在 IoC 容器的 Service 有分三種生命週期：
+註冊在 DI 容器的 Service 有分三種生命週期：
 * **Transient**  
  每次注入時，都重新 `new` 一個新的實體。  
 * **Scoped**  
@@ -167,11 +167,11 @@ Service 實例產生方式：
 
 圖例說明：
 * **A** 為 **Singleton** 物件實例  
- 一但實例化，就會一直存在於 IoC 容器中。  
+ 一但實例化，就會一直存在於 DI 容器中。  
 * **B** 為 **Scoped** 物件實例  
- 每次 **Request** 就會產生新的實例在 IoC 容器中，讓同 **Request** 週期的使用方，拿到同一個實例。
+ 每次 **Request** 就會產生新的實例在 DI 容器中，讓同 **Request** 週期的使用方，拿到同一個實例。
 * **C** 為 **Transient** 物件實例  
- 只要跟 IoC 容器請求這個類型，就會取得新的實例。
+ 只要跟 DI 容器請求這個類型，就會取得新的實例。
 
 ## Service Injection
 

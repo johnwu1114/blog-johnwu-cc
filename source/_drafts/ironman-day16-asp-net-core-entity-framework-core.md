@@ -158,7 +158,7 @@ namespace MyWebsite
 
 ## CRUD
 
-因為在 IoC 容器註冊了 MyContext，所以在 Controller 的建構子就透過 DI 可以取得 MyContext 實例。  
+因為在 DI 容器註冊了 MyContext，所以在 Controller 的建構子就透過 DI 可以取得 MyContext 實例。  
 透過 MyContext 就可以把物件資料以集合的形式在資料庫輕鬆存取。  
 
 *Controllers\UserController.cs*
