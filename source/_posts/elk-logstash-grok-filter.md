@@ -38,14 +38,17 @@ output {
 }
 ```
 
-在 `grok` 區塊中宣告 `match`，當**來源欄位**符合**Patterns**的 Grok Patterns 或正規表示式(Regular Expression)時，就會建立指定的欄位。  
+在 `grok` 區塊中宣告 `match`，當**來源欄位**符合**Patterns**的 `Grok Patterns` 或`Regular Expression`(正規表示式)時，就會建立指定的欄位。  
 
 ## Grok Patterns
 
 Grok Patterns 的基本用法是：`%{Pattern名稱:欄位名稱:型別}`  
-* Pattern名稱：其實 Pattern 只是 Grok 預先寫好的常用正規表示式，可以參考[grok-patterns](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns)。  
-* 欄位名稱：欄位名稱是自訂的輸出名稱，當符合 Pattern 時，就會建立這個欄位，並把符合 Pattern 的內容填入這個欄位。  
-* 型別：預設型別都是字串。可以參考[Field datatype](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)  
+* **Pattern名稱**  
+ 其實 Grok Patterns 只是 Grok 預先寫好的常用正規表示式，可以參考[grok-patterns](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns)。  
+* **欄位名稱**  
+ 欄位名稱是自訂的輸出名稱，當符合 Pattern 時，就會建立這個欄位，並把符合 Pattern 的內容填入這個欄位。  
+* **型別**  
+ 預設型別都是字串。可以參考[Field datatype](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)  
 
 舉例來說，我們有一個筆 Log 如下：
 ```log
@@ -59,12 +62,12 @@ grok {
 }
 ```
 當 Log 符合這個 Patterns 時，就會切分出以下 6 個欄位：
-* logTimestamp(字串): 2017-12-04 12:34:56,789
-* thread(數值): 1
-* logType(字串): INFO
-* logger(字串): MemberController
-* detail(字串): Call SampleDB.SP_CreateMember
-* duration(數值): 0.001234
+* **logTimestamp(字串)**: 2017-12-04 12:34:56,789
+* **thread(數值)**: 1
+* **logType(字串)**: INFO
+* **logger(字串)**: MemberController
+* **detail(字串)**: Call SampleDB.SP_CreateMember
+* **duration(數值)**: 0.001234
 
 ## Grok Regular Expression
 
@@ -91,14 +94,14 @@ grok {
 }
 ```
 會切分出以下 7 個欄位：
-* logTimestamp(字串): 2017-12-04 12:34:56,789
-* thread(數值): 1
-* logType(字串): INFO
-* logger(字串): MemberController
-* database(字串): SampleDB
-* storedProcedure(字串): SP_CreateMember  
+* **logTimestamp(字串)**: 2017-12-04 12:34:56,789
+* **thread(數值)**: 1
+* **logType(字串)**: INFO
+* **logger(字串)**: MemberController
+* **database(字串)**: SampleDB
+* **storedProcedure(字串)**: SP_CreateMember  
  > storedProcedure 欄位必須是 **SP_** 開頭。
-* duration(數值): 0.001234
+* **duration(數值)**: 0.001234
 
 ## Grok Debugger Tool
 
@@ -121,8 +124,6 @@ Grok Debugger 很簡約，輸入預期的 Input Message 及 Patterns 就會立�
  畫面如下：  
 
  ![ELK 教學 - Logstash Grok Filter 建立欄位 - Grok Constructor](/images/x403.png)
-
-
 
 ## 參考
 
