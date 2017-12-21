@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入 (Dependency Injection)'
+title: '[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入 (Dependency Injection)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -18,7 +18,56 @@ DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的
 
 ## DI 容器介紹
 
-前幾篇的一些例子，會看到在 `Startup.ConfigureServices` 註冊服務。如下：
+在沒有使用 DI Framework 的情況下，假設在 UserController 要呼叫 UserLogic，會直接在 UserController 實例化 UserLogic 的實體，如下：  
+*(xxxLogic 邏輯層分層命名，有興趣可以參考這篇：[John Wu's Blog - 軟體分層架構模式](https://blog.johnwu.cc/article/software-layered-architecture-pattern.html))*  
+```cs
+public class UserLogic {
+    public void Create(User user) {
+        // ...
+    }
+}
+
+public class UserController : Controller {
+    public void Register(User user){
+        var logic = new UserLogic();
+        logic.Create(user);
+        // ...
+    }
+}
+```
+
+以上程式基本上沒什麼問題，但程式相依性就差了點。UserController **必須** 要依賴 UserLogic 才可以運作，就算拆出介面改成：  
+
+```cs
+public interface IUserLogic {
+    void Create(User user);
+}
+
+public class UserLogic : IUserLogic {
+    public void Create(User user) {
+        // ...
+    }
+}
+
+public class UserController : Controller {
+    private readonly IUserLogic _userLogic;
+
+    public UserController() {
+        _userLogic = new UserLogic();
+    }
+
+    public void Register(User user){
+        _userLogic.Create(user);
+        // ...
+    }
+}
+```
+UserController 與 UserLogic 的相依關係只是從 Action 移到建構子，依然還是很強的相一關係。  
+
+ASP.NET Core 透過 DI 容器，切斷這些相依關係，實例的產生不會是在使用方(指上例 UserController 的 `new`)，而是在 DI 容器。  
+DI 容器的註冊方式也很簡單，在 `Startup.ConfigureServices` 註冊。如下：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -54,7 +103,9 @@ public class Sample : ISample
 }
 ```
 
-要注入的 Service 需要在 `Startup.ConfigureServices` 中註冊實做類別。如下：
+要注入的 Service 需要在 `Startup.ConfigureServices` 中註冊實做類別。如下：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -66,14 +117,16 @@ public class Startup
     }
 }
 ```
-* 第一個泛型為注入的類型
- > 建議用 Interface 來包裝，這樣在才能把相依關係拆除。  
+* 第一個泛型為注入的類型  
+ 建議用 Interface 來包裝，這樣在才能把相依關係拆除。  
 * 第二個泛型為實做的類別  
 
 ## DI 運作方式
 
 ASP.NET Core 的 DI 是採用 Constructor Injection，也就是說會把實例化的物件從建構子傳入。  
-如果要取用 DI 容器內的物件，只要在建構子加入相對的 Interface 即可。例如：
+如果要取用 DI 容器內的物件，只要在建構子加入相對的 Interface 即可。例如：  
+
+*Controllers\HomeController.cs*
 ```cs
 public class HomeController : Controller
 {
@@ -106,7 +159,7 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 
 ## Service 生命週期
 
-註冊在 DI 容器的 Service 有分三種生命週期：
+註冊在 DI 容器的 Service 有分三種生命週期：  
 * **Transient**  
  每次注入時，都重新 `new` 一個新的實體。  
 * **Scoped**  
@@ -114,7 +167,7 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 * **Singleton**  
  被實例化後就不會消失，程式運行期間只會有一個實體。  
 
-小改一下 Sample 類別的範例程式：
+小改一下 Sample 類別的範例程式：  
 ```cs
 public interface ISample
 {
@@ -147,7 +200,9 @@ public class Sample : ISampleTransient, ISampleScoped, ISampleSingleton
 }
 ```
 
-在 `Startup.ConfigureServices` 中以三種不同的生命週期註冊。如下：
+在 `Startup.ConfigureServices` 中以三種不同的生命週期註冊。如下：  
+
+*Startup.cs*
 ```cs
 public class Startup
 {
@@ -162,14 +217,15 @@ public class Startup
 }
 ```
 
-Service 實例產生方式：
-![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/pasted-209.gif)
+Service 實例產生方式：  
+
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/pasted-209.gif)
 
 圖例說明：
 * **A** 為 **Singleton** 物件實例  
  一但實例化，就會一直存在於 DI 容器中。  
 * **B** 為 **Scoped** 物件實例  
- 每次 **Request** 就會產生新的實例在 DI 容器中，讓同 **Request** 週期的使用方，拿到同一個實例。
+ 每次 **Request** 就會產生新的實例在 DI 容器中，讓同 **Request** 週期的使用方，拿到同一個實例。  
 * **C** 為 **Transient** 物件實例  
  只要跟 DI 容器請求這個類型，就會取得新的實例。
 
@@ -182,7 +238,9 @@ Service 實例產生方式：
 
 ### Controller
 
-在 HomeController 中注入這三個 Service：
+在 HomeController 中注入這三個 Service：  
+
+*Controllers\HomeController.cs*  
 ```cs
 public class HomeController : Controller
 {
@@ -213,7 +271,7 @@ public class HomeController : Controller
 }
 ```
 
-Views\Home\Index.cshtml
+*Views\Home\Index.cshtml*  
 ```html
 <table border="1">
     <tr><td colspan="3">Cotroller</td></tr>
@@ -226,14 +284,14 @@ Views\Home\Index.cshtml
 
 輸出內容如下：  
 
-![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i09-1.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i09-1.png)  
 從左到又打開頁面三次，可以發現 **Singleton** 的 Id 及 HashCode 都是一樣的，此例還看不太出來 **Transient** 及 **Scoped** 的差異。
 
 ### View
 
-View 注入 Service 的方式，直接在 `*.cshtml` 使用 `@inject`：
+View 注入 Service 的方式，直接在 `*.cshtml` 使用 `@inject`：  
 
-Views\Home\Index.cshtml
+*Views\Home\Index.cshtml*  
 ```html
 @using MyWebsite
 
@@ -260,13 +318,15 @@ Views\Home\Index.cshtml
 
 輸出內容如下：  
 
-![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/i09-2.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/i09-2.png)  
+
 從左到又打開頁面三次，**Singleton** 的 Id 及 HashCode 如前例是一樣的。  
 **Transient** 及 **Scoped** 的差異在這次就有明顯差異，**Scoped** 在同一次 Request 的 Id 及 HashCode 都是一樣的，如紅綠籃框。
 
 ### Service
 
 簡單建立一個 CustomService，注入上例三個 Service，程式碼類似 HomeController。如下：
+*Services\CustomService.cs*
 ```cs
 public class CustomService
 {
@@ -285,7 +345,9 @@ public class CustomService
 }
 ```
 
-註冊 CustomService
+註冊 CustomService  
+
+*Startup.cs*
 ```cs
 public class Startup
 {
@@ -300,7 +362,8 @@ public class Startup
  缺點是使用方以 Class 作為相依關係，變成強關聯的依賴。  
 
 在 View 注入 CustomService：  
-Views\Home\Index.cshtml
+
+*Views\Home\Index.cshtml*
 ```html
 @using MyWebsite
 
@@ -336,7 +399,7 @@ Views\Home\Index.cshtml
 
 輸出內容如下：  
 
-![[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i09-3.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i09-3.png)  
 
 從左到又打開頁面三次：  
 * **Transient** 如預期，每次都不一樣。  

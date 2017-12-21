@@ -26,12 +26,14 @@ ASP.NET Core 在 Middleware 的官方說明中，使用了 Pipeline 這個名詞
 
 ## App.Use
 
-Middleware 的註冊方式是在 `Startup.cs` 的 `Configure` 使用 `Use` 方法註冊。  
-大部分擴充的 Middleware 也都是以 `Use` 開頭的方法註冊，例如：  
-* `UseMvc()`：MVC 的 Middleware  
-* `UseRewriter()`：URL rewriting 的 Middleware  
+Middleware 的註冊方式是在 *Startup.cs* 的 `Configure` 對 `IApplicationBuilder` 使用 `Use` 方法註冊。  
+大部分擴充的 Middleware 也都是以 **Use** 開頭的方法註冊，例如：  
+* **UseMvc()**：MVC 的 Middleware  
+* **UseRewriter()**：URL rewriting 的 Middleware  
 
-一個簡單的 Middleware 範例。如下：
+一個簡單的 Middleware 範例。如下：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -68,7 +70,7 @@ public class Startup
 }
 ```
 
-用瀏覽器打開網站任意連結，會顯示：
+用瀏覽器打開網站任意連結，輸出結果：  
 ```
 First Middleware in. 
 Second Middleware in. 
@@ -79,9 +81,15 @@ Second Middleware out.
 First Middleware out. 
 ```
 
-> 在 Pipeline 的概念中，註冊順序是很重要的事情。資料經過的順序一定是**先進後出**。
+> 在 Pipeline 的概念中，註冊順序是很重要的事情。資料經過的順序一定是**先進後出**。  
 
-Middleware 也可以作為攔截使用，如下：
+Request 流程如下圖：  
+
+![[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](https://blog.johnwu.cc/images/pasted-114.gif)  
+
+Middleware 也可以作為攔截使用，如下：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -100,6 +108,7 @@ public class Startup
         {
             await context.Response.WriteAsync("Second Middleware in. \r\n");
             
+            // 水管阻塞，封包不往後送
             var condition = false;
             if(condition) {
                 await next.Invoke();
@@ -123,7 +132,7 @@ public class Startup
 }
 ```
 
-會顯示：
+輸出結果：  
 ```
 First Middleware in. 
 Second Middleware in. 
@@ -131,7 +140,7 @@ Second Middleware out.
 First Middleware out. 
 ```
 
-在 Second Middleware 中，因為沒有達成條件，所以封包也就不在往後面的水管傳送。如圖：  
+在 Second Middleware 中，因為沒有達成條件，所以封包也就不在往後面的水管傳送。流程如圖：  
 
 ![[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware - 概念](/images/i03-2.png)  
 
@@ -143,7 +152,9 @@ First Middleware out.
 ## App.Map
 
 `Map` 是能用來處理一些簡單路由的 Middleware，可依照不同的 URL 指向不同的 `Run` 及註冊不同的 `Use`。  
-新增一個路由如下：
+新增一個路由如下：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -187,7 +198,7 @@ Hello World!
 First Middleware out. 
 ```
 
-開啟網站 `/second`，則會顯示：
+開啟網站 `http://localhost:5000/second`，則會顯示：
 ```
 First Middleware in. 
 Second Middleware in. 
@@ -198,10 +209,10 @@ First Middleware out.
 
 ## 建立 Middleware 類別
 
-如果 Middleware 全部都寫在 `Startup.cs`，程式碼應該很難維護，所以應該把自製的 Middleware 邏輯獨立出來。  
-建立 Middleware 類別不需要額外繼承其它類別或介面，一般的 Class 即可，範例如下：
+如果 Middleware 全部都寫在 *Startup.cs*，程式碼應該很難維護，所以應該把自製的 Middleware 邏輯獨立出來。  
+建立 Middleware 類別不需要額外繼承其它類別或介面，一般的類別即可，範例如下：  
 
-FirstMiddleware.cs
+*FirstMiddleware.cs*
 ```cs
 public class FirstMiddleware
 {
@@ -244,6 +255,8 @@ public class Startup
 ### 區域註冊
 
 Middleware 也可以只套用在特定的 Controller 或 Action。註冊方式如下：  
+
+*Controllers\HomeController.cs*
 ```cs
 // ..
 [MiddlewareFilter(typeof(FirstMiddleware))]
@@ -262,7 +275,9 @@ public class HomeController : Controller
 ### Extensions
 
 大部分擴充的 Middleware 都會用一個靜態方法包裝，如：`UseMvc()`、`UseRewriter()`等。  
-自製的 Middleware 當然也可以透過靜態方法包，範例如下：
+自製的 Middleware 當然也可以透過靜態方法包，範例如下：  
+
+*Extensions\CustomMiddlewareExtensions.cs*
 ```cs
 public static class CustomMiddlewareExtensions
 {
@@ -273,7 +288,9 @@ public static class CustomMiddlewareExtensions
 }
 ```
 
-註冊 Extension Middleware 的方式如下：
+註冊 Extension Middleware 的方式如下：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
