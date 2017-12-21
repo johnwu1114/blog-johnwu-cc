@@ -2,11 +2,11 @@
 02 Application Lifetime
 03 Middleware
 09 Dependency Injection
-`04 Static Files`
+04 Static Files
 `05 MVC`
 `06 Routing` + URL Rewriting
-05 Model Bindding
 `Views`
+05 Model Bindding
 05 Session Cookies
 `Cookie Authentication`
 07 RESTful API
