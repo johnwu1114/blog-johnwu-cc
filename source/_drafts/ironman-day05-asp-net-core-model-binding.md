@@ -74,7 +74,9 @@ public void ConfigureServices(IServiceCollection services)
  這個比較特別，不是從 HTTP Requset 取值，而是從 DI 容器取值。  
  DI 預設是使用 Constructor Injection，但 Controller 可能會因為每個 Action 用到不一樣的 Service 導致很多參數，所以也可以在 Action 注入 Service。  
 
-範例如下：  
+### 範例程式
+
+*Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
 
@@ -90,10 +92,15 @@ namespace MyWebsite.Controllers
         {
             return Content($"header: {header}, form: {form}, id: {id}, query: {query}");
         }
+        
+        public IActionResult DISample([FromServices] ILogger<HomeController> logger)
+        {
+            return Content($"logger is null {logger == null}.");
+        }
 
         public IActionResult BodySample([FromBody]UserModel model)
         {
-            return Json(model);
+            return Ok(model);
         }
     }
 
@@ -108,19 +115,168 @@ namespace MyWebsite.Controllers
 }
 ```
 
+### 輸出結果
+
 **FirstSample** 輸出結果：  
 ![[鐵人賽 Day05] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/i05-002.png)   
 
+**DISample** 輸出結果：  
+`http://localhost:5000/Home/DISample`  
+```
+logger is null False.
+```
+
 **BodySample** 輸出結果：  
 * **JSON**  
- ![[鐵人賽 Day05] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/i05-004.png)   
+ ![[鐵人賽 Day05] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/i05-003.png)   
 * **XML**  
  ![[鐵人賽 Day05] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/i05-004.png)   
 
 ## Model 驗證
 
+Model Binding 也可以順便幫忙驗證欄位資料，只要在資料模型的屬性上面帶上 Validation Attributes，如下：  
+
+```cs
+using System.ComponentModel.DataAnnotations;
+// ...
+public class UserModel
+{
+    [Required]
+    public int Id { get; set; }
+
+    [RegularExpression(@"\w+")]
+    [StringLength(20, MinimumLength = 4)]
+    public string Name { get; set; }
+
+    [EmailAddress]
+    public string Email { get; set; }
+
+    [Phone]
+    public string PhoneNumber { get; set; }
+
+    [StringLength(200)]
+    public string Address { get; set; }
+}
+```
+
+然後在 Action 加上判斷：  
+
+*Controllers\HomeController.cs*
+```cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace MyWebsite.Controllers
+{
+    public class HomeController : Controller
+    {
+        // ...
+        public IActionResult BodySample([FromBody]UserModel model)
+        {
+            // 由於 Id 是 int 型別，int 預設為 0，雖然有帶上 [Required]，但不是 null 所以算是有值。
+            if (model.Id < 1)
+            {
+                ModelState.AddModelError("Id", "Id not exist");
+            }
+            if (ModelState.IsValid)
+            {
+                return Ok(model);
+            }
+            return BadRequest(ModelState);
+        }
+    }
+}
+```
+
+資料錯誤的輸出結果：  
+
+![[鐵人賽 Day05] ASP.NET Core 2 系列 - Model Binding - Model 驗證](/images/i05-005.png)   
+
+.NET Core 提供了很多的 Validation Attributes，可以參考官網：[System.ComponentModel.DataAnnotations](https://docs.microsoft.com/zh-tw/dotnet/api/system.componentmodel.dataannotations?view=netcore-2.0)  
+
+
+### 自製 Validation Attributes
+
+如果 .NET Core 提供的 Validation Attributes 不夠用還可以自己做。例如上述範例的資料模型多了生日欄位，需要驗證年齡：  
+```cs
+using System.ComponentModel.DataAnnotations;
+// ...
+public class UserModel
+{
+    [Required]
+    public int Id { get; set; }
+
+    [RegularExpression(@"\w+")]
+    [StringLength(20, MinimumLength = 4)]
+    public string Name { get; set; }
+
+    [EmailAddress]
+    public string Email { get; set; }
+
+    [Phone]
+    public string PhoneNumber { get; set; }
+
+    [StringLength(200)]
+    public string Address { get; set; }
+
+    [DataType(DataType.Date)]
+    [AgeCheck(18, 120)]
+    public DateTime BirthDate { get; set; }
+}
+```
+
+透過繼承 `ValidationAttribute` 就可以客製化自訂的 Model 驗證 Attributes，如下：  
+
+*Attributes\AgeCheckAttribute.cs*
+```cs
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace MyWebsite.Attributes
+{
+    public class AgeCheckAttribute : ValidationAttribute
+    {
+        public int MinimumAge { get; private set; }
+        public int MaximumAge { get; private set; }
+
+        public AgeCheckAttribute(int minimumAge, int maximumAge)
+        {
+            MinimumAge = minimumAge;
+            MaximumAge = maximumAge;
+        }
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            var date = Convert.ToDateTime(value);
+
+            if (date.AddYears(MinimumAge) > DateTime.Today
+                || date.AddYears(MaximumAge) < DateTime.Today)
+            {
+                return new ValidationResult(GetErrorMessage(validationContext));
+            }
+
+            return ValidationResult.Success;
+        }
+
+        private string GetErrorMessage(ValidationContext validationContext)
+        {
+            // 有帶 ErrorMessage 的話優先使用
+            // [AgeCheck(18, 120, ErrorMessage="xxx")] 
+            if (!string.IsNullOrEmpty(this.ErrorMessage))
+            {
+                return this.ErrorMessage;
+            }
+
+            // 自訂錯誤訊息
+            return $"{validationContext.DisplayName} can't be in future";
+        }
+    }
+}
+```
+
+
 ## 參考
 
 [Overview of ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview)  
+[Introduction to model validation in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)  
 [ASP.NET CORE 2.0 MVC MODEL BINDING](https://tahirnaushad.com/2017/08/22/asp-net-core-2-0-mvc-model-binding/)  
 [ASP.NET CORE 2.0 MVC MODEL VALIDATION](https://tahirnaushad.com/2017/08/22/asp-net-core-2-0-mvc-model-validation/)  
