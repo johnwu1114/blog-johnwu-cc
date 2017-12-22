@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API'
+title: '[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,8 +8,8 @@ tags:
   - iT 邦幫忙 2018 鐵人賽
 categories:
   - ASP.NET Core
-date: 2017-12-26 23:17
-featured_image: /images/i07-1.png
+date: 2017-12-31 12:00
+featured_image: /images/i12-1.png
 ---
 
 RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱 CRUD 四種資料存取方式，簡約又直覺的風格，讓人用的愛不釋手。  
@@ -56,7 +56,7 @@ RESTful API 對資料的操作行為，透過 HTTP Method 分為以下四種方�
 
 ### HTTP Method Attribute
 
-Day05 有提到，過去 ASP.NET MVC 把 MVC 及 Web API 的套件分開，但在 ASP.NET Core 中 MVC 及 Web API 用的套件是相同的。所以只要裝 `Microsoft.AspNetCore.Mvc` 套件就可以用 Web API 了。路由方式也跟前篇 Day06 介紹的 `RouteAttribute` 差不多，只是改用 HTTP Method Attribute。  
+[[鐵人賽 Day06] ASP.NET Core 2 系列 - MVC](/article/ironman-day06-asp-net-core-mvc.html) 有提到，過去 ASP.NET MVC 把 MVC 及 Web API 的套件分開，但在 ASP.NET Core 中 MVC 及 Web API 用的套件是相同的。所以只要裝 `Microsoft.AspNetCore.Mvc` 套件就可以用 Web API 了。路由方式也跟 [[鐵人賽 Day07] ASP.NET Core 2 系列 - 路由 (Routing)](/article/ironman-day07-asp-net-core-routing.html) 介紹的 `RouteAttribute` 差不多，只是改用 HTTP Method Attribute。  
 
 HTTP Method Attribute 符合 RESTful 原則的路由設定方式如下：  
 ```cs
@@ -331,13 +331,13 @@ namespace MyWebsite
 透過 Postman 測試 API。
 
 * 新增(Create)  
-![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 新增(Create)](/images/i07-1.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 新增(Create)](/images/i12-1.png)  
 * 查詢(Read)  
-![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 查詢(Read)](/images/i07-2.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 查詢(Read)](/images/i12-2.png)  
 * 修改(Update)  
-![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 修改(Update)](/images/i07-3.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 修改(Update)](/images/i12-3.png)  
 * 刪除(Delete)  
-![[鐵人賽 Day07] ASP.NET Core 2 系列 - RESTful API - 刪除(Delete)](/images/i07-4.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 刪除(Delete)](/images/i12-4.png)  
 
 ## 參考
 

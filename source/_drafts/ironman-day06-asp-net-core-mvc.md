@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day05] ASP.NET Core 2 系列 - MVC'
+title: '[鐵人賽 Day06] ASP.NET Core 2 系列 - MVC'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,8 +7,8 @@ tags:
   - MVC
 categories:
   - ASP.NET Core
-date: 2017-12-24 23:17
-featured_image: /images/i05-1.png
+date: 2017-12-25 12:00
+featured_image: /images/i06-1.png
 ---
 
 ASP.NET Core MVC 跟 ASP.NET MVC 觀念是一致的，使用上也沒有什麼太大的變化。  
@@ -21,7 +21,7 @@ ASP.NET Core MVC 跟 ASP.NET MVC 觀念是一致的，使用上也沒有什麼�
 
 ASP.NET Core 的 MVC(Model-View-Controller) 架構模式延續 ASP.NET MVC，把網站分成三大元件 **Model**、**View**及**Controller**，相依關係如下圖：  
 
-![[鐵人賽 Day05] ASP.NET Core 2 系列 - MVC - 相依關係](/images/i05-2.png)  
+![[鐵人賽 Day06] ASP.NET Core 2 系列 - MVC - 相依關係](/images/i06-2.png)  
 
 * **Model**  
  負責資料處理，包含資料存取、商業邏輯、定義資料物件及驗證資料。  
@@ -112,11 +112,11 @@ Hello~ 我是 @Model.Name
 
 ### 範例結果
 
-![[鐵人賽 Day05] ASP.NET Core 2 系列 - MVC - 範例結果](/images/i05-1.png)
+![[鐵人賽 Day06] ASP.NET Core 2 系列 - MVC - 範例結果](/images/i06-1.png)
 
 資料流動畫如下：  
 
-![[鐵人賽 Day05] ASP.NET Core 2 系列 - MVC - 資料流](/images/i05-3.gif)  
+![[鐵人賽 Day06] ASP.NET Core 2 系列 - MVC - 資料流](/images/i06-3.gif)  
 
 ## 參考
 

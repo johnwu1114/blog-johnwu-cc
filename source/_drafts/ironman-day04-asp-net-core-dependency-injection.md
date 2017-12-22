@@ -7,11 +7,10 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-23 00:17
-featured_image: /images/i09-1.png
+featured_image: /images/i04-1.png
 ---
 
-ASP.NET Core 使用了大量的依賴注入 (Dependency Injection, DI)，把控制翻轉 (Inversion Of Control, IoC) 運用的相當落實。
-DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的 DI Framework 對此應該不陌生。  
+ASP.NET Core 使用了大量的依賴注入 (Dependency Injection, DI)，把控制翻轉 (Inversion Of Control, IoC) 運用的相當落實。DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的 DI Framework 對此應該不陌生。  
 本篇將介紹 ASP.NET Core 的依賴注入(Dependency Injection)。  
 
 <!-- more -->
@@ -19,7 +18,6 @@ DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的
 ## DI 容器介紹
 
 在沒有使用 DI Framework 的情況下，假設在 UserController 要呼叫 UserLogic，會直接在 UserController 實例化 UserLogic，如下：  
-*(xxxLogic 邏輯層分層命名，有興趣可以參考這篇：[John Wu's Blog - 軟體分層架構模式](https://blog.johnwu.cc/article/software-layered-architecture-pattern.html))*  
 ```cs
 public class UserLogic {
     public void Create(User user) {
@@ -35,6 +33,7 @@ public class UserController : Controller {
     }
 }
 ```
+> xxx**Logic** 邏輯層分層命名，有興趣可以參考這篇：[軟體分層架構模式](https://blog.johnwu.cc/article/software-layered-architecture-pattern.html)  
 
 以上程式基本上沒什麼問題，但程式相依性就差了點。UserController **必須** 要依賴 UserLogic 才可以運作，就算拆出介面改成：  
 
@@ -159,7 +158,7 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 
 注入實例過程，情境如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 注入實例](/images/i09-4.png)
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 注入實例](/images/i04-4.png)
 
 ## Service 生命週期
 
@@ -223,14 +222,14 @@ public class Startup
 
 ## Service Injection
 
-> **只要是透過 ASP.NET Core 產生實例的類別，都可以在建構子定義型態注入**。  
+> **只要是透過 WebHost 產生實例的類別，都可以在建構子定義型態注入**。  
 
 所以 Controller、View、Filter、Middleware 或自訂的 Service 等都可以被注入。  
 此篇我只用 Controller、View、Service 做為範例。  
 
 ### Controller
 
-在 HomeController 中注入這三個 Service：  
+在 HomeController 中注入上例的三個 Services：  
 
 *Controllers\HomeController.cs*  
 ```cs
@@ -277,7 +276,7 @@ public class HomeController : Controller
 
 輸出內容如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i09-1.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i04-1.png)  
 從左到又打開頁面三次，可以發現 **Singleton** 的 Id 及 HashCode 都是一樣的，此例還看不太出來 **Transient** 及 **Scoped** 的差異。
 
 Service 實例產生方式：  
@@ -323,7 +322,7 @@ View 注入 Service 的方式，直接在 `*.cshtml` 使用 `@inject`：
 
 輸出內容如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/i09-2.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/i04-2.png)  
 
 從左到又打開頁面三次，**Singleton** 的 Id 及 HashCode 如前例是一樣的。  
 **Transient** 及 **Scoped** 的差異在這次就有明顯差異，**Scoped** 在同一次 Request 的 Id 及 HashCode 都是一樣的，如紅綠籃框。
@@ -405,7 +404,7 @@ public class Startup
 
 輸出內容如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i09-3.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i04-3.png)  
 
 從左到又打開頁面三次：  
 * **Transient**  

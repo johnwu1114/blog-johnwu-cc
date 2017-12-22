@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments)'
+title: '[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,8 +7,8 @@ tags:
   - Configuration
 categories:
   - ASP.NET Core
-date: 2017-12-31 23:17
-featured_image: /images/.png
+date: 2018-01-04 12:00
+featured_image: /images/i16-3.png
 ---
 
 產品從開發到正式上線的過程中，通常都會有很多個環境，如：開發環境、測試環境及正式環境等。  
@@ -156,7 +156,7 @@ namespace MyWebsite
 
 以此例來說，當 *settings.Production.json* 載入後，就會把 *settings.json* 的 DBConnectionString 設定蓋掉，而 *settings.json* 其它的設定依然能繼續使用。  
 
-> 前一篇[[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定 (Configuration)](/article/ironman-day11-asp-net-core-configuration.html) 有介紹讀取組態設定檔。  
+> 前篇[[鐵人賽 Day15] ASP.NET Core 2 系列 - 組態設定 (Configuration)](/article/ironman-day15-asp-net-core-configuration.html) 有介紹讀取組態設定檔。  
 
 ## 環境設定
 
@@ -167,8 +167,8 @@ namespace MyWebsite
 
 Windows 系統變數的設定方式如下：
  **控制台** -> **系統及安全性**  -> **系統**
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數1](/images/i11-1.png)  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數2](/images/i12-1.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數1](/images/i15-1.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數2](/images/i16-1.png)  
 
 Windows 也可以用指令：
 ```sh
@@ -228,12 +228,12 @@ IIS 的 *Web.config* 也可以設定環境變數：
 
 透過 VS Code 啟動 **.NET Core Launch (web)** 時，就會套用該設定的環境名稱。如下：  
 
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - Visual Studio Code](/images/i12-2.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - Visual Studio Code](/images/i16-2.png)  
 
 ### Visual Studio IDE
 
 若以 Visual Studio IDE 開發(如 Visual Studio 2017)，可以從 UI 設定環境名稱。如下：  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/i12-3.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/i16-3.png)  
 
 或者從 *Properties\launchSettings.json* 設定：  
 *Properties\launchSettings.json*
@@ -255,7 +255,7 @@ IIS 的 *Web.config* 也可以設定環境變數：
 ```
 
 用 Visual Studio 2017 啟動網站後，就會套用該設定的環境名稱。如下：  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/i12-4.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/i16-4.png)  
 
 ## 參考
 

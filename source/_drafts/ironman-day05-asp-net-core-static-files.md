@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day04] ASP.NET Core 2 系列 - 瀏覽靜態檔案 (Static Files)'
+title: '[鐵人賽 Day05] ASP.NET Core 2 系列 - 瀏覽靜態檔案 (Static Files)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,8 +7,8 @@ tags:
   - iT 邦幫忙 2018 鐵人賽
 categories:
   - ASP.NET Core
-date: 2017-12-24 23:17
-featured_image: /images/i04-1.png
+date: 2017-12-24 12:00
+featured_image: /images/i05-1.png
 ---
 
 過去 ASP.NET 網站，只要把 `*.html`、`*.css`、`*.jpg`、`*.png`、`*.js` 等靜態檔案放在專案根目錄，預設都可以直接被瀏覽；但 ASP.NET Core 小改了瀏覽靜態檔案的方式，預設根目錄不再能瀏覽靜態檔案，需要指定靜態檔案的目錄，才可以被瀏覽。  
@@ -89,7 +89,7 @@ public class Startup
 
 `UseStaticFiles` 註冊的順序可以在外層一點，比較不會經過太多不必要的 Middleware。如圖：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 瀏覽靜態檔案](/images/i04-1.png)  
+![[鐵人賽 Day05] ASP.NET Core 2 系列 - 瀏覽靜態檔案](/images/i05-1.png)  
 > 當 Requset 的 URL 檔案不存在，則會轉向到 `Run` 的事件(如灰色箭頭)。
 
 
@@ -226,7 +226,7 @@ public class Startup
 
 當連入 `http://localhost:5000/StaticFiles` 時，就指向到 **專案目錄\bin\** 目錄，並且可以直接瀏覽檔案目錄及檔案內，如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 瀏覽檔案清單](/images/i04-2.png)  
+![[鐵人賽 Day05] ASP.NET Core 2 系列 - 瀏覽檔案清單](/images/i05-2.png)  
 
 ## 參考
 

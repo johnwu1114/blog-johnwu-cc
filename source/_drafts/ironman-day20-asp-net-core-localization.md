@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day15] ASP.NET Core 2 系列 - 多國語言 (Localization)'
+title: '[鐵人賽 Day20] ASP.NET Core 2 系列 - 多國語言 (Localization)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -11,8 +11,8 @@ tags:
   - VS Code
 categories:
   - ASP.NET Core
-date: 2018-01-03 23:17
-featured_image: /images/i15-1.png
+date: 2018-01-08 12:00
+featured_image: /images/i20-1.png
 ---
 
 全球化的網站不免都要做多國語言，ASP.NET Core 的多國語言設定方式跟 ASP.NET MVC 有很大的落差。  
@@ -54,8 +54,8 @@ ASP.NET Core 語系檔命名規則**必須**要與類別的 `namespace` 階層�
 
 若以 Visual Studio IDE 開發 (如 Visual Studio 2017)，可以從 UI 新增資源檔 `*.resx`。在網站目錄中建立 Resources 的資料夾，並新增資源檔 `*.resx`。如下：  
 
-![[鐵人賽 Day15] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 1](/images/pasted-200.png)
-![[鐵人賽 Day15] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 2](/images/pasted-201.png)
+![[鐵人賽 Day20] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 1](/images/pasted-200.png)
+![[鐵人賽 Day20] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 2](/images/pasted-201.png)
 
 ### 註冊服務  
 
@@ -255,7 +255,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ### 執行結果
 
-![[鐵人賽 Day15] ASP.NET Core 2 系列 - 多國語言 (Localization) - 範例執行結果](/images/i15-1.png)  
+![[鐵人賽 Day20] ASP.NET Core 2 系列 - 多國語言 (Localization) - 範例執行結果](/images/i20-1.png)  
 
 ## 共用語系檔
 
@@ -356,7 +356,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ### 執行結果
 
-![[鐵人賽 Day15] ASP.NET Core 2 系列 - 多國語言 (Localization) - 共用語系檔範例執行結果](/images/i15-2.png)  
+![[鐵人賽 Day20] ASP.NET Core 2 系列 - 多國語言 (Localization) - 共用語系檔範例執行結果](/images/i20-2.png)  
 
 ## 參考
 

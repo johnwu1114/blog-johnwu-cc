@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day14] ASP.NET Core 2 系列 - 例外處理 (Exception Handler)'
+title: '[鐵人賽 Day17] ASP.NET Core 2 系列 - 例外處理 (Exception Handler)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,7 +8,7 @@ tags:
   - iT 邦幫忙 2018 鐵人賽
 categories:
   - ASP.NET Core
-date: 2018-01-02 23:17
+date: 2018-01-05 12:00
 featured_image: /images/pasted-206.png
 ---
 
@@ -21,7 +21,7 @@ featured_image: /images/pasted-206.png
 > 實做 Exception Handler 前，需要先了解 **Middleware** 及 **Filter** 的特性。  
 可以參考這兩篇：
 * [[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](/article/ironman-day03-asp-net-core-middleware.html)  
-* [[鐵人賽 Day10] ASP.NET Core 2 系列 - Filters](/article/ironman-day10-asp-net-core-filters.html)  
+* [[鐵人賽 Day14] ASP.NET Core 2 系列 - Filters](/article/ironman-day14-asp-net-core-filters.html)  
 
 ## Exception Filter
 
@@ -224,11 +224,11 @@ public class Startup
 }
 ```
 > `env.IsDevelopment()` 是從 `ASPNETCORE_ENVIRONMENT` 而來。  
- 詳細情參考這篇：[[鐵人賽 Day12] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments)](/article/ironman-day12-asp-net-core-multiple-environments.html)
+ 詳細情參考這篇：[[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments)](/article/ironman-day16-asp-net-core-multiple-environments.html)
 
 開發環境的錯誤資訊頁面如下：  
 
-![[鐵人賽 Day13] ASP.NET Core 2 系列 - 例外處理(Exception Handler) - UseDeveloperExceptionPage](/images/i14-1.png)  
+![[鐵人賽 Day17] ASP.NET Core 2 系列 - 例外處理(Exception Handler) - UseDeveloperExceptionPage](/images/i17-1.png)  
 
 ## 參考
 

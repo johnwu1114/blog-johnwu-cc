@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定 (Configuration)'
+title: '[鐵人賽 Day15] ASP.NET Core 2 系列 - 組態設定 (Configuration)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,8 +7,8 @@ tags:
   - Configuration
 categories:
   - ASP.NET Core
-date: 2017-12-30 23:17
-featured_image: /images/i11-1.png
+date: 2018-01-03 12:00
+featured_image: /images/i15-1.png
 ---
 
 ASP.NET Core 不再把 Web.config 當作預設的組態設定，而且 .NET Core 讀取組態設定的方式也跟過去不同，也不再使用 ConfigurationManager 讀組態設定值。
@@ -92,7 +92,7 @@ namespace MyWebsite
  * **reloadOnChange**：如果檔案被更新，就同步更新 `IConfiguration` 實例的值。  
 
 `IConfigurationBuilder` 在 WebHost 實例化後，就會建立 `IConfiguration` 實例，並將 `IConfiguration` 放入 DI 容器供 DI 使用，並以 Dictionary 的方式取用組態設定的值。  
-> 如果不了解 DI 可以參考這篇：[[鐵人賽 Day09] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection)](/article/ironman-day09-asp-net-core-dependency-injection.html)  
+> 如果不了解 DI 可以參考這篇：[[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection)](/article/ironman-day04-asp-net-core-dependency-injection.html)  
 
 *Controllers\HomeController.cs*
 ```cs
@@ -301,8 +301,8 @@ Domain(System.String): blog.johnwu.cc
 
 ASP.NET Core 可以取用系統的環境變數。以 Windows 為例：  
  **控制台** -> **系統及安全性**  -> **系統**
-![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數1](/images/i11-1.png)  
-![[鐵人賽 Day11] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數2](/images/i11-2.png)  
+![[鐵人賽 Day15] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數1](/images/i15-1.png)  
+![[鐵人賽 Day15] ASP.NET Core 2 系列 - 組態設定(Configuration) - 環境變數2](/images/i15-2.png)  
 
 Windows 也可以用指令：
 ```sh

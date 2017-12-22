@@ -1,14 +1,15 @@
 ---
-title: '[鐵人賽 Day08] ASP.NET Core 2 系列 - Swagger'
+title: '[鐵人賽 Day13] ASP.NET Core 2 系列 - Web API 文件產生器 (Swagger)'
 author: John Wu
 tags:
   - ASP.NET Core
   - Web API
   - iT 邦幫忙 2018 鐵人賽
+  - Swagger
 categories:
   - ASP.NET Core
-date: 2017-12-27 23:17
-featured_image: /images/i08-1.png
+date: 2018-01-01 12:00
+featured_image: /images/i13-1.png
 ---
 
 Swagger 也算是行之有年的 API 文件產生器，只要在 API 上使用 C# 的 `<summary />` 文件註解標籤，就可以產生精美的線上文件，並且對 RESTful API 有良好的支援。不僅支援產生文件，還支援模擬調用的互動功能，連 Postman 都不用打開就能測 API。  
@@ -85,11 +86,11 @@ public class Startup
  SwaggerUI 是負責將 `SwaggerDocument` 物件變成漂亮的介面。  
  預設 URL：`http://localhost:5000/swagger`
 
-> API 沿用 Day07 的 RESTful API 範例程式。  
+> API 沿用 [[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API](/article/ironman-day12-asp-net-core-restful-api.html) 的範例程式。  
 
 設定完成後，啟動網站就能開啟 Swagger UI 了。下面如下：  
 
-![[鐵人賽 Day08] ASP.NET Core 2 系列 - Swagger UI](/images/i08-1.png)  
+![[鐵人賽 Day13] ASP.NET Core 2 系列 - Swagger UI](/images/i13-1.png)  
 
 ## 文件註解標籤
 
@@ -166,7 +167,7 @@ public class Startup
 
 ## 回傳格式
 
-以 Day07 的例子來看，回傳的格式都是 JSON，所以可以直接在 Controller 加上 `[Produces("application/json")]` 表示回傳的型別都是 JSON，在 Swagger 的 Response Content Type 選項就會被鎖定只有 application/json 可以使用。如下：
+以 RESTful API 的例子來看，回傳的格式都是 JSON，所以可以直接在 Controller 加上 `[Produces("application/json")]` 表示回傳的型別都是 JSON，在 Swagger 的 Response Content Type 選項就會被鎖定只有 application/json 可以使用。如下：
 ```cs
 // ...
 [Route("api/[controller]s")]
@@ -204,7 +205,7 @@ public class UserController : Controller
 
 ## 執行結果
 
-![[鐵人賽 Day08] ASP.NET Core 2 系列 - Swagger - 執行結果](/images/i08-2.png)  
+![[鐵人賽 Day13] ASP.NET Core 2 系列 - Swagger - 執行結果](/images/i13-2.png)  
 
 ## 參考
 
