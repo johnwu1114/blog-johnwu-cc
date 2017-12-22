@@ -6,7 +6,7 @@ tags:
   - iT 邦幫忙 2018 鐵人賽
 categories:
   - ASP.NET Core
-date: 2017-12-28 23:17
+date: 2017-12-23 00:17
 featured_image: /images/i09-1.png
 ---
 
@@ -18,7 +18,7 @@ DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的
 
 ## DI 容器介紹
 
-在沒有使用 DI Framework 的情況下，假設在 UserController 要呼叫 UserLogic，會直接在 UserController 實例化 UserLogic 的實體，如下：  
+在沒有使用 DI Framework 的情況下，假設在 UserController 要呼叫 UserLogic，會直接在 UserController 實例化 UserLogic，如下：  
 *(xxxLogic 邏輯層分層命名，有興趣可以參考這篇：[John Wu's Blog - 軟體分層架構模式](https://blog.johnwu.cc/article/software-layered-architecture-pattern.html))*  
 ```cs
 public class UserLogic {
@@ -62,9 +62,9 @@ public class UserController : Controller {
     }
 }
 ```
-UserController 與 UserLogic 的相依關係只是從 Action 移到建構子，依然還是很強的相一關係。  
+UserController 與 UserLogic 的相依關係只是從 Action 移到建構子，依然還是很強的相依關係。  
 
-ASP.NET Core 透過 DI 容器，切斷這些相依關係，實例的產生不會是在使用方(指上例 UserController 的 `new`)，而是在 DI 容器。  
+ASP.NET Core 透過 DI 容器，切斷這些相依關係，實例的產生不會是在使用方(指上例 UserController 建構子的 `new`)，而是在 DI 容器。  
 DI 容器的註冊方式也很簡單，在 `Startup.ConfigureServices` 註冊。如下：  
 
 *Startup.cs*
@@ -79,7 +79,7 @@ public class Startup
 }
 ```
 > **services** 就是一個 DI 容器。  
- 把 MVC 的服務註冊到 DI 容器，等到需要用到 MVC 服務時，才從 DI 容器取得物件實例。  
+ 此例把 MVC 的服務註冊到 DI 容器，等到需要用到 MVC 服務時，才從 DI 容器取得物件實例。  
 
 基本上要注入到 Service 的類別沒什麼限制，除了靜態類別。  
 以下範例程式就只是一般的 Class 繼承 Interface：  
@@ -157,15 +157,19 @@ Tpye: MyWebsite.Sample
 ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型的參數，就把 Sample 的實例注入給該 Controller。  
 > 每個 Request 都會把 Controller 實例化，所以 DI 容器會從建構子注入 ISample 的實例，把 sample 存到欄位 _sample 中，就能確保 Action 能夠使用到被注入進來的 ISample 實例。  
 
+注入實例過程，情境如下：  
+
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 注入實例](/images/i09-4.png)
+
 ## Service 生命週期
 
 註冊在 DI 容器的 Service 有分三種生命週期：  
 * **Transient**  
- 每次注入時，都重新 `new` 一個新的實體。  
+ 每次注入時，都重新 `new` 一個新的實例。  
 * **Scoped**  
- 每個 **Request** 都重新 `new` 一個新的實體。上例所使用的就是 **Scoped**。  
+ 每個 **Request** 都重新 `new` 一個新的實例，同一個 **Request** 不管經過多少個 Pipeline 都是用同一個實例。上例所使用的就是 **Scoped**。  
 * **Singleton**  
- 被實例化後就不會消失，程式運行期間只會有一個實體。  
+ 被實例化後就不會消失，程式運行期間只會有一個實例。  
 
 小改一下 Sample 類別的範例程式：  
 ```cs
@@ -200,7 +204,7 @@ public class Sample : ISampleTransient, ISampleScoped, ISampleSingleton
 }
 ```
 
-在 `Startup.ConfigureServices` 中以三種不同的生命週期註冊。如下：  
+在 `Startup.ConfigureServices` 中註冊三種不同生命週期的服務。如下：  
 
 *Startup.cs*
 ```cs
@@ -211,23 +215,11 @@ public class Startup
         services.AddTransient<ISampleTransient, Sample>();
         services.AddScoped<ISampleScoped, Sample>();
         services.AddSingleton<ISampleSingleton, Sample>();
-        // Singleton 可以用以下方法註冊
+        // Singleton 也可以用以下方法註冊
         // services.AddSingleton<ISampleSingleton>(new Sample());
     }
 }
 ```
-
-Service 實例產生方式：  
-
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/pasted-209.gif)
-
-圖例說明：
-* **A** 為 **Singleton** 物件實例  
- 一但實例化，就會一直存在於 DI 容器中。  
-* **B** 為 **Scoped** 物件實例  
- 每次 **Request** 就會產生新的實例在 DI 容器中，讓同 **Request** 週期的使用方，拿到同一個實例。  
-* **C** 為 **Transient** 物件實例  
- 只要跟 DI 容器請求這個類型，就會取得新的實例。
 
 ## Service Injection
 
@@ -248,7 +240,8 @@ public class HomeController : Controller
     private readonly ISample _scoped;
     private readonly ISample _singleton;
 
-    public HomeController(ISampleTransient transient,
+    public HomeController(
+        ISampleTransient transient,
         ISampleScoped scoped,
         ISampleSingleton singleton)
     {
@@ -286,6 +279,18 @@ public class HomeController : Controller
 
 ![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i09-1.png)  
 從左到又打開頁面三次，可以發現 **Singleton** 的 Id 及 HashCode 都是一樣的，此例還看不太出來 **Transient** 及 **Scoped** 的差異。
+
+Service 實例產生方式：  
+
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/pasted-209.gif)
+
+圖例說明：
+* **A** 為 **Singleton** 物件實例  
+ 一但實例化，就會一直存在於 DI 容器中。  
+* **B** 為 **Scoped** 物件實例  
+ 每次 **Request** 就會產生新的實例在 DI 容器中，讓同 **Request** 週期的使用方，拿到同一個實例。  
+* **C** 為 **Transient** 物件實例  
+ 只要跟 DI 容器請求這個類型，就會取得新的實例。
 
 ### View
 
@@ -325,7 +330,8 @@ View 注入 Service 的方式，直接在 `*.cshtml` 使用 `@inject`：
 
 ### Service
 
-簡單建立一個 CustomService，注入上例三個 Service，程式碼類似 HomeController。如下：
+簡單建立一個 CustomService，注入上例三個 Service，程式碼類似 HomeController。如下：  
+
 *Services\CustomService.cs*
 ```cs
 public class CustomService
@@ -402,9 +408,12 @@ public class Startup
 ![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i09-3.png)  
 
 從左到又打開頁面三次：  
-* **Transient** 如預期，每次都不一樣。  
-* **Scoped** 在同一個 Requset 中，不論是在哪邊被注入，都是同樣的實體。  
-* **Singleton** 不管 Requset 多少次，都會是同一個實體。  
+* **Transient**  
+ 如預期，每次注入都是不一樣的實例。  
+* **Scoped**  
+ 在同一個 Requset 中，不論是在哪邊被注入，都是同樣的實例。  
+* **Singleton**  
+ 不管 Requset 多少次，都會是同一個實例。  
 
 ## 參考
 
