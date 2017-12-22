@@ -108,7 +108,7 @@ grok {
 在撰寫 Grok Pattern 時，可以透過一些工具檢查語法對不對，是否有產出預期的欄位。  
 我慣用的工具如下：
 * [Grok Debugger](https://grokdebug.herokuapp.com/)  
-* [Grok Constructor](http://grokconstructor.appspot.com/do/match)  
+* [Grok Constructor](https://grokconstructor.appspot.com/do/match)  
 
 > Kibana 6.x 版以後也有內建 Grok Debugger 功能。  
 

@@ -91,4 +91,4 @@ window.location = ref;
 
 ## 參考
 
-[Internet Explorer & Safari: IFrame Session Cookie Problem](http://www.mendoweb.be/blog/internet-explorer-safari-third-party-cookie-problem/)
+[Internet Explorer & Safari: IFrame Session Cookie Problem](https://goo.gl/Uzcghs)

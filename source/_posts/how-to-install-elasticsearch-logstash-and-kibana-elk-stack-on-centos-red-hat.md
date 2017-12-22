@@ -54,7 +54,7 @@ ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐�
 ### 1.1 下載
 
 Red Hat 及 CentOS 可以下載 rpm 安裝檔。其他 Linux 版本的話就下載 tar 解壓縮安裝。  
-[Download JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+[Download JRE](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 ![Download JRE](/images/pasted-93.png)
 
 ### 1.2 安裝
@@ -141,7 +141,7 @@ curl "http://192.168.56.101:9200/_cat/nodes"
 > 記得換成你的 IP
 ![curl 打開 Elasticsearch](/images/pasted-97.png)
 
-你也可以試試看用瀏覽器打開 [http://192.168.56.101:9200/_cat/nodes](http://192.168.56.101:9200/_cat/nodes)，你會發現打沒有回應！！！
+你也可以試試看用瀏覽器打開 `http://192.168.56.101:9200/_cat/nodes`，你會發現打沒有回應！！！
 ![瀏覽器打開 Elasticsearch 沒有回應](/images/pasted-95.png)
 
 ### 2.5 防火牆
@@ -222,7 +222,7 @@ output.elasticsearch:
 
 > 要有`Enter`斷行，斷行才會算這筆 Log 完整。完整的 Log 才會被 Filebeat 送出。
 
-用網頁打開 [http://192.168.56.101:9200/_cat/indices](http://192.168.56.101:9200/_cat/indices)  
+用網頁打開 `http://192.168.56.101:9200/_cat/indices`  
 可以看到有名稱為 my-first-index 的 index  囉~
 ![my-first-index in Elasticsearch](/images/pasted-102.png)
 
@@ -329,7 +329,7 @@ output.logstash:
 2017-03-30 02:03:10,965 [14] INFO MyWebsite.Global - Application_End
 ```
 
-用瀏覽器打開 [http://192.168.56.101:9200/_search?pretty](http://192.168.56.101:9200/_search?pretty)，就可以查到資料了。
+用瀏覽器打開 `http://192.168.56.101:9200/_search?pretty`，就可以查到資料了。
 ![Elasticsearch Search Pretty](/images/pasted-102.png)
 
 ## 5. Kibana
@@ -372,7 +372,7 @@ server.port: 5601
 server.host: "0.0.0.0"
 ```
 
-用瀏覽器打開 [http://192.168.56.101:5601](http://192.168.56.101:5601) 設定 index：
+用瀏覽器打開 `http://192.168.56.101:5601` 設定 index：
 ![pasted image](/images/pasted-103.png)
 
 設定完成後，就可以到 Discover 查詢 Log 了～

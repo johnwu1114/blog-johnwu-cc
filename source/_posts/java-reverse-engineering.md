@@ -29,7 +29,7 @@ featured_image: /images/pasted-28.png
 
 ## 查看原始碼
 
-使用 [Java Decompiler](http://jd.benow.ca/) 打開**target.jar**，可以瀏覽jar檔裡面的內容，並能看到編譯後的 class 以原始碼的方式呈現。展開 **target.jar** 找到名稱較為關鍵的字眼(如：License、Validate)，看功力也看運氣。  
+使用 [Java Decompiler](https://goo.gl/FTF58r) 打開**target.jar**，可以瀏覽jar檔裡面的內容，並能看到編譯後的 class 以原始碼的方式呈現。展開 **target.jar** 找到名稱較為關鍵的字眼(如：License、Validate)，看功力也看運氣。  
 在 **target.jar** 我有找到 LicenseProvider.class，大概看一下程式碼後，可以判斷出它從外部載入參數，讀入記憶體中，包含了限制條件即使用期限等等（如下圖）。
 
 ![Java 逆向工程 - 查看原始碼](/images/pasted-19.png)

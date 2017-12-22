@@ -132,7 +132,7 @@ ASP.NET 預設會在每個 Response 的 Header 帶上 Server 資訊。看似沒�
 HTTP Headers 如下：
 ![ASP.NET - 基本優化設定 - HTTP Headers](/images/x318.png)
 
-此外，靜態檔案都會被加上 [ETag](https://zh.wikipedia.org/wiki/HTTP_ETag)，用來讓瀏覽器識別 Cache 的機制。但現在一些網站分析工具都不建議使用(如: [YSlow](http://yslow.org/))。  
+此外，靜態檔案都會被加上 [ETag](https://zh.wikipedia.org/wiki/HTTP_ETag)，用來讓瀏覽器識別 Cache 的機制。但現在一些網站分析工具都不建議使用(如: [YSlow](https://goo.gl/VtD6sw))。  
 
 靜態檔 HTTP Headers 如下：
 ![ASP.NET - 基本優化設定 - HTTP Headers](/images/x319.png)

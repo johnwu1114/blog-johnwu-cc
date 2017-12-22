@@ -15,6 +15,9 @@ featured_image: /images/i02-1.png
 ASP.NET Core 改變了網站啟動的方式，變的比較像是 Console Application。  
 本篇將介紹 ASP.NET Core 的程式生命週期 (Application Lifetime) 及補捉 Application 停啟事件。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day02] ASP.NET Core 2 系列 - 程式生命週期 (Application Lifetime)](https://ithelp.ithome.com.tw/articles/10192497)  
+ 
 <!-- more -->
 
 ## 程式進入點

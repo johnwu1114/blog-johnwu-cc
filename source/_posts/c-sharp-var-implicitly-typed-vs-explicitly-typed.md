@@ -131,6 +131,6 @@ public int ExplicitlyTyped()
 
 ## 參考
 
-[Implicit vs Explicit - Modern C# Standards and Conventions](http://blog.devbot.net/conventions-implicit/)  
+[Implicit vs Explicit - Modern C# Standards and Conventions](https://goo.gl/HyEEeW)  
 [var (C# 參考)](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/keywords/var)  
 [隱含類型區域變數 (C# 程式設計手冊)](https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/classes-and-structs/implicitly-typed-local-variables)  

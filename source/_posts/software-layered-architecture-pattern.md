@@ -217,7 +217,7 @@ CompanyName.ProjectName.Website/        # Angular 為例
 
 ## 參考
 
-[Software Architecture Patterns - O'Reilly Media](http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf)*(推薦閱讀)*  
+[Software Architecture Patterns - O'Reilly Media](https://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf)*(推薦閱讀)*  
 [Chapter 5: Layered Application Guidelines - Microsoft Application Architecture Guide](https://msdn.microsoft.com/en-us/library/ee658109)  
 [Naming conventions DAL, BAL, and UI Layer](https://softwareengineering.stackexchange.com/a/259840)  
-[應用程式的分層設計 (1) - 入門範例](http://www.huanlintalk.com/2012/09/designing-layered-data-centric.html)  
+[應用程式的分層設計 (1) - 入門範例](https://goo.gl/YgEiHK)  

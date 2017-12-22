@@ -14,6 +14,9 @@ featured_image: /images/i01-4.png
 來勢洶洶的 .NET Core 似乎要取代 .NET Framework，ASP.NET 也隨之發佈 .NET Core 版本。雖說名稱沿用 ASP.NET，但相較於 ASP.NET 確有許多架構上的差異，可說是除了名稱外，已是兩個不同的框架。  
 本系列文將介紹 ASP.NET Core 入門教學及一些實務運用的範例，本篇主要介紹基本的 ASP.NET Core 環境準備及如何用 Visual Studio Code (VS Code) 開發 ASP.NET Core。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day01] ASP.NET Core 2 系列 - 從頭開始](https://ithelp.ithome.com.tw/articles/10192429)  
+ 
 <!-- more -->
 
 ## 前言

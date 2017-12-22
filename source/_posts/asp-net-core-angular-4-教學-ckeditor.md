@@ -150,7 +150,7 @@ export class EditorComponent {
     private api: string = "/api/editor";
     message: string;
     content: string;
-    // config 請參考官網 http://docs.ckeditor.com/#!/api/CKEDITOR.config
+    // config 請參考官網 https://docs.ckeditor.com/#!/api/CKEDITOR.config
     ckeditorConfig: any = {
         height: "300px"
     };

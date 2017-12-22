@@ -22,9 +22,9 @@ featured_image: /images/x335.png
 
 1. Visual Studio Code [官網下載頁面](https://code.visualstudio.com/Download)  
 基本上 VS Code 就是純文字編輯工具，你要用 Sublime、Notepade++、Atom、TextEdit都可以。  
-2. Java JDK [官網下載頁面](http://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+2. Java JDK [官網下載頁面](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
 Groovy 要透過 Java 運行，所以要裝一下 Java JDK，Groovy 2.x 以上版本，要用 JDK 7 以上版本。  
-3. Groovy CLI [官網下載頁面](http://groovy-lang.org/download.html)  
+3. Groovy CLI [官網下載頁面](https://goo.gl/skn5sD)  
 
 ## Groovy CLI
 

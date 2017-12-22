@@ -15,6 +15,9 @@ featured_image: /images/i03-1.png
 Middleware 除了簡化了 HTTP Modules/Handlers 的使用方式，還帶入了 Pipeline 的概念。  
 本篇將介紹 ASP.NET Core 的 Middleware 概念及用法。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day03] ASP.NET Core 2 系列 - Middleware](https://ithelp.ithome.com.tw/articles/10192682)  
+ 
 <!-- more -->
 
 ## Middleware 概念

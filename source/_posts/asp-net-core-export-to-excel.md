@@ -207,5 +207,5 @@ namespace MyWebsite.Controllers
 
 [Open-XML-SDK](https://github.com/OfficeDev/Open-XML-SDK)  
 [Read Excel Files Using Open XML SDK In ASP.NET C#](https://social.technet.microsoft.com/wiki/contents/articles/35010.read-excel-files-using-open-xml-sdk-in-asp-net-c.aspx)  
-[How to create an Excel file in .NET using OpenXML – Part 1: Basics](http://www.dispatchertimer.com/tutorial/how-to-create-an-excel-file-in-net-using-openxml-part-1-basics/)  
+[How to create an Excel file in .NET using OpenXML – Part 1: Basics](https://goo.gl/TU7QMY)  
 [歡迎使用 Open XML SDK 2.5 for Office](https://msdn.microsoft.com/zh-tw/library/office/bb448854.aspx)  

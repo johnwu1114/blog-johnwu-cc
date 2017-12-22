@@ -105,4 +105,4 @@ public Sample : ISample {
 
 * [Lance's C# Coding Standards v1.1.5](https://aspblogs.blob.core.windows.net/media/lhunt/Publications/CSharp%20Coding%20Standards.pdf)  
 * [[C#]Code Convention Sample](https://dotblogs.com.tw/hatelove/archive/2011/12/21/csharp-code-convention.aspx)
-* [[如何提升系統品質-Day16]Code Convention](http://ithelp.ithome.com.tw/articles/10079251)
+* [[如何提升系統品質-Day16]Code Convention](https://ithelp.ithome.com.tw/articles/10079251)

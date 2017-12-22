@@ -308,5 +308,5 @@ module.exports = {
 ## 參考
 
 [Ahead-of-Time Compilation](https://angular.io/guide/aot-compiler)  
-[Angular2 AOT with Webpack and Lazy Loading](http://www.dzurico.com/angular-aot-webpack-lazy-loading/)  
+[Angular2 AOT with Webpack and Lazy Loading](https://goo.gl/BmUykm)  
 [angular2 loading slow on android(had use lazy loading)](https://github.com/angular/angular/issues/14092)  

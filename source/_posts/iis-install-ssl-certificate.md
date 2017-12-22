@@ -41,7 +41,7 @@ SSL 憑證通常是花錢購買，但也有免費的可以用。
 openssl pkcs12 -export -in certificate.crt -inkey private.key  -certfile ca_bundle.crt -out sample.pfx
 ```
 > 它會提示輸入自訂密碼，要匯入 IIS 時會用到，不要忘記喔！  
-> Windows 要使用 OpenSSL 的話，可以到這邊下載 [Shining Light Productions](http://slproweb.com/products/Win32OpenSSL.html)  
+> Windows 要使用 OpenSSL 的話，可以到這邊下載 [Shining Light Productions](https://slproweb.com/products/Win32OpenSSL.html)  
 
 ## 1. 安裝憑證
 
