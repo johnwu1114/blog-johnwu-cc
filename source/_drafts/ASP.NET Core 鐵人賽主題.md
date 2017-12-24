@@ -3,12 +3,12 @@
 03 Middleware
 04 Dependency Injection
 05 Static Files
-`06 MVC`
-`07 Routing` + URL Rewriting
-`08 Views`
+06 MVC
+07 Routing
+`08 URL Rewrite`
 09 Model Bindding
-10 Session Cookies
-`11 Cookie Authentication`
+`10 Views`
+* 11 Session Cookies
 12 RESTful API
 13 Swagger
 14 Filters
@@ -22,9 +22,9 @@
 22 上傳/下載檔案
 23 SignalR
 * Redis Session & Cache
-* NUnit(VS Code test runner)
 * 優化安全性(Header移除安全性, SSL, cors)
 * 優化效能(封包壓縮, Response Caching)
+* NUnit(VS Code test runner)
 * Deploy IIS
 * Deploy Linus
 * Deploy Docker

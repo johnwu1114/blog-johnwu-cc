@@ -14,9 +14,12 @@ featured_image: /images/i05-1.png
 過去 ASP.NET 網站，只要把 `*.html`、`*.css`、`*.jpg`、`*.png`、`*.js` 等靜態檔案放在專案根目錄，預設都可以直接被瀏覽；但 ASP.NET Core 小改了瀏覽靜態檔案的方式，預設根目錄不再能瀏覽靜態檔案，需要指定靜態檔案的目錄，才可以被瀏覽。  
 本篇將介紹 ASP.NET Core 瀏覽靜態檔案的方法。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day05] ASP.NET Core 2 系列 - 瀏覽靜態檔案 (Static Files)](https://ithelp.ithome.com.tw/articles/10193208)  
+ 
 <!-- more -->
 
-試著在專案根目錄及 **wwwroot** 目錄中加入一個靜態檔案，例如：  
+試著在專案根目錄及 **wwwroot** 目錄中加入靜態檔案，例如：  
 
 *專案目錄\index.html*
 ```html
@@ -51,7 +54,7 @@ featured_image: /images/i05-1.png
 * `http://localhost:5000/wwwroot/index.html`  
 會發現以上兩個連結都沒有辦法開啟 index.html。  
 
-> 瀏覽靜態檔案，需要安裝 `Microsoft.AspNetCore.StaticFiles` 套件。  
+> 瀏覽靜態檔案，需要 `Microsoft.AspNetCore.StaticFiles` 套件。  
  ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.StaticFiles`，所以不用再安裝。  
  如果是 ASP.NET Core 1.0 的版本，可以透過 .NET Core CLI 在專案資料夾執行安裝指令：  
  ```sh

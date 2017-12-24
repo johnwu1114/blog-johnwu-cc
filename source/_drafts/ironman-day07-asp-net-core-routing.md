@@ -14,13 +14,15 @@ featured_image: /images/i07-1.png
 
 ASP.NET Core 透過路由(Routing)設定，將定義的 URL 規則找到相對應的行為；當使用者 Request 的 URL 滿足特定規則條件時，則自動對應到的相符的行為處理。  
 從 ASP.NET 就已經存在的架構，而且用法也很相似，只有些許的不同。  
-本篇將介紹 ASP.NET Core 的 RouterMiddleware 用法。  
+本篇將介紹 ASP.NET Core 的 Router Middleware 用法。  
 
 <!-- more -->
 
 ## 簡單路由
 
-之前 [[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](/article/ironman-day03-asp-net-core-middleware.html) 有介紹到，可以透過 `Map` 處理一些簡單路由，例如：
+之前 [[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](/article/ironman-day03-asp-net-core-middleware.html) 有介紹到，可以透過 `Map` 處理一些簡單路由，例如：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -49,28 +51,26 @@ public class Startup
 但要搭配 ASP.NET Core MVC 的話，簡單路由就沒這麼好用了。  
 RouterMiddleware 除了方便搭配 ASP.NET Core MVC 外，也可以比較彈性的使用路由定義。  
 
-## 路由
+## 路由註冊
 
 RouterMiddleware 的路由註冊方式大致分為兩種：  
 * 廣域註冊。如：`MapRoute`。  
-* 區域註冊。如：`RouteAttribute`。
+* 區域註冊。如：`RouteAttribute`。  
 
 預設路由的順序如下：  
 
-![[鐵人賽 Day07] ASP.NET Core 2 系列 - 路由(Routing) - 流程](/images/i07-1.png)
+![[鐵人賽 Day07] ASP.NET Core 2 系列 - 路由(Routing) - 流程](/images/i07-1.png)  
 
-### 安裝套件
-
-要使用 ASP.NET Core 路由的 Middleware 需要安裝 `Microsoft.AspNetCore.Routing` 套件。  
-透過 .NET Core CLI 在專案資料夾執行安裝指令：  
-```sh
+> 路由的 Middleware 需要 `Microsoft.AspNetCore.Routing` 套件。  
+ ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Routing`，所以不用再安裝。  
+ 如果是 ASP.NET Core 1.0 的版本，可以透過 .NET Core CLI 在專案資料夾執行安裝指令：  
+ ```sh
 dotnet add package Microsoft.AspNetCore.Routing
-```
-> ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Routing`，所以不用再安裝。  
+ ```
 
-## 註冊路由
+在 *Startup.cs* 的 `ConfigureServices` 加入 Routing 的服務，並在 `Configure` 定義路由規則：  
 
-在 `Startup.cs` 的 `ConfigureServices` 加入 Routing 的服務，並在 `Configure` 定義路由規則：
+*Startup.cs*
 ```cs
 // ...
 public class Startup
@@ -107,9 +107,9 @@ public class Startup
 }
 ```
 可以看到上面程式碼，建立了兩個物件：  
-* `RouteHandler`：這個物件如同簡單路由的 `Run` 事件，當路由成立的時候，就會執行這個事件。  
-* `RouteBuilder`：在這個物件定義路由規則，當 Requset URL 符合規則就會執行該事件。  
- * `MapRoute`：預設的路由規則，可以支援正規表示式(Regular Expressions)。
+* **RouteHandler**：這個物件如同簡單路由的 `Run` 事件，當路由成立的時候，就會執行這個事件。  
+* **RouteBuilder**：在這個物件定義路由規則，當 Requset URL 符合規則就會執行該事件。  
+ * **MapRoute**：預設的路由規則，可以支援正規表示式(Regular Expressions)。
  * HTTP Method 路由：同樣的 URL 可以透過不同的 HTTP Method，對應不同的事件。  
 
 第一個路由 `MapRoute` 定義：  
@@ -141,8 +141,9 @@ public class Startup
 MVC 路由使用跟上面範例差不多，只是把事件指向 `Controller` 及 `Action`。  
 ASP.NET Core MVC 註冊路由規則的方式跟 ASP.NET MVC 差不多。  
 可以註冊多個 MapRoute，每個 Request 會經過這些 RouterMiddleware 找到對應 Action。  
-先被執行到的路由，後面就會被跳過，所以越廣域的寫越下面。  
-如下：
+先被執行到的路由，後面就會被跳過，所以越廣域的寫越下面，如下：  
+
+*Startup.cs*
 ```cs
 public class Startup
 {
@@ -213,7 +214,8 @@ public class UserController : Controller
 
 > 若 Controller 設定了 `[Route]`，Action 就要跟著加 `[Route]`，不然會發生錯誤。  
 
-如果只有特定的 Action 需要改路由，也可以只加 Action。如下：
+如果只有特定的 Action 需要改路由，也可以只加 Action。如下：  
+
 ```cs
 public class UserController : Controller
 {
@@ -234,7 +236,7 @@ public class UserController : Controller
     }
 }
 ```
-* `http://localhost:5000/profile/profile` 會對應到 UserController 的 Profile()。  
+* `http://localhost:5000/user/profile` 會對應到 UserController 的 Profile()。  
 * `http://localhost:5000/change-password` 會對應到 UserController 的 ChangePassword()。  
 * `http://localhost:5000/user/other` 會對應到 UserController 的 Other()。  
 
