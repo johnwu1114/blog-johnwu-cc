@@ -5,7 +5,7 @@
 05 Static Files
 06 MVC
 07 Routing
-`08 URL Rewrite`
+08 URL Rewrite
 09 Model Bindding
 `10 Views`
 * 11 Session Cookies

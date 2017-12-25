@@ -12,10 +12,13 @@ date: 2017-12-26 12:00
 featured_image: /images/i07-1.png
 ---
 
-ASP.NET Core 透過路由(Routing)設定，將定義的 URL 規則找到相對應的行為；當使用者 Request 的 URL 滿足特定規則條件時，則自動對應到的相符的行為處理。  
+ASP.NET Core 透過路由(Routing)設定，將定義的 URL 規則找到相對應行為；當使用者 Request 的 URL 滿足特定規則條件時，則自動對應到相符的行為處理。  
 從 ASP.NET 就已經存在的架構，而且用法也很相似，只有些許的不同。  
 本篇將介紹 ASP.NET Core 的 Router Middleware 用法。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day07] ASP.NET Core 2 系列 - 路由 (Routing)](https://ithelp.ithome.com.tw/articles/10193898)  
+ 
 <!-- more -->
 
 ## 簡單路由
@@ -109,8 +112,9 @@ public class Startup
 可以看到上面程式碼，建立了兩個物件：  
 * **RouteHandler**：這個物件如同簡單路由的 `Run` 事件，當路由成立的時候，就會執行這個事件。  
 * **RouteBuilder**：在這個物件定義路由規則，當 Requset URL 符合規則就會執行該事件。  
- * **MapRoute**：預設的路由規則，可以支援正規表示式(Regular Expressions)。
- * HTTP Method 路由：同樣的 URL 可以透過不同的 HTTP Method，對應不同的事件。  
+  * **MapRoute**：預設的路由規則，可以支援正規表示式(Regular Expressions)。
+  * **MapGet** & **MapPost**  
+   HTTP Method 路由：同樣的 URL 可以透過不同的 HTTP Method，對應不同的事件。  
 
 第一個路由 `MapRoute` 定義：  
 * URL 第一層透過正規表示式必需是 **default** 或 **home**，並放到路由變數 *first* 中。

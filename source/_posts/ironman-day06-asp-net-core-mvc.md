@@ -62,7 +62,7 @@ public class Startup
 ```
 * **UseMvcWithDefaultRoute**  
  這個是 ASP.NET Core 的預設路由，會將 Request 來的 URL 找到對應的 Controller 及 Action。  
- *(之後的文章會介紹路由)*  
+ *(路由可以參考這篇：[[鐵人賽 Day07] ASP.NET Core 2 系列 - 路由 (Routing)](/article/ironman-day07-asp-net-core-routing.html))*  
 
 ## MVC 範例
 
