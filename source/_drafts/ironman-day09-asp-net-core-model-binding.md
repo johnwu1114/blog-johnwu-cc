@@ -14,6 +14,9 @@ featured_image: /images/i09-2.png
 ASP.NET Core MVC 的 Model Binding 會將 HTTP Request 資料，以映射的方式對應到相對到參數中。基本上跟 ASP.NET MVC 差不多，但能 Binding 的來源更多了一些。  
 本篇將介紹 ASP.NET Core 的 Model Binding。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day09] ASP.NET Core 2 系列 - Model Binding](https://ithelp.ithome.com.tw/articles/10194104)  
+ 
 <!-- more -->
 
 ## Model Binding

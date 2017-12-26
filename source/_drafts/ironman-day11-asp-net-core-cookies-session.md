@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day10] ASP.NET Core 2 系列 - Cookies & Session'
+title: '[鐵人賽 Day11] ASP.NET Core 2 系列 - Cookies & Session'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,13 +8,16 @@ tags:
   - Session
 categories:
   - ASP.NET Core
-date: 2017-12-29 12:00
-featured_image: /images/i10-1.png
+date: 2017-12-30 12:00
+featured_image: /images/i11-1.png
 ---
 
 基本上 HTTP 是沒有紀錄狀態的協定，但可以透過 Cookies 及 Session 將 Request 來源區分出來，並將部分資料暫存於 Cookies 及 Session，是寫網站常用的用戶資料暫存方式。  
 本篇將介紹如何在 ASP.NET Core 使用 Cookie 及 Session。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day11] ASP.NET Core 2 系列 - Cookies & Session](https://ithelp.ithome.com.tw/articles/10194104)  
+ 
 <!-- more -->
 
 ## Cookies
@@ -57,7 +60,7 @@ namespace MyWebsite
 ```
 從 HTTP 可以看到傳送跟收到的 Cookies 資訊：  
 
-![ASP.NET Core 2 系列 - Cookies](/images/i10-1.png)  
+![[鐵人賽 Day11] ASP.NET Core 2 系列 - Cookies & Session - Cookies](/images/i11-1.png)  
 
 > 當用多資料存在 Cookies 時，封包就會越大，因為每個 Request 都會帶著 Cookies 資訊。  
 
@@ -104,7 +107,7 @@ namespace MyWebsite
 ```
 
 HTTP Cookies 資訊如下：  
-![ASP.NET Core 2 系列 - Session](/images/i10-2.png)  
+![[鐵人賽 Day11] ASP.NET Core 2 系列 - Cookies & Session - Session](/images/i11-2.png)  
 
 可以看到多出了 `.AspNetCore.Session`，`.AspNetCore.Session` 就是 Session 的唯一識別資訊。  
 每次 Request 時都會帶上這個值，當 Session 服務取得這個值後，就會去 Session 容器找出專屬這個值的 Session 資料。  

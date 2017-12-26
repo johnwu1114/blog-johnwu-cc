@@ -14,6 +14,9 @@ featured_image: /images/i08-1.png
 路由跟 URL 重寫的功能性略有不同。路由是將 Request 找到對應的服務，而 URL 重寫是為了~~推卸責任 XD~~轉送 Request。  
 本篇將介紹 ASP.NET Core 的 URL 重寫 (URL Rewrite)。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite)](https://ithelp.ithome.com.tw/articles/10194104)  
+ 
 <!-- more -->
 
 ## URL Rewrite 註冊
@@ -55,8 +58,8 @@ URL 重寫是屬於 Server 端的轉換事件，當 Client 端 Request 來的時
 
 ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫情境](/images/i08-3.png)  
 
-上例 `AddRewrite` 有用到三個參數，當 URL 符合**參數 1**時，就找到**參數 2**的路由。  
-而**參數 3**是用來加速 URL 匹配的參數，類似 switch 的 break。若將 `skipRemainingRules` 設為 **true**，當找到匹配條件，就不再繼續往下找符合其他**參數 1**的規則。  
+上例 `AddRewrite` 有用到三個參數，當 URL 符合 **參數 1** 時，就將 **參數 2** 路由的內容回傳給 Client。  
+而 **參數 3** 是用來加速 URL 匹配的參數，類似 switch 的 break。若將 `skipRemainingRules` 設為 **true**，當找到匹配條件，就不再繼續往下找符合其他 **參數 1** 的規則。  
 * **參數 1** 支援正規表示式(Regular Expressions)。  
 
 範例結果：  
@@ -70,11 +73,11 @@ URL 重寫是屬於 Client 端的轉換事件，當 Client 端 Request 來的時
 
 ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 轉址情境](/images/i08-4.png)  
 
-`AddRedirect` 的使用方式類似 `AddRewrite`，當 URL 符合**參數 1**時，就會回傳**參數 2**的。  
+`AddRedirect` 的使用方式類似 `AddRewrite`，當 URL 符合 **參數 1** 時，就會回傳 **參數 2** 的 URL 給 Client。  
 * **參數 1** 同樣支援正規表示式(Regular Expressions)。  
 
-URL 轉址預設都是回傳 HTTP Status Code 302，也可以在**參數 3**指定回傳的 HTTP Status Code。  
-通常轉址的 HTTP Status Code 都是用 301 或 302 ，URL 轉址對**人**的行為來說沒有什麼意義，反正就是幫忙從 A 轉到 B；主要差異是給**搜尋引擎**理解的。  
+URL 轉址預設都是回傳 HTTP Status Code 302，也可以在 **參數 3** 指定回傳的 HTTP Status Code。  
+通常轉址的 HTTP Status Code 都是用 301 或 302 ，URL 轉址對 **"人"** 的行為來說沒有什麼意義，反正就是幫忙從 A 轉到 B；主要差異是給 **"搜尋引擎"** 理解的。  
 
 *Startup.cs*
 ```cs
@@ -92,12 +95,12 @@ public class Startup
 ```
 
 * **HTTP Status Code 301**  
- HTTP Status Code 301 是要讓搜尋引擎知道，該網址已經永久轉移到另一個地方。  
+ **301** 是要讓搜尋引擎知道，該網址已經永久轉移到另一個地方。  
  通常用於網站搬家或網站改版，新舊版本路徑不相同，要重新對應的情況。  
  範例結果：  
  ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 301 範例結果](/images/i08-5.png)  
 * **HTTP Status Code 302**  
- HTTP Status Code 302 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的。  
+ **302** 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的。  
  通常用於網站維護時，暫時原網址轉移到別的地方，如維修公告頁面。  
  範例結果：  
  ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 302 範例結果](/images/i08-1.png)  
