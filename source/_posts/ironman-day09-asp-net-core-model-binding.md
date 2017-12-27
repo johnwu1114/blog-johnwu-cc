@@ -15,7 +15,7 @@ ASP.NET Core MVC 的 Model Binding 會將 HTTP Request 資料，以映射的方�
 本篇將介紹 ASP.NET Core 的 Model Binding。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day09] ASP.NET Core 2 系列 - Model Binding](https://ithelp.ithome.com.tw/articles/10194104)  
+ [[Day09] ASP.NET Core 2 系列 - Model Binding](https://ithelp.ithome.com.tw/articles/10194337)  
  
 <!-- more -->
 
@@ -37,7 +37,7 @@ namespace MyWebsite.Controllers
 }
 ```
 `id` 就是從 HTTP Requset 的內容被 Binding 的 Model 參數。  
-預設的 Model Binding 會從 HTTP Requset 的三個地方取值**(優先順序由上到下)**：  
+預設的 Model Binding 會從 HTTP Requset 的三個地方取值 **(優先順序由上到下)** ：  
 * **Form**  
  透過 HTTP POST 的 form 取值。如下圖：  
  ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Form](/images/i09-1.png)   
@@ -48,7 +48,7 @@ namespace MyWebsite.Controllers
  是透過 URL Query 參數取值。  
  如：`http://localhost:5000/Home/Index?id=1`，`id` 取出的值就會是 1。  
 
-如果三者都傳入的話，會依照優先順序取值，Form > Route > Query。  
+如果三者都傳入的話，會依照優先順序取值 Form > Route > Query。  
 
 ## Binding Attributes
 
@@ -64,6 +64,7 @@ namespace MyWebsite.Controllers
 * **[FromBody]**  
  從 HTTP Body 取值，通常用於取 JSON, XML。  
  ASP.NET Core MVC 預設的序列化是使用 JSON，如果要傳 XML 格式做 Model Binding 的話，要在 MVC 服務加入 `XmlSerializerFormatters`，如下：  
+
  *Startup.cs*
  ```cs
 // ...
@@ -79,42 +80,38 @@ public void ConfigureServices(IServiceCollection services)
 
 ### 範例程式
 
-*Controllers\HomeController.cs*
 ```cs
-using Microsoft.AspNetCore.Mvc;
-
-namespace MyWebsite.Controllers
+// ...
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    public IActionResult FirstSample(
+        [FromHeader]string header,
+        [FromForm]string form,
+        [FromRoute]string id,
+        [FromQuery]string query)
     {
-        public IActionResult FirstSample(
-            [FromHeader]string header,
-            [FromForm]string form,
-            [FromRoute]string id,
-            [FromQuery]string query)
-        {
-            return Content($"header: {header}, form: {form}, id: {id}, query: {query}");
-        }
-        
-        public IActionResult DISample([FromServices] ILogger<HomeController> logger)
-        {
-            return Content($"logger is null {logger == null}.");
-        }
-
-        public IActionResult BodySample([FromBody]UserModel model)
-        {
-            return Ok(model);
-        }
+        return Content($"header: {header}, form: {form}, id: {id}, query: {query}");
+    }
+    
+    public IActionResult DISample([FromServices] ILogger<HomeController> logger)
+    {
+        return Content($"logger is null: {logger == null}.");
     }
 
-    public class UserModel
+    public IActionResult BodySample([FromBody]UserModel model)
     {
-        public int Id { get; set; }        
-        public string Name { get; set; }        
-        public string Email { get; set; }        
-        public string PhoneNumber { get; set; }        
-        public string Address { get; set; }
+        return Ok(model);
     }
+}
+
+// ...
+public class UserModel
+{
+    public int Id { get; set; }        
+    public string Name { get; set; }        
+    public string Email { get; set; }        
+    public string PhoneNumber { get; set; }        
+    public string Address { get; set; }
 }
 ```
 
@@ -125,8 +122,8 @@ namespace MyWebsite.Controllers
 
 **DISample** 輸出結果：  
 `http://localhost:5000/Home/DISample`  
-```
-logger is null False.
+```sh
+logger is null: False.
 ```
 
 **BodySample** 輸出結果：  
@@ -175,7 +172,8 @@ namespace MyWebsite.Controllers
         // ...
         public IActionResult BodySample([FromBody]UserModel model)
         {
-            // 由於 Id 是 int 型別，int 預設為 0，雖然有帶上 [Required]，但不是 null 所以算是有值。
+            // 由於 Id 是 int 型別，int 預設為 0
+            // 雖然有帶上 [Required]，但不是 null 所以算是有值。
             if (model.Id < 1)
             {
                 ModelState.AddModelError("Id", "Id not exist");
@@ -190,7 +188,7 @@ namespace MyWebsite.Controllers
 }
 ```
 
-資料錯誤的輸出結果：  
+輸入錯誤資料的輸出結果：  
 
 ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Model 驗證](/images/i09-5.png)   
 
@@ -199,7 +197,9 @@ namespace MyWebsite.Controllers
 
 ### 自製 Validation Attributes
 
-如果 .NET Core 提供的 Validation Attributes 不夠用還可以自己做。例如上述範例的資料模型多了生日欄位，需要驗證年齡：  
+如果 .NET Core 提供的 Validation Attributes 不夠用還可以自己做。  
+例如上述範例的資料模型多了生日欄位，需要驗證年齡：  
+
 ```cs
 using System.ComponentModel.DataAnnotations;
 // ...
@@ -275,7 +275,6 @@ namespace MyWebsite.Attributes
     }
 }
 ```
-
 
 ## 參考
 
