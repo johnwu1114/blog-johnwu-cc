@@ -239,40 +239,26 @@ var customSearch;
 	}
 
 	function setVisitsCount() {
-		const firebase = window.firebase;
-		let config = {
-			apiKey: FIREBASE_API_KEY,
-			authDomain: FIREBASE_AUTH_DOMAIN,
-			databaseURL: FIREBASE_DATABASE_URL,
-			projectId: FIREBASE_PROJECT_ID,
-			storageBucket: FIREBASE_STORAGE_BUCKET,
-			messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
-		};
-		firebase.initializeApp(config);
-		let database = firebase.database();
-
-		const changeUrlToKey = function (url) {
-			return url.replace(new RegExp('\\/|\\.', 'g'), "_");
-		}
-
-		const readPageviews = function (selector, url, isReadOnly) {
-			let key = changeUrlToKey(window.location.host) + "/" + changeUrlToKey(url);
-			database.ref(key).once("value").then(function (result) {
-				let count = parseInt(result.val() || 0) + (isReadOnly ? 0 : 1);
-				if (selector.length > 0) {
-					selector.html(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				}
-				if (!isReadOnly) {
-					database.ref(key).set(count.toString()); 
+		let urls = [];
+		let pageviews = {};
+		$(".pageviews").each(function () {
+			let url = $(this).data("path");
+			urls.push(url);
+			pageviews[url] = $(this).find(".count");
+		}).promise().done(function () {
+			$.post(PAGEVIEWS_API, {
+				host: window.location.host,
+				urls: urls
+			}).done(function (result) {
+				for (var key in result.pageviews) {
+					let count = (result.pageviews[key] || "--").toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					if (key === "/") {
+						$("#totalPageviews .count").html(count);
+					} else {
+						pageviews[key].html(count);
+					}
 				}
 			});
-		}
-
-		let isReadOnly = window.location.pathname.endsWith("/");
-		readPageviews($("#totalPageviews .count"), "/", false);
-		$(".pageviews").each(function () {
-			let postUrl = $(this).data("path");
-			readPageviews($(this).find(".count"), postUrl, isReadOnly);
 		});
 	}
 
