@@ -7,8 +7,8 @@
 07 Routing
 08 URL Rewrite
 09 Model Bindding
-`10 Views`
-* 11 Session Cookies
+10 Views
+11 Session Cookies
 12 RESTful API
 13 Swagger
 14 Filters
@@ -17,13 +17,13 @@
 17 例外處理 (Exception Handler)
 18 Logging
 19 NLog & Log4net
-20 多國語言 (Localization)
-21 Entity Framework Core
-22 上傳/下載檔案
-23 SignalR
-* Redis Session & Cache
-* 優化安全性(Header移除安全性, SSL, cors)
-* 優化效能(封包壓縮, Response Caching)
+`20 快取機制及 Redis Session`
+21 多國語言 (Localization)
+22 Entity Framework Core
+23 上傳/下載檔案
+24 SignalR
+`25 優化安全性(Header移除安全性, SSL, cors)`
+`26 優化效能(封包壓縮, Response Caching)`
 * NUnit(VS Code test runner)
 * Deploy IIS
 * Deploy Linus

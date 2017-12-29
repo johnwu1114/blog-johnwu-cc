@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day23] ASP.NET Core 2 系列 - SignalR'
+title: '[鐵人賽 Day24] ASP.NET Core 2 系列 - SignalR'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,7 +7,7 @@ tags:
   - SignalR
 categories:
   - ASP.NET Core
-date: 2018-01-11 12:00
+date: 2018-01-12 12:00
 featured_image: /images/pasted-69p.png
 ---
 
@@ -188,7 +188,7 @@ namespace MyWebsite.Hubs
 
 ## 執行結果
 
-![[鐵人賽 Day23] ASP.NET Core 2 系列 - SignalR - 範例執行結果](/images/pasted-69.gif)
+![[鐵人賽 Day24] ASP.NET Core 2 系列 - SignalR - 範例執行結果](/images/pasted-69.gif)
 
 ## 參考
 

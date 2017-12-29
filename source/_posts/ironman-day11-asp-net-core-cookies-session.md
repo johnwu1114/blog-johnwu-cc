@@ -71,6 +71,7 @@ Session 是透過 Cookies 內的唯一識別資訊，把用戶資料存在 Serve
 要在 ASP.NET Core 使用 Session 需要先加入兩個服務：  
 * **Session 容器**  
  Session 可以存在不同的地方，透過 DI `IDistributedCache` 物件，讓 Session 服務知道要將 Session 存在哪邊。  
+ *(之後的文章會介紹到 `IDistributedCache` 分散式快取)*  
 * **Session 服務**  
  在 DI 容器加入 Session 服務。並將 Session 的 Middleware 加入 Pipeline。  
 

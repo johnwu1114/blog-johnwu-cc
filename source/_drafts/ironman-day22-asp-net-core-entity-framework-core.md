@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day21] ASP.NET Core 2 系列 - Entity Framework Core'
+title: '[鐵人賽 Day22] ASP.NET Core 2 系列 - Entity Framework Core'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,8 +7,8 @@ tags:
   - Entity Framework Core
 categories:
   - ASP.NET Core
-date: 2018-01-09 12:00
-featured_image: /images/i21-1.png
+date: 2018-01-10 12:00
+featured_image: /images/i22-1.png
 ---
 
 Entity Framework 是 .NET 跟資料庫溝通好用的 Object-Relational Mapper (O/RM) 框架，ASP.NET Core 也在專案初期就加入了 Entity Framework Core (EF Core)，延續這個好用框架。  
@@ -439,7 +439,7 @@ namespace MyWebsite
 
 ## 執行結果
 
-![[鐵人賽 Day21] ASP.NET Core 2 系列 - Entity Framework Core](/images/i21-1.png)
+![[鐵人賽 Day22] ASP.NET Core 2 系列 - Entity Framework Core](/images/i22-1.png)
 
 ## 參考
 

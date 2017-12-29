@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day22] ASP.NET Core 2 系列 - 上傳/下載檔案'
+title: '[鐵人賽 Day23] ASP.NET Core 2 系列 - 上傳/下載檔案'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -8,8 +8,8 @@ tags:
   - Stream
 categories:
   - ASP.NET Core
-date: 2018-01-10 12:00
-featured_image: /images/i22-1.png
+date: 2018-01-11 12:00
+featured_image: /images/i23-1.png
 ---
 
 在 ASP.NET Core 實作上傳檔案及下載檔案功能算蠻簡易的，  
@@ -158,7 +158,7 @@ HTML Form 如下：
 </form>
 ```
 
-![[鐵人賽 Day22] ASP.NET Core 2 系列 - 上傳/下載檔案 - 表單資料執行結果](/images/i22-1.png)
+![[鐵人賽 Day23] ASP.NET Core 2 系列 - 上傳/下載檔案 - 表單資料執行結果](/images/i23-1.png)
 
 ## 大型檔案上傳
 
