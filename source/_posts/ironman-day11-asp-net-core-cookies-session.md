@@ -12,11 +12,11 @@ date: 2017-12-30 12:00
 featured_image: /images/i11-1.png
 ---
 
-基本上 HTTP 是沒有紀錄狀態的協定，但可以透過 Cookies 及 Session 將 Request 來源區分出來，並將部分資料暫存於 Cookies 及 Session，是寫網站常用的用戶資料暫存方式。  
+基本上 HTTP 是沒有紀錄狀態的協定，但可以透過 Cookies 將 Request 來源區分出來，並將部分資料暫存於 Cookies 及 Session，是寫網站常用的用戶資料暫存方式。  
 本篇將介紹如何在 ASP.NET Core 使用 Cookie 及 Session。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day11] ASP.NET Core 2 系列 - Cookies & Session](https://ithelp.ithome.com.tw/articles/10194104)  
+ [[Day11] ASP.NET Core 2 系列 - Cookies & Session](https://ithelp.ithome.com.tw/articles/10194799)  
  
 <!-- more -->
 
@@ -24,6 +24,7 @@ featured_image: /images/i11-1.png
 
 Cookies 是將用戶資料存在 Client 的瀏覽器，每次 Request 都會把 Cookies 送到 Server。  
 在 ASP.NET Core 中要使用 Cookie，可以透過 `HttpContext.Request` 及 `HttpContext.Response` 存取：  
+
 *Startup.cs*  
 ```cs
 using Microsoft.AspNetCore.Builder;
@@ -62,16 +63,16 @@ namespace MyWebsite
 
 ![[鐵人賽 Day11] ASP.NET Core 2 系列 - Cookies & Session - Cookies](/images/i11-1.png)  
 
-> 當用多資料存在 Cookies 時，封包就會越大，因為每個 Request 都會帶著 Cookies 資訊。  
+> 當存在 Cookies 的資料越多，封包就會越大，因為每個 Request 都會帶著 Cookies 資訊。  
 
 ## Session
 
 Session 是透過 Cookies 內的唯一識別資訊，把用戶資料存在 Server 端記憶體、NoSQL 或資料庫等。  
 要在 ASP.NET Core 使用 Session 需要先加入兩個服務：  
 * **Session 容器**  
- Session 可以存在不同的地方，透過 DI 繼承 `IDistributedCache` 的物件，讓 Session 服務知道要將 Session 存在哪邊。  
-* **Session 服務**
- 要使用 Session 的服務物件。並將 Session 的 Middleware 加入 Pipeline。  
+ Session 可以存在不同的地方，透過 DI `IDistributedCache` 物件，讓 Session 服務知道要將 Session 存在哪邊。  
+* **Session 服務**  
+ 在 DI 容器加入 Session 服務。並將 Session 的 Middleware 加入 Pipeline。  
 
 *Startup.cs*  
 ```cs
@@ -107,6 +108,7 @@ namespace MyWebsite
 ```
 
 HTTP Cookies 資訊如下：  
+
 ![[鐵人賽 Day11] ASP.NET Core 2 系列 - Cookies & Session - Session](/images/i11-2.png)  
 
 可以看到多出了 `.AspNetCore.Session`，`.AspNetCore.Session` 就是 Session 的唯一識別資訊。  
@@ -116,6 +118,7 @@ HTTP Cookies 資訊如下：
 
 以前 ASP.NET 可以將物件型別直接存放到 Session，現在 ASP.NET Core Session 不再自動序列化物件到 Sesson。  
 如果要存放物件型態到 Session 就要自己序列化了，這邊以 JSON 格式作為範例：  
+
 *Extensions\SessionExtensions.cs*
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -139,7 +142,7 @@ namespace MyWebsite.Extensions
 }
 ```
 
-將物件存取至 Session 就可以直接使用擴充方法，如下：  
+透過上例擴充方法，就可以將物件存取至 Session，如下：  
 ```cs
 using MyWebsite.Extensions;
 // ...
@@ -154,7 +157,7 @@ context.Session.SetObject("user", user);
 * **SecurePolicy**  
  限制只有在 HTTPS 連線的情況下，才允許使用 Session。如此一來變成加密連線，就不容易被攔截。  
 * **IdleTimeout**  
- 合理的 Session 到期時間。預設是 20 分鐘沒有跟 Server 互動的 Request 就會將 Session 設為過期。  
+ 修改合理的 Session 到期時間。預設是 20 分鐘沒有跟 Server 互動的 Request，就會將 Session 變成過期狀態。  
  (20分鐘有點長，不過還是要看產品需求。)  
 * **Name**  
  沒必要將 Server 或網站技術的資訊爆露在外面，所以預設 Session 名稱 `.AspNetCore.Session` 可以改掉。  
@@ -222,6 +225,7 @@ public class SessionWapper : ISessionWapper
 ```
 
 在 DI 容器中加入 `IHttpContextAccessor` 及 `ISessionWapper`，如下：  
+
 *Startup.cs*
 ```cs
 // ...
@@ -233,9 +237,10 @@ public void ConfigureServices(IServiceCollection services)
 ```
 * **IHttpContextAccessor**  
  ASP.NET Core 實作了 `IHttpContextAccessor`，讓 `HttpContext` 可以輕鬆的注入給需要用到的物件使用。  
- 由於 `IHttpContextAccessor` 只是取得 `HttpContext` 的接口，所以用 **Singleton** 的方式就可以供其它物件使用。  
+ 由於 `IHttpContextAccessor` 只是取用 `HttpContext` 實例的接口，用 **Singleton** 的方式就可以供其它物件使用。  
 
 在 Controller 就可以直接注入 `ISessionWapper`，以強行別的方式存取 Session，如下：  
+
 *Controllers/HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
