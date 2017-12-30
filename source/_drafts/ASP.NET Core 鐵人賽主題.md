@@ -17,7 +17,7 @@
 17 例外處理 (Exception Handler)
 18 Logging
 19 NLog & Log4net
-`20 快取機制及 Redis Session`
+20 快取機制及 Redis Session
 21 多國語言 (Localization)
 22 Entity Framework Core
 23 上傳/下載檔案

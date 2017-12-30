@@ -15,6 +15,9 @@ featured_image: /images/i12-1.png
 RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱 CRUD 四種資料存取方式，簡約又直覺的風格，讓人用的愛不釋手。  
 本篇將介紹如何透過 ASP.NET Core 實作 RESTful API。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day11] ASP.NET Core 2 系列 - RESTful API](https://ithelp.ithome.com.tw/articles/10194989)  
+ 
 <!-- more -->
 
 ## HTTP Method
@@ -178,7 +181,7 @@ public class Startup
 }
 ```
 
-> `DefaultContractResolver` 名稱是延續 ASP.NET，雖然名稱叫 Default，但在 ASP.NET Core 它不是 **Default**。`CamelCasePropertyNamesContractResolver` 才是 **Default** ContractResolver。
+> `DefaultContractResolver` 名稱是延續 ASP.NET，雖然名稱叫 Default，但在 ASP.NET Core 它不是 **Default**。`CamelCasePropertyNamesContractResolver` 才是 ASP.NET Core 的 **Default** ContractResolver。
 
 呼叫 `http://localhost:5000/api/users/1` 會回傳 JSON 如下：
 ```json
@@ -205,8 +208,6 @@ public class Startup
                 {
                     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                 });
-        // 同以下寫法：
-        // services.AddMvc();
     }
 }
 ```
@@ -330,13 +331,13 @@ namespace MyWebsite
 
 透過 Postman 測試 API。
 
-* 新增(Create)  
+* **新增(Create)**  
 ![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 新增(Create)](/images/i12-1.png)  
-* 查詢(Read)  
+* **查詢(Read)**  
 ![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 查詢(Read)](/images/i12-2.png)  
-* 修改(Update)  
+* **修改(Update)**  
 ![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 修改(Update)](/images/i12-3.png)  
-* 刪除(Delete)  
+* **刪除(Delete)**  
 ![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 刪除(Delete)](/images/i12-4.png)  
 
 ## 參考
