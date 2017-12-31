@@ -15,6 +15,9 @@ featured_image: /images/i13-1.png
 Swagger 也算是行之有年的 API 文件產生器，只要在 API 上使用 C# 的 `<summary />` 文件註解標籤，就可以產生精美的線上文件，並且對 RESTful API 有良好的支援。不僅支援產生文件，還支援模擬調用的互動功能，連 Postman 都不用打開就能測 API。  
 本篇將介紹如何透過 Swagger 產生 ASP.NET Core 的 RESTful API 文件。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day13] ASP.NET Core 2 系列 - Web API 文件產生器 (Swagger)](https://ithelp.ithome.com.tw/articles/10195190)  
+ 
 <!-- more -->
 
 ## 安裝套件
@@ -27,7 +30,9 @@ dotnet add package Swashbuckle.AspNetCore
 
 ## 註冊 Swagger
 
-在 `Startup.cs` 的 `ConfigureServices` 加入 Swagger 的服務及 Middleware。如下：
+在 `Startup.cs` 的 `ConfigureServices` 加入 Swagger 的服務及 Middleware。如下：  
+
+*Startup.cs*
 ```cs
 using Swashbuckle.AspNetCore.Swagger;
 // ...
@@ -40,25 +45,28 @@ public class Startup
                     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                 });
 
-        // name: 攸關 SwaggerDocument 的 URL 位置。
-        // info: 是用於 SwaggerDocument 版本資訊的顯示(內容非必填)。
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc(name: "v1", info: new Info
-            {
-                Title = "RESTful API",
-                Version = "1.0.0",
-                Description = "This is ASP.NET Core RESTful API Sample.",
-                TermsOfService = "None",
-                Contact = new Contact { 
-                    Name = "John Wu", 
-                    Url = "https://blog.johnwu.cc" 
-                },
-                License = new License { 
-                    Name = "CC BY-NC-SA 4.0", 
-                    Url = "https://creativecommons.org/licenses/by-nc-sa/4.0/" 
+            c.SwaggerDoc(
+                // name: 攸關 SwaggerDocument 的 URL 位置。
+                name: "v1", 
+                // info: 是用於 SwaggerDocument 版本資訊的顯示(內容非必填)。
+                info: new Info
+                {
+                    Title = "RESTful API",
+                    Version = "1.0.0",
+                    Description = "This is ASP.NET Core RESTful API Sample.",
+                    TermsOfService = "None",
+                    Contact = new Contact { 
+                        Name = "John Wu", 
+                        Url = "https://blog.johnwu.cc" 
+                    },
+                    License = new License { 
+                        Name = "CC BY-NC-SA 4.0", 
+                        Url = "https://creativecommons.org/licenses/by-nc-sa/4.0/" 
+                    }
                 }
-            });
+            );
         });
     }
     
@@ -67,9 +75,12 @@ public class Startup
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
-            // url: 需配合 SwaggerDoc 的 name。 "/swagger/{SwaggerDoc name}/swagger.json"
-            // description: 用於 Swagger UI 右上角選擇不同版本的 SwaggerDocument 顯示名稱使用。
-            c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", description: "RESTful API v1.0.0");
+            c.SwaggerEndpoint(
+                // url: 需配合 SwaggerDoc 的 name。 "/swagger/{SwaggerDoc name}/swagger.json"
+                url: "/swagger/v1/swagger.json", 
+                // description: 用於 Swagger UI 右上角選擇不同版本的 SwaggerDocument 顯示名稱使用。
+                description: "RESTful API v1.0.0"
+            );
         });
 
         app.UseMvc();
@@ -146,8 +157,9 @@ public class UserController : Controller
 </Project>
 ```
 
-然後在設定 Swagger 讀取此 XML 文件檔案：
-Startup.cs
+然後在 Swagger 產生器設定讀取 `<DocumentationFile>` 指定的 XML 文件檔案位置：  
+
+*Startup.cs*
 ```cs
 // ...
 public class Startup

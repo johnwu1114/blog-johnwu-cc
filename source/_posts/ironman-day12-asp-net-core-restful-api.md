@@ -16,7 +16,7 @@ RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Cr
 本篇將介紹如何透過 ASP.NET Core 實作 RESTful API。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day11] ASP.NET Core 2 系列 - RESTful API](https://ithelp.ithome.com.tw/articles/10194989)  
+ [[Day12] ASP.NET Core 2 系列 - RESTful API](https://ithelp.ithome.com.tw/articles/10194989)  
  
 <!-- more -->
 
