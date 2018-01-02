@@ -107,8 +107,9 @@ namespace MyWebsite
 
 外部參考的套件，通常只需要關注有沒有 Error 層級以上的錯誤。  
 因此，可以透過外部檔案設定 Log Level，過濾掉一些你不需要關注的 Log。  
-建立一個 `settings.json` 的檔案，依照需求增減 Log 過濾條件。內容如下：  
-*settings.json*
+建立一個 *settings.json* 的檔案，依照需求增減 Log 過濾條件。內容如下：  
+
+*Configuration\settings.json*
 ```json
 {
     "Logging": {
@@ -152,8 +153,9 @@ namespace MyWebsite
                 .UseStartup<Startup>()
                 .ConfigureLogging(logging =>
                 {
+                    var env = hostContext.HostingEnvironment;
                     var configuration = new ConfigurationBuilder()
-                        .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
+                        .SetBasePath(Path.Combine(env.ContentRootPath, "Configuration")))
                         .AddJsonFile(path: "settings.json", optional: true, reloadOnChange: true)
                         .Build();
                     logging.AddConfiguration(configuration.GetSection("Logging"));
@@ -163,7 +165,7 @@ namespace MyWebsite
     }
 }
 ```
-> `GetSection` 是指定從 *settings.json* 檔的 **Logging** 區塊讀取內容。  
+> `GetSection` 是指定從 *Configuration\settings.json* 檔的 **Logging** 區塊讀取內容。  
 
 輸出結果：  
 

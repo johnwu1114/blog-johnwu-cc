@@ -134,13 +134,13 @@ namespace MyWebsite
 // ...
 public class Startup
 {
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
         app.UseStaticFiles();
         app.UseStaticFiles(new StaticFileOptions()
         {
             FileProvider = new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
+                Path.Combine(env.ContentRootPath, @"node_modules")),
             RequestPath = new PathString("/third-party")
         });
         // ...
@@ -213,12 +213,12 @@ public class Startup
 public class Startup
 {
     // ...
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
         app.UseFileServer(new FileServerOptions()
         {
             FileProvider = new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory(), @"bin")
+                Path.Combine(env.ContentRootPath, @"bin")
             ),
             RequestPath = new PathString("/StaticFiles"),
             EnableDirectoryBrowsing = true

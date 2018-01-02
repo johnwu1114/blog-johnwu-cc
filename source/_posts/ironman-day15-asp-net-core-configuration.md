@@ -76,9 +76,10 @@ namespace MyWebsite
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
+                .ConfigureAppConfiguration((hostContext, config) =>
                 {
-                    config.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "Configuration"))
+                    var env = hostContext.HostingEnvironment;
+                    config.SetBasePath(Path.Combine(env.ContentRootPath, "Configuration"))
                           .AddJsonFile(path: "settings.json", optional: false, reloadOnChange: true);
                 })
                 .UseStartup<Startup>()
@@ -271,7 +272,7 @@ namespace MyWebsite
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) => config.AddCommandLine(args))
+                .ConfigureAppConfiguration((hostContext, config) => config.AddCommandLine(args))
                 .UseStartup<Startup>()
                 .Build();
         }
@@ -354,7 +355,7 @@ namespace MyWebsite
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) => config.AddEnvironmentVariables())
+                .ConfigureAppConfiguration((hostContext, config) => config.AddEnvironmentVariables())
                 .UseStartup<Startup>()
                 .Build();
         }
@@ -416,7 +417,7 @@ namespace MyWebsite
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) => {
+                .ConfigureAppConfiguration((hostContext, config) => {
                     var dictionary =  new Dictionary<string, string>
                     {
                         { "Site:Name", "John Wu's Blog" },
@@ -517,7 +518,7 @@ namespace MyWebsite
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) => config.Add(new CustomConfigurationSource()))
+                .ConfigureAppConfiguration((hostContext, config) => config.Add(new CustomConfigurationSource()))
                 .UseStartup<Startup>()
                 .Build();
         }

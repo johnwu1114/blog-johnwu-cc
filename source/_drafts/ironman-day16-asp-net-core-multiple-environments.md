@@ -137,10 +137,10 @@ namespace MyWebsite
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
+                .ConfigureAppConfiguration((hostContext, config) =>
                 {
-                    var env = hostingContext.HostingEnvironment;
-                    config.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "Configuration"))
+                    var env = hostContext.HostingEnvironment;
+                    config.SetBasePath(Path.Combine(env.ContentRootPath, "Configuration"))
                         .AddJsonFile(path: "settings.json", optional: false, reloadOnChange: true)
                         .AddJsonFile(path: $"settings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
                 })
