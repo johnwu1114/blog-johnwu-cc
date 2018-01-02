@@ -7,7 +7,7 @@ tags:
 categories:
   - SEO
 date: 2017-09-09 00:09:00
-update: 2017-10-15 22:11:00
+updated: 2017-10-15 22:11:00
 featured_image: /images/x339.png
 ---
 ![SEO - 網頁插入 Alexa Widget - Site Status](/images/x339.png)

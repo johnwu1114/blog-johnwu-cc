@@ -32,7 +32,7 @@ ASP.NET Core 的組態設定可以有以下幾種來源：
 
 ## 組態設定檔
 
-可以依照個人喜好或團隊習慣的方式建立組態檔，檔名跟路徑並沒有特別的規則。  
+可依照個人喜好或團隊習慣的方式建立組態檔，檔名跟路徑並沒有特別的規則。  
 此例，我在專案當中建立一個 Configuration 的資料夾，並建立 settings.json。  
 
 *Configuration\settings.json*
@@ -136,6 +136,17 @@ defaultCulture(System.String): zh-TW
 subProperty1(System.String): 1
 subProperty2(System.String): True
 subProperty3(System.String): This is sub property.
+```
+
+`IConfiguration` 是以 `Dictionary` 的方式取用組態設定，所以 `*.json` 的最外層不能直接用集合的格式，在最外層用集合會變成沒有對應的 Key 值。錯誤的格式如下：  
+
+*Configuration\wrong.json*
+```json
+[
+    "en-GB",
+    "zh-TW",
+    "zh-CN"
+]
 ```
 
 ### 強型別及型態

@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API'
+title: '[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -9,20 +9,21 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-31 12:00
+updated: 2018-01-02 12:00
 featured_image: /images/i12-1.png
 ---
 
 RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱 CRUD 四種資料存取方式，簡約又直覺的風格，讓人用的愛不釋手。  
-本篇將介紹如何透過 ASP.NET Core 實作 RESTful API。  
+本篇將介紹如何透過 ASP.NET Core 實作 REST-Like API。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day12] ASP.NET Core 2 系列 - RESTful API](https://ithelp.ithome.com.tw/articles/10194989)  
+ [[Day12] ASP.NET Core 2 系列 - REST-Like API](https://ithelp.ithome.com.tw/articles/10194989)  
  
 <!-- more -->
 
 ## HTTP Method
 
-RESTful API 對資料的操作行為，透過 HTTP Method 分為以下四種方式：  
+REST-Like API 對資料的操作行為，透過 HTTP Method 分為以下四種方式：  
 
 * **新增(Create)**  
  用 HTTP `POST` 透過 Body 傳遞 JSON 或 XML 格式的資料給 Server。例如：  
@@ -332,15 +333,34 @@ namespace MyWebsite
 透過 Postman 測試 API。
 
 * **新增(Create)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 新增(Create)](/images/i12-1.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 新增(Create)](/images/i12-1.png)  
 * **查詢(Read)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 查詢(Read)](/images/i12-2.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 查詢(Read)](/images/i12-2.png)  
 * **修改(Update)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 修改(Update)](/images/i12-3.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 修改(Update)](/images/i12-3.png)  
 * **刪除(Delete)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API - 刪除(Delete)](/images/i12-4.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 刪除(Delete)](/images/i12-4.png)  
+
+## 2018/01/02 補充
+
+經大師指點，原標題為 **ASP.NET Core 2 系列 - RESTful API**，但範例未符合 HATEOAS(Hypermedia As The Engine Of Application State) 原則，所以不得稱為 RESTful API。  
+
+RESTful API 有四個重要的原則要遵守：  
+1. **Level 0**  
+ 使用 HTTP 做為資料傳輸的媒介。  
+2. **Level 1**  
+ 不要提供一個包山包海的 API，而是要區分資源，每個資源都該有對應的 API。  
+3. **Level 2**  
+ 透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)。  
+4. **Level 3**  
+ 對同資源可以用鏈結表達的方式，向下延伸查詢或修改。  
+ 參考範例：[HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)  
+ 
+因本篇範例未符合 **Level 3** HATEOAS 原則，所以把標題改為 **ASP.NET Core 2 系列 - REST-Like API**。
 
 ## 參考
 
 [Routing in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing)  
 [Attribute Routing in ASP.NET Core](https://dotnetthoughts.net/attribute-routing-in-aspnet-core/)  
+[Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html)  
+[HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)  

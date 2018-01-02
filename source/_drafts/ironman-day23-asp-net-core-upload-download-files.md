@@ -12,8 +12,7 @@ date: 2018-01-11 12:00
 featured_image: /images/i23-1.png
 ---
 
-在 ASP.NET Core 實作上傳檔案及下載檔案功能算蠻簡易的，  
-但對於上傳大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 網站崩潰。  
+在 ASP.NET Core 實作上傳檔案及下載檔案功能算蠻簡易的，但對於上傳大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 網站崩潰。  
 本篇將介紹如何在 ASP.NET Core 實作上傳/下載檔案 API。  
 
 <!-- more -->
