@@ -22,7 +22,7 @@
 22 Entity Framework Core
 23 上傳/下載檔案
 24 SignalR
-`25 優化安全性(Header移除安全性, SSL, cors)`
+`25 優化安全性(SSL, cors, CSP, Header移除安全性)`
 `26 優化效能(封包壓縮, Response Caching)`
 * NUnit(VS Code test runner)
 * Deploy IIS

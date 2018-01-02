@@ -4,7 +4,6 @@ author: John Wu
 tags:
   - ASP.NET Core
   - iT 邦幫忙 2018 鐵人賽
-  - NLog
 categories:
   - ASP.NET Core
 date: 2018-01-06 12:00
