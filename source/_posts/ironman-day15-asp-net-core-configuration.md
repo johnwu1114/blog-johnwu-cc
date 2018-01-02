@@ -11,13 +11,15 @@ date: 2018-01-03 12:00
 featured_image: /images/i15-1.png
 ---
 
-ASP.NET Core 不再把 Web.config 當作預設的組態設定，而且 .NET Core 讀取組態設定的方式也跟過去不同，也不再使用 ConfigurationManager 讀組態設定值。
-除了從檔案取得組態設定，還有多種不同的組態設定方式。  
+ASP.NET Core 不再把 Web.config 當作預設的組態設定，而且 .NET Core 讀取組態設定的方式也跟過去不同，不再使用 ConfigurationManager 讀組態設定值。除了從檔案取得組態設定，還有多種不同的組態設定方式。  
 本篇將介紹 ASP.NET Core 的組態設定(Configuration)方式。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day15] ASP.NET Core 2 系列 - 組態設定 (Configuration)](https://ithelp.ithome.com.tw/articles/10195417)  
+ 
 <!-- more -->
 
-ASP.NET Core 的組態設定可以有以下幾種來源：
+ASP.NET Core 的組態設定可以有以下幾種來源：  
 * 組態設定檔。如：`*.json`、`*.xml`、`*.ini`等。  
 * 指令參數  
 * 環境變數 
@@ -26,7 +28,7 @@ ASP.NET Core 的組態設定可以有以下幾種來源：
 * Azure Key Vault  
 * Safe Storage  
 
-> 本篇不會介紹 [Azure Key Vault](https://docs.microsoft.com/en-gb/aspnet/core/security/key-vault-configuration?tabs=aspnetcore2x) 及 [Safe Storage](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio-code)，有需要的話可以點擊超連結至關網查看。  
+> 本篇不會介紹 [Azure Key Vault](https://docs.microsoft.com/en-gb/aspnet/core/security/key-vault-configuration?tabs=aspnetcore2x) 及 [Safe Storage](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio-code)，有需要的話可以點擊超連結至官網查看。  
 
 ## 組態設定檔
 
@@ -51,10 +53,11 @@ ASP.NET Core 的組態設定可以有以下幾種來源：
 }
 ```
 
-> 過去 ASP.NET MVC、.NET Application 的組態設定檔預設用 Web.config 或 App.config，採用 XML 格式。  
+> 過去 ASP.NET MVC、.NET Framework 的組態設定檔，預設用 Web.config 或 App.config，採用 XML 格式。  
 > 現在 .NET Core 建議採用 JSON 格式，比較簡潔易讀。  
 
 在 WebHost Builder 用 `ConfigureAppConfiguration` 載入組態設定，讓組態設定之後可以被 DI。  
+
 *Startup.cs*
 ```cs
 using System.IO;
@@ -87,12 +90,12 @@ namespace MyWebsite
 `ConfigureAppConfiguration` 會提供 `IConfigurationBuilder` 的實例 **config**，透過 `IConfigurationBuilder` 載入組態的相關設定。  
 * **SetBasePath**：設定 Configuration 的目錄位置，如果是放在不同目錄，再把路徑換掉即可。  
 * **AddJsonFile**：
- * **path**：加入要被使用組態檔案。  
- * **optional**：如果是必要組態檔 optional 就要設定為 false，當檔案不存在就會拋出 FileNotFoundException。  
- * **reloadOnChange**：如果檔案被更新，就同步更新 `IConfiguration` 實例的值。  
+  * **path**：組態檔案的路徑位置。  
+  * **optional**：如果是必要的組態檔，optional 就要設定為 false，當檔案不存在就會拋出 FileNotFoundException。  
+  * **reloadOnChange**：如果檔案被更新，就同步更新 `IConfiguration` 實例的值。  
 
-`IConfigurationBuilder` 在 WebHost 實例化後，就會建立 `IConfiguration` 實例，並將 `IConfiguration` 放入 DI 容器供 DI 使用，並以 Dictionary 的方式取用組態設定的值。  
-> 如果不了解 DI 可以參考這篇：[[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection)](/article/ironman-day04-asp-net-core-dependency-injection.html)  
+`IConfigurationBuilder` 在 WebHost 實例化後，就會建立 `IConfiguration` 實例，並將 `IConfiguration` 放入 DI 容器供注入使用，並以 Dictionary 的方式取用組態設定的值。  
+*(DI 可以參考這篇：[[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入 (Dependency Injection)](/article/ironman-day04-asp-net-core-dependency-injection.html))*  
 
 *Controllers\HomeController.cs*
 ```cs
@@ -163,6 +166,7 @@ public class Property1
 ```
 
 在 `Startup.ConfigureServices` 透過 `services.Configure<T>()`以強型別對應 `IConfiguration` 實例的方式，加入至 DI 容器：   
+
 *Startup.cs*  
 ```cs
 // ...
@@ -186,6 +190,7 @@ public class Startup
 ```
 
 使用的 DI 型別改成 `IOptions<T>`，如下：  
+
 *Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -236,6 +241,7 @@ dotnet run SiteName="John Wu's Blog" Domain="blog.johnwu.cc"
 ```
 
 程式啟動指令參數會從 `Main(string[] args)` 取得，再將 **args** 傳給 `IConfigurationBuilder.AddCommandLine()` 載入指令參數。  
+
 *Program.cs*  
 ```cs
 using Microsoft.AspNetCore;
@@ -263,6 +269,7 @@ namespace MyWebsite
 ```
 
 同樣以 DI 方式注入 `IConfiguration` 實例，以 Dictionary 的方式取用組態檔的值。  
+
 *Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -317,6 +324,7 @@ export Sample="This is environment variable sample."
 ```
 
 在 WebHost Builder 用 `IConfigurationBuilder.AddEnvironmentVariables()` 載入環境變數。  
+
 *Program.cs*
 ```cs
 using Microsoft.AspNetCore;
@@ -344,6 +352,7 @@ namespace MyWebsite
 ```
 
 同樣以 DI 方式注入 `IConfiguration` 實例，以 Dictionary 的方式取用組態檔的值。  
+
 *Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -376,7 +385,8 @@ sample(System.String): This is environment variable sample.
 
 ## 記憶體物件
 
-這種做法比較像是 Hardcode(除非動態載入 DLL)，直接在 `ConfigureAppConfiguration` 宣告 Dictionary，然後用 `IConfigurationBuilder.AddInMemoryCollection()` 載入記憶體物件。如下：  
+這種做法比較像是 Hardcode，直接在 `ConfigureAppConfiguration` 宣告 Dictionary，然後用 `IConfigurationBuilder.AddInMemoryCollection()` 載入記憶體物件。如下：  
+
 *Program.cs*
 ```cs
 using Microsoft.AspNetCore;
@@ -411,6 +421,7 @@ namespace MyWebsite
 ```
 
 同樣以 DI 方式注入 `IConfiguration` 實例，以 Dictionary 的方式取用組態檔的值。  
+
 *Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -470,12 +481,13 @@ public class CustomConfigurationProvider : ConfigurationProvider
     }
 }
 ```
-> **Data** 的內容可依需求填入，例如：
- * 從 SQL Server 取得內容後，轉成 Dictionary 填入  
- * 從 Redis 取得內容後，轉成 Dictionary 填入  
- * 等等
+> **Data** 的內容可依需求填入，例如：  
+> * 從 SQL Server 取得內容後，轉成 Dictionary 填入  
+> * 從 Redis 取得內容後，轉成 Dictionary 填入  
+> * 其它外部資源等
 
 把 CustomConfigurationSource 加入至 `IConfigurationBuilder`。  
+
 *Program.cs*
 ```cs
 using Microsoft.AspNetCore;
@@ -503,6 +515,7 @@ namespace MyWebsite
 ```
 
 同樣以 DI 方式注入 `IConfiguration` 實例，以 Dictionary 的方式取用組態檔的值。  
+
 *Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
