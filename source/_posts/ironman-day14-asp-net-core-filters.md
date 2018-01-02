@@ -14,6 +14,9 @@ featured_image: /images/pasted-198.png
 Filter 是延續 ASP.NET MVC 的產物，同樣保留了五種的 Filter，分別是 *Authorization Filter*、*Resource Filter*、*Action Filter*、*Exception Filter* 及 *Result Filter*。  
 透過不同的 Filter 可以有效處理封包進出的加工，本篇將介紹 ASP.NET Core 的五種 Filter 運作方式。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day14] ASP.NET Core 2 系列 - Filters](https://ithelp.ithome.com.tw/articles/10195407)  
+ 
 <!-- more -->
 
 ## Filter 介紹
@@ -49,7 +52,6 @@ ASP.NET Core 的 Filter 基本上跟 ASP.NET MVC 的差不多。
 
 ### Authorization Filter
 
-
 AuthorizationFilter.cs
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -78,9 +80,6 @@ public class AuthorizationFilter : IAsyncAuthorizationFilter
     }
 }
 ```
-
-案例：  
-例如
 
 ### Resource Filter
 
