@@ -16,6 +16,9 @@ featured_image: /images/i16-3.png
 ASP.NET Core 就提供了相關的環境 API，透過環境 API 取得執行環境的資訊，進而做對應處理。  
 本篇將介紹 ASP.NET Core 的多重環境組態管理。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments)](https://ithelp.ithome.com.tw/articles/10195745)  
+ 
 <!-- more -->
 
 ## 環境名稱
@@ -29,6 +32,7 @@ ASP.NET Core 預設將環境分為三種：
 * **Production**：正式環境
 
 要取得系統變數 `ASPNETCORE_ENVIRONMENT`，可以透過注入 `IHostingEnvironment` API。範例如下：  
+
 *Startup.cs*
 ```cs
 // ...
@@ -57,6 +61,7 @@ public class Startup
 環境名稱並沒有特定的限制，它可以是任意的字串，不一定要被預設的三種分類限制。  
 
 例如自訂一個 **Test** 的環境。如下：  
+
 *Startup.cs*
 ```cs
 // ...
@@ -81,15 +86,16 @@ public class Startup
     }
 }
 ```
-> 建議判斷環境名稱透過 `env.IsEnvironment("EnvironmentName")`，`IsEnvironment()` 會忽略大小寫差異。  
+> 建議判斷環境透過 `env.IsEnvironment("EnvironmentName")`，`IsEnvironment()` 會忽略大小寫差異。  
 
 ## 組態設定
 
-組態設定檔在不同環境都會有一份，各環境需要的組態設定，可能大部分的內容是相同的，但應該會有幾個設定是不同的。如：資料庫連線字串。  
+組態設定檔可以在不同環境都各有一份，或許大部分的內容是相同的，但應該會有幾個設定是不同的。如：資料庫連線字串。  
 環境名稱也可以跟組態設定檔混用，利用組態設定檔後帶環境名稱，作為不同環境會取用的組態設定檔。  
 
 例如：  
 有一個組態設定檔為 *settings.json*，內容如下：  
+
 *Configuration\settings.json*
 ```json
 {
@@ -110,6 +116,7 @@ public class Startup
 ```
 
 正式環境也建立一個名稱相同的檔案，並帶上環境名稱 *settings.Production.json*，內容如下：  
+
 *Configuration\settings.Production.json*
 ```json
 {
@@ -118,6 +125,7 @@ public class Startup
 ```
 
 載入組態設定方式：  
+
 *Program.cs*
 ```cs
 using System.IO;
@@ -151,7 +159,7 @@ namespace MyWebsite
 }
 ```
 
-讀取組態設定檔時，先讀取 *settings.json* 並設定 `optional=false` 為必要檔案；再讀取 *settings.{env.EnvironmentName}.json* 檔案。
+讀取組態設定檔時，會先讀取 *settings.json* 並設定 `optional=false`，指定該檔為必要檔案；再讀取 *settings.{env.EnvironmentName}.json* 檔案。
 組態檔載入的特性是當遇到 Key 值重複時，後面載入的設定會蓋掉前面的設定。  
 
 以此例來說，當 *settings.Production.json* 載入後，就會把 *settings.json* 的 DBConnectionString 設定蓋掉，而 *settings.json* 其它的設定依然能繼續使用。  
@@ -160,7 +168,7 @@ namespace MyWebsite
 
 ## 環境設定
 
-利用系統變數 `ASPNETCORE_ENVIRONMENT` 判斷環境的特性，可以在各環境的電腦設定環境名稱。  
+利用系統變數 `ASPNETCORE_ENVIRONMENT` 能判斷環境的特性，可以在各環境的電腦設定環境名稱。  
 當程式佈署到該環境後，運行時就會套用該台電腦的系統變數。  
 
 ### Windows
@@ -187,6 +195,7 @@ export ASPNETCORE_ENVIRONMENT="Production"
 ### IIS
 
 IIS 的 *Web.config* 也可以設定環境變數：  
+
 *Web.config*
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -207,6 +216,7 @@ IIS 的 *Web.config* 也可以設定環境變數：
 ### Visual Studio Code
 
 如果是用 VS Code 開發的話，可以在 *launch.json* 找到 `ASPNETCORE_ENVIRONMENT` 的設定如下：  
+
 *launch.json*
 ```json
 {
@@ -236,6 +246,7 @@ IIS 的 *Web.config* 也可以設定環境變數：
 ![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/i16-3.png)  
 
 或者從 *Properties\launchSettings.json* 設定：  
+
 *Properties\launchSettings.json*
 ```json
 {
