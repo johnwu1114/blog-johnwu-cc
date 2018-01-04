@@ -16,10 +16,13 @@ featured_image: /images/pasted-206.png
 要在 ASP.NET Core 做一個通用的 Exception Handler 可以透過 Middleware 或 Filter，但兩者之間的執行週期確大不相同。  
 本篇將介紹 ASP.NET Core 透過 Middleware 及 Filter 異常處理的差異。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day17] ASP.NET Core 2 系列 - 例外處理 (Exception Handler)](https://ithelp.ithome.com.tw/articles/10195894)  
+ 
 <!-- more -->
 
 > 實做 Exception Handler 前，需要先了解 **Middleware** 及 **Filter** 的特性。  
-可以參考這兩篇：
+可以參考這兩篇：  
 * [[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](/article/ironman-day03-asp-net-core-middleware.html)  
 * [[鐵人賽 Day14] ASP.NET Core 2 系列 - Filters](/article/ironman-day14-asp-net-core-filters.html)  
 
@@ -30,6 +33,7 @@ Exception Filter 僅能補捉到 Action 及 Action Filter 所發出的 Exception
 如果要做全站的通用的 Exception Handler，可能就沒有這麼合適。  
 
 Exception Filter 範例：  
+
 *ExceptionFilter.cs*
 ```cs
 // ...
@@ -45,6 +49,7 @@ public class ExceptionFilter : IAsyncExceptionFilter
 ```
 
 Exception Filter 全域註冊：  
+
 *Startup.cs*
 ```cs
 // ...
@@ -59,7 +64,7 @@ public class Startup
     }
 }
 ```
-> 除非你註冊了兩個以上的 Exception Filter，不然 Filter 註冊的先後順序並不重要，執行順序是依照 Filter 的類型，同類型的 Filter 才會關係到註冊的先後順序。
+> 除非註冊了兩個以上的 Exception Filter，不然 Filter 註冊的先後順序並不重要，執行順序是依照 Filter 的類型，同類型的 Filter 才會關係到註冊的先後順序。
 
 ## Exception Middleware
 
@@ -69,6 +74,7 @@ Exception Handler 層級示意圖如下:
 ![ASP.NET Core 教學 - Exception Handler 層級](/images/pasted-206.png)
 
 Exception Middleware 範例：  
+
 *ExceptionMiddleware.cs*
 ```cs
 // ...
@@ -97,6 +103,7 @@ public class ExceptionMiddleware
 ```
 
 Exception Middleware 全域註冊：  
+
 *Startup.cs*
 ```cs
 // ...
@@ -114,7 +121,8 @@ public class Startup
 
 ## Exception Handler
 
-ASP.NET Core 也有提供 Exception Handler，底層就是用上述 Exception Middleware 的做法，在 Application Builder 使用 `UseExceptionHandler` 指定錯誤頁面。  
+ASP.NET Core 有提供 Exception Handler 的 Pipeline，底層就是用上述 Exception Middleware 的做法，在 Application Builder 使用 `UseExceptionHandler` 指定錯誤頁面。  
+
 *Startup.cs*
 ```cs
 // ...
@@ -129,6 +137,7 @@ public class Startup
 ```
 
 用以下範例模擬錯誤發生：  
+
 *Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -148,21 +157,35 @@ namespace MyWebsite.Controllers
             throw new System.Exception("This is exception sample from Test().");
         }
 
-        [Route("/Error")]
-        public string Error()
+        [Route("/error")]
+        public IActionResult Error()
         {
-            return "This is error page.";
+            return View();
         }
     }
 }
 ```
-當連入 `http://localhost:5000/` 發生錯誤後，就會回傳 **This is error page.**。  
-> 注意！不會轉址到 `http://localhost:5000/error`，是直接回傳 `HomeController.Error()` 的內容。
+
+*Views\Shared\Error.cshtml*
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error</title>
+    </head>
+    <body>
+        <p>This is error page.</p>
+    </body>
+</html>
+```
+
+當連入 `http://localhost:5000/` 發生錯誤後，就會回傳顯示 **This is error page.** 的頁面。  
+> 注意！不會轉址到 `http://localhost:5000/error`，而是直接回傳 `HomeController.Error()` 的內容。
 
 ### ExceptionHandlerOptions
 
-如果網站中混用 Web API，當 API 發生錯誤時，依然回傳 `HomeController.Error()` 的內容，就會顯得很奇怪。  
-`UseExceptionHandler` 除了可以指派錯誤頁面外，也可以自己實作錯誤發生的事件。  
+如果網站中混用 Web API，當 API 發生錯誤時，依然回傳 `HomeController.Error()` 的內容，就會顯得很奇怪。`UseExceptionHandler` 除了可以指派錯誤頁面外，也可以自己實作錯誤發生的事件。  
+
 *Startup.cs*
 ```cs
 // ...
@@ -195,13 +218,13 @@ public class Startup
     "Message": "Internal Server Error" 
 }
 ```
-一般 MVC 頁面發生錯誤，改用 302 轉址到 `http://localhost:5000/error`。
+同時把 MVC 發生錯誤的行為，改用轉址的方式轉到 `http://localhost:5000/error`。  
 
 ### UseDeveloperExceptionPage
 
-通常在開發期間，還是希望能直接看到錯誤資訊，會比較方便除錯。  
-`UseDeveloperExceptionPage` 是 ASP.NET Core 提供的錯誤資訊頁面服務，可以在 Application Builder 注入。  
+通常在開發期間，還是希望能直接看到錯誤資訊，會比較方便除錯。`UseDeveloperExceptionPage` 是 ASP.NET Core 提供的錯誤資訊頁面服務，可以在 Application Builder 注入。  
 在 `Startup.Configure` 注入 `IHostingEnvironment` 取得環境變數，判斷在開發階段才套用，反之則用 Exception Handler。  
+
 *Startup.cs*
 ```cs
 // ...
