@@ -6,6 +6,7 @@ tags:
   - 'C#'
   - Middleware
   - CORS
+  - Security
 categories:
   - ASP.NET Core
 date: 2017-07-21 13:58:00

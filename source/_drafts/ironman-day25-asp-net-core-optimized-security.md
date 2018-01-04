@@ -4,43 +4,111 @@ author: John Wu
 tags:
   - ASP.NET Core
   - iT 邦幫忙 2018 鐵人賽
+  - CORS
+  - CSP
+  - SSL
+  - HTTPS
+  - Security
 categories:
   - ASP.NET Core
 date: 2018-01-13 12:00
 featured_image: /images/.png
 ---
 
-XXX
+網站安全性是很重要的非功能需求，有些簡單的實作，就能有效的保護網站的安全。  
+本篇將介紹 ASP.NET Core 基本的安全保護，包含：  
+1. 強制使用 SSL 加密連線  
+2. 網頁安全政策 Content Security Policy (CSP)  
+3. 跨域請求 Cross-Origin Requests (CORS)  
+4. 移除 Response 封包不必要的資訊
+
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day25] ASP.NET Core 2 系列 - 優化安全性](https://ithelp.ithome.com.tw/articles/xxxxxxx)  
 
 <!-- more -->
 
-## 強制 SSL
+## SSL
+
+### Kestrel
+
+### 憑證
+
+*localhost.conf*
+```conf
+[req]
+default_bits       = 2048
+default_keyfile    = localhost.key
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+x509_extensions    = v3_ca
+
+[req_distinguished_name]
+countryName                 = Country Name (2 letter code)
+countryName_default         = TW
+stateOrProvinceName         = State or Province Name (full name)
+stateOrProvinceName_default = Taiwan
+localityName                = Locality Name (eg, city)
+localityName_default        = Taipei City
+organizationName            = Organization Name (eg, company)
+organizationName_default    = localhost
+organizationalUnitName      = organizationalunit
+organizationalUnitName_default = Development
+commonName                  = Common Name (e.g. server FQDN or YOUR name)
+commonName_default          = localhost
+commonName_max              = 64
+
+[req_ext]
+subjectAltName = @alt_names
+
+[v3_ca]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1   = localhost
+DNS.2   = 127.0.0.1
+```
+
+```sh
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config localhost.conf -passin pass:YourSecurePassword
+```
+
+```sh
+openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
+```
+
+*Program.cs*
+```cs
+using System.Net;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+
+namespace MyWebsite
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseKestrel(options =>
+                {
+                    options.Listen(IPAddress.Loopback, 5000);
+                    options.Listen(IPAddress.Loopback, 5443, listenOptions =>
+                    {
+                        listenOptions.UseHttps("localhost.pfx", "YourSecurePassword");
+                    });
+                })
+                .Build();
+    }
+}
+```
 
 網站安全性越做越高，不免都要使用 HTTPS 加密連線，但本機用 localhost 都是 HTTP，想測試 HTTPS 需要額外的設定。  
 本篇將介紹 ASP.NET Core 強制使用 SSL 加密連線。  
-
-可以再 Web 專案點滑鼠右鍵，用圖形化的工具啟用 SSL Port，如下：  
-![ASP.NET Core 教學 - Launch Settings](/images/pasted-158.png)
-
-或直接編輯 Properties\launchSettings.json  
-```json
-{
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:33333/",
-      "sslPort": 44333
-    }
-  },
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true
-    }
-  }
-}
-```
 
 設定 SSL Port 後，就可以在 localhost 使用 HTTPS 了。但會遇到隱私權問題，因為我們沒有真的匯入憑證，可以先把他忽略。步驟如下：  
 ![ASP.NET Core 教學 - 忽略憑證 - 1](/images/pasted-159.png)
@@ -54,35 +122,19 @@ XXX
 
 在 Startup.cs 加入 Require HTTPS Middleware 強制走 HTTPS。  
 如此一來，只要不是 HTTPS 就會回傳 Status Code 301，但這樣使用者會看到錯誤頁面，使用起來沒這麼友善。  
-所以在 Configure 加入轉址判斷，如果是 Status Code 301，就轉到 SSL 的 Port。
-```cs
-// ...
+所以在 Configure 加入轉址判斷，如果是 Status Code 301，就轉到 SSL 的 Port。  
 
+*Startup.cs*
+```cs
+using Microsoft.AspNetCore.Rewrite;
+// ...
 public class Startup
 {
-    public void ConfigureServices(IServiceCollection services)
+    // ...
+    public void Configure(IApplicationBuilder app)
     {
-        services.Configure<MvcOptions>(options =>
-        {
-            options.Filters.Add(new RequireHttpsAttribute());
-        });
-    }
-
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        var httpsPort = 443;
-        if (env.IsDevelopment())
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile(@"Properties/launchSettings.json");
-            var launchConfig = builder.Build();
-            httpsPort = launchConfig.GetValue<int>("iisSettings:iisExpress:sslPort");
-        }
-        app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, httpsPort));
-
-        app.UseDefaultFiles();
-        app.UseStaticFiles();
+        app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, 5443));
+        // ...
     }
 }
 ```
@@ -95,6 +147,9 @@ public class Startup
 ![ASP.NET Core 教學 - 強制 SSL](/images/pasted-161.png)
 
 ## 網頁安全政策 CSP
+
+Content Security Policy (CSP)
+主要是防止 Cross-Site Scripting (XSS)
 
 ## 跨域請求 CORS
 
@@ -252,7 +307,9 @@ public class Program
 
 ## 參考
 
+[Introduction to Kestrel web server implementation in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel?tabs=aspnetcore2x)  
 [Enforcing SSL in an ASP.NET Core app](https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl)  
+[Develop Locally with HTTPS, Self-Signed Certificates and ASP.NET Core](https://www.humankode.com/asp-net-core/develop-locally-with-https-self-signed-certificates-and-asp-net-core)  
 [USING CSP HEADER IN ASP.NET CORE 2.0](https://tahirnaushad.com/2017/09/12/using-csp-header-in-asp-net-core-2-0/)  
 [Enabling Cross-Origin Requests (CORS)](https://docs.microsoft.com/en-us/aspnet/core/security/cors)  
 [ASP.NET Core and CORS Gotchas](https://weblog.west-wind.com/posts/2016/Sep/26/ASPNET-Core-and-CORS-Gotchas)  
