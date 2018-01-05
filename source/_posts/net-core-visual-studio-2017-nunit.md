@@ -14,7 +14,7 @@ featured_image: /images/pasted-185.png
 ---
 ![NUnit Test Result](/images/pasted-185.png)
 
-NUnit 是很多 .NET 工程師的必備良辦，寫 .NET Core 當然也少不了它。  
+NUnit 是很多 .NET 工程師的必備良伴，寫 .NET Core 當然也少不了它。  
 本篇將介紹在 Visual Studio 2017 .NET Core 專案使用 NUnit。  
 
 <!-- more -->

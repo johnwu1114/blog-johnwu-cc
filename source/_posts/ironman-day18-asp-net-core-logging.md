@@ -37,6 +37,7 @@ namespace MyWebsite.Controllers
         {
             _logger = logger;
         }
+        
         public string Index() {
             _logger.LogTrace("This trace log from Home.Index()");
             _logger.LogDebug("This debug log from Home.Index()");

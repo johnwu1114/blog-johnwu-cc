@@ -144,7 +144,8 @@ public class Startup
         services.AddMvc()
                 .AddJsonOptions(options => 
                 {
-                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.ContractResolver 
+                        = new CamelCasePropertyNamesContractResolver();
                 });
         // 同以下寫法：
         // services.AddMvc();
@@ -176,7 +177,8 @@ public class Startup
         services.AddMvc()
                 .AddJsonOptions(options => 
                 {
-                    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                    options.SerializerSettings.ContractResolver 
+                        = new DefaultContractResolver();
                 });
     }
 }
@@ -207,7 +209,8 @@ public class Startup
         services.AddMvc()
                 .AddJsonOptions(options => 
                 {
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                    options.SerializerSettings.NullValueHandling 
+                        = Newtonsoft.Json.NullValueHandling.Ignore;
                 });
     }
 }
@@ -231,7 +234,8 @@ public class Startup
     {
         services.AddMvc()
                 .AddJsonOptions(options => {
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                    options.SerializerSettings.NullValueHandling
+                        = Newtonsoft.Json.NullValueHandling.Ignore;
                 });
     }
 
@@ -264,7 +268,7 @@ using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using MyWebsite.Models;
 
-namespace MyWebsite
+namespace MyWebsite.Controllers
 {
     [Route("api/[controller]s")]
     public class UserController : Controller
@@ -275,7 +279,8 @@ namespace MyWebsite
         public ResultModel Get(string q)
         {
             var result = new ResultModel();
-            result.Data = _users.Where(c => string.IsNullOrEmpty(q) || Regex.IsMatch(c.Name, q, RegexOptions.IgnoreCase));
+            result.Data = _users.Where(c => string.IsNullOrEmpty(q) 
+                                         || Regex.IsMatch(c.Name, q, RegexOptions.IgnoreCase));
             result.IsSuccess = true;
             return result;
         }

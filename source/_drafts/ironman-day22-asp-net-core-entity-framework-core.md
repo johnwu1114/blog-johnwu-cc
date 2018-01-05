@@ -169,7 +169,7 @@ using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using MyWebsite.Models;
 
-namespace MyWebsite
+namespace MyWebsite.Controllers
 {
     [Route("api/[controller]s")]
     public class UserController : Controller
@@ -360,7 +360,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyWebsite.Models;
 using MyWebsite.Repositories;
 
-namespace MyWebsite
+namespace MyWebsite.Controllers
 {
     [Route("api/[controller]s")]
     public class UserController : Controller

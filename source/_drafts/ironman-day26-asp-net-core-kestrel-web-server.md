@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day25] ASP.NET Core 2 系列 - 優化安全性'
+title: '[鐵人賽 Day26] ASP.NET Core 2 系列 - Kestrel Web Server'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -11,7 +11,7 @@ tags:
   - Security
 categories:
   - ASP.NET Core
-date: 2018-01-13 12:00
+date: 2018-01-14 12:00
 featured_image: /images/.png
 ---
 

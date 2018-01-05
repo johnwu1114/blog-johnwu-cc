@@ -21,6 +21,7 @@ featured_image: /images/i23-1.png
 
 建立一個接收檔案的 Controller，在 Action 的參數中，使用 `IFormFile` 型別，就可以接收到 HTML Form 傳來的檔案。
 如果要允許多檔上傳，就在 Action 的參數中使用 `List<IFormFile>` 集合來接收參數。範例如下：  
+
 *Controllers\FileController.cs*
 ```cs
 using System.Collections.Generic;
