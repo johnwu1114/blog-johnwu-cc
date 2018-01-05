@@ -10,14 +10,18 @@ date: 2018-01-06 12:00
 featured_image: /images/i18-1.png
 ---
 
-ASP.NET Core 提供了好用的 Logging API，預設就已經將 Logger 物件放進 DI 容器，能直接透過 DI 取用輸出 Log 的物件使用。  
+ASP.NET Core 提供了好用的 Logging API，預設就已經將 Logger 物件放進 DI 容器，能直接透過 DI 取用記錄 Log 的物件。  
 本篇將介紹 ASP.NET Core 的 Logging 使用方式。  
+
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day18] ASP.NET Core 2 系列 - Logging](https://ithelp.ithome.com.tw/articles/10195968)  
 
 <!-- more -->
 
 ## Logger
 
-ASP.NET Core 2 預設就把 Logger 放進 DI 容器，能直接透過 DI 取用 ILogger 實例。如下：  
+ASP.NET Core 2 預設就把 Logger 放進 DI 容器，能直接透過 DI 取用 `ILogger` 實例。如下：  
+
 *Controllers\HomeController.cs*
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -34,18 +38,18 @@ namespace MyWebsite.Controllers
             _logger = logger;
         }
         public string Index() {
-            _logger.LogTrace("This trace log from Home.Index()");     
-            _logger.LogDebug("This debug log from Home.Index()");                                 
-            _logger.LogInformation("This information log from Home.Index()");                        
-            _logger.LogWarning("This warning log from Home.Index()");                    
-            _logger.LogError("This error log from Home.Index()");                    
+            _logger.LogTrace("This trace log from Home.Index()");
+            _logger.LogDebug("This debug log from Home.Index()");
+            _logger.LogInformation("This information log from Home.Index()");
+            _logger.LogWarning("This warning log from Home.Index()");
+            _logger.LogError("This error log from Home.Index()");
             _logger.LogCritical("This critical log from Home.Index()");
             return "Home.Index()";
         }
     }
 }
 ```
-> 以下都會用這個 `Home.Index()` 做為 Log 輸出範例。  
+> 以下都會用 `Home.Index()` 做為 Log 輸出的範例。  
 
 透過指令執行 `dotnet run`，就可以看到 Log 訊息：  
 
@@ -57,21 +61,20 @@ namespace MyWebsite.Controllers
 
 ASP.NET Core 的 Log 有分為以下六種：
 * **Trace** *(Log Level = 0)*  
- 此類 Log 通常用於開發階段，讓開發人員檢查資料使用，可能會包含一些帳號密碼等敏感資料。  
- > 不適合出現在正是環境的 Log，所以預設不會輸出在 Log 中。  
+  此類 Log 通常用於開發階段，讓開發人員檢查資料使用，可能會包含一些帳號密碼等敏感資料，不適合也不應該出現在正式環境的 Log 中。 **(預設不會輸出)**  
 * **Debug** *(Log Level = 1)*  
- 這類型的 Log 是為了在正式環境除錯使用，但平常不應該開啟，避免 Log 量太大，反而會造成正式環境的問題。  
- > 預設不會輸出在 Log 中。    
+  這類型的 Log 是為了在正式環境除錯使用，但平常不應該開啟，避免 Log 量太大，反而會造成正式環境的問題。 **(預設不會輸出)**  
 * **Information** *(Log Level = 2)*  
- 常見的 Log 類型，主要是紀錄程試運行的流程。  
+  常見的 Log 類型，主要是紀錄程試運行的流程。  
 * **Warning** *(Log Level = 3)*  
- 紀錄可預期的錯誤或者效能不佳的事件；不改不會死，但改了會更好的問題。  
+  紀錄可預期的錯誤或者效能不佳的事件；不改不會死，但改了會更好的問題。  
 * **Error** *(Log Level = 4)*  
- 紀錄非預期的錯誤，不該發生但卻發生，應該要避免重複發生的錯誤事件。  
+  紀錄非預期的錯誤，不該發生但卻發生，應該要避免重複發生的錯誤事件。  
 * **Critical** *(Log Level = 5)*  
- 只要發生就準備見上帝的錯誤事件，例如會導致網站重啟，系統崩潰的事件。  
+  只要發生就準備見上帝的錯誤事件，例如會導致網站重啟，系統崩潰的事件。  
 
 若要變更 Log 輸出等級，可以打開 `Program.Main` 在 WebHost Builder 加入 `ConfigureLogging` 設定。  
+
 *Program.cs*
 ```cs
 using Microsoft.AspNetCore;
@@ -124,11 +127,12 @@ namespace MyWebsite
 * **Default**  
  預設會紀錄 Debug 以上層級的 Log。  
 * **MyWebsite**  
- 當遇到 Log 來源是 **MyWebsite** 的時候，就會紀錄 Trace 以上層級的 Log。  
+ 當遇到 Log 來源的 *namespace* 是 **MyWebsite** 時，就會紀錄 Trace 以上層級的 Log。  
 * **System** & **Microsoft**  
- 當遇到 Log 來源是 **System** 或 **Microsoft** 的時候，只紀錄 Error 以上層級的 Log。  
+ 當遇到 Log 來源的 *namespace* 是 **System** 或 **Microsoft** 時，只紀錄 Error 以上層級的 Log。  
 
 在 `Program.Main` 的 `ConfigureLogging` 設定 Log 組態檔。  
+
 *Program.cs*
 ```cs
 using System.IO;
