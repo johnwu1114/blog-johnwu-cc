@@ -23,7 +23,7 @@
 23 上傳/下載檔案
 24 SignalR
 25 NUnit(VS Code test runner)
-`26 Kestrel Web Server`
+26 Kestrel Web Server
 `27 優化安全性(SSL, cors, CSP, Header移除安全性)`
 `28 優化效能(封包壓縮, Response Caching)`
 * Deploy IIS
