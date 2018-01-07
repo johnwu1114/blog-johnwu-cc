@@ -19,13 +19,14 @@
 19 NLog & Log4net
 20 快取機制及 Redis Session
 21 多國語言 (Localization)
-22 Entity Framework Core
+22 SignalR
 23 上傳/下載檔案
-24 SignalR
+24 Entity Framework Core
 25 NUnit(VS Code test runner)
-26 Kestrel Web Server
-`27 優化安全性(SSL, cors, CSP, Header移除安全性)`
-`28 優化效能(封包壓縮, Response Caching)`
+`26 跨域請求 (Cross-Origin Requests)`
+`27 網頁安全政策 (Content Security Policy)`
+`28 優化效能 (Response Caching, 封包壓縮)`
+29 Kestrel Web Server
 * Deploy IIS
 * Deploy Linus
 * Deploy Docker

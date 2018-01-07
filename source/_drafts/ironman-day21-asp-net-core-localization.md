@@ -7,8 +7,6 @@ tags:
   - Routing
   - Middleware
   - iT 邦幫忙 2018 鐵人賽
-  - Visual Studio
-  - VS Code
 categories:
   - ASP.NET Core
 date: 2018-01-09 12:00

@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day26] ASP.NET Core 2 系列 - Kestrel 使用 HTTPS'
+title: '[鐵人賽 Day29] ASP.NET Core 2 系列 - Kestrel Web Server'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -9,8 +9,8 @@ tags:
   - Security
 categories:
   - ASP.NET Core
-date: 2018-01-14 12:00
-featured_image: /images/i26-1.png
+date: 2018-01-17 12:00
+featured_image: /images/i29-1.png
 ---
 
 ASP.NET Core 有兩種運行方式：  
@@ -19,10 +19,10 @@ ASP.NET Core 有兩種運行方式：
 
 ASP.NET Core 預設是使用 Kestrel 做為 HTTP Server。  
 Kestrel 是一套輕量的跨平台 HTTP Server，由 [libuv](https://github.com/libuv/libuv) 這套函式庫做為底層非同步事件驅動的控制。  
-本篇將介紹 ASP.NET Core 透過 Kestrel 的運行方式以及如何在 Kestrel 使用 HTTPS。  
+本篇將介紹 ASP.NET Core 在 Kestrel 的運行方式、調整及自製 localhost SSL 憑證綁定 HTTPS。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day26] ASP.NET Core 2 系列 - Kestrel 使用 HTTPS](https://ithelp.ithome.com.tw/articles/xxxxxxx)  
+ [[Day29] ASP.NET Core 2 系列 - Kestrel Web Server](https://ithelp.ithome.com.tw/articles/xxxxxxx)  
 
 <!-- more -->
 
@@ -33,17 +33,82 @@ Kestrel 是一套可以單獨運行的 HTTP Server，也可以透過其它 Web S
 * **單獨運行**  
   啟動 ASP.NET Core 後，就可以直接對外服務。  
   如下圖：  
-  ![[鐵人賽 Day26] ASP.NET Core 2 系列 - Kestrel 使用 HTTPS - 單獨運行](/images/i26-1.png)  
+  ![[鐵人賽 Day29] ASP.NET Core 2 系列 - Kestrel Web Server - 單獨運行](/images/i29-1.png)  
   > ASP.NET Core 1.0 的 Kestrel 尚有安全性考量，並不適合對外開放，建議用其它 Web Server 有較高的安全性保護擋在外層，透過反向代理轉給 Kestrel。  
   > 在 ASP.NET Core 2.0 之後，Kestrel 有加強安全性，包含 Timeout 限制、封包大小限制、同時連線數限制等，已經可以獨當一面的使用。  
 * **反向代理**  
   搭配其它 Web Server，將收到的封包，透過反向代理轉給 Kestrel。  
   如下圖：  
-  ![[鐵人賽 Day26] ASP.NET Core 2 系列 - Kestrel 使用 HTTPS - 反向代理](/images/i26-2.png)
+  ![[鐵人賽 Day29] ASP.NET Core 2 系列 - Kestrel Web Server - 反向代理](/images/i29-2.png)
   
 雖然 ASP.NET Core 2.0 之後 Kestrel 安全性提升可以單獨對外，但 Kestrel 並不支援共用 Port，例如同一台 Server 掛載兩個 ASP.NET Core 網站，若兩個都要用 80 Port 對外，就會變成搶 80 Port。用其它 Web Server 做反向代理，就可以透過綁定不同的 Domain 轉向指到不同的 ASP.NET Core 網站，如下圖：  
 
-![[鐵人賽 Day26] ASP.NET Core 2 系列 - Kestrel 使用 HTTPS - 反向代理](/images/i26-3.png)
+![[鐵人賽 Day29] ASP.NET Core 2 系列 - Kestrel Web Server - 反向代理](/images/i29-3.png)
+
+## Kestrel options
+
+如果是用其它 Web Server 做反向代理，基本上都不太需要動到 Kestrel options，畢竟 Kestrel 只是一個輕量級的 HTTP Server，它的功能大部分都被 IIS、Nginx 或 Apache 等，完整的 Web Server 涵蓋。  
+單獨運行 Kestrel 的情況比較會需要調整 Kestrel options，如 Timeout 限制、封包大小限制、同時連線數限制等，設定方式如下：  
+
+*Program.cs*
+```cs
+// ...
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        BuildWebHost(args).Run();
+    }
+
+    public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .UseKestrel(options =>
+            {
+                options.AddServerHeader = false;
+                options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(1);
+                options.Limits.MaxConcurrentConnections = 100;
+                options.Limits.MaxConcurrentUpgradedConnections = 100;
+                options.Limits.MaxRequestBodySize = 10 * 1024;
+                options.Limits.MinRequestBodyDataRate =
+                    new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
+                options.Limits.MinResponseDataRate =
+                    new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
+                options.Limits.RequestHeadersTimeout = TimeSpan.FromSeconds(5);
+            })
+            .Build();
+}
+```
+* **AddServerHeader**  
+  Response 的 Header 帶上 Server 資訊。  
+  *(預設為 true)*  
+* **Limits**  
+  * **KeepAliveTimeout**  
+    HTTP持久連線的時間。  
+    *(預設 2 分鐘)*  
+  * **MaxConcurrentConnections**  
+    同時連線數限制。  
+    *(預設無限)*  
+  * **MaxConcurrentUpgradedConnections**  
+    同時連線數限制，包含如 WebSockets 等，其他非連線方式 HTTP。  
+    *(預設無限)*  
+  * **MaxRequestBodySize**  
+    Request 封包限制。  
+    *(預設 30,000,000 bytes 約 28.6MB)*  
+  * **MinRequestBodyDataRate**  
+    Request 傳送速率若低於每秒 N bytes，連續 Y 秒，則視為連線逾時。  
+    *(預設連續 5 秒低於 240 bytes為連線逾時)*  
+  * **MinResponseDataRate**  
+    Response 傳送速率若低於每秒 N bytes，連續 Y 秒，則視為連線逾時。  
+    *(預設連續 5 秒低於 240 bytes為連線逾時)*  
+  * **RequestHeadersTimeout**  
+    Server 處理一個封包最長的時間。  
+    *(預設 30 秒)*  
+
+> 其他設定可以參考，KestrelHttpServer 的 GitHub 原始碼，目前還沒有線上文件，至少 Summary 註解詳細。  
+> * [KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs)  
+> * [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs)  
+> * [ListenOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/ListenOptions.cs)  
 
 ## HTTPS
 
@@ -109,7 +174,7 @@ openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
 
 指令輸出：  
 
-![[鐵人賽 Day26] ASP.NET Core 2 系列 - Kestrel 使用 HTTPS - 製作憑證](/images/i26-4.png)
+![[鐵人賽 Day29] ASP.NET Core 2 系列 - Kestrel Web Server - 製作憑證](/images/i29-4.png)
 
 並將憑證安裝到電腦的 **CA ROOT**，讓自製憑證在你的電腦中變成合法憑證。  
 * **Windows**  
@@ -165,7 +230,80 @@ namespace MyWebsite
 設定 `UseHttps` 後，就可以在 localhost 使用 HTTPS 了，並保留 HTTP 可以使用，只要自己更改網址列就可以。  
 範例結果：  
 
-![[鐵人賽 Day26] ASP.NET Core 2 系列 - Kestrel 使用 HTTPS - 範例結果](/images/i26-5.png)
+![[鐵人賽 Day29] ASP.NET Core 2 系列 - Kestrel Web Server - 範例結果](/images/i29-5.png)
+
+### 強制 HTTPS
+
+要強制使用 HTTPS 的頁面可以在 Action 或 Controller 註冊 `RequireHttpsAttribute` 或註冊於全域範圍，只要不是 HTTPS 就會回傳 HTTP Status Code 302 並轉址到 HTTPS，如下：  
+
+* **區域註冊**  
+  *Controllers\UserController.cs*
+```cs
+using Microsoft.AspNetCore.Mvc;
+// ...
+namespace MyWebsite.Controllers
+{
+    // 區域註冊
+    [RequireHttps]
+    public class UserController : Controller
+    {
+        // ...
+    }
+}
+```
+* **全域註冊**  
+  *Startup.cs*
+```cs
+using Microsoft.AspNetCore.Mvc;
+// ...
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // 全域註冊
+        services.Configure<MvcOptions>(options =>
+        {
+            options.Filters.Add(new RequireHttpsAttribute());
+        });
+    }
+}
+```
+
+`RequireHttpsAttribute` 轉址預設是轉到 443 Port，如果 HTTPS 不是用 443 Prot，就要在註冊 MVC 服務的時候，修改 `SslPort`，如下：  
+
+*Startup.cs*
+```cs
+// ...
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options => options.SslPort = 5443);
+        // ...
+    }
+}
+```
+
+用 `RequireHttpsAttribute` 的方式，只能限制到 MVC / API 的部分，並沒有辦法連靜態檔案都強制使用 HTTPS。  
+如果整個網站都要用 HTTPS 的話，可以加入 URL Rewrite，將非 HTTPS 都轉址到 HTTPS。  
+在 `Startup.Configure` 呼叫 `UseRewriter` 加入轉址的 Pipeline，如下：  
+
+*Startup.cs*
+```cs
+// ...
+public class Startup
+{
+    // ...
+    public void Configure(IApplicationBuilder app)
+    {
+        var httpsPort = 5443;
+        app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, httpsPort));
+        // ...
+    }
+}
+```
+完成以上設定後，不管是用 HTTP 還是 HTTPS 最終都會轉到 HTTPS 用 SSL 連線了。  
+為了網站有更高的安全性，就全部都用 SSL 吧！
 
 ## 參考
 

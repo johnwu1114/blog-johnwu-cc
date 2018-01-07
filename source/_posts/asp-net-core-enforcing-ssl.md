@@ -56,43 +56,90 @@ featured_image: /images/pasted-161.png
 1. Microsoft.AspNetCore.Mvc  
 2. Microsoft.AspNetCore.Rewrite  
 
-在 Startup.cs 加入 Require HTTPS Middleware 強制走 HTTPS。  
-如此一來，只要不是 HTTPS 就會回傳 Status Code 301，但這樣使用者會看到錯誤頁面，使用起來沒這麼友善。  
-所以在 Configure 加入轉址判斷，如果是 Status Code 301，就轉到 SSL 的 Port。
-```cs
-// ...
+要強制使用 HTTPS 的頁面可以在 Action 或 Controller 註冊 `RequireHttpsAttribute` 或註冊於全域範圍，只要不是 HTTPS 就會回傳 HTTP Status Code 302 並轉址到 HTTPS，如下：  
 
+* **區域註冊**  
+  *Controllers\UserController.cs*
+```cs
+using Microsoft.AspNetCore.Mvc;
+// ...
+namespace MyWebsite.Controllers
+{
+    // 區域註冊
+    [RequireHttps]
+    public class UserController : Controller
+    {
+        // ...
+    }
+}
+```
+* **全域註冊**  
+  *Startup.cs*
+```cs
+using Microsoft.AspNetCore.Mvc;
+// ...
 public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        // 全域註冊
         services.Configure<MvcOptions>(options =>
         {
             options.Filters.Add(new RequireHttpsAttribute());
         });
     }
+}
+```
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+
+`RequireHttpsAttribute` 轉址預設是轉到 443 Port，如果 HTTPS 不是用 443 Prot，就要在註冊 MVC 服務的時候，修改 `SslPort`，如下：  
+
+*Startup.cs*
+```cs
+// ...
+public class Startup
+{
+    private readonly int _httpsPort;
+
+    public Startup(IHostingEnvironment env)
     {
-        var httpsPort = 443;
         if (env.IsDevelopment())
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile(@"Properties/launchSettings.json");
             var launchConfig = builder.Build();
-            httpsPort = launchConfig.GetValue<int>("iisSettings:iisExpress:sslPort");
+            _httpsPort = launchConfig.GetValue<int>("iisSettings:iisExpress:sslPort");
         }
-        app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, httpsPort));
+    }
 
-        app.UseDefaultFiles();
-        app.UseStaticFiles();
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options => options.SslPort = _httpsPort);
+        // ...
     }
 }
 ```
 
+用 `RequireHttpsAttribute` 的方式，只能限制到 MVC / API 的部分，並沒有辦法連靜態檔案都強制使用 HTTPS。  
+如果整個網站都要用 HTTPS 的話，可以加入 URL Rewrite，將非 HTTPS 都轉址到 HTTPS。  
+在 `Startup.Configure` 呼叫 `UseRewriter` 加入轉址的 Pipeline，如下：  
+
+*Startup.cs*
+```cs
+// ...
+public class Startup
+{
+    // ...
+    public void Configure(IApplicationBuilder app, )
+    {        
+        app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, _httpsPort));
+        // ...
+    }
+}
+```
 完成以上設定後，不管是用 HTTP 還是 HTTPS 最終都會轉到 HTTPS 用 SSL 連線了。  
-為了網站有正高的安全性，就全部都用 SSL 吧！
+為了網站有更高的安全性，就全部都用 SSL 吧！
 
 ## 執行結果
 

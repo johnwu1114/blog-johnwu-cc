@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day22] ASP.NET Core 2 系列 - Entity Framework Core'
+title: '[鐵人賽 Day24] ASP.NET Core 2 系列 - Entity Framework Core'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,7 +7,7 @@ tags:
   - Entity Framework Core
 categories:
   - ASP.NET Core
-date: 2018-01-10 12:00
+date: 2018-01-12 12:00
 featured_image: /images/i22-1.png
 ---
 
@@ -439,7 +439,7 @@ namespace MyWebsite.Controllers
 
 ## 執行結果
 
-![[鐵人賽 Day22] ASP.NET Core 2 系列 - Entity Framework Core](/images/i22-1.png)
+![[鐵人賽 Day24] ASP.NET Core 2 系列 - Entity Framework Core](/images/i24-1.png)
 
 ## 參考
 
