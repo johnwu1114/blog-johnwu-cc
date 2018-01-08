@@ -23,7 +23,7 @@
 23 上傳/下載檔案
 24 Entity Framework Core
 25 NUnit(VS Code test runner)
-`26 跨域請求 (Cross-Origin Requests)`
+26 跨域請求 (Cross-Origin Requests)
 `27 網頁安全政策 (Content Security Policy)`
 `28 優化效能 (Response Caching, 封包壓縮)`
 29 Kestrel Web Server
