@@ -16,30 +16,33 @@ featured_image: /images/i21-1.png
 全球化的網站不免都要做多國語言，ASP.NET Core 的多國語言設定方式跟 ASP.NET MVC 有很大的落差。  
 本篇將介紹 ASP.NET Core 多國語言 (Localization) 的設定方式。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day21] ASP.NET Core 2 系列 - 多國語言 (Localization)](https://ithelp.ithome.com.tw/articles/10196463)  
+
 <!-- more -->
 
 ## 建立多國語言檔
 
-過去 ASP.NET 語系檔都是用 `*.resx` 格式，現在 ASP.NET Core 也是沿用此格式，但檔案結構確很不一樣。  
-ASP.NET Core 語系檔命名規則**必須**要與類別的 `namespace` 階層相互對應。例如 Controllers、Views、Models 要用的語系檔跟類別對應如下：
+過去 ASP.NET 語系檔都是用 `*.resx` 格式，現在 ASP.NET Core 也是沿用此格式，但檔案結構確很不一樣。ASP.NET Core 語系檔命名規則**必須**要與類別的 `namespace` 階層相互對應。例如 Controllers、Views、Models 要用的語系檔跟類別對應如下：  
 * *Controllers\HomeController.cs* 要用的 en-GB 語系檔名稱：  
- * *Resources\Controllers\HomeController.en-GB.resx*  
- * 或 *Resources\Controllers.HomeController.en-GB.resx*  
+  * *Resources\Controllers\HomeController.en-GB.resx*  
+  * 或 *Resources\Controllers.HomeController.en-GB.resx*  
 * *Controllers\HomeController.cs* 要用的 zh-TW 語系檔名稱：  
- * *Resources\Controllers\HomeController.zh-TW.resx*  
- * 或 *Resources\Controllers.HomeController.zh-TW.resx*   
+  * *Resources\Controllers\HomeController.zh-TW.resx*  
+  * 或 *Resources\Controllers.HomeController.zh-TW.resx*   
 * *Views\Home\Index.cshtml* 要用的 en-GB 語系檔名稱：  
- * *Resources\Views\Home\Index.en-GB.resx*  
- * 或 *Resources\Views.Home.Index.en-GB.resx*   
+  * *Resources\Views\Home\Index.en-GB.resx*  
+  * 或 *Resources\Views.Home.Index.en-GB.resx*   
 * *Views\Home\Index.cshtml* 要用的 zh-TW 語系檔名稱：  
- * *Resources\Views\Home\Index.zh-TW.resx*  
- * 或 *Resources\Views.Home.Index.zh-TW.resx*   
+  * *Resources\Views\Home\Index.zh-TW.resx*  
+  * 或 *Resources\Views.Home.Index.zh-TW.resx*   
 
 多國語言檔建立規則跟 ASP.NET MVC 有很大的差別。  
 * `*.resx` 檔案**必須**對應使用的路徑位置。  
 * `*.resx` 檔案的語系帶在**後綴**。如：`*.en-GB.resx`。  
 
 `*.resx` 語系檔內容大致如下：  
+
 *Resources\Controllers.HomeController.en-GB.resx*  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,8 +55,9 @@ ASP.NET Core 語系檔命名規則**必須**要與類別的 `namespace` 階層�
 
 若以 Visual Studio IDE 開發 (如 Visual Studio 2017)，可以從 UI 新增資源檔 `*.resx`。在網站目錄中建立 Resources 的資料夾，並新增資源檔 `*.resx`。如下：  
 
-![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 1](/images/pasted-200.png)
-![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 2](/images/pasted-201.png)
+![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 1](/images/pasted-200.png)  
+
+![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 2](/images/pasted-201.png)  
 
 ### 註冊服務  
 
@@ -67,6 +71,7 @@ dotnet add package Microsoft.AspNetCore.Routing
 > ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Localization` 及 `Microsoft.AspNetCore.Routing`，所以不用再安裝。  
 
 在 `Startup.ConfigureServices` 註冊多國語言需要的服務，以及修改多國語的 Routing 方式。如下：  
+
 *Startup.cs*
 ```cs
 using Microsoft.AspNetCore.Builder;
@@ -99,18 +104,19 @@ namespace MyWebsite
 }
 ```
 * **AddLocalization**  
- 主要的多國語言服務，ResourcesPath 是指定**資源檔的目錄位置**。  
+  主要的多國語言服務，ResourcesPath 是指定**資源檔的目錄位置**。  
 * **AddViewLocalization**  
- 為了在 cshtml 中使用多國語言，如果沒有需要在 View 中使用多國語言，可以不需要註冊它。  
+  為了在 cshtml 中使用多國語言，如果沒有需要在 View 中使用多國語言，可以不需要註冊它。  
 * **AddDataAnnotationsLocalization**  
- 為了在 Model 中使用多國語言，如果沒有需要在 Model 中使用多國語言，可以不需要註冊它。  
+  為了在 Model 中使用多國語言，如果沒有需要在 Model 中使用多國語言，可以不需要註冊它。  
 * **MapRoute**  
- 在 Routing 中增加 culture 語系資訊，用來判斷多國語言。  
+  在 Routing 中增加 culture 語系資訊，用來判斷多國語言。  
   > 如果不想用 Routing 的方式，也可以改用 QueryString 帶入語系資訊。  
 
 ### Middleware
 
 建立一個 CultureMiddleware 來包裝 Localization 的 Middleware，可以做支援語言的管理。   
+
 *Middlewares\CultureMiddleware.cs*  
 ```cs
 using Microsoft.AspNetCore.Builder;
@@ -151,16 +157,17 @@ namespace MyWebsite.Middlewares
 每個 Requset 都會執行 `RequestCultureProviders` 中的 `CultureProvider`，用來判斷語系資訊，套用正確的資源檔。  
 `Microsoft.AspNetCore.Localization` 套件支援的 CultureProvider 有三種：  
 * **QueryStringRequestCultureProvider**  
- 從 QueryString 判斷語系資訊。如：`http://localhost:500/?culture=zh-TW`  
+  從 QueryString 判斷語系資訊。如：`http://localhost:500/?culture=zh-TW`  
 * **CookieRequestCultureProvider**  
- 從 Cookie 判斷語系資訊。  
+  從 Cookie 判斷語系資訊。  
 * **AcceptLanguageHeaderRequestCultureProvider**  
- 從 HTTP Header 判斷語系資訊。  
+  從 HTTP Header 判斷語系資訊。  
 
 而我是用 Routing 判斷語系資訊，以上三種都不合我用。  
 Routing 判斷語系可以用 `Microsoft.AspNetCore.Localization.Routing` 套件的 `RouteDataRequestCultureProvider`。  
 
 把 CultureMiddleware 註冊在需要用到的 Controller 或 Action。如下：  
+
 *Controllers\HomeController.cs*  
 ```cs
 [MiddlewareFilter(typeof(CultureMiddleware))]
@@ -175,8 +182,8 @@ public class HomeController : Controller
 
 ### Controller
 
-在 Controller 要使用多國語言的話，需要在建構子加入 IStringLocalizer 參數，執行期間會把 Localizer 的實體注入近來。  
-把 Resource Key 丟入 Localizer，就可以得到該語系的值。
+在 Controller 要使用多國語言的話，需要在建構子加入 `IStringLocalizer` 參數，執行期間會把 _localizer 的實體注入近來。  
+把 Resource Key 丟入 _localizer，就可以得到該語系的值。
 
 *Controllers\HomeController.cs*  
 ```cs
@@ -197,6 +204,11 @@ namespace MyWebsite
             _localizer = localizer;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public IActionResult Content()
         {
             return Content($"CurrentCulture: {CultureInfo.CurrentCulture.Name}\r\n"
@@ -209,9 +221,10 @@ namespace MyWebsite
 
 ### View
 
-要在 cshtml 使用多國語言的話，要先在 Setup 的 Services 中加入 ViewLocalization。  
-注入 IViewLocalizer，同上把 Resource Key 丟入 Localizer，就可以得到值。  
+要在 cshtml 使用多國語言的話，要先在 Services 中加入 `ViewLocalization`。  
+注入 `IViewLocalizer`，同上把 Resource Key 丟入 Localizer，就可以得到值。  
 
+*Views\Home\Index.cshtml*
 ```html
 @using System.Globalization
 @using Microsoft.AspNetCore.Mvc.Localization
@@ -225,7 +238,8 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ### Model
 
-要在 Model 使用多國語言的話，要先在 Setup 的 Services 中加入 DataAnnotationsLocalization。  
+要在 Model 使用多國語言的話，要先在 Services 中加入 `DataAnnotationsLocalization`。  
+
 *Models\SampleModel.cs*
 ```cs
 using System.ComponentModel.DataAnnotations;
@@ -240,6 +254,20 @@ namespace MyWebsite.Models
 }
 ```
 
+*Controllers\HomeController.cs*  
+```cs
+// ...
+[MiddlewareFilter(typeof(CultureMiddleware))]
+public class HomeController : Controller
+{
+    public IActionResult Index()
+    {
+        return View(model: new SampleModel());
+    }
+}
+```
+
+*Views\Home\Index.cshtml*
 ```html
 @using System.Globalization
 @using MyWebsite.Models
@@ -292,7 +320,8 @@ namespace MyWebsite
 
 ### Controller
 
-IStringLocalizer 注入的型別改成 SharedResource，如下：  
+`IStringLocalizer` 注入的型別改成 SharedResource，如下：  
+
 *Controllers\HomeController.cs*  
 ```cs
 using System.Globalization;
@@ -334,7 +363,9 @@ namespace MyWebsite
 
 ### View
 
-注入 IViewLocalizer 改成注入 IHtmlLocalizer，並指派型別，如下：  
+注入 `IViewLocalizer` 改成注入 `IHtmlLocalizer`，並指派型別，如下：  
+
+*Views\Home\Index.cshtml*
 ```cs
 @using System.Globalization
 @using Microsoft.AspNetCore.Mvc.Localization

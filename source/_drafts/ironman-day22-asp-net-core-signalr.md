@@ -15,6 +15,9 @@ SignalR 是一套能讓 ASP.NET 輕鬆實現與 Client 即時互動的套件。
 目前 ASP.NET Core 版本的 SignalR 還沒正式發佈，可以先嘗鮮使用，但不建議正是產品使用。  
 本篇將介紹 ASP.NET Core 透過 SignalR 做一個簡單的即時聊天室。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day22] ASP.NET Core 2 系列 - SignalR](https://ithelp.ithome.com.tw/articles/10196465)  
+
 <!-- more -->
 
 ## 安裝套件
@@ -81,6 +84,7 @@ namespace MyWebsite
 
 SignalR Hub 中用到的 Clients 是 dynamic 型別，因為沒有強型別的方法操作 Clients，也可能因為打錯字，在執行階段才發現錯誤。  
 所以建議定義介面控制 SignalR Hub 會使用到的方法。  
+
 *Hubs\IChatHub.cs*  
 ```cs
 using System.Threading.Tasks;
@@ -188,7 +192,7 @@ namespace MyWebsite.Hubs
 
 ## 執行結果
 
-![[鐵人賽 Day22] ASP.NET Core 2 系列 - SignalR - 範例執行結果](/images/pasted-69.gif)
+![[鐵人賽 Day22] ASP.NET Core 2 系列 - SignalR - 範例執行結果](/images/pasted-69.gif)  
 
 ## 參考
 
