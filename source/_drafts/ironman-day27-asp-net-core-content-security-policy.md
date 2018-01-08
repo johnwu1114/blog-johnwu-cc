@@ -4,7 +4,6 @@ author: John Wu
 tags:
   - ASP.NET Core
   - iT 邦幫忙 2018 鐵人賽
-  - CORS
   - CSP
   - Security
 categories:
@@ -30,5 +29,6 @@ Content Security Policy (CSP)
 ## 參考
 
 [USING CSP HEADER IN ASP.NET CORE 2.0](https://tahirnaushad.com/2017/09/12/using-csp-header-in-asp-net-core-2-0/)  
-[Enabling Cross-Origin Requests (CORS)](https://docs.microsoft.com/en-us/aspnet/core/security/cors)  
-[ASP.NET Core and CORS Gotchas](https://weblog.west-wind.com/posts/2016/Sep/26/ASPNET-Core-and-CORS-Gotchas)  
+
+http://www.ruanyifeng.com/blog/2016/09/csp.html
+https://imququ.com/post/content-security-policy-reference.html

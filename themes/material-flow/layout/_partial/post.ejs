@@ -1,8 +1,17 @@
+<%
+  let hasImg = /<img src=.*/i.test(post.excerpt);
+  console.log("hasImg = "+ hasImg+ ", post.featured_image = "+post.featured_image);
+%>
 <article itemscope itemtype="https://schema.org/BlogPosting" 
   class="post reveal<%= (post.title) ? "" : "no-title" %>">
   <%- partial("article-header", { post: post }) %>
   <section class="article typo" >
-    <div itemprop="description"><%- post.excerpt || post.content %><div>
+    <div itemprop="description">
+      <% if (!/<img src=.*/i.test(post.excerpt) && post.featured_image!=null) { %>
+        <p><img src="<%= post.featured_image %>" alt="<%= post.title %>"></p>
+      <% } %>
+      <%- post.excerpt || post.content %>
+    <div>
     <% if (post.excerpt) { %>
 	  <div class="readmore">
       <a itemprop="url" href="<%- url_for(post.path) %>">Read More</a>

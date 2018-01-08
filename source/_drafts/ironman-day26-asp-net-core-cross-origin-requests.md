@@ -5,7 +5,6 @@ tags:
   - ASP.NET Core
   - iT 邦幫忙 2018 鐵人賽
   - CORS
-  - CSP
   - Security
 categories:
   - ASP.NET Core
@@ -80,7 +79,7 @@ public class Startup
 * **AllowAnyMethod**  
   允許任何的 HTTP Method。若要限制 Method，可以改用 `WithMethods`，有多個的話可以用 `,` 隔開。  
 * **AllowCredentials**  
-  預設瀏覽器不會發送跨域請求的憑證(如：Cookies)，如果 JavaScript 使用 `withCredentials = true` 把跨域請求的憑證帶入，ASP.NET Core 這邊也要允取，才可以正常使用。  
+  預設瀏覽器不會發送 CORS 的憑證(如：Cookies)，如果 JavaScript 使用 `withCredentials = true` 把 CORS 的憑證帶入，ASP.NET Core 這邊也要允取，才可以正常使用。  
 
 ## 套用 Policy
 

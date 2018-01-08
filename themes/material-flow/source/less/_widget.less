@@ -123,11 +123,19 @@
 .m_widget.awards-certs {
     .content {
         text-align: center;
-        padding: 0 @gap/2;
+        padding: 0 @gap/2 @gap/2 @gap/2;
     }
     ul > li {
         label {
             display: block; 
+        }
+        a {
+            display: block;
+            margin-bottom: -8px;
+        }
+        span {
+            font-size: .75rem;
+            color: darken(@grey-color,10%);
         }
         padding: @gap/2 0;
     }
