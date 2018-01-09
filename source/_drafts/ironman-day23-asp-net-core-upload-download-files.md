@@ -12,14 +12,17 @@ date: 2018-01-11 12:00
 featured_image: /images/i23-1.png
 ---
 
-在 ASP.NET Core 實作上傳檔案及下載檔案功能算蠻簡易的，但對於上傳大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 網站崩潰。  
-本篇將介紹如何在 ASP.NET Core 實作上傳/下載檔案 API。  
+在 ASP.NET Core 實作上傳檔案及下載檔案功能算蠻簡易的，但對於上傳大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 網站崩潰掛點。  
+本篇將介紹如何在 ASP.NET Core 實作上傳/下載檔案的 API。  
+
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day23] ASP.NET Core 2 系列 - 上傳/下載檔案](https://ithelp.ithome.com.tw/articles/10196584)  
 
 <!-- more -->
 
 ## 簡易上傳/下載
 
-建立一個接收檔案的 Controller，在 Action 的參數中，使用 `IFormFile` 型別，就可以接收到 HTML Form 傳來的檔案。
+建立一個接收檔案的 Controller，在 Action 的參數中，使用 `IFormFile` 型別，就可以接收到 HTML Form 傳來的檔案。  
 如果要允許多檔上傳，就在 Action 的參數中使用 `List<IFormFile>` 集合來接收參數。範例如下：  
 
 *Controllers\FileController.cs*
@@ -46,10 +49,10 @@ namespace MyWebsite.Controllers
         };
         private readonly string _folder;
 
-        public FileController(IHostingEnvironment hostingEnvironment)
+        public FileController(IHostingEnvironment env)
         {
             // 把上傳目錄設為：wwwroot\UploadFolder
-            _folder = $@"{hostingEnvironment.WebRootPath}\UploadFolder";
+            _folder = $@"{env.WebRootPath}\UploadFolder";
         }
 
         [HttpPost]
@@ -98,20 +101,21 @@ namespace MyWebsite.Controllers
 > 此範例有個小缺陷，就是上傳檔名不能重複，如果檔名重複會被複寫。  
 
 * **HTTP POST**  
- 前端用 HTML Form 上傳檔案。`enctype` 使用 **multipart/form-data**，把 `action` 指向接收上傳資料的 API，可以用 `accept` 限制上傳檔案類型。如下：  
-```html
+  前端用 HTML Form 上傳檔案。`enctype` 使用 **multipart/form-data**，把 `action` 指向接收上傳資料的 API，可以用 `accept` 限制上傳檔案類型。如下：  
+  ```html
 <form method="post" enctype="multipart/form-data" action="/api/files">
     <input type="file" name="files" multiple accept="image/*"/>
     <br />
     <input type="submit" value="Upload" />
 </form>
-```
+  ```
 * **HTTP GET**  
- 下載檔案就用 HTTP Get 請求 `http://localhost:5000/api/files/{檔名}` 即可。  
+  下載檔案就用 HTTP Get 請求 `http://localhost:5000/api/files/{檔名}` 即可。  
 
 ## 表單資料
 
 如果上傳檔案要伴隨著表單資料的話，可以透過 Model 包裝 `IFormFile`。如下：  
+
 *Models\AlbumModel.cs*
 ```cs
 using System;
@@ -132,7 +136,10 @@ namespace MyWebsite.Models
 ```
 
 Action 在接收的參數就改為包裝後的 Model。例如：  
+
+*Controllers\FileController.cs*
 ```cs
+// ...
 [Route("album")]
 [HttpPost]
 public async Task<IActionResult> Album(AlbumModel model)
@@ -167,8 +174,9 @@ HTML Form 如下：
 
 ### DisableFormValueModelBindingFilter
 
-由於要自行處理 Request 來的資料，所以要把原本 API 的 Model Binding 移除。  
+由於要自行處理 Request 來的資料，所以要把 **原本的 Model Binding 移除** 。  
 建立一個 Attribute 註冊在大型檔案上傳的 API，透過 Resource Filter 在 Model Binding 之前把它移除。  
+
 *Filters\DisableFormValueModelBindingFilter.cs*  
 ```cs
 using System;
@@ -210,6 +218,7 @@ namespace MyWebsite.Filters
 ### MultipartRequestHelper
 
 從微軟官方範例直接複製 [MultipartRequestHelper.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample/MultipartRequestHelper.cs) 使用，這個類別是用來判斷 HTML Form 送來的 `multipart/form-data` 內容使用。  
+
 *Helpers\MultipartRequestHelper.cs*
 ```cs
 using System;
@@ -267,6 +276,7 @@ namespace MyWebsite.Helpers
 ### FileStreamingHelper
 
 FileStreamingHelper 是從官方範例 [StreamingController.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs) 抽出的邏輯，可以讓 Controller 程式碼更簡潔，`Stream` 實體透過委派傳入，使用上較為彈性。  
+
 *Helpers\FileStreamingHelper.cs*
 ```cs
 using System;
@@ -376,9 +386,11 @@ namespace MyWebsite.Helpers
 
 ### 上傳 API
 
-HTML Form 使用同上述**表單資料**的範例，上傳檔案的 API 改成如下：
+HTML Form 使用同上述**表單資料**的範例，上傳檔案的 API 改成如下：  
 
+*Controllers\FileController.cs*
 ```cs
+// ...
 [Route("album")]
 [HttpPost]
 [DisableFormValueModelBindingFilter]
@@ -407,28 +419,56 @@ public async Task<IActionResult> Album()
 }
 ```
 * **DisableFormValueModelBindingFilter**  
- Action 套用此 Filter 後，HTML Form 就不會被轉換成物件傳入 Action，因此也就可以移除 Action 的參數了。  
+  Action 套用此 Filter 後，HTML Form 就不會被轉換成物件傳入 Action，因此也就可以移除 Action 的參數了。  
 * **StreamFile**  
- StreamFile 會將 HTML Form 的內容以 FormValueProvider 包裝後回傳，並以委派方法讓你實做上傳的事件，以此例來說就是直接以串流的方式直接寫檔。  
- 這樣就能避免 ASP.NET Core 依賴緩衝記憶體上傳檔案。  
+  StreamFile 會將 HTML Form 的內容以 `FormValueProvider` 包裝後回傳，並以委派方法讓你實做上傳的事件，以此例來說就是直接以串流的方式直接寫檔。  
+  這樣就能避免 ASP.NET Core 依賴緩衝記憶體上傳檔案。  
 
-> 若是將 ASP.NET Core 運行在 `IIS` 上，可能還會遇到單一檔案大小過大的錯誤。  
- `IIS` 預設單一上傳封包是 **30000000 Bits** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 Web.config 修改 `maxAllowedContentLength`。如下：  
-```xml
+### Request Limits
+
+上傳大檔可能還會遇到單一 Request 封包過大的錯誤。  
+
+* **Kestrel**
+  若是將 ASP.NET Core 單獨運行在 `Kestrel` 上，預設單一上傳封包是 **30000000 Bits** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 `KestrelServerLimits` 修改 `MaxRequestBodySize`。如下：  
+  *Program.cs*
+  ```cs
+// ...
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        BuildWebHost(args).Run();
+    }
+
+    public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .UseKestrel(options =>
+            {
+                // 100MB
+                options.Limits.MaxRequestBodySize = 100 * 1024 * 1024;
+            })
+            .Build();
+}
+  ```
+* **IIS**
+  若是將 ASP.NET Core 運行在 `IIS` 上，預設單一上傳封包是 **30000000 Bits** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 *Web.config* 修改 `maxAllowedContentLength`。如下：  
+  *Web.config*
+  ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.webServer>
     <security>
       <requestFiltering>
-        <!-- 約 50MB -->
-        <requestLimits maxAllowedContentLength="52428800" />
+        <!-- 100MB -->
+        <requestLimits maxAllowedContentLength="104857600" />
       </requestFiltering>
     </security>
   </system.webServer>
 </configuration>
-```
+  ```
 
 ## 參考
 
 [File uploads in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)  
-[Uploading Files In ASP.net Core](https://dotnetcoretutorials.com/2017/03/12/uploading-files-asp-net-core/)
+[Uploading Files In ASP.net Core](https://dotnetcoretutorials.com/2017/03/12/uploading-files-asp-net-core/)  
