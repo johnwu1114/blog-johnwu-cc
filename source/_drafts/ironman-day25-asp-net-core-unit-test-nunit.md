@@ -10,7 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-13 12:00
-featured_image: /images/.png
+featured_image: /images/i25-5.png
 ---
 
 .NET Core 的單元測試框架有支援 xUnit、NUnit 及 MSTest，官方是比較推薦用 xUnit，但 NUnit 似乎比較受 .NET 工程師歡迎，我個人也是比較愛用 NUnit。  

@@ -12,6 +12,7 @@ date: 2018-01-15 12:00
 featured_image: /images/.png
 ---
 
+跨網站腳本 (Cross-Site Scripting, XSS) 攻擊是常見的攻擊手法
 網站安全性是很重要的非功能需求，有些簡單的實作，就能有效的保護網站的安全。  
 本篇將介紹 ASP.NET Core 基本的安全保護，包含：  
 * 網頁安全政策 Content Security Policy (CSP)  
