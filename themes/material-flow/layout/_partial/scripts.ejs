@@ -23,6 +23,30 @@
   var PAGEVIEWS_API = "<%- theme.pageviews_api %>";
   var ROOT = "<%- config.root %>"||"/";
   if(!ROOT.endsWith("/"))ROOT += "/";
+  
+  var el = document.getElementsByTagName("figure");
+  for (var i = 0; i < el.length; i++) {
+      el[i].className += " notranslate";
+  }
+  el = document.getElementsByTagName("code");
+  for (var i = 0; i < el.length; i++) {
+      el[i].className += " notranslate";
+  }
+  el = null;
 </script>
 
 <script src="/js/bundle.js?v=2" async></script>
+
+<% if (theme.google_translate === true) { %>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: "zh-TW", 
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+    multilanguagePage: true,
+    gaTrack: true, gaId: "<%= theme.google_analytics %>"
+  } , "google_translate_element");
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<% } %>

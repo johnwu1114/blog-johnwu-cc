@@ -41,13 +41,13 @@
 
 	<div class="art-item-footer">	
 	<% if (post.tags && post.tags.length) { %>
-		<div itemprop="keywords" class="article-tags tags">
+		<div itemprop="keywords" class="article-tags tags notranslate">
 		<% post.tags.each(function(item){ %>
 			<a href="<%- url_for(item.path) %>"><%=item.name %></a>
 		<%})%>
 		</div>
     <% } %>
-	<div class="social-buttons">
+	<div class="social-buttons notranslate">
 		<% if(theme.facebook_sdk.enable && theme.facebook_sdk.like_button) { %>
 		<div class="social-button fb">
 			<div class="fb-like" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>

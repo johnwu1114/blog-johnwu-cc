@@ -8,13 +8,13 @@
 	<div class="wrapper">
 		<div class="nav-main container container--flex">
 			<% if (isShowWebsiteNameAsH2){ %>
-			<h2 itemprop="headline" class="logo flat-box">
+			<h2 itemprop="headline" class="logo flat-box notranslate">
 				<a href="<%= url_for("/") %>" >
 					<%- config.title %>
 				</a>
 			</h2>
 			<% } else { %>
-			<h1 itemprop="headline" class="logo flat-box">
+			<h1 itemprop="headline" class="logo flat-box notranslate">
 				<a href="<%= url_for("/") %>" >
 					<%- config.title %>
 				</a>
@@ -35,16 +35,6 @@
 			<% if (theme.google_translate === true) { %>
 			<div class="google-translate">
 				<div id="google_translate_element"></div>
-				<script type="text/javascript">
-				function googleTranslateElementInit() {
-					new google.translate.TranslateElement({
-						pageLanguage: "zh-TW", 
-						layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
-						gaTrack: true, gaId: "<%= theme.google_analytics %>"
-					} , "google_translate_element");
-				}
-				</script>
-				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 			</div>
 			<% } %>
 			<% if (theme.search.enable === true) { %>
