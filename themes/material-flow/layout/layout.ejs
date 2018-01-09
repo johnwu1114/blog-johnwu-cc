@@ -26,6 +26,11 @@
   } else if (page.tags && page.tags.length) {
     keywords = page.tags.map(function(tag){ return tag.name; }).join(",");
   }
+
+  let featured_image = null;
+  if(page && page.featured_image){
+    featured_image = page.featured_image;
+  }
 %>
 <!DOCTYPE html>
 <html lang="<%= config.lang_code %>" 
@@ -33,7 +38,7 @@
   xmlns="https://www.w3.org/1999/xhtml"
   xmlns:og="http://ogp.me/ns#" 
   xmlns:fb="https://www.facebook.com/2008/fbml">
-  <%- partial("_partial/head", { title: title, keywords: keywords }) %>
+  <%- partial("_partial/head", { title: title, keywords: keywords, featured_image: featured_image }) %>
   <body itemscope itemtype="https://schema.org/Blog">
     <%- partial("_partial/loading") %>
     <script>addLoadingBarProgress(20);</script>

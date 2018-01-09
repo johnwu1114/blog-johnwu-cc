@@ -22,9 +22,10 @@
   <%- favicon_tag(config.favicon) %>
   <%- feed_tag(config.feed.path, { title: config.title }) %>
   <%- open_graph({
+    image: featured_image,
     twitter_id: theme.twitter,
     google_plus: theme.google_plus,
-    fb_admins: theme.facebook_sdk.fb_admin, 
+    fb_admins: theme.facebook_sdk.fb_admin,
     fb_app_id: theme.facebook_sdk.app_id}) %>
   <% if(theme.canonical) { %>
     <link rel="canonical" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>" />

@@ -1,7 +1,3 @@
-<%
-  let hasImg = /<img src=.*/i.test(post.excerpt);
-  console.log("hasImg = "+ hasImg+ ", post.featured_image = "+post.featured_image);
-%>
 <article itemscope itemtype="https://schema.org/BlogPosting" 
   class="post reveal<%= (post.title) ? "" : "no-title" %>">
   <%- partial("article-header", { post: post }) %>
