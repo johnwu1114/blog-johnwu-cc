@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-10 12:00
-featured_image: /images/pasted-69p.png
+featured_image: /images/i22-1.png
 ---
 
 SignalR 是一套能讓 ASP.NET 輕鬆實現與 Client 即時互動的套件。  
