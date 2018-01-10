@@ -4,6 +4,8 @@
     <%- partial("_partial/tags") %>
 <% } else if (page.type === "error") { %>
     <%- partial("_partial/error") %>
+<% } else if (page.type === "search") { %>
+    <%- partial("_partial/search") %>
 <% } else { %>
     <%- partial("_partial/article", { post: page, index: false }) %>
 <% } %>

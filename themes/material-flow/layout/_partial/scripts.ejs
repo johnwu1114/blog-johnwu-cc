@@ -17,9 +17,6 @@
 <% } %>
 
 <script>
-  var GOOGLE_CUSTOM_SEARCH_API_KEY = "<%- theme.search.google_api_key %>";
-  var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "<%- theme.search.google_engine_id %>";
-  var SEARCH_SERVICE = "<%- theme.search.service %>";
   var PAGEVIEWS_API = "<%- theme.pageviews_api %>";
   var ROOT = "<%- config.root %>"||"/";
   if(!ROOT.endsWith("/"))ROOT += "/";
@@ -35,15 +32,14 @@
   el = null;
 </script>
 
-<script src="/js/bundle.js?v=2" async></script>
+<script src="/js/bundle.js?v=3" async></script>
 
 <% if (theme.google_translate === true) { %>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
-    pageLanguage: "zh-TW", 
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
-    multilanguagePage: true,
+    pageLanguage: "zh-TW",
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
     gaTrack: true, gaId: "<%= theme.google_analytics %>"
   } , "google_translate_element");
 }

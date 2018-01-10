@@ -118,7 +118,8 @@
 				opacity:0;	
 			}
 			.m_search{
-				width: 100%;			
+				width: 100%;
+				padding-left: 20px;		
 			}
 		}
 	}
@@ -163,7 +164,7 @@
 		box-sizing: border-box;
 		-webkit-appearance: none;
 		box-shadow: none;
-		&:hover{
+		&:hover {
 			background: fade(@white,35%);
 		}
 		&:focus {
@@ -171,7 +172,7 @@
 			background: @white;
 			.set-placeholder({color: @black});
 		}
-		&:focus ~ .icon{
+		&:focus ~ .fa {
 			color: @black;
 		}
 		.set-placeholder({color: @white});

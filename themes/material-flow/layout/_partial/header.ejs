@@ -37,16 +37,16 @@
 				<div id="google_translate_element"></div>
 			</div>
 			<% } %>
-			<% if (theme.search.enable === true) { %>
+			<% if (theme.google_custom_search === true && page.type !== "search") { %>
 			<div class="m_search">
-				<form name="searchform" class="form u-search-form">
-					<input type="text" class="input u-search-input" placeholder="Search" />
-					<i class="fa fa-search"></span>
+				<form name="searchform" action="/search/" method="GET" class="form u-search-form">
+					<input name="q" type="text" class="input u-search-input" placeholder="Search" />
+					<i class="fa fa-search"></i>
 				</form>
 			</div>
 			<% } %>
 			<ul class="switcher h-list">
-				<% if (theme.search.enable === true) { %>
+				<% if (theme.google_custom_search === true && page.type !== "search") { %>
 				<li class="s-search"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-search flat-box"></span></a></li>
 				<% } %>
 				<li class="s-menu"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-bars flat-box"></span></a></li>

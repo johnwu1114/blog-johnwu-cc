@@ -2,7 +2,6 @@
 "use strict";
 addLoadingBarProgress(10);
 
-var customSearch;
 (function ($) {
 	const scrollCorrection = 70; // (header height = 50px) + (gap = 20px)
 
@@ -133,36 +132,6 @@ var customSearch;
 		$search.click(function (e) {
 			e.stopPropagation();
 		})
-		if (SEARCH_SERVICE === "google") {
-			customSearch = new window.GoogleCustomSearch({
-				apiKey: GOOGLE_CUSTOM_SEARCH_API_KEY,
-				engineId: GOOGLE_CUSTOM_SEARCH_ENGINE_ID,
-				imagePath: "/images/"
-			});
-		} else if (SEARCH_SERVICE === "algolia") {
-			customSearch = new window.AlgoliaSearch({
-				apiKey: ALGOLIA_API_KEY,
-				appId: ALGOLIA_APP_ID,
-				indexName: ALGOLIA_INDEX_NAME,
-				imagePath: "/images/"
-			});
-		} else if (SEARCH_SERVICE === "hexo") {
-			customSearch = new window.HexoSearch({
-				imagePath: "/images/"
-			});
-		} else if (SEARCH_SERVICE === "azure") {
-			customSearch = new window.AzureSearch({
-				serviceName: AZURE_SERVICE_NAME,
-				indexName: AZURE_INDEX_NAME,
-				queryKey: AZURE_QUERY_KEY,
-				imagePath: "/images/"
-			});
-		} else if (SEARCH_SERVICE === "baidu") {
-			customSearch = new window.BaiduSearch({
-				apiId: BAIDU_API_ID,
-				imagePath: "/images/"
-			});
-		}
 	}
 
 	function setWaves() {
@@ -302,7 +271,6 @@ var customSearch;
 	};
 
 	$(function () {
-
 		//set header
 		setHeader();
 		setHeaderMenu();

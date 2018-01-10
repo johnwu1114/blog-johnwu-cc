@@ -17,3 +17,4 @@ Disallow: /images/
 Disallow: /js/
 Disallow: /about/
 Disallow: /error/
+Disallow: /search/
