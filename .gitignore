@@ -8,3 +8,4 @@ public/
 cache-s3-cf-deploy/
 .vs/
 package-lock.json
+_multiconfig.yml

@@ -3,12 +3,15 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
+    "start": "hexo server --config _config.yml,_config.links.yml,_config.local.yml",
+    "preview": "webpack -p&&hexo clean&&hexo server --config _config.yml,_config.links.yml,_config.deploy.yml",
+    "deploy": "webpack -p&&hexo clean&&hexo deploy -g --config _config.yml,_config.links.yml,_config.deploy.yml",
     "build": "webpack -p",
     "dev": "webpack -d",
     "watch": "webpack -d --watch"
   },
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.4.4"
   },
   "dependencies": {
     "aws-sdk": "^2.112.0",
