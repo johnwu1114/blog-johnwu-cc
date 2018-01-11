@@ -14,6 +14,9 @@ featured_image: /images/i24-1.png
 Entity Framework 是 .NET 跟資料庫溝通好用的 Object-Relational Mapper (O/RM) 框架，ASP.NET Core 也在專案初期就加入了 Entity Framework Core (EF Core)，延續這個好用框架。  
 本篇將介紹 ASP.NET Core 搭配 Entity Framework Core 存取 SQL Server 資料庫，是以 Code First 方式建立資料表。
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day24] ASP.NET Core 2 系列 - Entity Framework Core](https://ithelp.ithome.com.tw/articles/10196856)  
+
 <!-- more -->
 
 ## 安裝套件
@@ -36,6 +39,7 @@ Entity Framework 基本上都是搭配 SQL Server，以下範例也是使用 SQL
 
 `DbContext` 是 EF Core 跟資料庫溝通的主要類別，透過繼承 `DbContext` 可以定義跟資料庫溝通的行為。  
 首先我們先建立一個類別繼承 `DbContext`，同時建立 DbSet。  
+
 *MyContext.cs*
 ```cs
 using Microsoft.EntityFrameworkCore;
@@ -55,7 +59,8 @@ namespace MyWebsite
 ```
 > EF Core 會幫我們把 DbSet 轉換成資料表。  
 
-建立一個資料模型 UserModel，這個資料模型會被轉成資料表的資料，把屬性 Id 設定成 Primary Key 且自動遞增：  
+建立一個資料模型 UserModel，這個資料模型會被轉成資料表，把屬性 Id 設定成 Primary Key 且自動遞增：  
+
 *Models\UserModel.cs*
 ```cs
 using System.ComponentModel.DataAnnotations;
@@ -91,10 +96,11 @@ namespace MyWebsite.Models
   }
 }
 ```
-> **(LocalDB)\MSSQLLocalDB** 是 SQL Server 提供的本 DB。   
+> **(LocalDB)\MSSQLLocalDB** 是 SQL Server 提供的本機 DB。   
 
 
 在 WebHost Builder 用 `ConfigureAppConfiguration` 載入組態設定：  
+
 *Program.cs*
 ```cs
 // ...
@@ -118,6 +124,7 @@ public class Program
 
 在 `Startup.ConfigureServices` 注入 EF Core 的服務 `DbContext`，並設定資料庫連線字串。  
 並在 `Startup.Configure` 呼叫 dbContext.Database.EnsureCreated()，當啟動 Website 時就會建立資料庫。  
+
 *Startup.cs*
 ```cs
 using Microsoft.AspNetCore.Builder;
@@ -243,12 +250,13 @@ namespace MyWebsite.Controllers
 ```
 > 仔細看一下 _context，會發現我都沒有對它做 Dispose。  
  不是 EF Core 改成自動 Dispose，而是 AddDbContext 服務幫我們實做了 Dispose。  
- 當 Request 進來時，MyContext 會開啟連線，Response 結束時，會關閉連線，所以才不用自己 Dispose。  
+ 當 Request 進來時，MyContext 會開啟連線；Response 結束時，會關閉連線並呼叫 Dispose。  
 
 ## Repository Pattern
 
 由於 Entity Framework 跟邏輯的相依性太強，對單元測試很不友善，所以通常都會搭配 Repository Pattern 使用。  
 Repository Pattern 切斷相依的介面如下：  
+
 *Repositories\IRepository.cs*
 ```cs
 using System;
@@ -274,6 +282,7 @@ namespace MyWebsite.Repositories
 ```
 
 把存取 MyContext.Users 的邏輯都實作在 UserRepository。  
+
 *Repositories\UserRepository.cs*
 ```cs
 using System;
@@ -328,6 +337,7 @@ namespace MyWebsite.Repositories
 
 
 在 `Startup.ConfigureServices` 注入 `UserRepository`。  
+
 *Startup.cs*
 ```cs
 // ...
@@ -353,6 +363,7 @@ namespace MyWebsite
 
 
 原本在 UserController 注入 MyContext 改成注入 `IRepository<UserModel, int>`。  
+
 *Controllers\UserController.cs*
 ```cs
 using System.Text.RegularExpressions;
@@ -444,4 +455,4 @@ namespace MyWebsite.Controllers
 ## 參考
 
 [Getting started with ASP.NET Core MVC and Entity Framework Core using Visual Studio](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro)  
-[Create, Read, Update, and Delete - EF Core with ASP.NET Core MVC tutorial](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/crud)
+[Create, Read, Update, and Delete - EF Core with ASP.NET Core MVC tutorial](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/crud)  

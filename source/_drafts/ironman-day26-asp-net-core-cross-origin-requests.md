@@ -12,13 +12,11 @@ date: 2018-01-14 12:00
 featured_image: /images/i26-2.png
 ---
 
-
-
 有些團隊會把前後端專案切開，放在不同的網域執行，如此一來就會遇到瀏覽器安全性問題，禁止不同網域的請求。  
 本篇將介紹 ASP.NET Core 啟用跨域請求 Cross-Origin Requests (CORS)。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests)](https://ithelp.ithome.com.tw/articles/xxxxxxx)  
+ [[Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests)](https://ithelp.ithome.com.tw/articles/10196870)  
 
 <!-- more -->
 
@@ -40,13 +38,13 @@ featured_image: /images/i26-2.png
 ## 註冊 Policy
 
 > 在 ASP.NET Core 中使用 CORS，需要 `Microsoft.AspNetCore.Cors` 套件。  
-ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 Microsoft.AspNetCore.Cors，所以不用再安裝。  
+ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Cors`，所以不用再安裝。  
 如果是 ASP.NET Core 1.0 的版本，可以透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```
 dotnet add package Microsoft.AspNetCore.Cors
 ```
 
-ASP.NET Core 中使用 CORS 只要在 `Startup.ConfigureServices` 呼叫 `AddCors`，就能透過註冊 CORS 的 Policy 規則，如下：  
+ASP.NET Core 中使用 CORS 只要在 `Startup.ConfigureServices` 呼叫 `AddCors`，就能註冊 CORS 的 Policy 規則，如下：  
 
 *Startup.cs*
 ```cs
@@ -108,16 +106,16 @@ public class Startup
 可以在 Controller 或 Action 掛上 `[EnableCors("Policy 名稱")]`，套用 Policy 到 Controller 或 Action 上。
 
 * **Controller**
-  ```cs
+```cs
 // ...
 [EnableCors("CorsPolicy")]
 public class HomeController : Controller
 {
     // ...
 }
-  ```
+```
 * **Action**
-  ```cs
+```cs
 // ...
 public class HomeController : Controller
 {
@@ -128,7 +126,7 @@ public class HomeController : Controller
         // ...
     }
 }
-  ```
+```
 
 在 ASP.NET Core 允取 CROS 後，完整的情境如下：  
 

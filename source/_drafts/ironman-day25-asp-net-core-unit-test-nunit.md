@@ -16,6 +16,9 @@ featured_image: /images/i25-5.png
 .NET Core 的單元測試框架有支援 xUnit、NUnit 及 MSTest，官方是比較推薦用 xUnit，但 NUnit 似乎比較受 .NET 工程師歡迎，我個人也是比較愛用 NUnit。  
 本篇將介紹 ASP.NET Core 搭配 NUnit 單元測試框架及如何用 Visual Studio Code (VS Code) 呈現視覺化測試結果。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+ [[Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit)](https://ithelp.ithome.com.tw/articles/10196862)  
+
 <!-- more -->
 
 ## 建立方案
@@ -60,7 +63,7 @@ dotnet test MyWebsite.Tests
 
 ### 測試案例
 
-被測試的目標以[[鐵人賽 Day22] ASP.NET Core 2 系列 - Entity Framework Core](/article/ironman-day22-asp-net-core-entity-framework-core.html)文中的 **Repository Pattern** 的 *Controllers/UserController.cs* 做為範例。  
+被測試的目標以[[鐵人賽 Day24] ASP.NET Core 2 系列 - Entity Framework Core](/article/ironman-day24-asp-net-core-entity-framework-core.html)文中的 **Repository Pattern** 的 *Controllers/UserController.cs* 做為範例。  
 由於測試專案 **MyWebsite.Tests** 會參考到 **MyWebsite** 專案，所以要在 **MyWebsite.Tests** 加入對 **MyWebsite** 的參考，透過 .NET Core CLI 加入參考的指令如下：  
 ```sh
 # dotnet add <專案名稱> reference <被參考專案的 csproj 檔>
