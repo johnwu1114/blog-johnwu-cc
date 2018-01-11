@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-14 12:00
-featured_image: /images/i26-1.png
+featured_image: /images/i26-2.png
 ---
 
 

@@ -10,7 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-17 12:00
-featured_image: /images/i29-1.png
+featured_image: /images/i29-3.png
 ---
 
 ASP.NET Core 有兩種運行方式：  

@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-03 12:00
-featured_image: /images/i15-1.png
+featured_image: /images/i15-2.png
 ---
 
 ASP.NET Core 不再把 Web.config 當作預設的組態設定，而且 .NET Core 讀取組態設定的方式也跟過去不同，不再使用 ConfigurationManager 讀組態設定值。除了從檔案取得組態設定，還有多種不同的組態設定方式。  

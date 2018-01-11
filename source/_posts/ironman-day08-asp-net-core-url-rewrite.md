@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-27 12:00
-featured_image: /images/i08-1.png
+featured_image: /images/i08-3.png
 ---
 
 路由跟 URL 重寫的功能性略有不同。路由是將 Request 找到對應的服務，而 URL 重寫是為了~~推卸責任 XD~~轉送 Request。  

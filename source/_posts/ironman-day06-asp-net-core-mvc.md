@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-25 12:00
-featured_image: /images/i06-1.png
+featured_image: /images/i06-3.png
 ---
 
 ASP.NET Core MVC 跟 ASP.NET MVC 觀念是一致的，使用上也沒有什麼太大的變化。  

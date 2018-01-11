@@ -10,7 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-08 12:00
-featured_image: /images/pasted-113p.png
+featured_image: /images/i20-1.png
 ---
 
 為了程式效率，通常會利用記憶體存取速度遠高於磁碟讀取的特性，把常用但不常變動資料放在記憶體中，提升取用資料的速度。ASP.NET Core 有提供好用的快取機制，不用自己實作控制資料的快取物件。  

@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-23 00:17
-featured_image: /images/i04-1.png
+featured_image: /images/i04-4.png
 ---
 
 ASP.NET Core 使用了大量的依賴注入 (Dependency Injection, DI)，把控制翻轉 (Inversion Of Control, IoC) 運用的相當落實。DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的 DI Framework 對此應該不陌生。  

@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-21 01:09
-featured_image: /images/i02-1.png
+featured_image: /images/i02-2.png
 ---
 
 要了解程式的運作原理，要先知道程式的進入點及生命週期。  
