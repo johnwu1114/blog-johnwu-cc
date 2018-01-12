@@ -13,7 +13,7 @@ date: 2018-01-15 12:00
 featured_image: /images/i27-3.png
 ---
 
-例如跨網站腳本 (Cross-Site Scripting, XSS) 攻擊是常見的攻擊手法，有效的阻擋方式是透過網頁內容安全政策 (Content Security Policy, CSP) 規範，告知瀏覽器載入的資源或行為是否受信任，阻擋非預期事件，加強網站安全性。  
+例如跨網站腳本 (Cross-Site Scripting, XSS) 攻擊是常見的攻擊手法，有效的阻擋方式是透過網頁內容安全政策 (Content Security Policy, CSP) 規範，告知瀏覽器能發出 Request 的位置是否受信任，阻擋非預期的對外連線，加強網站安全性。  
 本篇將介紹 ASP.NET Core 自製 CSP Middleware 防止 XSS 攻擊。  
 另外，做範例的過程中，剛好發現 **iT 邦幫忙** 沒有擋 Clickjacking，所以就順便補充。  
 
@@ -147,12 +147,12 @@ namespace MyWebsite
 ## CSP 指令 (Directives)
 
 上圖套用 CSP 後，連內部的 IFrame 都不顯示，主要是因為 CSP 指令的關係。  
-CSP 指令可以限制載入資源的類型以及來源的位置，指令的使用格式如下：
+CSP 指令可以限制發出 Request 獲取資源的類型以及位置，指令的使用格式如下：
 ```
 Response Headers
-  Content-Security-Policy: {CSP 指令} {來源}; {CSP 指令} {來源} {..來源..} {來源};
+  Content-Security-Policy: {CSP 指令} {位置}; {CSP 指令} {位置} {..位置..} {位置};
 ```
-> 以 `;` 區分多個指令，以空格區分多個來源。  
+> 以 `;` 區分多個指令，以空格區分多個位置。  
 
 常用的 CSP 指令如下：  
 * `default-src`  
@@ -176,22 +176,23 @@ Response Headers
 * `report-uri`  
   當瀏覽器發現 CSP 安全性問題時，就會提報錯誤給 `report-uri` 指定的網址。  
   若使用 `Content-Security-Policy-Report-Only` 就需要搭配 `report-uri`。  
+  > 強烈建議使用回報功能，當被 XSS 攻擊時才會知道。  
 
 > 其他 CSP 指令可以參考 [W3C 的 CSP 規範](https://w3c.github.io/webappsec-csp/#csp-directives)。  
 
-每個 CSP 指令可以限制一個或多個載入來源，來源位置的設定參數如下：  
+每個 CSP 指令可以限制一個或多個能發出 Request 的位置，設定參數如下：  
 * `*`  
-  允許任何載入來源。  
+  允許對任何位置發出 Request。  
   如：`default-src *;`，允許載入來自任何地方、任何類型的資源。  
 * `'none'`  
-  不允許載入任何來源。  
+  不允許對任何位置發出 Request。  
   如：`media-src 'none';`，不允許載入影音標籤。  
 * `'self'`
-  只允許載入同網域的來源。  
+  只允許同網域的位置發出 Request。  
   如：`script-src 'self';`，只允許載入同網域的 `*.js`。  
 * URL  
-  指定允許載入的 URL，可搭配 `*` 使用。  
-  如：`img-src http://cdn.johnwu.cc https:;`，只允許從 `http://cdn.johnwu.cc` 或其他 HTTPS 的來源載入 `*.css`。  
+  指定允許發出 Request 的位置，可搭配 `*` 使用。  
+  如：`img-src http://cdn.johnwu.cc https:;`，只允許從 `http://cdn.johnwu.cc` 或其他 HTTPS 的位置載入 `*.css`。  
 
 ## 建立 CSP Middleware
 
@@ -211,10 +212,10 @@ public class CspDirective
         _directive = directive;
     }
     private List<string> _sources { get; set; } = new List<string>();
-    public CspDirective AllowAny() => Allow("*");
-    public CspDirective Disallow() => Allow("'none'");
-    public CspDirective AllowSelf() => Allow("'self'");
-    public CspDirective Allow(string source)
+    public virtual CspDirective AllowAny() => Allow("*");
+    public virtual CspDirective Disallow() => Allow("'none'");
+    public virtual CspDirective AllowSelf() => Allow("'self'");
+    public virtual CspDirective Allow(string source)
     {
         _sources.Add(source);
         return this;
@@ -401,12 +402,46 @@ Clickjacking 是一種透過 IFrame 的偽裝攻擊方式。
  Clickjacking 攻擊可以透過 CSP 的 `frame-ancestors` 防範，但似乎還不是所有瀏覽器都支援 `frame-ancestors`，較通用的方式是在 HTTP Header 加上 `X-Frame-Options`，通知瀏覽器是否能被當作 IFrame。  
 延伸上面 CSP Middleware 的範例：  
 
+建立一個 *FrameOptionsDirective.cs* 繼承 CspDirective，如下：  
+
+*FrameOptionsDirective.cs*
+```cs
+public class FrameOptionsDirective : CspDirective
+{
+    public FrameOptionsDirective() : base("frame-ancestors")
+    {
+
+    }
+    public string XFrameOptions { get; private set; }
+    public override CspDirective AllowAny()
+    {
+        XFrameOptions = "";
+        return base.AllowAny();
+    }
+    public override CspDirective Disallow()
+    {
+        XFrameOptions = "deny";
+        return base.Disallow();
+    }
+    public override CspDirective AllowSelf()
+    {
+        XFrameOptions = "sameorigin";
+        return base.AllowSelf();
+    }
+    public override CspDirective Allow(string source)
+    {
+        XFrameOptions = $"allow-from {source}";
+        return base.Allow(source);
+    }
+}
+```
+
 *CspOptions.cs*
 ```cs
 public class CspOptions
 {
     // ...
-    public string XFrameOptions  { get; set; } = "SAMEORIGIN";
+    public FrameOptionsDirective FrameAncestors { get; set; } = new FrameOptionsDirective();
 }
 ```
 
@@ -414,23 +449,23 @@ public class CspOptions
 ```cs
 public class CspMiddleware
 {
-    // ...
-    private string XFrameOptionsValue
+    private string HeaderValue
     {
         get
         {
-            if (Regex.IsMatch(_options.XFrameOptions, "(?i)^(deny|sameorigin)$"))
-            {
-                return _options.XFrameOptions;
-            }
-            return $"ALLOW-FROM {_options.XFrameOptions}";
+            // ...
+            stringBuilder.Append(_options.FrameAncestors);
+            return stringBuilder.ToString();
         }
     }
 
     public async Task Invoke(HttpContext context)
     {
         context.Response.Headers.Add(Header, HeaderValue);
-        context.Response.Headers.Add("X-Frame-Options", XFrameOptionsValue);
+        if (!string.IsNullOrEmpty(_options.FrameAncestors.XFrameOptions))
+        {
+            context.Response.Headers.Add("X-Frame-Options", _options.FrameAncestors.XFrameOptions);
+        }
         await _next(context);
     }
 }
@@ -445,17 +480,17 @@ public class Startup
         app.UseCsp(options =>
         {
             // ...
-            options.XFrameOptions = "https://blog.johnwu.cc";
+            options.FrameAncestors.Allow("https://blog.johnwu.cc");
         });
         // ...
     }
 }
 ```
-> `X-Frame-Options` 不支援多個網域，如果要設定多個網域，建議用 CSP 的 `frame-ancestors`。
+> `X-Frame-Options` 不支援多個網域，如果要設定多個網域，建議搭配著 CSP 的 `frame-ancestors` 使用。  
 
 設定完成後，當被其他未允許 Domain 嵌入為 IFrame 頁面時，瀏覽器就提報錯誤。  
 把上面範例程式碼的 IFrame URL 改為 `https://www.google.com.tw/`。  
-Google 有設定 `X-Frame-Options` 為 `SAMEORIGIN` ，所以會產生錯誤訊息，如下：  
+Google 有設定 `X-Frame-Options` 為 `sameorigin` ，所以會產生錯誤訊息，如下：  
 > Refused to display '`https://www.google.com.tw/`' in a frame because it set 'X-Frame-Options' to 'sameorigin'.
 
 ![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - X-Frame-Options](/images/i27-6.png)  
@@ -465,3 +500,4 @@ Google 有設定 `X-Frame-Options` 為 `SAMEORIGIN` ，所以會產生錯誤訊�
 [USING CSP HEADER IN ASP.NET CORE 2.0](https://tahirnaushad.com/2017/09/12/using-csp-header-in-asp-net-core-2-0/)  
 [Content Security Policy Level 3](https://w3c.github.io/webappsec-csp/)  
 [Content-Security-Policy - HTTP Headers 的資安議題 (2)](https://devco.re/blog/2014/04/08/security-issues-of-http-headers-2-content-security-policy/)  
+[[翻譯] 我是這樣拿走大家網站上的信用卡號跟密碼的](https://medium.com/@CQD/%E7%BF%BB%E8%AD%AF-%E6%88%91%E6%98%AF%E9%80%99%E6%A8%A3%E6%8B%BF%E8%B5%B0%E5%A4%A7%E5%AE%B6%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9A%84%E4%BF%A1%E7%94%A8%E5%8D%A1%E8%99%9F%E8%B7%9F%E5%AF%86%E7%A2%BC%E7%9A%84-991cb6c4631e)*(推薦閱讀)*  

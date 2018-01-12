@@ -11,7 +11,7 @@
     "watch": "webpack -d --watch"
   },
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.4.4"
   },
   "dependencies": {
     "aws-sdk": "^2.112.0",
