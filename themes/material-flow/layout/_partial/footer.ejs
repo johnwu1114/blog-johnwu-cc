@@ -11,8 +11,8 @@
         <span itemprop="copyrightHolder"><%= config.author %></span>
     </span>
 
-    <% if (theme.social) { %>
-      <% theme.social.forEach(function(value, key) {
+    <% if (config.social) { %>
+      <% config.social.forEach(function(value, key) {
             if (value.url && value.slug) { %>
         <a itemprop="url" href="<%= value.url %>" class="social <%= value.slug %>"
           target="_blank" rel="external">

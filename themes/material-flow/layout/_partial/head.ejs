@@ -10,9 +10,9 @@
   <meta name="copyright" content="© <%= date(Date.now(), 'YYYY') %> <%= config.author %>">
   <meta name="url" content="<%= config.url %>">
   <meta name="keywords" content="<%= keywords %>" />
-  <% if (theme.facebook_sdk.enable && theme.facebook_sdk.webmaster) { %>
-    <meta property="fb:admins" content="<%= theme.facebook_sdk.fb_admin %>" />
-    <meta property="fb:app_id" content="<%= theme.facebook_sdk.app_id %>" />
+  <% if (config.facebook_sdk.enable && config.facebook_sdk.webmaster) { %>
+    <meta property="fb:admins" content="<%= config.facebook_sdk.fb_admin %>" />
+    <meta property="fb:app_id" content="<%= config.facebook_sdk.app_id %>" />
   <% } %>
   <meta itemprop="name" content="<%= config.title %>"/>
   <meta itemprop="url" content="<%= config.url %>"/>
@@ -24,9 +24,9 @@
   <%- open_graph({
     image: featured_image,
     twitter_id: theme.twitter,
-    google_plus: theme.google_plus,
-    fb_admins: theme.facebook_sdk.fb_admin,
-    fb_app_id: theme.facebook_sdk.app_id}) %>
+    google_plus: config.google_plus,
+    fb_admins: config.facebook_sdk.fb_admin,
+    fb_app_id: config.facebook_sdk.app_id}) %>
   <% if(theme.canonical) { %>
     <link rel="canonical" href="<%= config.url %>/<%= page.canonical_path.replace("index.html", "") %>" />
   <% } %>

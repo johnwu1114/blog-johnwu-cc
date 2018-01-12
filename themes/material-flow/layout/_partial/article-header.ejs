@@ -5,11 +5,11 @@
     <meta itemprop="image" content="<%= config.url + (post.featured_image ? post.featured_image : config.avatar) %>" />
     <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
         <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="<%= config.url + config.icon %>">
-            <meta itemprop="width" content="225">
-            <meta itemprop="height" content="225">
+            <meta itemprop="url" content="<%= config.url + config.icon %>" />
+            <meta itemprop="width" content="225" />
+            <meta itemprop="height" content="225" />
         </div>
-        <meta itemprop="name" content="<%= page.author || config.author %>">
+        <meta itemprop="name" content="<%= page.author || config.author %>" />
     </div>
     <% if (page.title) { %>
     <h1 itemprop="headline" class="title">

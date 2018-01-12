@@ -1,9 +1,9 @@
-<% if(theme.facebook_sdk.enable) { %>
+<% if(config.facebook_sdk.enable) { %>
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId            : "<%= theme.facebook_sdk.app_id %>",
+      appId            : "<%= config.facebook_sdk.app_id %>",
       autoLogAppEvents : true,
       xfbml            : true,
       version          : "v2.11"
@@ -14,7 +14,7 @@
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=<%= theme.facebook_sdk.app_id %>";
+     js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=<%= config.facebook_sdk.app_id %>";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, "script", "facebook-jssdk"));
 </script>

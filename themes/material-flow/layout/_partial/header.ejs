@@ -32,12 +32,12 @@
 				</ul>
 				<div class="underline"></div>
 			</div>
-			<% if (theme.google_translate === true) { %>
+			<% if (config.google_translate === true) { %>
 			<div class="google-translate">
 				<div id="google_translate_element"></div>
 			</div>
 			<% } %>
-			<% if (theme.google_custom_search === true && page.type !== "search") { %>
+			<% if (config.google_custom_search === true && page.type !== "search") { %>
 			<div class="m_search">
 				<form name="searchform" action="/search/" method="GET" class="form u-search-form">
 					<input name="q" type="text" class="input u-search-input" placeholder="Search" />
@@ -46,7 +46,7 @@
 			</div>
 			<% } %>
 			<ul class="switcher h-list">
-				<% if (theme.google_custom_search === true && page.type !== "search") { %>
+				<% if (config.google_custom_search === true && page.type !== "search") { %>
 				<li class="s-search"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-search flat-box"></span></a></li>
 				<% } %>
 				<li class="s-menu"><a itemprop="url" href="javascript:void(0)"><span class="fa fa-bars flat-box"></span></a></li>

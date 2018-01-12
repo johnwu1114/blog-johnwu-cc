@@ -1,26 +1,22 @@
+<% if (config.awards_certs) { %>
 <section class="m_widget awards-certs">
     <div class="header fa fa-certificate">Awards & Certs</div>
     <div class="content notranslate">
         <ul>
+            <% config.awards_certs.forEach(function(value, key) {
+                if (value.url && value.image) { %>
             <li>
-                <label>Microsoft MVP 2018-2019</label>
-                <a target="_blank" href="https://mvp.microsoft.com/en-us/PublicProfile/5002961">
-                    <img src="/images/logo-mvp.png" alt="Microsoft MVP 2018-2019" width="180" />
+                <label><%= (value.title||"") %></label>
+                <a target="_blank" href="<%= value.url %>">
+                    <img src="<%= value.image %>" 
+                        title="<%= (value.image_alt || value.title) %>" 
+                        alt="<%= (value.image_alt || value.title) %>" 
+                        width="<%= value.width %>" />
                 </a>
-                <span>Visual Studio and Development Technologies</span>
+                <span><%= (value.summary||"") %></span>
             </li>
-            <li>
-                <a target="_blank" href="https://www.youracclaim.com/badges/e5266cbb-d375-4807-aa75-f0da5e2f9966/public_url">
-                    <!--<img src="/images/logo-mcsa-web-applications-certified-2016.png" alt="MCSA: Web Applications - Certified 2016" width="125" />-->
-                    <img src="/images/logo-MCSA-WebApps.png" alt="MCSA: Web Applications - Certified 2016" width="120" />
-                </a>
-            </li>
-            <li>
-                <a target="_blank" href="https://www.youracclaim.com/badges/ac1a0583-4534-4a15-ab7e-0b068d80bd23/public_url">
-                    <!--<img src="/images/logo-mcsd-app-builder-certified-2016.png" alt="MCSD: App Builder - Certified 2016" width="125" />-->
-                    <img src="/images/logo-MCSD-AppBuilder.png" alt="MCSD: App Builder - Certified 2016" width="120" />
-                </a>
-            </li>
+            <% } }); %>
         </ul>
     </div>
 </section>
+<% } %>

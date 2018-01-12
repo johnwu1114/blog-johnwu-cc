@@ -1,17 +1,15 @@
-<% 
-    if(theme.facebook_sdk.enable) { 
-%>
+<% if(config.facebook_fans.enable) { %>
 <section class="m_widget">
     <div class="fb-page" 
-        data-href="https://www.facebook.com/SoftwareENG.NET/" 
+        data-href="<%= config.facebook_fans.url %>" 
         data-tabs="timeline" 
         data-width="250" 
         data-small-header="false" 
         data-adapt-container-width="true" 
         data-hide-cover="false" 
         data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/SoftwareENG.NET/" class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/SoftwareENG.NET/">大內攻城 - Software Engineering in .NET</a>
+        <blockquote cite="<%= config.facebook_fans.url %>" class="fb-xfbml-parse-ignore">
+            <a href="<%= config.facebook_fans.url %>"><%= config.facebook_fans.name %></a>
         </blockquote>
     </div>
 </section>

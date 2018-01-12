@@ -17,7 +17,7 @@
 <% } %>
 
 <script>
-  var PAGEVIEWS_API = "<%- theme.pageviews_api %>";
+  var PAGEVIEWS_API = "<%- config.pageviews_api %>";
   var ROOT = "<%- config.root %>"||"/";
   if(!ROOT.endsWith("/"))ROOT += "/";
   
@@ -34,13 +34,13 @@
 
 <script src="/js/bundle.js?v=3" async></script>
 
-<% if (theme.google_translate === true) { %>
+<% if (config.google_translate === true) { %>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: "zh-TW",
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    gaTrack: true, gaId: "<%= theme.google_analytics %>"
+    gaTrack: true, gaId: "<%= config.google_analytics %>"
   } , "google_translate_element");
 }
 </script>
