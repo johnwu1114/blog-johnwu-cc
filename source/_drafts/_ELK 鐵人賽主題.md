@@ -1,3 +1,10 @@
+---
+title: Drafts
+type: drafts
+comments: false
+toc: false
+---
+
 介紹 Log 演進
 Elasticsearch 架設
 Filebeat 安裝

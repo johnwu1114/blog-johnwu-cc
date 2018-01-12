@@ -5,7 +5,8 @@ tags:
   - 'C#'
 categories:
   - 'C#'
-date: 2017-11-13 21:41:00
+date: 
+featured_image: /images/.png
 ---
 ![ASP.NET Core 教學 - Routing - 運作方式](/images/pasted-115.png)
 

@@ -7,6 +7,6 @@ tags:
   - Grok
 categories:
   - ELK
-date: 2017-12-04 11:46
+date: 
 featured_image: /images/.png
 ---
