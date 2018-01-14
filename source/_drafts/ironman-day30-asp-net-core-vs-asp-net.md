@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day30 完] ASP.NET Core vs ASP.NET'
+title: '[鐵人賽 Day30][完賽] ASP.NET Core vs ASP.NET'
 author: John Wu
 tags:
   - ASP.NET Core

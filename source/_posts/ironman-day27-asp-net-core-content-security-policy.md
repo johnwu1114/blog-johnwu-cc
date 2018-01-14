@@ -13,12 +13,12 @@ date: 2018-01-15 12:00
 featured_image: /images/i27-3.png
 ---
 
-例如跨網站腳本 (Cross-Site Scripting, XSS) 攻擊是常見的攻擊手法，有效的阻擋方式是透過網頁內容安全政策 (Content Security Policy, CSP) 規範，告知瀏覽器能發出 Request 的位置是否受信任，阻擋非預期的對外連線，加強網站安全性。  
+跨網站腳本 (Cross-Site Scripting, XSS) 攻擊是常見的攻擊手法，有效的阻擋方式是透過網頁內容安全政策 (Content Security Policy, CSP) 規範，告知瀏覽器發出的 Request 位置是否受信任，阻擋非預期的對外連線，加強網站安全性。  
 本篇將介紹 ASP.NET Core 自製 CSP Middleware 防止 XSS 攻擊。  
 另外，做範例的過程中，剛好發現 **iT 邦幫忙** 沒有擋 Clickjacking，所以就順便補充。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy)](https://ithelp.ithome.com.tw/articles/xxxxxxx)  
+ [[Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy)](https://ithelp.ithome.com.tw/articles/10196896)  
 
 <!-- more -->
 
@@ -38,8 +38,7 @@ featured_image: /images/i27-3.png
 
 ## CSP 介紹
 
-CSP 是瀏覽器提供網站設定白名單的機制，網站可以告知瀏覽器，該網頁有哪些位置可以連、哪些位置不能連。  
-現行大部分的瀏覽器都有支援 CSP，可以從 [Can I use Content Security Policy](http://caniuse.com/contentsecuritypolicy) 參考支援的瀏覽器及版本。  
+CSP 是瀏覽器提供網站設定白名單的機制，網站可以告知瀏覽器，該網頁有哪些位置可以連、哪些位置不能連。現行大部分的瀏覽器都有支援 CSP，可以從 [Can I use Content Security Policy](http://caniuse.com/contentsecuritypolicy) 查看支援的瀏覽器及版本。  
 
 CSP 的設定方式有兩種：  
 1. HTTP Header 加入 `Content-Security-Policy: {Policy}`  
@@ -152,7 +151,7 @@ CSP 指令可以限制發出 Request 獲取資源的類型以及位置，指令�
 Response Headers
   Content-Security-Policy: {CSP 指令} {位置}; {CSP 指令} {位置} {..位置..} {位置};
 ```
-> 以 `;` 區分多個指令，以空格區分多個位置。  
+> 以 `;` 區分多個指令，以空格區分多個白名單位置。  
 
 常用的 CSP 指令如下：  
 * `default-src`  
@@ -396,13 +395,10 @@ Clickjacking 是一種透過 IFrame 的偽裝攻擊方式。
 
 ![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - Clickjacking 攻擊](/images/i27-5.png)  
 
-
 ### X-Frame-Options
 
- Clickjacking 攻擊可以透過 CSP 的 `frame-ancestors` 防範，但似乎還不是所有瀏覽器都支援 `frame-ancestors`，較通用的方式是在 HTTP Header 加上 `X-Frame-Options`，通知瀏覽器是否能被當作 IFrame。  
-延伸上面 CSP Middleware 的範例：  
-
-建立一個 *FrameOptionsDirective.cs* 繼承 CspDirective，如下：  
+Clickjacking 攻擊可以透過 CSP 的 `frame-ancestors` 防範，但似乎還不是所有瀏覽器都支援 `frame-ancestors`，較通用的方式是在 HTTP Header 加上 `X-Frame-Options`，通知瀏覽器該頁面是否能被當作 IFrame 使用。  
+延伸上面 CSP Middleware 的範例，建立一個 *FrameOptionsDirective.cs* 繼承 CspDirective，如下：  
 
 *FrameOptionsDirective.cs*
 ```cs
@@ -488,7 +484,7 @@ public class Startup
 ```
 > `X-Frame-Options` 不支援多個網域，如果要設定多個網域，建議搭配著 CSP 的 `frame-ancestors` 使用。  
 
-設定完成後，當被其他未允許 Domain 嵌入為 IFrame 頁面時，瀏覽器就提報錯誤。  
+設定完成後，當被未允許的 Domain 嵌入為 IFrame 頁面時，瀏覽器就提報錯誤。  
 把上面範例程式碼的 IFrame URL 改為 `https://www.google.com.tw/`。  
 Google 有設定 `X-Frame-Options` 為 `sameorigin` ，所以會產生錯誤訊息，如下：  
 > Refused to display '`https://www.google.com.tw/`' in a frame because it set 'X-Frame-Options' to 'sameorigin'.
