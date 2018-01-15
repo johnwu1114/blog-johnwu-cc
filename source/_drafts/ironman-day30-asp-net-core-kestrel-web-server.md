@@ -7,6 +7,7 @@ tags:
   - SSL
   - HTTPS
   - Security
+  - Middleware
 categories:
   - ASP.NET Core
 date: 2018-01-18 12:00
@@ -22,7 +23,7 @@ Kestrel 是一套輕量的跨平台 HTTP Server，由 [libuv](https://github.com
 本篇將介紹 ASP.NET Core 在 Kestrel 的運行方式、調整及自製 localhost SSL 憑證綁定 HTTPS。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
- [[Day30] ASP.NET Core 2 系列 - Kestrel Web Server](https://ithelp.ithome.com.tw/articles/xxxxxxx)  
+ [[Day30] ASP.NET Core 2 系列 - Kestrel Web Server](https://ithelp.ithome.com.tw/articles/10197326)  
 
 <!-- more -->
 
@@ -45,10 +46,10 @@ Kestrel 是一套可以單獨運行的 HTTP Server，也可以透過其它 Web S
 
 ![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 反向代理](/images/i30-3.png)
 
-## Kestrel options
+## Kestrel Options
 
-如果是用其它 Web Server 做反向代理，基本上都不太需要動到 Kestrel options，畢竟 Kestrel 只是一個輕量級的 HTTP Server，它的功能大部分都被 IIS、Nginx 或 Apache 等，完整的 Web Server 涵蓋。  
-單獨運行 Kestrel 的情況比較會需要調整 Kestrel options，如 Timeout 限制、封包大小限制、同時連線數限制等，設定方式如下：  
+如果是用其它 Web Server 做反向代理，基本上都不太需要動到 Kestrel Options，畢竟 Kestrel 只是一個輕量級的 HTTP Server，它的功能大部分都被 IIS、Nginx 或 Apache 等，完整的 Web Server 涵蓋。  
+單獨運行 Kestrel 的情況比較會需要調整 Kestrel Options，如 Timeout 限制、封包大小限制、同時連線數限制等，設定方式如下：  
 
 *Program.cs*
 ```cs
@@ -81,6 +82,7 @@ public class Program
 ```
 * **AddServerHeader**  
   Response 的 Header 帶上 Server 資訊。  
+  安全性考量建議設為 false，沒必要讓別人知道 Server 資訊。  
   *(預設為 true)*  
 * **Limits**  
   * **KeepAliveTimeout**  
@@ -105,7 +107,7 @@ public class Program
     Server 處理一個封包最長的時間。  
     *(預設 30 秒)*  
 
-> 其他設定可以參考，KestrelHttpServer 的 GitHub 原始碼，目前還沒有線上文件，至少 Summary 註解詳細。  
+> 其他設定可以參考 KestrelHttpServer 的 GitHub 原始碼，目前還沒有線上文件，但 Summary 註解詳細。  
 > * [KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs)  
 > * [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs)  
 > * [ListenOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/ListenOptions.cs)  
@@ -119,11 +121,10 @@ public class Program
 
 ### 取得憑證
 
-Kestrel 要使用 HTTPS 的話，需要用到 `*.pfx` 檔。根據不同的憑證供應商，可能取得的憑證檔案格式不太一樣。  
-如果可以拿到 `*.pfx`，就可以跳過此步驟。不是的話也沒關係，拿到的憑證基本上都能產生出 `*.pfx` 檔案。  
+Kestrel 要使用 HTTPS 的話，需要用到 `*.pfx` 檔。根據不同的憑證供應商，可能取得的憑證檔案格式不太一樣。如果可以拿到 `*.pfx`，就可以跳過此步驟。不是的話也沒關係，拿到的憑證基本上都能產生出 `*.pfx` 檔案。  
 
 這邊範例用自製憑證，把 localhost 變成 HTTPS。  
-> Windows 要使用 OpenSSL 的話，可以到這邊下載 [Shining Light Productions](https://slproweb.com/products/Win32OpenSSL.html)  
+> Windows 要使用 OpenSSL 的話，可以到這邊下載：[Shining Light Productions](https://slproweb.com/products/Win32OpenSSL.html)  
 
 建立一個 *localhost.conf*，提供自製憑證需要的資訊，如下：  
 
@@ -162,7 +163,7 @@ DNS.1   = localhost
 DNS.2   = 127.0.0.1
 ```
 
-透過 `openssl` 指令產生 *localhost.key* Private Key 文字檔及 *localhost.crt* Certificate 文字檔：
+透過 `openssl` 指令產生 Private Key 文字檔及 Certificate 文字檔：
 ```sh
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config localhost.conf -passin pass:MyPassword
 ```
@@ -185,9 +186,9 @@ openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
   2. 再左側欄選擇 System  
   3. 把 `*.pfx` 拖曳到 System 的清單中  
 * **Linux** 透過以下指另安裝憑證：  
-  ```sh
+```sh
 certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n "localhost" -i localhost.crt
-  ```
+```
 
 ### 載入憑證
 
@@ -234,7 +235,7 @@ namespace MyWebsite
 
 ### 強制 HTTPS
 
-要強制使用 HTTPS 的頁面可以在 Action 或 Controller 註冊 `RequireHttpsAttribute` 或註冊於全域範圍，只要不是 HTTPS 就會回傳 HTTP Status Code 302 並轉址到 HTTPS，如下：  
+要強制使用 HTTPS 的頁面可以在 Action 或 Controller 註冊 `[RequireHttps]`，也可以註冊於全域範圍，只要不是 HTTPS 就會回傳 HTTP Status Code 302 並轉址到 HTTPS，如下：  
 
 * **區域註冊**  
   *Controllers\UserController.cs*
@@ -286,7 +287,7 @@ public class Startup
 
 用 `RequireHttpsAttribute` 的方式，只能限制到 MVC / API 的部分，並沒有辦法連靜態檔案都強制使用 HTTPS。  
 如果整個網站都要用 HTTPS 的話，可以加入 URL Rewrite，將非 HTTPS 都轉址到 HTTPS。  
-在 `Startup.Configure` 呼叫 `UseRewriter` 加入轉址的 Pipeline，如下：  
+在 `Startup.Configure` 呼叫 `UseRewriter` 加入轉址的 Middleware，如下：  
 
 *Startup.cs*
 ```cs
@@ -310,6 +311,6 @@ public class Startup
 [Introduction to Kestrel web server implementation in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel?tabs=aspnetcore2x)  
 [What is Kestrel Web Server? How It Works, Benefits, and More](https://stackify.com/what-is-kestrel-web-server/)  
 [Learn Kestrel Webserver in 10 Minutes](http://www.codedigest.com/quick-start/5/learn-kestrel-webserver-in-10-minutes)  
-[ASP.NET Core Web服务器 Kestrel和Http.sys 特性详解](http://www.sohu.com/a/192530398_468635)  
 [Enforcing SSL in an ASP.NET Core app](https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl)  
 [Develop Locally with HTTPS, Self-Signed Certificates and ASP.NET Core](https://www.humankode.com/asp-net-core/develop-locally-with-https-self-signed-certificates-and-asp-net-core)  
+[ASP.NET Core Web服务器 Kestrel和Http.sys 特性详解](http://www.sohu.com/a/192530398_468635)  

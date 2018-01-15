@@ -14,6 +14,9 @@ featured_image: /images/i29-3.png
 ASP.NET Core 並不會自動把所有封包壓縮，要針對 Response 的內容做壓縮，可以使用的 ResponseCompression 套件提供的壓縮方式。  
 本篇將介紹 ASP.NET Core 以 Gzip 方式對 Response 封包壓縮。  
 
+> iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
+  [[Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip)](https://ithelp.ithome.com.tw/articles/10197323)  
+
 <!-- more -->
 
 ## 啟用封包壓縮
@@ -25,7 +28,7 @@ ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已
 dotnet add package Microsoft.AspNetCore.ResponseCompression
 ```
 
-在 `Startup.Configure` 加入封包壓縮的服務，以及註冊封包壓縮的 Middleware，如下：  
+在 `Startup.ConfigureServices` 加入封包壓縮的服務以及 `Startup.Configure` 註冊封包壓縮的 Middleware，如下：  
 
 *Startup.cs*
 ```cs
@@ -115,7 +118,7 @@ namespace MyWebsite
 ## 自訂壓縮
 
 某些情況可能會需要自訂封包的壓縮的方式，例如 Server to Server 的 API 對接，雙方指定好特定的壓縮方法。  
-能夠過繼承 `ICompressionProvider` 實作客製化的壓縮方法，並透過 HTTP Header 的 `Accept-Encoding` 指定壓縮的方法，如下：  
+可以繼承 `ICompressionProvider` 實作客製化的壓縮方法，並透過 HTTP Header 的 `Accept-Encoding` 指定壓縮方法，如下：  
 
 *CustomCompressionProvider.cs*
 ```cs

@@ -429,7 +429,7 @@ public async Task<IActionResult> Album()
 上傳大檔可能還會遇到單一 Request 封包過大的錯誤。  
 
 * **Kestrel**
-  若是將 ASP.NET Core 單獨運行在 `Kestrel` 上，預設單一上傳封包是 **30000000 Bits** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 `KestrelServerLimits` 修改 `MaxRequestBodySize`。如下：  
+  若是將 ASP.NET Core 單獨運行在 `Kestrel` 上，預設單一上傳封包是 **30,000,000 bytes** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 `KestrelServerLimits` 修改 `MaxRequestBodySize`。如下：  
   *Program.cs*
   ```cs
 // ...
@@ -452,7 +452,7 @@ public class Program
 }
   ```
 * **IIS**
-  若是將 ASP.NET Core 運行在 `IIS` 上，預設單一上傳封包是 **30000000 Bits** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 *Web.config* 修改 `maxAllowedContentLength`。如下：  
+  若是將 ASP.NET Core 運行在 `IIS` 上，預設單一上傳封包是 **30,000,000 bytes** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 *Web.config* 修改 `maxAllowedContentLength`。如下：  
   *Web.config*
   ```xml
 <?xml version="1.0" encoding="utf-8"?>
