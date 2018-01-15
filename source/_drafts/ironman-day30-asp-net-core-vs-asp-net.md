@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-18 12:00
-featured_image: /images/i29-3.png
+featured_image: /images/.png
 ---
 
 

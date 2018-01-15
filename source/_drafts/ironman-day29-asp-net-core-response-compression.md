@@ -1,5 +1,5 @@
 ---
-title: '[鐵人賽 Day28] ASP.NET Core 2 系列 - 封包壓縮 (Gzip)'
+title: '[鐵人賽 Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip)'
 author: John Wu
 tags:
   - ASP.NET Core
@@ -7,8 +7,8 @@ tags:
   - Middleware
 categories:
   - ASP.NET Core
-date: 2018-01-16 12:00
-featured_image: /images/i28-3.png
+date: 2018-01-17 12:00
+featured_image: /images/i29-3.png
 ---
 
 ASP.NET Core 並不會自動把所有封包壓縮，要針對 Response 的內容做壓縮，可以使用的 ResponseCompression 套件提供的壓縮方式。  
@@ -58,11 +58,11 @@ namespace MyWebsite
 
 壓縮前：  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 壓縮前](/images/i28-1.png)  
+![[鐵人賽 Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 壓縮前](/images/i29-1.png)  
 
 壓縮後：  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 壓縮後](/images/i28-2.png)  
+![[鐵人賽 Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 壓縮後](/images/i29-2.png)  
 
 ### ResponseCompressionOptions
 
@@ -108,7 +108,7 @@ namespace MyWebsite
 
 調整完 MimeTypes 及 CompressionLevel 後，原本沒有 Gzip 壓縮的 PNG 圖檔都被壓縮了，並且其他的封包也比先前壓縮得更小了，如圖：  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 執行結果](/images/i28-3.png)  
+![[鐵人賽 Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 執行結果](/images/i29-3.png)  
 
 > 壓縮的好處是 Response 的封包變小，節省一些網路流量，但缺點是會消耗一點 CUP 效能。  
 
@@ -156,9 +156,8 @@ namespace MyWebsite
 
 當 HTTP Header 的 `Accept-Encoding=customcompression` 就會使用 `CustomCompressionProvider` 壓縮封包，執行結果：  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 自訂壓縮執行結果](/images/i28-4.png)  
+![[鐵人賽 Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 自訂壓縮執行結果](/images/i29-4.png)  
 
 ## 參考
 
-[Response caching in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/response)  
 [Response Compression Middleware for ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/performance/response-compression?tabs=aspnetcore2x)  
