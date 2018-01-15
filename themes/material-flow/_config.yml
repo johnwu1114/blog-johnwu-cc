@@ -1,0 +1,35 @@
+# navigation menu
+menu:
+  - name: Home
+    slug: home
+    url: /
+  - name: Categories
+    slug: categories
+    url: /categories
+  - name: Tags
+    slug: tags
+    url: /tags
+  - name: Archives
+    slug: archives
+    url: /archives
+
+# widgets
+widgets:
+  - about
+  - toc
+  - awards-certs
+  - facebook
+  #- categories
+  - recents
+  - links
+  - statistics
+  #- tagcloud
+
+# Less
+less:
+  compress: true
+
+# Canonical, set a canonical link tag in your hexo, you could use it for your SEO of blog.
+# See: https://support.google.com/webmasters/answer/139066
+# Tips: Before you open this tag, remember set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )
+canonical: true

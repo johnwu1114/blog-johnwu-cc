@@ -1,0 +1,31 @@
+# =========== Deployment ===========
+## hexo-deployer-s3-cloudfront
+deploy:
+  type: s3-cloudfront
+  aws_key: <AWS_KEY>
+  aws_secret: <AWS_SECRET>
+  bucket: <AWS_S3_BUKET>
+  region: <AWS_S3_REGION>
+  cf_distribution: <AWS_CF_DISTRIBUTION_ID>
+  force_overwrite: true
+
+# Google Plugins
+google_analytics: <GOOGLE_ANALYTICS_ID>
+
+# Facebook SDK Support
+facebook_sdk:
+  app_id: <FBSDK_APP_ID>
+  fb_admin: <FBSDK_ADMIN_ID>
+
+## hexo-all-minifier
+html_minifier:
+  enable: true
+
+css_minifier:
+  enable: true
+
+js_minifier:
+  enable: true
+
+image_minifier:
+  enable: true

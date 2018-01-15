@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "8"
+
+before_install:
+  - npm install -g npm@latest
+  - npm install -g hexo-cli@latest
+
+cache:
+  directories:
+    - "node_modules"
+
+install:
+  - npm install
+
+before_script:
+  - ls -al
+  - sed -i "s/<AWS_KEY>/${AWS_KEY}/" _config.deploy.yml
+  - sed -i "s/<AWS_SECRET>/$(echo $AWS_SECRET | sed -e 's/\//\\\//g')/" _config.deploy.yml
+  - sed -i "s/<AWS_S3_BUKET>/${AWS_S3_BUKET}/" _config.deploy.yml
+  - sed -i "s/<AWS_S3_REGION>/${AWS_S3_REGION}/" _config.deploy.yml
+  - sed -i "s/<AWS_CF_DISTRIBUTION_ID>/${AWS_CF_DISTRIBUTION_ID}/" _config.deploy.yml
+  - sed -i "s/<GOOGLE_ANALYTICS_ID>/${GOOGLE_ANALYTICS_ID}/" _config.deploy.yml
+  - sed -i "s/<FBSDK_APP_ID>/${FBSDK_APP_ID}/" _config.deploy.yml
+  - sed -i "s/<FBSDK_ADMIN_ID>/${FBSDK_ADMIN_ID}/" _config.deploy.yml
+
+script:
+  - npm run build
+  - npm run deploy

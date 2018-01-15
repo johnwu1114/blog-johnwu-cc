@@ -1,0 +1,48 @@
+# Awards & Certs
+awards_certs:
+- title: Microsoft MVP 2018-2019
+  url: https://mvp.microsoft.com/zh-tw/PublicProfile/5002961
+  image: /images/logo-mvp.png
+  width: 180
+  summary: Visual Studio and Development Technologies
+- title:
+  url: https://www.youracclaim.com/badges/e5266cbb-d375-4807-aa75-f0da5e2f9966/public_url
+  image: /images/logo-MCSA-WebApps.png
+  image_alt: "MCSA: Web Applications - Certified 2016"
+  width: 120
+- title: 
+  url: https://www.youracclaim.com/badges/ac1a0583-4534-4a15-ab7e-0b068d80bd23/public_url
+  image: /images/logo-MCSD-AppBuilder.png
+  image_alt: "MCSD: App Builder - Certified 2016"
+  width: 120
+
+# Friends Link
+links:
+- name: 大內攻城粉絲團
+  url: https://www.facebook.com/SoftwareENG.NET
+- name: 吳吉米 YouTube 技術頻道
+  url: https://www.youtube.com/user/02047788a
+- name: Blackie's Failed Notes
+  url: https://blackie1019.github.io
+- name: Larry - Level up
+  url: https://larrynung.github.io/
+- name: James - 詹爸的隨手筆記
+  url: https://blog.papajames.tw
+- name: Bruno - 饅頭小舖
+  url: https://yi-shiuan.github.io/
+- name: Max W. - Retry
+  url: https://retrydb.blogspot.tw/
+
+# hexo-autonofollow
+nofollow:
+  exclude:
+  - github.com
+  - mvp.microsoft.com
+  - www.youracclaim.com
+  - ithelp.ithome.com.tw
+  - blog.jimmywu.cc
+  - blackie1019.github.io
+  - larrynung.github.io
+  - blog.papajames.tw
+  - yi-shiuan.github.io
+  - retrydb.blogspot.tw

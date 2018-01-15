@@ -1,13 +1,12 @@
 {
-  "name": "john-wu-blog",
+  "name": "blog-johnwu-cc",
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "start": "hexo server --config _config.yml,_config.links.yml,_config.local.yml",
-    "preview": "webpack -p&&hexo clean&&hexo server --config _config.yml,_config.links.yml,_config.deploy.yml",
-    "deploy": "webpack -p&&hexo clean&&hexo deploy -g --config _config.yml,_config.links.yml,_config.deploy.yml",
-    "build": "webpack -p",
-    "dev": "webpack -d",
+    "start": "webpack -d&&hexo server --config _config.yml,_config.links.yml,_config.local.yml",
+    "preview": "webpack -p&&hexo server --config _config.yml,_config.links.yml,_config.deploy.yml",
+    "build": "webpack -p&&hexo clean&&hexo generate",
+    "deploy": "hexo deploy --config _config.yml,_config.links.yml,_config.deploy.yml",
     "watch": "webpack -d --watch"
   },
   "hexo": {
