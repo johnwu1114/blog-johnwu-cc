@@ -14,7 +14,6 @@ install:
   - npm install
 
 before_script:
-  - ls -al
   - sed -i "s/<AWS_KEY>/${AWS_KEY}/" _config.deploy.yml
   - sed -i "s/<AWS_SECRET>/$(echo $AWS_SECRET | sed -e 's/\//\\\//g')/" _config.deploy.yml
   - sed -i "s/<AWS_S3_BUKET>/${AWS_S3_BUKET}/" _config.deploy.yml
@@ -25,5 +24,6 @@ before_script:
   - sed -i "s/<FBSDK_ADMIN_ID>/${FBSDK_ADMIN_ID}/" _config.deploy.yml
 
 script:
-  - npm run build
-  - npm run deploy
+  - webpack -p
+  - hexo clean
+  - hexo deploy -g --config _config.yml,_config.links.yml,_config.deploy.yml

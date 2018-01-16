@@ -5,8 +5,6 @@
   "scripts": {
     "start": "webpack -d&&hexo server --config _config.yml,_config.links.yml,_config.local.yml",
     "preview": "webpack -p&&hexo server --config _config.yml,_config.links.yml,_config.deploy.yml",
-    "build": "webpack -p&&hexo clean&&hexo generate",
-    "deploy": "hexo deploy --config _config.yml,_config.links.yml,_config.deploy.yml",
     "watch": "webpack -d --watch"
   },
   "hexo": {
