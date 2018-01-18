@@ -1,14 +1,3 @@
-# =========== Deployment ===========
-## hexo-deployer-s3-cloudfront
-deploy:
-  type: s3-cloudfront
-  aws_key: <AWS_KEY>
-  aws_secret: <AWS_SECRET>
-  bucket: <AWS_S3_BUKET>
-  region: <AWS_S3_REGION>
-  cf_distribution: <AWS_CF_DISTRIBUTION_ID>
-  force_overwrite: true
-
 # Google Plugins
 google_analytics: <GOOGLE_ANALYTICS_ID>
 

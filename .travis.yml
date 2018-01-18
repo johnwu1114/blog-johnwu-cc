@@ -2,28 +2,42 @@ language: node_js
 node_js:
   - "8"
 
-before_install:
-  - npm install -g npm@latest
-  - npm install -g hexo-cli@latest
+branches:
+  only:
+  - master
 
 cache:
   directories:
     - "node_modules"
+    - $HOME/.cache/pip
+
+before_install:
+  - npm install -g npm@latest
+  - npm install -g hexo-cli@latest
 
 install:
   - npm install
+  - pip install awscli
 
 before_script:
-  - sed -i "s/<AWS_KEY>/${AWS_KEY}/" _config.deploy.yml
-  - sed -i "s/<AWS_SECRET>/$(echo $AWS_SECRET | sed -e 's/\//\\\//g')/" _config.deploy.yml
-  - sed -i "s/<AWS_S3_BUKET>/${AWS_S3_BUKET}/" _config.deploy.yml
-  - sed -i "s/<AWS_S3_REGION>/${AWS_S3_REGION}/" _config.deploy.yml
-  - sed -i "s/<AWS_CF_DISTRIBUTION_ID>/${AWS_CF_DISTRIBUTION_ID}/" _config.deploy.yml
-  - sed -i "s/<GOOGLE_ANALYTICS_ID>/${GOOGLE_ANALYTICS_ID}/" _config.deploy.yml
-  - sed -i "s/<FBSDK_APP_ID>/${FBSDK_APP_ID}/" _config.deploy.yml
-  - sed -i "s/<FBSDK_ADMIN_ID>/${FBSDK_ADMIN_ID}/" _config.deploy.yml
+  - sed -i "s/<GOOGLE_ANALYTICS_ID>/${GOOGLE_ANALYTICS_ID}/" _config.release.yml
+  - sed -i "s/<FBSDK_APP_ID>/${FBSDK_APP_ID}/" _config.release.yml
+  - sed -i "s/<FBSDK_ADMIN_ID>/${FBSDK_ADMIN_ID}/" _config.release.yml
 
 script:
   - webpack -p
   - hexo clean
-  - hexo deploy -g --config _config.yml,_config.links.yml,_config.deploy.yml
+  - hexo generate --config _config.yml,_config.links.yml,_config.release.yml
+
+deploy:
+  provider: s3
+  access_key_id: $AWS_KEY
+  secret_access_key: $AWS_SECRET
+  bucket: $AWS_S3_BUKET
+  region: $AWS_S3_REGION
+  skip_cleanup: true
+  cache_control: "max-age=86400"
+
+after_deploy:
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID --paths "/*"
