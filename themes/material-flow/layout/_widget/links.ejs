@@ -1,8 +1,9 @@
+<% if (config.links && config.links.length) { %>
 <section class="m_widget links">
 <div class="header fa fa-link">Links</div>
 <div class="content notranslate">
     <ul class="entry">
-    <% (config.links||[]).forEach(function(link){ %>
+    <% config.links.forEach(function(link){ %>
         <li>
             <a itemprop="url" class="flat-box" target="_blank" href="<%= url_for(link.url) %>">
                 <div class="name"><%= link.name %></div>
@@ -12,3 +13,4 @@
     </ul>
 </div>
 </section>
+<% } %>
