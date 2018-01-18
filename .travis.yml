@@ -9,15 +9,15 @@ branches:
 cache:
   directories:
     - "node_modules"
-    - $HOME/.cache/pip
+    # - $HOME/.cache/pip
 
 before_install:
   - npm install -g npm@latest
   - npm install -g hexo-cli@latest
+  - pip install --user awscli 
 
 install:
   - npm install
-  - pip install awscli
 
 before_script:
   - sed -i "s/<GOOGLE_ANALYTICS_ID>/${GOOGLE_ANALYTICS_ID}/" _config.release.yml
@@ -29,14 +29,23 @@ script:
   - hexo clean
   - hexo generate --config _config.yml,_config.links.yml,_config.release.yml
 
+before_deploy:
+  - aws configure set aws_access_key_id $AWS_KEY
+  - aws configure set aws_secret_access_key  $AWS_SECRET
+  - aws configure set region $AWS_S3_REGION
+  - aws configure set preview.cloudsearch true
+  # - aws s3 rm s3://$AWS_S3_BUKET --recursive
+
 deploy:
   provider: s3
   access_key_id: $AWS_KEY
   secret_access_key: $AWS_SECRET
-  bucket: $AWS_S3_BUKET
   region: $AWS_S3_REGION
+  bucket: $AWS_S3_BUKET
   skip_cleanup: true
   cache_control: "max-age=86400"
+  local_dir: public
+  acl: public_read
 
 after_deploy:
   - aws configure set preview.cloudfront true
