@@ -204,7 +204,7 @@ public class HomeController : Controller
 2. Request 的 HTTP Methods 必須是 `GET` 或 `HEAD`。  
 3. 不能有其他的 Middleware 在加工 ResponseCachingMiddleware 之前異動 Response。  
 4. HTTP Header 不能用 `Authorization`。  
-5. HTTP Header 的 `Cache-Control` 值必須是 `public` 或 `private`。  
+5. HTTP Header 的 `Cache-Control` 值必須是 `public`。  
   *(`F5` 刷新頁面不會帶 `Cache-Control`，所以使用 Server 快取條件不成立)*
 6. HTTP Header 不能用 `Set-Cookie`。  
 7. HTTP Header 的 `Vary` 值不能為 `*`。  
