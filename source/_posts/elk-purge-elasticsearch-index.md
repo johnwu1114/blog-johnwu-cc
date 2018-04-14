@@ -95,35 +95,34 @@ KEEP_WEEK=12
 ES_URL_AND_PORT=localhost:9200
 
 i=0
-KEEPS = ""
+KEEPS=""
 YEAR=$(date +%Y)
 WEEK=$(date +%V)
+TEMP_WEEK=$WEEK
 
 while [ $i -lt $KEEP_WEEK ]
 do
-  WEEK=`printf %02d $WEEK`
-  KEEPS="$KEEPS\-$YEAR\.$WEEK|"
-  #echo $KEEPS
-  
-  WEEK=`expr $WEEK - 1`
-  if [[ $WEEK < 1 ]]; then 
+  if [[ $TEMP_WEEK -le 1 ]]; then 
     YEAR=`expr $YEAR - 1` 
-	  WEEK=53
-	  ((i--))
+    WEEK=`expr 52 + $i`
   fi
-  
+  TEMP_WEEK=`expr $WEEK - $i`
+  KEEPS="$KEEPS\-$YEAR\.`printf %02d $TEMP_WEEK`|"
   ((i++))
 done
 
+echo "KEEPS = $KEEPS"
+
 if [[ $i != 0 ]]; then
-	EXPIRED_INDICES=`curl "$ES_URL_AND_PORT/_cat/indices?v&h=i" | grep -P "\-\d{4}\.\d{2}$" | grep -Pv "(${KEEPS::-1})\b"`
-	for name in $EXPIRED_INDICES
-	do  
-		#echo "$ES_URL_AND_PORT/$name"
-		curl -XDELETE "$ES_URL_AND_PORT/$name"
-	done
+  EXPIRED_INDICES=`curl "http://$ES_URL_AND_PORT/_cat/indices?v&h=i" | grep -P "\-\d{4}\.\d{2}$" | grep -Pv "(${KEEPS::-1})\b"`
+  for name in $EXPIRED_INDICES
+  do  
+    #echo "curl -XDELETE $ES_URL_AND_PORT/$name"
+    curl -XDELETE "$ES_URL_AND_PORT/$name"
+  done
 fi
 
+curl -XDELETE "$ES_URL_AND_PORT/*\[fields\]\[source_type\]*"
 curl "$ES_URL_AND_PORT/_cat/indices"
 ```
 > 我的範例是留 12 週，基本上需求。我個人認為超過三週的 Log 就已經沒有價值了。  
