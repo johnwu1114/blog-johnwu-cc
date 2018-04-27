@@ -155,11 +155,11 @@ namespace MyWebsite
         {
             return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .ConfigureLogging(logging =>
+                .ConfigureLogging((hostContext, logging) =>
                 {
                     var env = hostContext.HostingEnvironment;
                     var configuration = new ConfigurationBuilder()
-                        .SetBasePath(Path.Combine(env.ContentRootPath, "Configuration")))
+                        .SetBasePath(Path.Combine(env.ContentRootPath, "Configuration"))
                         .AddJsonFile(path: "settings.json", optional: true, reloadOnChange: true)
                         .Build();
                     logging.AddConfiguration(configuration.GetSection("Logging"));
