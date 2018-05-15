@@ -134,7 +134,7 @@ curl "$ES_URL_AND_PORT/_cat/indices"
 把 Shell Script 加到 crontab。  
 
 ```bash
-vi /etc/elasticsearch/purge.sh
+vi /etc/crontab
 ```
 
 ```bash
