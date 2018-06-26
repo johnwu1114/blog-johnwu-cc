@@ -26,9 +26,9 @@ ASP.NET Core MVC 中的 Views 是負責網頁顯示，將資料一併渲染至 U
 
 ASP.NET Core MVC 的 Views 預設是使用 Razor 引擎，Views 的副檔名是用 `*.cshtml`。  
 檔案內容以 HTML 為主，但可以透過 `@` Razor 語法撰寫 C# 程式。  
-可以假想一下 `*.cshmtl` 就是一般的 HTML，而 Razor 語法是 C# 程式跟靜態 HTML 溝同的媒介。  
+可以假想一下 `*.cshmtl` 就是一般的 HTML，而 Razor 語法是 C# 程式跟靜態 HTML 溝通的媒介。  
 
-`@` 就是 Razor 語法最重要的溝同媒介，在 C# 變數前面冠上 `@`，就可以將 C# 程式混合制 HTML 輸出。  
+`@` 就是 Razor 語法最重要的溝通媒介，在 C# 變數前面冠上 `@`，就可以將 C# 程式混合制 HTML 輸出。  
 如果要在 HTML 顯示 `@` 符號的話，可以連用兩個 `@` 符號，就可以把 `@` 字元輸出，範例如下：
 
 ```html

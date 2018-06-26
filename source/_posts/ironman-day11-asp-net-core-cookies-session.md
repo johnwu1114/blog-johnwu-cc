@@ -179,7 +179,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## 強型別
 
-由於 Cookies 及 Session 預設都是使用字串的方式存取資料，弱型別無法在開發階段判斷有沒有打錯字，還是建議包裝成強行別比較好。  
+由於 Cookies 及 Session 預設都是使用字串的方式存取資料，弱型別無法在開發階段判斷有沒有打錯字，還是建議包裝成強強型比較好。  
 而且直接存取 Cookies/Session 的話邏輯相依性太強，對單元測試很不友善，所以還是建議包裝一下。  
 
 *Wappers\SessionWapper.cs*
@@ -240,7 +240,7 @@ public void ConfigureServices(IServiceCollection services)
  ASP.NET Core 實作了 `IHttpContextAccessor`，讓 `HttpContext` 可以輕鬆的注入給需要用到的物件使用。  
  由於 `IHttpContextAccessor` 只是取用 `HttpContext` 實例的接口，用 **Singleton** 的方式就可以供其它物件使用。  
 
-在 Controller 就可以直接注入 `ISessionWapper`，以強行別的方式存取 Session，如下：  
+在 Controller 就可以直接注入 `ISessionWapper`，以強型別的方式存取 Session，如下：  
 
 *Controllers/HomeController.cs*
 ```cs

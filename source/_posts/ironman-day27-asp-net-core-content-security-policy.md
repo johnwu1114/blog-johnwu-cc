@@ -198,7 +198,7 @@ Response Headers
 上述 CSP 套用在 Header 的格式實在很容易打錯字，而且又是弱型別，日後實在不易維護。  
 所以可以自製一個 CSP Middleware 來包裝這 CSP，方便日後使用。  
 
-把 CSP 指令都變成強行別，如下：  
+把 CSP 指令都變成強強型，如下：  
 
 * *CspDirective.cs*
 ```cs
@@ -347,7 +347,7 @@ namespace MyWebsite
     }
 }
 ```
-一樣的 CSP 規則，強行別的註冊方式看起來感覺清爽多了。  
+一樣的 CSP 規則，強型別的註冊方式看起來感覺清爽多了。  
 
 ## Clickjacking 攻擊
 
