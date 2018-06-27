@@ -193,7 +193,7 @@ ASP.NET Core 的 Redis Session 跟 ASP.NET MVC 普遍用的 `StackExchange.Redis
  ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET MVC - Redis Session 運行方式](/images/pasted-112.gif)
 
 * **ASP.NET Core Redis Session**  
- `IDistributedCache` 運做方式變成 Session 直接在 Redis Cache 存取，如果把 Redis Cache 中 Session 清掉，當使用者下一個 Requset 來的時候，就會發現 Session 被清空了。  
+ `IDistributedCache` 運作方式變成 Session 直接在 Redis Cache 存取，如果把 Redis Cache 中 Session 清掉，當使用者下一個 Requset 來的時候，就會發現 Session 被清空了。  
  運行方式如下圖：  
  ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET Core - Redis Session 運行方式](/images/pasted-113.gif)
 

@@ -12,7 +12,7 @@ featured_image: /images/i22-1.png
 ---
 
 SignalR 是一套能讓 ASP.NET 輕鬆實現與 Client 即時互動的套件。  
-目前 ASP.NET Core 版本的 SignalR 還沒正式發佈，可以先嘗鮮使用，但不建議正是產品使用。  
+目前 ASP.NET Core 版本的 SignalR 還沒正式發佈，可以先嘗鮮使用，但不建議正式產品使用。  
 本篇將介紹 ASP.NET Core 透過 SignalR 做一個簡單的即時聊天室。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
