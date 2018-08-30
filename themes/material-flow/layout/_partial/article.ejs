@@ -65,7 +65,7 @@
 
 	<% if(post.prev || post.next){ %>
 		<div>
-		<% if(post.prev.title){ %>
+		<% if(post.prev && post.prev.title){ %>
 			<span class="art-item-left">
 				<i class="fa fa-angle-left"></i>next：
 				<a itemprop="url" href="<%=url_for(post.prev.path)%>" rel="next"  title="<%= post.prev.title %>">
@@ -73,7 +73,7 @@
 				</a>
 			</span>
 		<% } %>
-		<% if(post.next.title){ %>
+		<% if(post.next && post.next.title){ %>
 			<span class="art-item-right">prev：
 				<a itemprop="url" href="<%=url_for(post.next.path) %>" rel="prev"  title="<%= post.next.title %>">
 					<%=post.next.title  %>
