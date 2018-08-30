@@ -25,9 +25,9 @@ awards_certs:
 links:
 - name: 大內攻城粉絲團
   url: https://www.facebook.com/SoftwareENG.NET
-- name: 吳吉米 YouTube 技術頻道
+- name: 吳吉米 - YouTube 技術頻道
   url: https://www.youtube.com/user/02047788a
-- name: Blackie's Failed Notes
+- name: Blackie - Failed Notes
   url: https://blackie1019.github.io
 - name: Larry - Level up
   url: https://larrynung.github.io/
@@ -37,6 +37,8 @@ links:
   url: https://yi-shiuan.github.io/
 - name: Max W. - Retry
   url: https://retrydb.blogspot.tw/
+- name: Sam Xiao - 資料探索世界
+  url: https://medium.com/@xiaoxiaosam007
 
 # hexo-autonofollow
 nofollow:
