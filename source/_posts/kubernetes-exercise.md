@@ -1,10 +1,27 @@
-# Install Docker
+---
+title: Kubernetes 安裝筆記
+author: John Wu
+tags:
+  - Kubernetes
+  - k8s
+  - Notes
+categories:
+  - Kubernetes
+date: 2018-10-22 10:42:00
+---
+![Kubernetes 安裝筆記](/images/logo-kubernetes.png)
+
+用 CentOS 練習安裝 Kubernetes 的筆記。
+
+<!-- more -->
+
+## Install Docker
 
 ```sh
 yum install -y docker
 ```
 
-# Install kubeadm & kubelet & kubectl
+## Install kubeadm & kubelet & kubectl
 
 ```sh
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -19,7 +36,7 @@ EOF
 yum install -y kubeadm kubelet kubectl
 ```
 
-# Before Start Service
+## Before Start Service
 
 ```sh
 # 允許 containers 連到 host
@@ -36,7 +53,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-# Start Service 
+## Start Service 
 
 ```sh
 systemctl enable docker
@@ -46,27 +63,27 @@ systemctl enable kubelet
 systemctl start kubelet
 ```
 
-# Check Service
+## Check Service
 
 ```sh
 kubectl version
 kubectl get cs
 ```
 
-# Apply Master has Node
+## Apply Master has Node
 
 ```sh
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
-# Install Pod network
+## Install Pod network
 
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.yml
 systemctl restart kubelet
 ```
 
-# Create Pod
+## Create Pod
 
 ```yml
 # vi lab1-pod.yml
@@ -90,7 +107,7 @@ kubectl get pods
 # kubectl delete pods lab1-pod
 ```
 
-# Bind Service
+## Bind Service
 
 ```sh
 kubectl expose pod lab1-pod --name=lab1-pod-service --type=NodePort --port=80
@@ -98,7 +115,7 @@ kubectl get services
 # kubectl delete services lab1-pod-service
 ```
 
-# Bind Replication Controller
+## Bind Replication Controller
 
 ```yml
 # vi lab2-replication-controller.yml
@@ -133,7 +150,7 @@ kubectl scale --replicas=4 -f lab2-replication-controller.yml
 # kubectl delete rc lab2-replication-controller
 ```
 
-# Ref
+## Ref
 
 * [Kubernetes Documentation](https://kubernetes.io/docs/home/)  
 * [Using kubeadm to Create a Cluster](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)  
