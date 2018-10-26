@@ -43,21 +43,22 @@ mysql_deployment.yml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: cloudsql-proxy
+  name: cloudsql-proxy-pod
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: cloudsql-proxy
+        component: cloudsql-proxy
     spec:
       containers:
         - name: cloudsql-proxy
-          image: gcr.io/cloudsql-docker/gce-proxy:1.11
-          # <INSTANCES_NAME>
-          command: ["/cloud_sql_proxy",
-                    "-instances=<INSTANCES_NAME>:cloudsql-mysql=tcp:0.0.0.0:3306",
-                    "-credential_file=/secrets/cloudsql/credentials.json"]
+          image: asia.gcr.io/cloudsql-docker/gce-proxy:1.11
+          command:
+            - /cloud_sql_proxy
+            # [INSTANCES_NAME]
+            - -instances=[INSTANCES_NAME]:cloudsql-mysql=tcp:0.0.0.0:3306
+            - -credential_file=/secrets/cloudsql/credentials.json
           volumeMounts:
             - name: cloudsql-instance-credentials
               mountPath: /secrets/cloudsql
@@ -80,7 +81,7 @@ spec:
     port: 3306
     targetPort: 3306
   selector:
-    app: cloudsql-proxy
+    component: cloudsql-proxy
 ```
 
 
@@ -88,6 +89,7 @@ spec:
 kubectl apply -f C:\Users\John\GitProjects\mms\tools\kubernetes\mysql_deployment.yml
 ```
 
+## 參考
 
-## Ref
-https://cloud.google.com/kubernetes-engine/docs/troubleshooting
+* [Google Cloud Documentation - MySQL Connecting from GKE](https://cloud.google.com/sql/docs/mysql/connect-kubernetes-engine)  
+* [YouTube - How to install Google Cloud SQL Proxy on Kubernetes Engine?](https://www.youtube.com/watch?v=bN000CEg7IM)  

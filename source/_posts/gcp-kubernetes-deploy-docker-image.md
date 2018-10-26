@@ -131,3 +131,8 @@ kubectl exec -it [POD_NAME] -- bash
 
 出結果如下：  
 ![GCP 教學 - Kubernetes 佈署 Docker Image - Kubernetes 佈署](/images/x412.png)  
+
+## 參考
+
+* [Google Cloud Documentation - Kubernetes Engine Troubleshooting](https://cloud.google.com/kubernetes-engine/docs/troubleshooting)  
+* [Google Cloud Documentation - Container Registry Pushing and Pulling Images](https://cloud.google.com/container-registry/docs/pushing-and-pulling)  
