@@ -10,6 +10,7 @@ categories:
 date: 
 featured_image: /images/logo-kubernetes.png
 ---
+![GCP 教學 - Kubernetes 與 Cloud SQL 連線](/images/logo-kubernetes.png)
 
 <!-- more -->
 
@@ -35,7 +36,7 @@ https://cloud.google.com/sql/docs/mysql/connect-kubernetes-engine
 ```sh
 # 用您之前下載的金鑰檔案建立 cloudsql-instance-credentials 密鑰：
 # kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json=[PROXY_KEY_FILE_PATH]
-kubectl create secret generic cloudsql-instance-credentials --from-file=credentials.json="C:\xxxxx\prod-xxxxx-xxxxx.json"
+kubectl create secret generic cloudsql-instance-credentials --from-file= ="C:\xxxxx\prod-xxxxx-xxxxx.json"
 ```
 
 mysql_deployment.yml

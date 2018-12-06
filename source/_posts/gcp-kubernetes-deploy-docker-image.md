@@ -10,6 +10,7 @@ categories:
 date: 2018-10-25 17:11:00
 featured_image: /images/logo-kubernetes.png
 ---
+![GCP 教學 - Kubernetes 佈署 Docker Image](/images/logo-kubernetes.png)
 
 介紹如何透過 GCP (Google Cloud Platform) 的 Cloud SDK，上傳 Docker Image 及佈署到 Kubernetes。
 
