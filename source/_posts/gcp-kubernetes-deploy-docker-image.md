@@ -35,7 +35,7 @@ gcloud auth login
 
 在開始之前，請先到 GCP 的 Kubernetes Engine 建立 Cluster，如下圖：  
 ![GCP 教學 - Kubernetes 佈署 Docker Image - 建立 Kubernetes Cluster](/images/x406.png)
-> GCP 第一年送每個月 300 美金，讓你試用。  
+> GCP 第一年送 300 美金，讓你試用。  
 
 建立完成後，可以透過 Cloud SDK 看看自己建好的 Kubernetes Cluster，指令如下：  
 ```sh

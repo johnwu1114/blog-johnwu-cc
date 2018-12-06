@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
         - name: cloudsql-proxy
-          image: asia.gcr.io/cloudsql-docker/gce-proxy:1.11
+          image: gcr.io/cloudsql-docker/gce-proxy:1.11
           command:
             - /cloud_sql_proxy
             # [INSTANCES_NAME]
