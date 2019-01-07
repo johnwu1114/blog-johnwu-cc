@@ -149,6 +149,11 @@ kubectl apply -f C:\k8s_sql_sample\
 Server=cloudsql-proxy-service;User Id=root;Password=<密碼>;Database=<資料庫名稱>;
 ```
 
+如果有自己的 toolbox 也可以試著用 MySQL CLI 連看看，如下圖：  
+![GCP 教學 - toolbox 連入 Cloud SQL](/images/x424.png)  
+
+> 自製 toolbox 可參考[GCP 教學 - Kubernetes 佈署 Docker Image](/article/gcp-kubernetes-deploy-docker-image.html)。  
+
 ## 參考
 
 * [Google Cloud Documentation - MySQL Connecting from GKE](https://cloud.google.com/sql/docs/mysql/connect-kubernetes-engine)  
