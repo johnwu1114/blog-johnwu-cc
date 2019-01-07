@@ -30,6 +30,11 @@ featured_image: /images/logo-kubernetes.png
 
 > 預設的機器類型為「db-n1-standard-1」，如果要更高階或低階的版本，可在選擇區域的下方，點選`顯示設定選項`變更配置。  
 
+建立完成後，點選建立完成的執行個體，查看**執行個體連線名稱**，如下圖：  
+![GCP 教學 - Cloud SQL 執行個體連線名稱](/images/x423.png)  
+
+> 之後步驟會用到**執行個體連線名稱**，可以先記下來。  
+
 ## 透過 Cloud SDK 登入
 
 請先安裝 Cloud SDK，且進行授權驗證後，便可透過 Cloud SDK 登入 Cloud SQL。  
@@ -99,11 +104,8 @@ spec:
           image: gcr.io/cloudsql-docker/gce-proxy:1.11
           command:
             - /cloud_sql_proxy
-            # <Cloud SQL 實例名稱>：記得改成自己設定的
-            # <區域>：記得改成自己設定的
-            # 例如本文範例設定的名稱為 cloudsql-mysql，區域為 asia-east1：
-            # instances=cloudsql-mysql:asia-east1:cloudsql-mysql=tcp:0.0.0.0:3306
-            - -instances=<Cloud SQL 實例名稱>:<Zone>:cloudsql-mysql=tcp:0.0.0.0:3306
+            # <執行個體連線名稱>：改成自己的
+            - -instances=<執行個體連線名稱>=tcp:0.0.0.0:3306
             - -credential_file=/secrets/cloudsql/credentials.json
           volumeMounts:
             - name: cloudsql-instance-credentials
