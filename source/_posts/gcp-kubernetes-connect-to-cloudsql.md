@@ -63,6 +63,13 @@ ERROR: (gcloud.sql.connect) Mysql client not found.  Please install a mysql clie
 gcloud sql users set-password root --host=% --instance cloudsql-mysql --password=<密碼>
 ```
 
+## 啟用 API
+
+必須要啟用 Cloud SQL Admin API，步驟如下：  
+![GCP 教學 - 啟用 Cloud SQL Admin API 1](/images/x425.png)  
+![GCP 教學 - 啟用 Cloud SQL Admin API 2](/images/x426.png)  
+
+
 ## 建立連線密鑰
 
 到 GCP 建立連線密鑰，並下載到本機再匯入至 Kubernetes，讓 Kubernetes 可以透過密鑰連入 Cloud SQL，密鑰建立步驟如下：
@@ -143,13 +150,14 @@ kubectl apply -f C:\k8s_sql_sample\
 ```
 
 完成套用後，就可以在 Kubernetes 的群集內，透過 URL `cloudsql-proxy-service` 連到 Cloud SQL 的服務。  
-以 dotnet core 的 mysql 連線字串為例：  
-
-```sql
-Server=cloudsql-proxy-service;User Id=root;Password=<密碼>;Database=<資料庫名稱>;
-```
 
 如果有自己的 toolbox 也可以試著用 MySQL CLI 連看看，如下圖：  
+
+```sh
+mysql -u root -p[PASSWORD] -h cloudsql-proxy-service
+#例：mysql -u root -pPASSWORD -h cloudsql-proxy-service
+```
+
 ![GCP 教學 - toolbox 連入 Cloud SQL](/images/x424.png)  
 
 > 自製 toolbox 可參考[GCP 教學 - Kubernetes 佈署 Docker Image](/article/gcp-kubernetes-deploy-docker-image.html)。  
