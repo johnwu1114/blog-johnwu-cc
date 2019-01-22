@@ -24,7 +24,7 @@ Filter 的作用是在 Action **執行前**或**執行後**做一些加工處理
 
 ASP.NET Core 有以下五種 Filter 可以使用：  
 1. Authorization Filter  
-Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Requert 合不合法，不合法後面就直接跳過。  
+Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。  
 2. Resource Filter  
 Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處裡才用。  
 3. Action Filter  
