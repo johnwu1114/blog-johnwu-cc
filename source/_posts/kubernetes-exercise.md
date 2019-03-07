@@ -43,7 +43,6 @@ yum install -y kubeadm kubelet kubectl
 # 允許 containers 連到 host
 setenforce 0
 sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
-sed -i 's/^SELINUXTYPE=.*/SELINUX=targeted/' /etc/selinux/config
 ```
 
 ## 關閉 swap
@@ -63,7 +62,7 @@ systemctl start docker
 systemctl enable kubelet
 systemctl start kubelet
 
-# 初始化
+# 初始化 Cluster
 kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
 

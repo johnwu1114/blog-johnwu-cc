@@ -14,7 +14,7 @@ date: 2019-03-07 22:49:00
 在 CentOS 啟動 Kubernetes 遇到 Nodes NotReady 的問題。
 使用 `kubectl get nodes` 查詢 Node 狀態，顯示 **NotReady**，如下：
 
-```sh 
+```sh
 NAME                    STATUS     ROLES    AGE    VERSION
 k8s-master.xxxxxx.xxx   NotReady   master   101m   v1.13.4
 ```
@@ -42,7 +42,7 @@ kubelet 參數多了 `network-plugin=cni`，但卻沒安裝 cni，所以打開�
 
 以 v1.13.4 的版本為例：  
 
-```sh 
+```sh
 #KUBELET_KUBEADM_ARGS=--cgroup-driver=cgroupfs --network-plugin=cni --pod-infra-container-image=k8s.gcr.io/pause:3.1
 KUBELET_KUBEADM_ARGS=--cgroup-driver=cgroupfs --pod-infra-container-image=k8s.gcr.io/pause:3.1
 ```
