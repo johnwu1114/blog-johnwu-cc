@@ -8,6 +8,7 @@ tags:
 categories:
   - IIS
 date: 2017-07-31 23:38:00
+updated: 2019-03-07 19:34:00
 featured_image: /images/pasted-256.png
 ---
 ![IIS - 運行 ASP.NET Core 網站 - 範例執行結果](/images/pasted-256.png)
@@ -18,7 +19,7 @@ featured_image: /images/pasted-256.png
 
 ## 1. 安裝 .NET Core Windows Server Hosting
 
-要在 IIS 上運行 ASP.NET Core，必須先安裝 [.NET Core Windows Server Hosting](https://go.microsoft.com/fwlink/?linkid=848766)。  
+要在 IIS 上運行 ASP.NET Core，必須先安裝 [.NET Core Windows Server Hosting](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer) (依照需要的版本安裝)。  
 安裝完畢後，用系統管理員身分執行指令：
 ```bat
 net stop was /y

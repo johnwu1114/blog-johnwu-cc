@@ -8,6 +8,7 @@ tags:
 categories:
   - Kubernetes
 date: 2018-10-22 10:42:00
+updated: 2019-03-07 19:34:00
 ---
 ![Kubernetes 安裝筆記](/images/logo-kubernetes.png)
 
@@ -41,19 +42,19 @@ yum install -y kubeadm kubelet kubectl
 ```sh
 # 允許 containers 連到 host
 setenforce 0
-# Disable swap
-swapoff -a 
-# 初始化 kubeadm
-kubeadm init --pod-network-cidr=10.244.0.0/16
+echo "SELINUX=disabled
+SELINUXTYPE=targeted" > /etc/selinux/config
 ```
+
+## 關閉 swap
 
 ```sh
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+swapoff -a
 ```
 
-## Start Service 
+> 如果 /etc/fstab 有掛載 swap，必須要註解掉，不然重開機時又會重新掛載 swap
+
+## Start Service
 
 ```sh
 systemctl enable docker
@@ -61,6 +62,17 @@ systemctl start docker
 
 systemctl enable kubelet
 systemctl start kubelet
+
+# 初始化
+kubeadm init --pod-network-cidr=10.244.0.0/16
+```
+
+修改權限，讓 root 以外的權限也可以使用 kubernetes
+
+```sh
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 ## Check Service
