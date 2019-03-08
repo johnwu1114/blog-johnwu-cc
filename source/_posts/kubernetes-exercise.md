@@ -19,7 +19,11 @@ updated: 2019-03-07 19:34:00
 ## Install Docker
 
 ```sh
-yum install -y docker
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install -y docker-ce
+systemctl enable docker
+systemctl start docker
 ```
 
 ## Install kubeadm & kubelet & kubectl
@@ -56,9 +60,6 @@ sed -i 's/.*swap.*/#&/' /etc/fstab
 ## Start Service
 
 ```sh
-systemctl enable docker
-systemctl start docker
-
 systemctl enable kubelet
 systemctl start kubelet
 
