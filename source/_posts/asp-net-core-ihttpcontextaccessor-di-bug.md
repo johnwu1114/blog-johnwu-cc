@@ -11,7 +11,7 @@ date: 2019-03-17 12:26:00
 ![ASP.NET Core 2.2 - IHttpContextAccessor DI Bug](/images/logo-net-core.png)
 
 最近把 ASP.NET Core 專案從 2.1 升級到 2.2，原本正常的 Integration Test 跑不過了；  
-追根究底後才發現是，ASP.NET Core 2.2 注入 `IHttpContextAccessor` 有 Bug，`HttpContext` 會是 `null`。  
+追根究底後才發現是，ASP.NET Core 2.2 的 Bug，用到注入 `IHttpContextAccessor` 發生 `HttpContext` 是 `null`。  
 
 <!-- more -->
 
@@ -29,7 +29,7 @@ Deploy 出去服務也都正常，想破頭都想不出來，覺得怎麼會這�
 
 ## 解法
 
-不要注入 IHttpContextAccessor，改成注入 ISession。如圖：
+不要注入 IHttpContextAccessor，改成注入 ISession。如圖：  
 ![ASP.NET Core 2.2 - IHttpContextAccessor DI Bug - 解法](/images/x427.png)
 
 ## 參考
