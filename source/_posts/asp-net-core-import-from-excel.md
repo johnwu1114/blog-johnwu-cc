@@ -83,7 +83,7 @@ namespace MyWebsite.Controllers
 }
 ```
 
-> `Request.StreamFile` 擴充方法請參考 [[鐵人賽 Day23] ASP.NET Core 2 系列 - 上傳/下載檔案
+> `DisableFormValueModelBinding` 及 `Request.StreamFile` 擴充方法請參考 [[鐵人賽 Day23] ASP.NET Core 2 系列 - 上傳/下載檔案
 ](/article/ironman-day23-asp-net-core-upload-download-files.html)
 
 ## 參考
