@@ -8,11 +8,11 @@
     "watch": "webpack -d --watch"
   },
   "hexo": {
-    "version": "3.8.0"
+    "version": "3.9.0"
   },
   "dependencies": {
-    "hexo": "^3.8.0",
-    "hexo-all-minifier": "^0.5.2",
+    "hexo": "^3.9.0",
+    "hexo-all-minifier": "^0.5.3",
     "hexo-autonofollow": "^1.0.1",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",
