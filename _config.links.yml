@@ -1,6 +1,6 @@
 # Awards & Certs
 awards_certs:
-- title: Microsoft MVP 2018-2019
+- title: Microsoft MVP 2018-2020
   url: https://mvp.microsoft.com/zh-tw/PublicProfile/5002961
   image: /images/logo-mvp.png
   width: 180
@@ -28,17 +28,19 @@ links:
 - name: 吳吉米 - YouTube 技術頻道
   url: https://www.youtube.com/user/02047788a
 - name: Blackie - Failed Notes
-  url: https://blackie1019.github.io
+  url: https://blackie1019.github.io/
 - name: Larry - Level up
   url: https://larrynung.github.io/
+- name: Yowko - Yowko's Notes
+  url: https://blog.yowko.com/
 - name: James - 詹爸的隨手筆記
-  url: https://blog.papajames.tw
+  url: https://blog.papajames.tw/
 - name: Bruno - 饅頭小舖
   url: https://yi-shiuan.github.io/
 - name: Max W. - Retry
   url: https://retrydb.blogspot.tw/
 - name: Sam Xiao - 資料探索世界
-  url: https://medium.com/@xiaoxiaosam007
+  url: https://medium.com/@xiaoxiaosam007/
 
 # hexo-autonofollow
 nofollow:
@@ -50,6 +52,8 @@ nofollow:
   - blog.jimmywu.cc
   - blackie1019.github.io
   - larrynung.github.io
+  - blog.yowko.com
   - blog.papajames.tw
   - yi-shiuan.github.io
   - retrydb.blogspot.tw
+  - medium.com
