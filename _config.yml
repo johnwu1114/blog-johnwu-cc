@@ -85,7 +85,7 @@ social:
   url: /atom.xml
 
 # Pageviews
-pageviews_api: https://us-central1-blog-johnwu-cc.cloudfunctions.net/pageviews
+pageviews_api: https://asia-east2-blog-johnwu-cc.cloudfunctions.net/page-views
 
 # Comments
 disqus_shortname: blog-johnwu-cc
