@@ -1,11 +1,12 @@
 ---
-title: 'ASP.NET Core 2 教學 - 前後端專案打包 Docker Image'
+title: 'Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image'
 author: John Wu
 tags:
-  - ASP.NET Core
   - Docker
-categories:
   - ASP.NET Core
+  - npm
+categories:
+  - Docker
 date: 2019-07-30 11:14
 featured_image: /images/logo-asp-net-core-docker.png
 ---
@@ -80,7 +81,7 @@ docker build -f [DOCKERFILE_PATH] -t [IMAGE_NAME]:[TAG] --build-arg project_name
 
 建置流程如下：
 
-![ASP.NET Core 2 教學 - 製作 Docker Image - Dockerfile dotnet core](/images/x428.png)
+![Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image - Dockerfile dotnet core](/images/x428.png)
 
 ### npm
 
@@ -124,7 +125,7 @@ ENTRYPOINT dotnet $project_dll
 
 建置流程如下：
 
-![ASP.NET Core 2 教學 - 製作 Docker Image - Dockerfile npm](/images/x429.png)  
+![Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image - Dockerfile npm](/images/x429.png)  
 
 > 以此範例來說，`src/XXXX.WebPortal/wwwroot` 目錄為前端專案打包的結果，ASP.NET Core 執行根路徑的 `wwwroot` 目錄為靜態檔案的位置。若實作上的目錄名稱不同，需自行更改位置。  
 
