@@ -1,26 +1,26 @@
 ---
-title: 'CentOS 快速安裝 ASP.NET Core 及 Nginx'
+title: 'CentOS 安裝及設定 ASP.NET Core + Nginx Proxy'
 author: John Wu
 tags:
   - ASP.NET Core
   - CentOS
-  - nginx
+  - Nginx
   - Linux
 categories:
   - ASP.NET Core
-date: 2019-07-31 16:29
-featured_image: /images/logo-asp-net-core.png
+date: 2019-07-31 11:17
+featured_image: /images/x430.png
 ---
 
-本篇介紹在 CentOS 環境安裝及設定 ASP.NET Core Runtime 及 Nginx Proxy。  
-並寫成 Shell Script，複製到 CentOS 後執行即可快速安裝。  
+本篇介紹在 CentOS 環境下，安裝及設定 ASP.NET Core Runtime 和 Nginx Proxy。  
+並將 ASP.NET Core 註冊成系統服務，便於開機後自動啟動，附上 Shell Script 寫的快速安裝腳本。  
 
 <!-- more -->
 
-## 前言
+## 環境
 
-* 此範例用的 CentOS 版本是 CentOS 7 Minimal。  
-* ASP.NET Core Runtime 是 2.2 版。  
+* CentOS 7 Minimal 版  
+* ASP.NET Core Runtime 2.2 版  
 
 ## 安裝腳本
 
@@ -30,35 +30,35 @@ featured_image: /images/logo-asp-net-core.png
 #!/bin/bash
 
 main() {
-    yum -y install epel-release > /dev/null
-    yum -y update
+    sudo yum -y install epel-release
+    sudo yum -y update
 
     install_nginx
     install_dotnet
 
-    firewall-cmd --add-service=http --permanent
-    firewall-cmd --add-service=https --permanent
-    firewall-cmd --reload
+    sudo firewall-cmd --add-service=http --permanent
+    sudo firewall-cmd --add-service=https --permanent
+    sudo firewall-cmd --reload
 }
 
 install_nginx() {
     echo "###################################"
     echo "########## Install Nginx ##########"
     echo "###################################"
-    yum -y install httpd-tools nginx > /dev/null
-    setsebool -P httpd_can_network_connect on
-    sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
-    setenforce 0
-    systemctl enable nginx
-    systemctl restart nginx
+    sudo yum -y install httpd-tools nginx
+    sudo setsebool -P httpd_can_network_connect on
+    sudo sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
+    sudo setenforce 0
+    sudo systemctl enable nginx
+    sudo systemctl restart nginx
 }
 
 install_dotnet() {
     echo "###########################################"
     echo "########## Install .NET Core 2.2 ##########"
     echo "###########################################"
-    rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
-    yum -y install aspnetcore-runtime-2.2 > /dev/null
+    sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
+    sudo yum -y install aspnetcore-runtime-2.2
 }
 
 main "$@"
@@ -84,13 +84,13 @@ Description=MyWebsite
 # WorkingDirectory=<ASP.NET Core 專案目錄>
 WorkingDirectory=/usr/share/my-website
 
-# ExecStart=/usr/bin/dotnet <ASP.NET Core 起始 dll>
-ExecStart=/usr/bin/dotnet MyWebsite.dll
+# ExecStart=/bin/dotnet <ASP.NET Core 起始 dll>
+ExecStart=/bin/dotnet MyWebsite.dll
 
 # 啟動若失敗，就重啟到成功為止
 Restart=always
 # 重啟的間隔秒數
-RestartSec=10 
+RestartSec=10
 
 # 設定環境變數，注入給 ASP.NET Core 用
 Environment=ASPNETCORE_ENVIRONMENT=Production
@@ -100,7 +100,10 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 WantedBy=multi-user.target
 ```
 
-服務指令：  
+> 注意！ `dotnet` CLI 的路徑可能不一樣，有可能如上例在 **/bin/dotnet** 也有可能在 **/usr/bin/dotnet**  
+> 建議先用指令 `which dotnet` 查看 `dotnet` CLI 的路徑。
+
+服務相關指令：  
 
 ```sh
 # 開啟，開機自動啟動服務
@@ -126,7 +129,6 @@ systemctl status my-website.service
 
 ## 設定 Nginx Proxy
 
-
 新增檔案 `/etc/nginx/conf.d/default_proxy_settings`，以便其他設定重複使用：  
 
 ```yml
@@ -146,7 +148,7 @@ ASP.NET Core Proxy 設定 `/etc/nginx/conf.d/my-website.conf`：
 ```yml
 upstream portal {
     # localhost:5000 改成 ASP.NET Core 所監聽的 Port
-    server localhost:5000 max_fails=3 fail_timeout=10s;
+    server localhost:5000;
 }
 
 server {
@@ -165,7 +167,6 @@ server {
     # 只要是透過這些 Domain 連 HTTPS 443 Port，都會轉送封包到 ASP.NET Core
     listen 443 ssl;
     server_name demo.johnwu.cc;
-    
     ssl_certificate /etc/nginx/ssl/demo.johnwu.cc_bundle.crt;
     ssl_certificate_key /etc/nginx/ssl/demo.johnwu.cc.key;
 
@@ -185,6 +186,10 @@ nginx -t
 # 若沒有錯誤，即可套用
 nginx -s reload
 ```
+
+套用以上設定後，架構如下圖：  
+
+![CentOS 快速安裝 ASP.NET Core 及 Nginx - 架構圖](/images/x430.png)
 
 ## 參考
 
