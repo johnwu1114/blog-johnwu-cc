@@ -8,7 +8,7 @@ tags:
   - Linux
 categories:
   - ASP.NET Core
-date: 2019-07-31 11:17
+date: 2019-07-31 23:17
 featured_image: /images/x430.png
 ---
 
