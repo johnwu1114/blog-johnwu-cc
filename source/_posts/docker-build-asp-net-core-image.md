@@ -153,7 +153,7 @@ scripts/
 **/TestResults/
 ```
 
-## Temp images
+## 清除 Temp images
 
 `Dockerfile` 執行建置後，只會把最後一個 Container 賦予名稱當作最終結果，其他的 Stage 並不會消失，若執行 `docker images` 指令，會發現有一大堆顯示為 **&lt;none&gt;** 的 Docker Image。  
 可透過以下指令快速移除：
