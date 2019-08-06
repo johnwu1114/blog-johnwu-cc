@@ -33,7 +33,7 @@ featured_image: /images/x432.png
 
 ## 製作 Docker Image
 
-在建置 Docker Image 時，可利用 Docker Layer 的特性，將非敏感資料及敏感資料分層，把敏感資料的 Layer 降至最低，透過 Cleanroom 傳送到生產環境，其餘則直接退送到外部公開的 Docker Registry。  
+在建置 Docker Image 時，可利用 Docker Layer 的特性，將非敏感資料及敏感資料分層，把敏感資料的 Layer Size 降至最低，透過 Cleanroom 傳送到生產環境，其餘則直接退送到外部公開的 Docker Registry。  
 
 Docker Image 分為以下三個階段，分別建置出三個 Docker Image，再拼裝成可直接被運行的 Docker Image。  
 此範例主要是以 ASP.NET Core 作為建置範例，但此範例不侷限於 ASP.NET Core 專案。  
