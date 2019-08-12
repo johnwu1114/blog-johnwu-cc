@@ -11,10 +11,16 @@ featured_image: /images/logo-asp-net-core.png
 
 剛剛遇到近期開發的 ASP.NET Core 站台，在本機 MacOS 環境啟動後，瀏覽器用 HTTPS 打開會顯示以下錯誤：  
 ```
+無法連上這個網站  
+localhost 拒絕連線。
+
 ERR_CONNECTION_CLOSED
 ```
 
 <!-- more -->
+
+如圖：
+![ASP.NET Core 2 筆記 - HTTPS ERR_CONNECTION_CLOSED - 錯誤訊息](/images/x433.png)
 
 ## 解決方式
 
