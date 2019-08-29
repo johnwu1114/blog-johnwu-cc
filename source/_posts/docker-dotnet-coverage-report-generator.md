@@ -1,5 +1,5 @@
 ---
-title: 'Docker 教學 - .NET Core 測試報告'
+title: 'Docker 教學 - .NET Core 測試報告 (Coverlet + ReportGenerator)'
 author: John Wu
 tags:
   - Docker
@@ -24,6 +24,12 @@ Coverlet 是一套支援 .NET Core 且跨平台的程式碼覆蓋率分析工具
 
 ```sh
 dotnet tool install --global coverlet.console
+```
+
+除了安裝 `dotnet tool` 外，測試專案也需要安裝 NuGet 套件 `coverlet.msbuild`，安裝指令：  
+
+```sh
+dotnet add package coverlet.msbuild
 ```
 
 安裝完成後，就可透過 `dotnet test` 指令，附帶參數執行程式碼覆蓋率分析：
