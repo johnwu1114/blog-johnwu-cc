@@ -70,7 +70,7 @@ ReportGenerator 支援多種測試報告格式轉換，官方資料：
 安裝方式一樣可透過 dotnet cli 的 `dotnet tool` 安裝，指令如下：  
 
 ```sh
-dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.2.15
+dotnet tool install --global dotnet-reportgenerator-globaltool
 ```
 
 安裝完成後，就可透過 `reportgenerator` 指令，將測試報告格式轉換：
@@ -103,7 +103,7 @@ reportgenerator \
 ```Dockerfile
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS dotnet-test-env
 RUN dotnet tool install --global coverlet.console && \
-    dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.2.15
+    dotnet tool install --global dotnet-reportgenerator-globaltool
 ENV PATH=$PATH:/root/.dotnet/tools/
 WORKDIR /
 COPY . .
