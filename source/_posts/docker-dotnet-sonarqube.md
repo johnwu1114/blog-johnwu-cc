@@ -56,7 +56,7 @@ RUN dotnet sonarscanner begin /k:"<sonarqube_project_key>" \
     /d:sonar.login=<sonarqube_project_token> \
     /d:sonar.exclusions=**/*.js,**/*.ts,**/*.css,bin/**/*,obj/**/*,wwwroot/**/*,ClientApp/**/* \
     /d:sonar.cs.opencover.reportsPaths=/coverage/coverage.opencover.xml \
-    /d:sonar.coverage.exclusions=**/*Model.cs,**/MyProject.ExcludeExample/**/*
+    /d:sonar.coverage.exclusions=**/*Model.cs,**/MyProject.Test/**/*
 # 執行 dotnet test
 RUN dotnet test \
     /p:CollectCoverage=true \
