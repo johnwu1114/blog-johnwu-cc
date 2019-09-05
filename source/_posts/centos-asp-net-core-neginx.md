@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2019-07-31 23:17
-featured_image: /images/x430.png
+featured_image: /images/b/30.png
 ---
 
 本篇介紹在 CentOS 環境下，安裝及設定 ASP.NET Core Runtime 和 Nginx Proxy。  
@@ -189,7 +189,7 @@ nginx -s reload
 
 套用以上設定後，架構如下圖：  
 
-![CentOS 快速安裝 ASP.NET Core 及 Nginx - 架構圖](/images/x430.png)
+![CentOS 快速安裝 ASP.NET Core 及 Nginx - 架構圖](/images/b/30.png)
 
 ## 參考
 

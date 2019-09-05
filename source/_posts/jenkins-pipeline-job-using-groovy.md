@@ -8,9 +8,9 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-03 20:19:00
-featured_image: /images/pasted-266.png
+featured_image: /images/a/266.png
 ---
-![Jenkins 教學 - Pipeline Job using Groovy - 執行結果](/images/pasted-266.png)
+![Jenkins 教學 - Pipeline Job using Groovy - 執行結果](/images/a/266.png)
 
 Jenkins 的 Pipeline Job 彈性幾乎跟 Batch/Shell 一樣，但比起前兩者我個人認為 Pipeline Job 用的 Groovy 語法比較簡潔。  
 除了彈性優勢之外 stage 也是非常好用的方法。  
@@ -24,12 +24,12 @@ Jenkins 的 Pipeline Job 彈性幾乎跟 Batch/Shell 一樣，但比起前兩者
 
 ## 1. 新增 Pipeline Job
 
-![Jenkins 教學 - 新增 Pipeline Job - 1](/images/pasted-263.png)
-![Jenkins 教學 - 新增 Pipeline Job - 2](/images/pasted-264.png)
+![Jenkins 教學 - 新增 Pipeline Job - 1](/images/a/263.png)
+![Jenkins 教學 - 新增 Pipeline Job - 2](/images/a/264.png)
 
 ## 2. Groovy Script
 
-![Jenkins 教學 - 新增 Pipeline Job - 撰寫 Groovy](/images/pasted-265.png)
+![Jenkins 教學 - 新增 Pipeline Job - 撰寫 Groovy](/images/a/265.png)
 
 Groovy Script 的起手式是用 `node` 包裝 `stage`，`stage` 裡面下指令。如下：
 ```groovy
@@ -81,4 +81,4 @@ node {
 ## 執行結果
 
 如果其中一個 stage 失敗的話，後面的工作就會被終止。如下：
-![Jenkins 教學 - Pipeline Job using Groovy - 執行結果](/images/pasted-266.png)
+![Jenkins 教學 - Pipeline Job using Groovy - 執行結果](/images/a/266.png)

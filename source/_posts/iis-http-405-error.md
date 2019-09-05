@@ -9,7 +9,7 @@ tags:
 categories:
   - IIS
 date: 2017-09-26 23:04:00
-featured_image: /images/x350.png
+featured_image: /images/a/350.png
 ---
 
 似乎每隔一陣子，就有身邊的人會遇到 IIS 發生 HTTP 405 錯誤。  
@@ -58,7 +58,7 @@ ASP.NET Web API 或 ASP.Net Core 在使用 HTTP Method `PUT` 或 `DELETE` 時，
 
 如果是 Windows Server 的話，打開伺服器管理員，移除角色及功能精靈，找到 **WebDAV 發行 (WebDAV Publishing)** 取消勾選後移除。如圖：
 
-![IIS - HTTP 405 錯誤 - 移除 WebDAV](/images/x350.png)
+![IIS - HTTP 405 錯誤 - 移除 WebDAV](/images/a/350.png)
 
 ## 建議
 

@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-11 12:00
-featured_image: /images/i23-1.png
+featured_image: /images/ironman/i23-1.png
 ---
 
 在 ASP.NET Core 實作上傳檔案及下載檔案功能算蠻簡易的，但對於上傳大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 網站崩潰掛點。  
@@ -165,7 +165,7 @@ HTML Form 如下：
 </form>
 ```
 
-![[鐵人賽 Day23] ASP.NET Core 2 系列 - 上傳/下載檔案 - 表單資料執行結果](/images/i23-1.png)
+![[鐵人賽 Day23] ASP.NET Core 2 系列 - 上傳/下載檔案 - 表單資料執行結果](/images/ironman/i23-1.png)
 
 ## 大型檔案上傳
 

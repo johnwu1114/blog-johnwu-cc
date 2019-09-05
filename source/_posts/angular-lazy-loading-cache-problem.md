@@ -8,9 +8,9 @@ tags:
 categories:
   - Angular
 date: 2017-09-28 23:03:00
-featured_image: /images/x357.png
+featured_image: /images/a/357.png
 ---
-![Angular 4 教學 - Webpack 解決 Lazy Loading 暫存問題](/images/x357.png)  
+![Angular 4 教學 - Webpack 解決 Lazy Loading 暫存問題](/images/a/357.png)  
 
 通常我們在更新網站前端的 `*.js` 時，會在 URL 後面帶上 *Query String*，避免瀏覽器用到暫存中的 `*.js`。  
 但如果是使用 Angular 4 (Angular 2) 的 Lazy Loading 時，分割的模組檔名及引用位置是由 Webpack 產生，沒辦法在 URL 後面帶上 *Query String*。  
@@ -43,7 +43,7 @@ module.exports = {
 
 ## 執行結果
 
-![Angular 4 教學 - Webpack 解決 Lazy Loading 暫存問題 - 執行結果](/images/x358.png)  
+![Angular 4 教學 - Webpack 解決 Lazy Loading 暫存問題 - 執行結果](/images/a/358.png)  
 
 ## 參考
 

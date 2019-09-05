@@ -6,9 +6,9 @@ tags:
 categories:
   - Windows Server
 date: 2017-10-20 16:50:00
-featured_image: /images/pasted-256.png
+featured_image: /images/a/256.png
 ---
-![Windows Server - 踢掉遠端桌面 Idle 的 Session - Group Policy - 2](/images/x368.png)
+![Windows Server - 踢掉遠端桌面 Idle 的 Session - Group Policy - 2](/images/a/368.png)
 
 常常有人遠端桌面連到 Windows Server 就忘記登出，不然就是掛在那邊沒做事。  
 偏偏 Windows Server 遠端桌面就只有兩個 Serssion，占著茅坑不拉屎，害其他人都連不進去。  
@@ -20,7 +20,7 @@ featured_image: /images/pasted-256.png
 
 在 Widnows Server 找到 `Edit Group Policy` 中文是 `編輯群組原則`：  
 
-![Windows Server - 踢掉遠端桌面 Idle 的 Session - Edit Group Policy](/images/x366.png)
+![Windows Server - 踢掉遠端桌面 Idle 的 Session - Edit Group Policy](/images/a/366.png)
 
 ## Computer Configuration
 
@@ -28,8 +28,8 @@ featured_image: /images/pasted-256.png
 * 英文：Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Session Time Limits  
 * 中文：系統管理範本\Windows 元件\遠端桌面服務\遠端桌面工作階段主機\工作階段時間限制  
 
-![Windows Server - 踢掉遠端桌面 Idle 的 Session - Group Policy - 1](/images/x367.png)
-![Windows Server - 踢掉遠端桌面 Idle 的 Session - Group Policy - 2](/images/x368.png)
+![Windows Server - 踢掉遠端桌面 Idle 的 Session - Group Policy - 1](/images/a/367.png)
+![Windows Server - 踢掉遠端桌面 Idle 的 Session - Group Policy - 2](/images/a/368.png)
 
 ## Disconnected Sessions
 
@@ -37,7 +37,7 @@ featured_image: /images/pasted-256.png
 
 `Set time limit for disconnected sessions`  
 
-![Windows Server - 踢掉遠端桌面 Idle 的 Session - Disconnected Sessions](/images/x369.png)
+![Windows Server - 踢掉遠端桌面 Idle 的 Session - Disconnected Sessions](/images/a/369.png)
 
 ## Idle Sessions
 
@@ -45,7 +45,7 @@ featured_image: /images/pasted-256.png
 
 `Set time limit for active but idle Remote Desktop Services sessions`  
 
-![Windows Server - 踢掉遠端桌面 Idle 的 Session - Idle Sessions](/images/x370.png)
+![Windows Server - 踢掉遠端桌面 Idle 的 Session - Idle Sessions](/images/a/370.png)
 
 ## 參考
 

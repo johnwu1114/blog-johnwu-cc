@@ -7,9 +7,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-08-02 23:47:00
-featured_image: /images/pasted-261.png
+featured_image: /images/a/261.png
 ---
-![ASP.NET Core 教學 - Gzip 封包壓縮](/images/pasted-261.png)
+![ASP.NET Core 教學 - Gzip 封包壓縮](/images/a/261.png)
 
 ASP.NET Core 並不會自動幫你把所有封包壓縮，如上圖所見 PNG 圖檔及 Font 檔都沒有被 Gzip 壓縮。有被壓縮的檔案，並不是 ASP.NET Core 處理的，而是由 IIS 處理的。  
 本篇將介紹 ASP.NET Core 的 Gzip 封包壓縮。  
@@ -74,4 +74,4 @@ namespace MyWebsite
 壓縮的好處是 Response 的封包變小，節省一些網路流量，但缺點是會消耗一點 CUP 效能。  
 使用 Response Compression 後，原本沒有 Gzip 壓縮的 PNG 圖檔及 Font 檔都有被壓縮了，而且檔案也變小了。
 
-![ASP.NET Core 教學 - Gzip 封包壓縮 - 執行結果](/images/pasted-262.png)
+![ASP.NET Core 教學 - Gzip 封包壓縮 - 執行結果](/images/a/262.png)

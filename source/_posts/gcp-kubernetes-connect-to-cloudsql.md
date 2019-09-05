@@ -9,9 +9,9 @@ tags:
 categories:
   - Kubernetes
 date: 2019-01-07 13:55:00
-featured_image: /images/logo-kubernetes.png
+featured_image: /images/featured/kubernetes.png
 ---
-![GCP 教學 - Kubernetes 與 Cloud SQL 連線](/images/logo-kubernetes.png)
+![GCP 教學 - Kubernetes 與 Cloud SQL 連線](/images/featured/kubernetes.png)
 
 介紹如何透過 GCP 的 Kubernetes 與 Cloud SQL 服務建立連線，本篇以 MySQL 為例。
 
@@ -20,10 +20,10 @@ featured_image: /images/logo-kubernetes.png
 ## 新增 Cloud SQL 服務實例
 
 在 GCP 新增 Cloud SQL 實體步驟如下：  
-![GCP 教學 - 新增 Cloud SQL 實體步驟 1](/images/x413.png)  
-![GCP 教學 - 新增 Cloud SQL 實體步驟 2](/images/x414.png)  
-![GCP 教學 - 新增 Cloud SQL 實體步驟 3](/images/x415.png)  
-![GCP 教學 - 新增 Cloud SQL 實體步驟 4](/images/x416.png)  
+![GCP 教學 - 新增 Cloud SQL 實體步驟 1](/images/b/13.png)  
+![GCP 教學 - 新增 Cloud SQL 實體步驟 2](/images/b/14.png)  
+![GCP 教學 - 新增 Cloud SQL 實體步驟 3](/images/b/15.png)  
+![GCP 教學 - 新增 Cloud SQL 實體步驟 4](/images/b/16.png)  
 
 基本上建立 Cloud SQL 服務就是按下一步而已。  
 區域建議選擇跟 Kubernetes 群集相同，流量計費會比較便宜。  
@@ -31,7 +31,7 @@ featured_image: /images/logo-kubernetes.png
 > 預設的機器類型為「db-n1-standard-1」，如果要更高階或低階的版本，可在選擇區域的下方，點選`顯示設定選項`變更配置。  
 
 建立完成後，點選建立完成的執行個體，查看**執行個體連線名稱**，如下圖：  
-![GCP 教學 - Cloud SQL 執行個體連線名稱](/images/x423.png)  
+![GCP 教學 - Cloud SQL 執行個體連線名稱](/images/b/23.png)  
 
 > 之後步驟會用到**執行個體連線名稱**，可以先記下來。  
 
@@ -55,7 +55,7 @@ ERROR: (gcloud.sql.connect) Mysql client not found.  Please install a mysql clie
 
 登入成功後，就可以使用 MySQL Client CLI，可以執行 MySQL 指令。  
 試著輸入 `status`，會顯示 MySQL 的資訊如下：  
-![GCP 教學 - MySQL status](/images/x417.png)  
+![GCP 教學 - MySQL status](/images/b/17.png)  
 
 要修改密碼或允許 root 連入來源，可透過 Cloud SDK 執行以下指令：
 
@@ -66,19 +66,19 @@ gcloud sql users set-password root --host=% --instance cloudsql-mysql --password
 ## 啟用 API
 
 必須要啟用 Cloud SQL Admin API，步驟如下：  
-![GCP 教學 - 啟用 Cloud SQL Admin API 1](/images/x425.png)  
-![GCP 教學 - 啟用 Cloud SQL Admin API 2](/images/x426.png)  
+![GCP 教學 - 啟用 Cloud SQL Admin API 1](/images/b/25.png)  
+![GCP 教學 - 啟用 Cloud SQL Admin API 2](/images/b/26.png)  
 
 
 ## 建立連線密鑰
 
 到 GCP 建立連線密鑰，並下載到本機再匯入至 Kubernetes，讓 Kubernetes 可以透過密鑰連入 Cloud SQL，密鑰建立步驟如下：
 
-![GCP 教學 - 建立連線密鑰 1](/images/x418.png)  
-![GCP 教學 - 建立連線密鑰 2](/images/x419.png)  
-![GCP 教學 - 建立連線密鑰 3](/images/x420.png)  
-![GCP 教學 - 建立連線密鑰 4](/images/x421.png)  
-![GCP 教學 - 建立連線密鑰 5](/images/x422.png)  
+![GCP 教學 - 建立連線密鑰 1](/images/b/18.png)  
+![GCP 教學 - 建立連線密鑰 2](/images/b/19.png)  
+![GCP 教學 - 建立連線密鑰 3](/images/b/20.png)  
+![GCP 教學 - 建立連線密鑰 4](/images/b/21.png)  
+![GCP 教學 - 建立連線密鑰 5](/images/b/22.png)  
 
 把下載的金鑰檔案匯入至 Kubernetes：  
 
@@ -158,7 +158,7 @@ mysql -u root -p[PASSWORD] -h cloudsql-proxy-service
 #例：mysql -u root -pPASSWORD -h cloudsql-proxy-service
 ```
 
-![GCP 教學 - toolbox 連入 Cloud SQL](/images/x424.png)  
+![GCP 教學 - toolbox 連入 Cloud SQL](/images/b/24.png)  
 
 > 自製 toolbox 可參考[GCP 教學 - Kubernetes 佈署 Docker Image](/article/gcp-kubernetes-deploy-docker-image.html)。  
 

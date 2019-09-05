@@ -7,9 +7,9 @@ tags:
 categories:
   - Angular
 date: 2017-08-06 16:55:00
-featured_image: /images/pasted-278.png
+featured_image: /images/a/278.png
 ---
-![Angular 4 - Webpack Warning](/images/pasted-278.png)
+![Angular 4 - Webpack Warning](/images/a/278.png)
 
 Angular 4 (Angular 2) 用 Webpack 打包遇到警告：  
 * `WARNING in ./~/@angular/core/@angular/core.es5.js`  

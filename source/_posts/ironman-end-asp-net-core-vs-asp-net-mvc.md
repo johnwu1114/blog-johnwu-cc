@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-18 22:00
-featured_image: /images/logo-asp-net-core.png
+featured_image: /images/featured/asp-net-core.png
 ---
 
 ASP.NET Core 2 系列文的結尾想了好幾個，也換過好幾次主題。最終還是決定用，常被問到的問題來做總結。  

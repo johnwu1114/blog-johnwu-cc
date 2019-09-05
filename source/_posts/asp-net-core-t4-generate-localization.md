@@ -10,9 +10,9 @@ categories:
   - ASP.NET Core
 date: 2017-06-26 22:11:00
 updated: 2017-09-11 23:00:00
-featured_image: /images/pasted-202.png
+featured_image: /images/a/202.png
 ---
-![ASP.NET Core 教學 - 多國語言 - 運作方式](/images/pasted-202.png)
+![ASP.NET Core 教學 - 多國語言 - 運作方式](/images/a/202.png)
 
 之前介紹過 [ASP.NET Core 多國語言](/article/asp-net-core-localization.html) 的設定方式，由於 ASP.NET Core 提供的多語系是使用弱型別，比起過去 ASP.NET 使用強型別來說，非常的不便利。  
 本篇將介紹用 Visual Studio 的 T4 Template 製作強型別的多國語言 Class。
@@ -36,8 +36,8 @@ var hello = _localizer.Text.Hello;
 ## 1. 建立多國語言檔
 
 在網站目錄中建立 Resources 的資料夾，在裡面新增資源檔 `*.resx`。如下：
-![ASP.NET Core 教學 - 多國語言 - 新增資源檔 1](/images/pasted-200.png)
-![ASP.NET Core 教學 - 多國語言 - 新增資源檔 2](/images/pasted-201.png)
+![ASP.NET Core 教學 - 多國語言 - 新增資源檔 1](/images/a/200.png)
+![ASP.NET Core 教學 - 多國語言 - 新增資源檔 2](/images/a/201.png)
 
 語系檔名稱就可以依照類型自訂，跟 ASP.NET MVC 的命名方式相同如：  
 1. Text.en-GB.resx  
@@ -269,7 +269,7 @@ namespace Resources
 ### 2.2 Localizer.cs
 
 Localizer.cs 是透過 Localizer.tt 自動產生出來的檔案，只要 Localizer.tt 有異動，或者是點右鍵**執行自訂工具**，都會觸發自動產生 Localizer.cs。  
-![ASP.NET Core 教學 - 多國語言 - 執行自訂工具](/images/pasted-207.png)  
+![ASP.NET Core 教學 - 多國語言 - 執行自訂工具](/images/a/207.png)  
 
 Resources\Localizer.cs 程式碼內容會跟著 `*.resx` 而變動，大致如下：
 ```cs

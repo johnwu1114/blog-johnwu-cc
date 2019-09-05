@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-21 01:09
-featured_image: /images/i02-2.png
+featured_image: /images/ironman/i02-2.png
 ---
 
 要了解程式的運作原理，要先知道程式的進入點及生命週期。  
@@ -293,13 +293,13 @@ namespace MyWebsite
 
 ### 執行結果
 
-![[鐵人賽 Day02] ASP.NET Core 2 系列 - 程式生命週期 (Application Lifetime) - 執行結果](/images/i02-1.png)
+![[鐵人賽 Day02] ASP.NET Core 2 系列 - 程式生命週期 (Application Lifetime) - 執行結果](/images/ironman/i02-1.png)
 
 > 輸出內容少了 **webHostBuilder.Configure - Called**，因為 `Configure` 只能有一個，後註冊的 `Configure` 會把之前註冊的蓋掉。  
 
 物件執行流程如下：  
 
-![[鐵人賽 Day02] ASP.NET Core 2 系列 - 程式生命週期 (Application Lifetime) - 物件執行流程](/images/i02-2.png)
+![[鐵人賽 Day02] ASP.NET Core 2 系列 - 程式生命週期 (Application Lifetime) - 物件執行流程](/images/ironman/i02-2.png)
 
 ## 參考
 

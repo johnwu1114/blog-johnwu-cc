@@ -9,9 +9,9 @@ tags:
 categories:
   - Angular
 date: 2017-06-19 10:50:00
-featured_image: /images/pasted-203.png
+featured_image: /images/a/203.png
 ---
-![Angular 4 教學 - 多國語言 - Switch culture](/images/pasted-203.png)
+![Angular 4 教學 - 多國語言 - Switch culture](/images/a/203.png)
 
 本篇將介紹 Angular 4 (Angular 2) 透過定義檔及 Pipe，在 TypeScript 及 Template 中方便的使用多國語言資源。  
 
@@ -68,7 +68,7 @@ declare var R: R;
 ```
 > 定義檔建立完成後，就可以在 TypeScript 中使用 `R.Text.Send`，並且會有 Auto Complete 提示，使用的人就可以知道有哪些資源能用。Auto Complete 如下圖：  
 
-![Angular 4 教學 - 多國語言 - Auto Complete](/images/pasted-203.gif)
+![Angular 4 教學 - 多國語言 - Auto Complete](/images/a/203.gif)
 
 > `declare var R: R;` 也可以改成 `declare var R: any;`。  
 > 但改成 `any` 就沒辦法在 TypeScript 中享受到 Auto Complete 的功能。  
@@ -128,7 +128,7 @@ app.component.html
 <h1>name = {{name}}</h1>
 ```
 
-![Angular 4 教學 - 多國語言 - Switch culture](/images/pasted-204.gif)
+![Angular 4 教學 - 多國語言 - Switch culture](/images/a/204.gif)
 
 
 ## 4. Pipe
@@ -195,7 +195,7 @@ app.component.html
 
 ## 執行結果
 
-![Angular 4 教學 - 多國語言 - 執行結果](/images/pasted-205.gif)
+![Angular 4 教學 - 多國語言 - 執行結果](/images/a/205.gif)
 
 ## 程式碼下載
 

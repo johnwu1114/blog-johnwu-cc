@@ -9,9 +9,9 @@ tags:
 categories:
   - Angular
 date: 2017-06-12 10:32:00
-featured_image: /images/pasted-192.png
+featured_image: /images/a/192.png
 ---
-![Angular 4 教學 - 從頭開始 範例執行結果](/images/pasted-192.png)
+![Angular 4 教學 - 從頭開始 範例執行結果](/images/a/192.png)
 
 有不只一位前端工程師問我，為什麼要用 Visual Studio 2017 做為 Angular 4 教學工具，他們又不寫 .NET，所以我重新改用 Visual Studio Code 來做為 Angular 4 教學的開發工具。  
 本篇將介紹如何開始撰寫 Angular 4 (Angular 2)，包含各項套件的安裝說明及相依關係。
@@ -38,7 +38,7 @@ Angular CLI 也是很方便的選擇喔！請參考 [Angular CLI 官網](https:/
 ## 1. 建立專案資料夾
 
 新增一個資料夾，然後用 VS Code 打開。可以在左邊的 EXPLORER 看到你開始的資料夾名稱，如下圖：
-![專案資料夾](/images/pasted-187.png)
+![專案資料夾](/images/a/187.png)
 
 ## 2. 安裝 npm 套件
 
@@ -52,7 +52,7 @@ npm init -y
 ```
 
 執行完就可以看到自動建立了 package.json。如下：
-![建立 npm package](/images/pasted-188.png)
+![建立 npm package](/images/a/188.png)
 
 ### 2.2. 開發套件
 
@@ -75,7 +75,7 @@ npm install --save @angular/common@latest @angular/compiler@latest @angular/core
 ```
 
 透過 npm install 會把需要的 packages 下載到 node_modules，同時自動修改 package.json。
-![npm package install](/images/pasted-189.png)
+![npm package install](/images/a/189.png)
 
 ## 3. 組態設定
 
@@ -127,7 +127,7 @@ npm run dev
 ```
 
 啟動 lite-server 畫面如下：
-![lite-server](/images/pasted-190.png)
+![lite-server](/images/a/190.png)
 > 還沒建立頁面，所以回傳 *Cannot GET /*
 
 ## 4. 範例程式碼
@@ -250,12 +250,12 @@ node_modules/                       # npm 套件存放位置
 ## 5. 編譯 TypeScript
 
 在 VS Code 可以開啟多個 Console，我在第一個 Console 啟動了 lite-server，我再多新增一個 Console 用來執行 tsc 編譯 TypeScript。如下：
-![TypeScript compiler](/images/pasted-191.png)
+![TypeScript compiler](/images/a/191.png)
 
 每次都要執行 tsc 編譯也蠻麻煩的，可以透過 VS Code 的 Task Runner 來自動執行。  
 在 VS Code 中按下 `Ctrl` + `Shift` + `P`，輸入tasks -> 選擇 Configure Task Runner -> 選擇 TypeScript。如下：
-![Configure Task Runner](/images/pasted-193.png)
-![Configure Task Runner - TypeScript](/images/pasted-194.png)
+![Configure Task Runner](/images/a/193.png)
+![Configure Task Runner - TypeScript](/images/a/194.png)
 
 打開 tsconfig.json，在 compilerOptions 中加入 watch，如下：
 ```json
@@ -270,11 +270,11 @@ node_modules/                       # npm 套件存放位置
 
 改完後按下 `Ctrl` + `Shift` + `B` 啟動 Task，之後改 `*.ts` 檔案就會自動編譯了。  
 要停止自動編譯的話按下 `Ctrl` + `Shift` + `P`，輸入tasks -> 選擇 Terminate Running Task。如下：
-![Terminate Running Task](/images/pasted-195.png)
+![Terminate Running Task](/images/a/195.png)
 
 ## 執行結果
 
-![Angular 4 教學 - 從頭開始 範例執行結果](/images/pasted-192.png)
+![Angular 4 教學 - 從頭開始 範例執行結果](/images/a/192.png)
 
 ## 程式碼下載
 

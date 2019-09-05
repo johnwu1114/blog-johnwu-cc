@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-06 12:00
-featured_image: /images/i18-1.png
+featured_image: /images/ironman/i18-1.png
 ---
 
 ASP.NET Core 提供了好用的 Logging API，預設就已經將 Logger 物件放進 DI 容器，能直接透過 DI 取用記錄 Log 的物件。  
@@ -54,7 +54,7 @@ namespace MyWebsite.Controllers
 
 透過指令執行 `dotnet run`，就可以看到 Log 訊息：  
 
-![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Sample](/images/i18-1.png)  
+![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Sample](/images/ironman/i18-1.png)  
 
 會發現上例預期輸出 6 筆 Log，但實際上確出現一大堆 Log，其中只有 4 筆 Log 是由 `Home.Index()` 輸出。  
 
@@ -106,7 +106,7 @@ namespace MyWebsite
 
 大部都是 `Microsoft.AspNetCore` 輸出的 Log，但這類型的 Log 你可能不需要關注。如下：  
 
-![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Log Filter](/images/i18-2.png)  
+![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Log Filter](/images/ironman/i18-2.png)  
 
 外部參考的套件，通常只需要關注有沒有 Error 層級以上的錯誤。  
 因此，可以透過外部檔案設定 Log Level，過濾掉一些你不需要關注的 Log。  
@@ -173,7 +173,7 @@ namespace MyWebsite
 
 輸出結果：  
 
-![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Log Filter](/images/i18-3.png)  
+![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Log Filter](/images/ironman/i18-3.png)  
 
 
 ## 參考

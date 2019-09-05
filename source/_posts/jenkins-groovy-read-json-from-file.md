@@ -9,10 +9,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-23 12:31:00
-featured_image: /images/x309.png
+featured_image: /images/a/309.png
 ---
 
-![Jenkins - Groovy 從 JSON 檔案讀取變數 - 執行結果](/images/x309.png)
+![Jenkins - Groovy 從 JSON 檔案讀取變數 - 執行結果](/images/a/309.png)
 
 先前有介紹過 [Jenkins - Groovy 從外部檔案取得變數](/article/jenkins-groovy-get-properties-file.html)，但較複雜的設定不太適合用 `Properties`。  
 本篇將介紹 Jenkins 的 Pipeline Job 透過 Groovy 讀取 `JSON` 檔案取得變數。  
@@ -68,4 +68,4 @@ org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: *****
 
 ## 執行結果
 
-![Jenkins - Groovy 從 JSON 檔案讀取變數 - 執行結果](/images/x309.png)
+![Jenkins - Groovy 從 JSON 檔案讀取變數 - 執行結果](/images/a/309.png)

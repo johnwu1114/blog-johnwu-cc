@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-12 12:00
-featured_image: /images/i24-1.png
+featured_image: /images/ironman/i24-1.png
 ---
 
 Entity Framework 是 .NET 跟資料庫溝通好用的 Object-Relational Mapper (O/RM) 框架，ASP.NET Core 也在專案初期就加入了 Entity Framework Core (EF Core)，延續這個好用框架。  
@@ -450,7 +450,7 @@ namespace MyWebsite.Controllers
 
 ## 執行結果
 
-![[鐵人賽 Day24] ASP.NET Core 2 系列 - Entity Framework Core](/images/i24-1.png)
+![[鐵人賽 Day24] ASP.NET Core 2 系列 - Entity Framework Core](/images/ironman/i24-1.png)
 
 ## 參考
 

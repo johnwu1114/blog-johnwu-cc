@@ -8,9 +8,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-04-17 22:41:00
-featured_image: /images/pasted-59.png
+featured_image: /images/a/59.png
 ---
-![Camel](/images/pasted-59.png)
+![Camel](/images/a/59.png)
 
 用 JSON 作為 Web API 資料傳遞格式，並使用 camelCase 作為名稱命名規則，幾乎已成為通用的標準。ASP.NET Core Web API 也很貼心的把回傳物件格式預設為 JSON camelCase。  
 

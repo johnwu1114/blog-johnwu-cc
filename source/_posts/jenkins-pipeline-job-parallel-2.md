@@ -10,10 +10,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-09-04 12:11:00
-featured_image: /images/x324.png
+featured_image: /images/a/324.png
 ---
 
-![Jenkins - Pipeline Job 平行處理 - 執行結果 - 2](/images/x324.png)
+![Jenkins - Pipeline Job 平行處理 - 執行結果 - 2](/images/a/324.png)
 
 先前有介紹過 [Jenkins - Pipeline Job 平行處理](/article/jenkins-pipeline-job-parallel.html)，大致說明了基本用法。  
 本篇稍為進階一點，透過 JSON 檔案控製 Pipeline Job 平行處理的執行順序。
@@ -24,7 +24,7 @@ featured_image: /images/x324.png
 
 隨著系統規模越大，模組也會隨之增長，模組之間的相依關係必然會影響建置順序。  
 範例假設有 8 個模組，相依關係如下：
-![Jenkins - Pipeline Job 平行處理 - 模組相依關係](/images/x321.png)
+![Jenkins - Pipeline Job 平行處理 - 模組相依關係](/images/a/321.png)
 
 ## JSON
 
@@ -115,7 +115,7 @@ buildDependency.each({ group, val ->
 ```
 
 輸出結果可以看到 `group` 已確實排序，如預期：
-![Jenkins - Pipeline Job 平行處理 - 模組相依關係 Output](/images/x322.png)
+![Jenkins - Pipeline Job 平行處理 - 模組相依關係 Output](/images/a/322.png)
 
 ### 建立平行處理工作
 
@@ -247,7 +247,7 @@ buildDependency.each({ item ->
 ```
 
 用 Blue Ocean 看執行結果如下：
-![Jenkins - Pipeline Job 平行處理 - 執行結果 - 1](/images/x323.png)
+![Jenkins - Pipeline Job 平行處理 - 執行結果 - 1](/images/a/323.png)
 
 > 第一個 Parallel 只有一個工作，顯示的圖形變向右延伸，看起來怪怪的。
 
@@ -305,7 +305,7 @@ buildDependency.each({ item ->
 
 ## 執行結果
 
-![Jenkins - Pipeline Job 平行處理 - 執行結果 - 2](/images/x324.png)
+![Jenkins - Pipeline Job 平行處理 - 執行結果 - 2](/images/a/324.png)
 
 ## 相關文章
 

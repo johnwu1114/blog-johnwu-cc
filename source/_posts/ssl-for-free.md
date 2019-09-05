@@ -8,9 +8,9 @@ tags:
 categories:
   - Web Development
 date: 2017-06-29 10:29:00
-featured_image: /images/pasted-210.png
+featured_image: /images/a/210.png
 ---
-![免費 SSL 申請 - SSL For Free](/images/pasted-210.png)
+![免費 SSL 申請 - SSL For Free](/images/a/210.png)
 
 網站安全性越做越高，不免都要使用 HTTPS 加密連線，但 SSL 憑證又很貴...  
 真的不想花錢買的話，還是有免費的可以用。  
@@ -27,7 +27,7 @@ SSL For Free 跟 StartCom 一樣都支援免費的 SSL 憑證申請，但 SSL Fo
 打開 SSL For Free 的網址：https://www.sslforfree.com/  
 在首頁就可以看到輸入網址的畫面，輸入**自有網域**的網址，一次只能申請一個。  
 例如：我的網域是 `johnwu.cc`，我要申請的是 `demo.johnwu.cc`。  
-![免費 SSL 申請 - Enter domain](/images/pasted-211.png)
+![免費 SSL 申請 - Enter domain](/images/a/211.png)
 
 ## 2. 驗證網域
 
@@ -43,7 +43,7 @@ SSL For Free 要確認該網域是你所雍有，才會發憑證給你。
 
 要申請的網域有 FTP 的話，可以在這邊填入 FTP 登入資訊，讓 SSL For Free 把憑證上傳到該 Server。  
 
-![免費 SSL 申請 - FTP Validation](/images/pasted-212.png)
+![免費 SSL 申請 - FTP Validation](/images/a/212.png)
 
 > 如果有開防火牆，記得設定白名單，如上圖 `67.222.10.211`。
 
@@ -52,8 +52,8 @@ SSL For Free 要確認該網域是你所雍有，才會發憑證給你。
 從 SSL For Free 網站下載驗證檔，再把驗證檔放到 Web Server 指定位置。  
 通過驗證才能下載憑證。  
 
-![免費 SSL 申請 - File Validation - 1](/images/pasted-213.png)
-![免費 SSL 申請 - File Validation - 2](/images/pasted-214.png)
+![免費 SSL 申請 - File Validation - 1](/images/a/213.png)
+![免費 SSL 申請 - File Validation - 2](/images/a/214.png)
 1. 點擊圖中的 `Download File #1` 下載驗證檔。  
 2. 把驗證檔放到 Web Server 上的 /.well-known/acme-challenge/ 路徑。  
  * 例：`http://{domain}/.well-known/acme-challenge/{驗證檔}`  
@@ -74,15 +74,15 @@ SSL For Free 要確認該網域是你所雍有，才會發憑證給你。
 
 ### 2.3. DNS 驗證
 
-![免費 SSL 申請 - DNS Validation - 1](/images/pasted-215.png)
-![免費 SSL 申請 - DNS Validation - 2](/images/pasted-216.png)
+![免費 SSL 申請 - DNS Validation - 1](/images/a/215.png)
+![免費 SSL 申請 - DNS Validation - 2](/images/a/216.png)
 1. 到網域的 DNS 管理工具，加入 TXT 轉址紀錄。  
 > 例如：我是使用 Godaddy 管理 DNS，加入 TXT 轉址紀錄如下圖：  
-![Godaddy Add record](/images/pasted-217.png)  
+![Godaddy Add record](/images/a/217.png)  
 
 2. DNS 生效時間比較不一定，你可以點擊 3.1. 的 `Verify _acme-challenge.{domain}` 看生效了沒。  
  * 已生效會顯示 DNS 資訊，如下圖：
- ![DNS Validation](/images/pasted-218.png)  
+ ![DNS Validation](/images/a/218.png)  
  * 未生效會顯示：
  > No TXT Record Found. Set the TTL to 1 second or if you cannot set the TTL then you must wait the TTL (in seconds) so it updates before verifying the domain.  
 
@@ -93,7 +93,7 @@ SSL For Free 要確認該網域是你所雍有，才會發憑證給你。
 經過驗證後，就可以下載憑證囉～  
 下圖是我用 DNS 驗證完成後，顯示的結果：  
 
- ![Download SSL Certificate](/images/pasted-219.png)  
+ ![Download SSL Certificate](/images/a/219.png)  
 
 > 憑證可以從文字框中複製，也可以點擊 `Download All SSL Certificate Files` 下載。  
 > 有效期限為 90 天，如果有註冊帳號，它會在到期日的前一週 Email 通知你。  

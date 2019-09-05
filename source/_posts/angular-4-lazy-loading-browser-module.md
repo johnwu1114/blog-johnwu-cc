@@ -9,9 +9,9 @@ tags:
 categories:
   - Angular
 date: 2017-06-21 22:39:00
-featured_image: /images/logo-angular.png
+featured_image: /images/featured/angular.png
 ---
-![angular](/images/logo-angular.png)
+![angular](/images/featured/angular.png)
 
 BrowserModule 是 Angular 4 (Angular 2) 必用的模組，但使用 Lazy Loading 時，多個模組載入 BrowserModule 竟然會發出 ERROR！  
 本篇將介紹如何解決 Lazy Loading 載入 BrowserModule 發出 ERROR 的問題。  

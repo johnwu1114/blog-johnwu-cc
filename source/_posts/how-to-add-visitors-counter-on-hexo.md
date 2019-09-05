@@ -8,9 +8,9 @@ tags:
 categories:
   - Hexo
 date: 2016-11-21 00:36:00
-featured_image: /images/pasted-242.png
+featured_image: /images/a/242.png
 ---
-![Add Visitors Counter on Hexo](/images/pasted-242.png)
+![Add Visitors Counter on Hexo](/images/a/242.png)
 
 ## Firebase
 
@@ -21,11 +21,11 @@ Create new project [[here]](https://console.firebase.google.com/)
 
 ### Get your Firebase configs
 
-![Firebase - Get configs - 1](/images/pasted-2.png)
-![Firebase - Get configs - 2](/images/pasted-3.png)
+![Firebase - Get configs - 1](/images/a/2.png)
+![Firebase - Get configs - 2](/images/a/3.png)
 
 ### Modify permission
-![Firebase - Modify permission](/images/pasted-4.png)
+![Firebase - Modify permission](/images/a/4.png)
 
 ## Hexo
 
@@ -80,4 +80,4 @@ Add below references to layout footer, must after jquery reference.
 
 ## Demo
 
-![Add Visitors Counter on Hexo](/images/pasted-242.png)
+![Add Visitors Counter on Hexo](/images/a/242.png)

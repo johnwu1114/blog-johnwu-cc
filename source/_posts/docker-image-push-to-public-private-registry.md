@@ -6,7 +6,7 @@ tags:
 categories:
   - Docker
 date: 2019-08-05 23:02
-featured_image: /images/x432.png
+featured_image: /images/b/32.png
 ---
 
 本篇介紹如何依照不同的資料類型分層建置 Docker Image；  
@@ -18,7 +18,7 @@ featured_image: /images/x432.png
 
 最近在一個特殊的網路環境下，因流量限制及安全性考量，產生了這個特別的需求，網路架構如下圖：  
 
-![Docker 教學 - Docker Image 混合公有及私有 Docker Registry - 情境描述網路架構圖](/images/x431.png)  
+![Docker 教學 - Docker Image 混合公有及私有 Docker Registry - 情境描述網路架構圖](/images/b/31.png)  
 
 開發環境跟生產環境都可以連到外網，但兩邊的網路互不相通，只能透過 Cleanroom 存取兩邊的網路環境。  
 但上圖紅線部分，Cleanroom 連到生產環境有以下問題：  
@@ -123,7 +123,7 @@ docker build -f app.dockerfile -t my-project:latest .
 
 將以上 Docker Image 準備好後，就可以開始時實作此範例流程了：  
 
-![Docker 教學 - Docker Image 混合公有及私有 Docker Registry - 範例實作結果流程圖](/images/x432.png)
+![Docker 教學 - Docker Image 混合公有及私有 Docker Registry - 範例實作結果流程圖](/images/b/32.png)
 
 ```sh
 # 1. 把 my-project 推上開發環境的 Registry

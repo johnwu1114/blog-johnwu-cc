@@ -8,10 +8,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-22 21:28:00
-featured_image: /images/x303.png
+featured_image: /images/a/303.png
 ---
 
-![Jenkins - Groovy 調用其他工作 - 執行結果](/images/x303.png)
+![Jenkins - Groovy 調用其他工作 - 執行結果](/images/a/303.png)
 
 當多個 Jenkins 工作有聯貫性時，可以透過一個 Pipeline Job 包裝，由 Pipeline Job 依序自動執行。  
 本篇將介紹如何在 Pipeline Job 用 Groovy Script 調用其他 Jenkins 的工作。  
@@ -72,8 +72,8 @@ build
 
 在 SubPipelineJob 配置中，新增 String 參數，如圖：
 
-![Jenkins - Groovy 調用其他工作 - SubPipelineJob - 新增參數 - 1](/images/x301.png)
-![Jenkins - Groovy 調用其他工作 - SubPipelineJob - 新增參數 - 2](/images/x302.png)
+![Jenkins - Groovy 調用其他工作 - SubPipelineJob - 新增參數 - 1](/images/a/301.png)
+![Jenkins - Groovy 調用其他工作 - SubPipelineJob - 新增參數 - 2](/images/a/302.png)
 
 在 Groovy 中可直接取用上層傳來的變處名稱使用。如下：
 ```groovy
@@ -84,7 +84,7 @@ echo "CustomParam=${CustomParam}"
 
 ### 執行結果
 
-![Jenkins - Groovy 調用其他工作 - 執行結果](/images/x303.png)
+![Jenkins - Groovy 調用其他工作 - 執行結果](/images/a/303.png)
 
 ## 相關文章
 

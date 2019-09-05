@@ -8,7 +8,7 @@ tags:
 categories:
   - Docker
 date: 2019-07-30 23:14
-featured_image: /images/x428.png
+featured_image: /images/b/28.png
 ---
 
 本篇將介紹如何透過 Dockerfile 製作 ASP.NET Core 的 Docker Image。  
@@ -83,7 +83,7 @@ docker build -f [DOCKERFILE_PATH] -t [IMAGE_NAME]:[TAG] --build-arg project_name
 
 建置流程如下：
 
-![Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image - Dockerfile dotnet core](/images/x428.png)
+![Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image - Dockerfile dotnet core](/images/b/28.png)
 
 ### npm
 
@@ -130,7 +130,7 @@ ENTRYPOINT dotnet $project_dll
 
 建置流程如下：
 
-![Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image - Dockerfile npm](/images/x429.png)  
+![Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image - Dockerfile npm](/images/b/29.png)  
 
 ## .dotnetignore
 

@@ -7,9 +7,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-09-03 09:54:00
-featured_image: /images/x320.png
+featured_image: /images/a/320.png
 ---
-![ASP.NET Core 教學 - 取得網站根目錄 - 範例執行結果](/images/x320.png)
+![ASP.NET Core 教學 - 取得網站根目錄 - 範例執行結果](/images/a/320.png)
 
 過去在 ASP.NET 中要取得網站根目錄，可以透過 `Server.MapPath()`，但 ASP.NET Core 大量拋棄靜態方法降低依賴，所以沒有 `Server.MapPath()` 方法可用了。  
 本篇將介紹如何在 ASP.NET Core 取得網站根目錄。  
@@ -71,4 +71,4 @@ ContentRootPath = @hostingEnvironment.ContentRootPath
 
 ## 執行結果
 
-![ASP.NET Core 教學 - 取得網站根目錄 - 範例執行結果](/images/x320.png)
+![ASP.NET Core 教學 - 取得網站根目錄 - 範例執行結果](/images/a/320.png)

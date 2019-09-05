@@ -7,7 +7,7 @@ tags:
 categories:
   - ELK
 date: 2019-08-16 01:20
-featured_image: /images/logo-elasticsearch.png
+featured_image: /images/featured/elasticsearch.png
 ---
 
 已經習慣把 Log 存到 Elasticsearch(以下簡稱 ES) 再透過 Kibana 查看日誌，所以每當有新產品要上線前，都會評估 ELK 需要的硬體規格。  
@@ -27,14 +27,14 @@ featured_image: /images/logo-elasticsearch.png
 
 算是一個不大的小系統，用 Kibana 查詢近期一週的 ES Index 用量。如圖：  
 
-![ELK 筆記 - 硬體規格評估 - Elasticsearch Index 用量](/images/x434.png)  
+![ELK 筆記 - 硬體規格評估 - Elasticsearch Index 用量](/images/b/34.png)  
 
 ## 使用資源  
 
 由於經費有限，所以只有使用兩台 ELK 做 HA，用 Ｍaster/Slave 架構，沒有做到 Cluster。  
 兩台 Server 分別裝載著 ELK 三個服務，架構如下：  
 
-![ELK 筆記 - 硬體規格評估 - ELK Ｍaster/Slave 架構](/images/x436.png)  
+![ELK 筆記 - 硬體規格評估 - ELK Ｍaster/Slave 架構](/images/b/36.png)  
 
 此範例幾個月前從 GCP 轉移到阿里雲，在這兩個平台使用的 VM 等級如下：  
 
@@ -51,7 +51,7 @@ featured_image: /images/logo-elasticsearch.png
 
 產品運行超過半年，CPU 大約都落在 30% 左右，依照上述使用量，在阿里雲其中一台 ELK Server，近期一週的監控資訊：  
 
-![ELK 筆記 - 硬體規格評估 - 阿里雲監控資訊](/images/x435.png)  
+![ELK 筆記 - 硬體規格評估 - 阿里雲監控資訊](/images/b/35.png)  
 
 > 找不到當時在 GCP 用量的截圖。  
 
@@ -110,7 +110,7 @@ ELK 實際存資料的是 ES，所以評估時就不考慮 Logstash 跟 Kibana�
   > 如果對資料加工不熟悉的話，建議在估計時 `* 1.5 倍` 當作**彈性倍率**。  
   * 原始資料若透過 Logstash 加工，產生了很多欄位，且保留原始內容，實際存放的大小就會比原始資料大很多，可能會多到一倍。  
   * 若加工的欄位建的好，且加工完就拋棄原始內容，實際存放就會比原始資料更小。如圖：  
-    ![ELK 筆記 - 硬體規格評估 - Logstash 拋棄原始內容](/images/x437.png)  
+    ![ELK 筆記 - 硬體規格評估 - Logstash 拋棄原始內容](/images/b/37.png)  
 2. **副本資料**  
   主要資料的備援檔，大小與主要資料相等。  
   若有兩個以上的節點，預設會建立一份副本，可變更副本數量。  

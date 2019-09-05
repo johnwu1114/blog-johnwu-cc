@@ -9,9 +9,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-08-12 12:54:00
-featured_image: /images/x294.png
+featured_image: /images/a/294.png
 ---
-![ASP.NET Core 教學 - 匯出 Excel - 執行結果](/images/x294.png)
+![ASP.NET Core 教學 - 匯出 Excel - 執行結果](/images/a/294.png)
 
 製作後台網站常有報表匯出 Excel 的需求，ASP.NET Core 可以透過官方出的 Open XML SDK 來匯出 Excel。  
 本篇將介紹 ASP.NET Core 利用 Open XML SDK 匯出 Excel 的基本用法。  
@@ -60,7 +60,7 @@ using (var document = SpreadsheetDocument.Create(memoryStream, SpreadsheetDocume
 | Sheet | 工作表與資料的關聯 |
 
 概念上的對應大概如下圖：
-![ASP.NET Core 教學 - 類別對應](/images/x294.gif)
+![ASP.NET Core 教學 - 類別對應](/images/a/294.gif)
 
 如果要從 `MemoryStream` 測試匯出，可以使用 `FileStream` 存成檔案：
 ```cs
@@ -201,7 +201,7 @@ namespace MyWebsite.Controllers
 
 ## 執行結果
 
-![ASP.NET Core 教學 - 匯出 Excel - 執行結果](/images/x294.png)
+![ASP.NET Core 教學 - 匯出 Excel - 執行結果](/images/a/294.png)
 
 ## 參考
 

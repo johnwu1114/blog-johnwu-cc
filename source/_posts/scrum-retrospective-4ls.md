@@ -7,9 +7,9 @@ tags:
 categories:
   - Scrum
 date: 2017-06-05 11:07:00
-featured_image: /images/pasted-166.png
+featured_image: /images/a/166.png
 ---
-![Scrum - 回顧方法 - 4Ls](/images/pasted-166.png)
+![Scrum - 回顧方法 - 4Ls](/images/a/166.png)
 
 4Ls 這個方法適合初導入 Srcum 的團隊，問題都是很基本的題型。。
 
@@ -31,8 +31,8 @@ featured_image: /images/pasted-166.png
  > 一張便條紙只寫一件事  
 4. 寫完就貼在白板上，等其他人完成，以上步驟我大概抓 10~15 分鐘  
 5. 請大家分別描述一下自己寫的內容，大概長這樣： 
-![Scrum - 回顧方法 - 4Ls - Setp 5](/images/pasted-167.png)
+![Scrum - 回顧方法 - 4Ls - Setp 5](/images/a/167.png)
 6. 把相似的內容圈在一起，如下：  
-![Scrum - 回顧方法 - 4Ls - Setp 6](/images/pasted-168.png)
+![Scrum - 回顧方法 - 4Ls - Setp 6](/images/a/168.png)
 7. 由數量多的項目開始討論  
 8. 好的部分持續保持，不好的部分討論改善方法  

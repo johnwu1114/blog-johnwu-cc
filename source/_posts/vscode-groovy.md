@@ -7,9 +7,9 @@ tags:
 categories:
   - VS Code
 date: 2017-09-08 10:25:00
-featured_image: /images/x335.png
+featured_image: /images/a/335.png
 ---
-![VS Code - 撰寫及執行 Groovy - 安裝 Code Runner](/images/x335.png)
+![VS Code - 撰寫及執行 Groovy - 安裝 Code Runner](/images/a/335.png)
 
 最近在改寫 Jenkins 的 Pipeline Job，要寫一些 Groovy 的擴充方法讓 Pipeline Job 呼叫，但在 Jenkins 上面寫 Groovy 不是很方便。  
 本篇介紹如何在 Visual Studio Code 安裝 VS Code Extensions，方便撰寫及執行 Groovy。
@@ -57,7 +57,7 @@ for (def i=0; i<url.length(); i++) {
 
 Groovy Script 存檔後，VS Code 中按 `ctrl` + `~` 在 Terminal 輸入 `groovy {檔名}.groovy`，就可以看到執行結果囉~
 
-![VS Code - Terminal 執行 Groovy](/images/x336.png)
+![VS Code - Terminal 執行 Groovy](/images/a/336.png)
 
 ## VS Code Extensions
 
@@ -65,10 +65,10 @@ Groovy Script 存檔後，VS Code 中按 `ctrl` + `~` 在 Terminal 輸入 `groov
 Code Runner 支援很多種不同的程式語言，基本上它是幫你呼叫 CLI，如果沒有安裝該語言的 CLI 它就沒辦法幫你執行了。
 
 安裝好 VS Code 後，可以在擴充工具搜尋 `Code Runner`，然後點擊 *Install*。如下圖：
-![VS Code - 撰寫及執行 Groovy - 安裝 Code Runner](/images/x335.png)
+![VS Code - 撰寫及執行 Groovy - 安裝 Code Runner](/images/a/335.png)
 > 由於我已經安裝過了，所以顯示的是 *Disable* 及 *Uninstall*。  
 > 安裝完 `Code Runner` 需要重啟 VS Code。
 
 完成上述步驟後，就可以針對開啟的檔案，利用快速鍵 `Ctrl` + `Alt` + `N` 或者是右上角的執行按鈕執行：
-![VS Code - 撰寫及執行 Groovy - Code Runner 執行](/images/x337.png)
+![VS Code - 撰寫及執行 Groovy - Code Runner 執行](/images/a/337.png)
 

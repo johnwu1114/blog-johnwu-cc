@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-23 00:17
-featured_image: /images/i04-4.png
+featured_image: /images/ironman/i04-4.png
 ---
 
 ASP.NET Core 使用了大量的依賴注入 (Dependency Injection, DI)，把控制翻轉 (Inversion Of Control, IoC) 運用的相當落實。DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的 DI Framework 對此應該不陌生。  
@@ -161,7 +161,7 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 
 注入實例過程，情境如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 注入實例](/images/i04-4.png)
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 注入實例](/images/ironman/i04-4.png)
 
 ## Service 生命週期
 
@@ -279,12 +279,12 @@ public class HomeController : Controller
 
 輸出內容如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/i04-1.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Controller](/images/ironman/i04-1.png)  
 從左到又打開頁面三次，可以發現 **Singleton** 的 Id 及 HashCode 都是一樣的，此例還看不太出來 **Transient** 及 **Scoped** 的差異。
 
 Service 實例產生方式：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/pasted-209.gif)
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - 實例產生動畫](/images/a/209.gif)
 
 圖例說明：
 * **A** 為 **Singleton** 物件實例  
@@ -325,7 +325,7 @@ View 注入 Service 的方式，直接在 `*.cshtml` 使用 `@inject`：
 
 輸出內容如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/i04-2.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - View](/images/ironman/i04-2.png)  
 
 從左到又打開頁面三次，**Singleton** 的 Id 及 HashCode 如前例是一樣的。  
 **Transient** 及 **Scoped** 的差異在這次就有明顯差異，**Scoped** 在同一次 Request 的 Id 及 HashCode 都是一樣的，如紅綠籃框。
@@ -407,7 +407,7 @@ public class Startup
 
 輸出內容如下：  
 
-![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/i04-3.png)  
+![[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入(Dependency Injection) - Service 生命週期 - Servie](/images/ironman/i04-3.png)  
 
 從左到又打開頁面三次：  
 * **Transient**  

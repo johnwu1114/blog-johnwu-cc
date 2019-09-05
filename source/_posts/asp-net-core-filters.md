@@ -8,9 +8,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-16 12:07:00
-featured_image: /images/pasted-198.png
+featured_image: /images/a/198.png
 ---
-![ASP.NET Core 教學 - Filters - 運作方式](/images/pasted-198.png)
+![ASP.NET Core 教學 - Filters - 運作方式](/images/a/198.png)
 
 本篇將介紹 ASP.NET Core 的五種 Filter 運作方式。  
 包含 Authorization Filter、Resource Filter、Action Filter、Exception Filter 及 Result Filter。  
@@ -38,7 +38,7 @@ Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執
 
 ASP.NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 都會以先進後出的方式處裡封包。  
 Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖：
-![ASP.NET Core 教學 - Filters - 運作方式](/images/pasted-198.png)
+![ASP.NET Core 教學 - Filters - 運作方式](/images/a/198.png)
 > 黃色箭頭是正常情況流程  
 > 灰色箭頭是異常處理流程  
 
@@ -281,7 +281,7 @@ namespace MyWebsite.Controllers
 
 ## 執行結果
 
-![ASP.NET Core 教學 - Filters - 範例執行結果](/images/pasted-199.png)
+![ASP.NET Core 教學 - Filters - 範例執行結果](/images/a/199.png)
 
 ## 程式碼下載
 

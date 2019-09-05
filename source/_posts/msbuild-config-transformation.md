@@ -8,9 +8,9 @@ tags:
 categories:
   - MSBuild
 date: 2017-06-09 09:54:00
-featured_image: /images/pasted-186.png
+featured_image: /images/a/186.png
 ---
-![MSBuild - Result](/images/pasted-186.png)
+![MSBuild - Result](/images/a/186.png)
 
 最近在重新檢視 CI/CD (Continuous Integration / Continuous Delivery) 流程，順手把 Build Config 的方式都改了。  
 目前有部分 Config 還是 XML 格式，其它大多以換成 JSON 格式，Config 我們都是透過 MSBuild 來置換個環境的變數。  
@@ -127,7 +127,7 @@ MSBuild 專案是 XML 格式，所以建個 XML 檔案 Configuration.xml，如�
 msbuild Configuration.xml /p:Configuration=Release /t:rebuild
 ```
 
-![MSBuild - Result](/images/pasted-186.png)
+![MSBuild - Result](/images/a/186.png)
 > 要在 console 使用 msbuild，要先在環境變數中加入 msbuild 的 Path。  
 > Visual Studio 2017 預設路徑為 `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin`
 

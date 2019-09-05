@@ -2,22 +2,22 @@
 awards_certs:
 - title: Microsoft MVP 2018-2020
   url: https://mvp.microsoft.com/zh-tw/PublicProfile/5002961
-  image: /images/logo-mvp.png
+  image: /images/mvp.png
   width: 180
   summary: Visual Studio and Development Technologies
 - title:
   url: https://www.youracclaim.com/badges/e5266cbb-d375-4807-aa75-f0da5e2f9966/public_url
-  image: /images/logo-MCSA-WebApps.png
+  image: /images/MCSA-WebApps.png
   image_alt: "MCSA: Web Applications - Certified 2016"
   width: 120
 - title:
   url: https://www.youracclaim.com/badges/ac1a0583-4534-4a15-ab7e-0b068d80bd23/public_url
-  image: /images/logo-MCSD-AppBuilder.png
+  image: /images/MCSD-AppBuilder.png
   image_alt: "MCSD: App Builder - Certified 2016"
   width: 120
 - title:
   url: https://ithelp.ithome.com.tw/users/20107461/ironman/1372
-  image: /images/logo-ironman-2018-modern-web.png
+  image: /images/ironman-2018-modern-web.png
   image_alt: "2018 iT 邦幫忙鐵人賽 - ASP.NET Core 從入門到實用"
   width: 100
 

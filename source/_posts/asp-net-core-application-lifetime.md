@@ -7,9 +7,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-02 10:22:00
-featured_image: /images/pasted-162.png
+featured_image: /images/a/162.png
 ---
-![ASP.NET Core 教學 - Application Lifetime](/images/pasted-162.png)
+![ASP.NET Core 教學 - Application Lifetime](/images/a/162.png)
  
 本篇將介紹 ASP.NET Core 補捉 Application 啟動及停止事件。  
 
@@ -82,4 +82,4 @@ public class Startup
 
 ## 執行結果
 
-![ASP.NET Core 教學 - Application Lifetime](/images/pasted-162.png)
+![ASP.NET Core 教學 - Application Lifetime](/images/a/162.png)

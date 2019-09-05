@@ -9,9 +9,9 @@ tags:
 categories:
   - Angular
 date: 2017-10-01 02:32:00
-featured_image: /images/x362.png
+featured_image: /images/a/362.png
 ---
-![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 3](/images/x362.png)
+![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 3](/images/a/362.png)
 
 *Jasmine* 框架 + *Karma* 測試執行工具是 Angular 普遍使用的單元測試組合，也是官方推薦的方法。  
 而 *Webpack* 也算 Angular 打包程式碼的主流工具，為了讓**開發**、**測試**及**正式環境**都用一樣的方式打包程式碼；  
@@ -317,9 +317,9 @@ npm run test
 ```
 
 進入 `debug.html` 頁面後，可以看到全部測試案例的執行結果：
-![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 1](/images/x360.png)
-![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 2](/images/x361.png)
-![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 3](/images/x362.png)
+![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 1](/images/a/360.png)
+![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 2](/images/a/361.png)
+![Angular 4 教學 - 單元測試 (Unit Test) Jasmine + Karma + Webpack - 3](/images/a/362.png)
 
 ## 程式碼下載
 

@@ -9,9 +9,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2019-04-17 21:54:00
-featured_image: /images/x294.png
+featured_image: /images/a/294.png
 ---
-![ASP.NET Core 教學 - 匯出 Excel - 執行結果](/images/x294.png)
+![ASP.NET Core 教學 - 匯出 Excel - 執行結果](/images/a/294.png)
 
 之前介紹過 ASP.NET Core 用 Open XML SDK 匯出 Excel 的功能，但沒介紹匯入 Excel。  
 被網友提問後，馬上補了這篇介紹 ASP.NET Core 利用 Open XML SDK 匯入 Excel 的基本用法。  

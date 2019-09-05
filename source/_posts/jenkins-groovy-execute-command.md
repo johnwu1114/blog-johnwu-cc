@@ -8,10 +8,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-04 03:19:00
-featured_image: /images/pasted-275.png
+featured_image: /images/a/275.png
 ---
 
-![Jenkins - Groovy 執行系統指令 - 執行結果](/images/pasted-275.png)
+![Jenkins - Groovy 執行系統指令 - 執行結果](/images/a/275.png)
 
 本篇將介紹如何在 Jenkins 的 Pipeline Job 透過 Groovy 執行系統指令 (Windows 的 Batch 或 Linux 的Shell)。  
 
@@ -102,5 +102,5 @@ org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: *****
 
 ## 執行結果
 
-![Jenkins - Groovy 執行系統指令 - 執行結果 stage](/images/pasted-273.png)
-![Jenkins - Groovy 執行系統指令 - 執行結果](/images/pasted-274.png)
+![Jenkins - Groovy 執行系統指令 - 執行結果 stage](/images/a/273.png)
+![Jenkins - Groovy 執行系統指令 - 執行結果](/images/a/274.png)

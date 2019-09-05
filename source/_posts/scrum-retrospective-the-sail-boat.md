@@ -7,9 +7,9 @@ tags:
 categories:
   - Scrum
 date: 2017-07-04 10:41:00
-featured_image: /images/pasted-228.png
+featured_image: /images/a/228.png
 ---
-![Scrum - 回顧方法 - The Sail Boat](/images/pasted-227.gif)
+![Scrum - 回顧方法 - The Sail Boat](/images/a/227.gif)
 
 The Sail Boat 是比較活潑有趣的方法，我會建議在執行這類型的創意回顧方式前，先實際執行過幾次回顧會議，感覺一下回顧會議的節奏跟問題內容，再使用比較活潑有趣的方法。  
 
@@ -30,8 +30,8 @@ The Sail Boat 是比較活潑有趣的方法，我會建議在執行這類型的
  > 一張便條紙只寫一件事  
 4. 寫完就貼在白板上，等其他人完成，以上步驟我大概抓 10~15 分鐘  
 5. 請大家分別描述一下自己寫的內容，大概長這樣： 
-![Scrum - 回顧方法 - The Sail Boat - Setp 5](/images/pasted-227.png)
+![Scrum - 回顧方法 - The Sail Boat - Setp 5](/images/a/227.png)
 6. 把相似的內容圈在一起，如下：  
-![Scrum - 回顧方法 - The Sail Boat - Setp 6](/images/pasted-228.png)
+![Scrum - 回顧方法 - The Sail Boat - Setp 6](/images/a/228.png)
 7. 由數量多的項目開始討論  
 8. 好的部分持續保持，不好的部分討論改善方法  

@@ -7,9 +7,9 @@ tags:
 categories:
   - Angular
 date: 2017-08-09 09:46:00
-featured_image: /images/x287.png
+featured_image: /images/a/287.png
 ---
-![Angular 4 - IE9 不支援 `apply` 錯誤](/images/x287.png)
+![Angular 4 - IE9 不支援 `apply` 錯誤](/images/a/287.png)
 
 Angular 4 (Angular 2) 在 IE9 運行發生整頁空白，看 Console Log 會發現拋出 JavaScript 不支援 `apply` 的錯誤。  
 可以透過 Angular Shim/Polyfill for IE9 的套件解決此問題。  

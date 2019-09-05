@@ -12,9 +12,9 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-05-04 23:21:00
-featured_image: /images/pasted-110p.png
+featured_image: /images/a/110p.png
 ---
-![ASP.NET Core + Angular 4 教學 - Captcha 範例執行結果](/images/pasted-110p.png)
+![ASP.NET Core + Angular 4 教學 - Captcha 範例執行結果](/images/a/110p.png)
 
 本篇將介紹用 ASP.NET Core 自製圖形驗證碼，Angular 4 做登入頁面的範例跟 ASP.NET Core 互動。
 
@@ -30,7 +30,7 @@ featured_image: /images/pasted-110p.png
 總是有高手會出手相救，CoreCompat.System.Drawing 把 .NET Framework 的 System.Drawing 實作的相當完整，用起來也跟 .NET Framework 的 System.Drawing 一樣。  
 不過目前 CoreCompat.System.Drawing 還是 beta 版，所以要勾選搶鮮版才會找的到。  
 以下是我用到的 NuGet 套件：
-![ASP.NET Core + Angular 4 教學 - Captcha 安裝 NuGet 套件](/images/pasted-110.png)
+![ASP.NET Core + Angular 4 教學 - Captcha 安裝 NuGet 套件](/images/a/110.png)
 
 ## 2. 建立 Web API
 
@@ -472,7 +472,7 @@ export class AppComponent {
 
 ## 執行結果
 
-![ASP.NET Core + Angular 4 教學 - Captcha 範例執行結果](/images/pasted-110.gif)
+![ASP.NET Core + Angular 4 教學 - Captcha 範例執行結果](/images/a/110.gif)
 
 ## 程式碼下載
 

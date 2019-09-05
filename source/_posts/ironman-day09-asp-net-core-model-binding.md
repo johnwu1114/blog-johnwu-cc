@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-28 12:00
-featured_image: /images/i09-1.png
+featured_image: /images/ironman/i09-1.png
 ---
 
 ASP.NET Core MVC 的 Model Binding 會將 HTTP Request 資料，以映射的方式對應到相對到參數中。基本上跟 ASP.NET MVC 差不多，但能 Binding 的來源更多了一些。  
@@ -40,7 +40,7 @@ namespace MyWebsite.Controllers
 預設的 Model Binding 會從 HTTP Requset 的三個地方取值 **(優先順序由上到下)** ：  
 * **Form**  
  透過 HTTP POST 的 form 取值。如下圖：  
- ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Form](/images/i09-1.png)   
+ ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Form](/images/ironman/i09-1.png)   
 * **Route**  
  是透過 MVC Route URL 取值。  
  如：`http://localhost:5000/Home/Index/2`，`id` 取出的值就會是 2。
@@ -118,7 +118,7 @@ public class UserModel
 ### 輸出結果
 
 **FirstSample** 輸出結果：  
-![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/i09-2.png)   
+![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/ironman/i09-2.png)   
 
 **DISample** 輸出結果：  
 `http://localhost:5000/Home/DISample`  
@@ -128,9 +128,9 @@ logger is null: False.
 
 **BodySample** 輸出結果：  
 * **JSON**  
- ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/i09-3.png)   
+ ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/ironman/i09-3.png)   
 * **XML**  
- ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/i09-4.png)   
+ ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Binding Attributes](/images/ironman/i09-4.png)   
 
 ## Model 驗證
 
@@ -190,7 +190,7 @@ namespace MyWebsite.Controllers
 
 輸入錯誤資料的輸出結果：  
 
-![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Model 驗證](/images/i09-5.png)   
+![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Model 驗證](/images/ironman/i09-5.png)   
 
 .NET Core 提供了很多的 Validation Attributes，可以參考官網：[System.ComponentModel.DataAnnotations](https://docs.microsoft.com/zh-tw/dotnet/api/system.componentmodel.dataannotations?view=netcore-2.0)  
 

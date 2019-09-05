@@ -7,9 +7,9 @@ tags:
 categories:
   - Scrum
 date: 2017-05-17 10:56:00
-featured_image: /images/pasted-119.png
+featured_image: /images/a/119.png
 ---
-![Scrum - 回顧方法 - The Wheel](/images/pasted-119.png)
+![Scrum - 回顧方法 - The Wheel](/images/a/119.png)
 
 The Wheel 這個回顧方法的另一個名稱是 The Starfish，因為畫在白板上像輪框也可以像海星。
 
@@ -29,8 +29,8 @@ The Wheel 這個回顧方法的另一個名稱是 The Starfish，因為畫在白
  > 一張便條紙只寫一件事  
 4. 寫完就貼在白板上，等其他人完成，以上步驟我大概抓 10~15 分鐘  
 5. 請大家分別描述一下自己寫的內容，大概長這樣： 
-![Scrum - 回顧方法 - The Wheel - Setp 5](/images/pasted-120.png)
+![Scrum - 回顧方法 - The Wheel - Setp 5](/images/a/120.png)
 6. 把相似的內容圈在一起，如下：  
-![Scrum - 回顧方法 - The Wheel - Setp 6](/images/pasted-121.png)
+![Scrum - 回顧方法 - The Wheel - Setp 6](/images/a/121.png)
 7. 由數量多的項目開始討論  
 8. 好的部分持續保持，不好的部分討論改善方法  

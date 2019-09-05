@@ -9,7 +9,7 @@ categories:
   - Kubernetes
 date: 2019-03-07 22:49:00
 ---
-![Kubernetes - Nodes NotReady](/images/logo-kubernetes.png)
+![Kubernetes - Nodes NotReady](/images/featured/kubernetes.png)
 
 在 CentOS 啟動 Kubernetes 遇到 Nodes NotReady 的問題。
 使用 `kubectl get nodes` 查詢 Node 狀態，顯示 **NotReady**，如下：

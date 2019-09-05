@@ -8,9 +8,9 @@ tags:
 categories:
   - Kubernetes
 date: 2018-10-25 17:11:00
-featured_image: /images/logo-kubernetes.png
+featured_image: /images/featured/kubernetes.png
 ---
-![GCP 教學 - Kubernetes 佈署 Docker Image](/images/logo-kubernetes.png)
+![GCP 教學 - Kubernetes 佈署 Docker Image](/images/featured/kubernetes.png)
 
 介紹如何透過 GCP (Google Cloud Platform) 的 Cloud SDK，上傳 Docker Image 及佈署到 Kubernetes。
 
@@ -28,13 +28,13 @@ https://cloud.google.com/sdk/downloads
 gcloud auth login
 ```
 接著會跳出授權驗證的網頁，進行確認，如下圖：  
-![GCP 教學 - Kubernetes 佈署 Docker Image - Cloud SDK 驗證 - 1](/images/x408.png)  
-![GCP 教學 - Kubernetes 佈署 Docker Image - Cloud SDK 驗證 - 2](/images/x409.png)  
+![GCP 教學 - Kubernetes 佈署 Docker Image - Cloud SDK 驗證 - 1](/images/b/08.png)  
+![GCP 教學 - Kubernetes 佈署 Docker Image - Cloud SDK 驗證 - 2](/images/b/09.png)  
 
 ### 建立 Kubernetes Cluster
 
 在開始之前，請先到 GCP 的 Kubernetes Engine 建立 Cluster，如下圖：  
-![GCP 教學 - Kubernetes 佈署 Docker Image - 建立 Kubernetes Cluster](/images/x406.png)
+![GCP 教學 - Kubernetes 佈署 Docker Image - 建立 Kubernetes Cluster](/images/b/06.png)
 > GCP 第一年送 300 美金，讓你試用。  
 
 建立完成後，可以透過 Cloud SDK 看看自己建好的 Kubernetes Cluster，指令如下：  
@@ -44,10 +44,10 @@ gcloud container clusters get-credentials [CLUSTER_NAME] --zone=[CLUSTER_ZONE] -
 ```
 * **CLUSTER_NAME** 及 **CLUSTER_ZONE**  
  可以從 Kubernetes Engine 的管理頁面查看：  
- ![GCP 教學 - Kubernetes 佈署 Docker Image - Cluster Name & Zone](/images/x410.png)  
+ ![GCP 教學 - Kubernetes 佈署 Docker Image - Cluster Name & Zone](/images/b/10.png)  
 * **PROJECT_ID**  
  可以從 GCP 頁面上方查看，如下圖：  
- ![GCP 教學 - Kubernetes 佈署 Docker Image - Project Id](/images/x407.png)  
+ ![GCP 教學 - Kubernetes 佈署 Docker Image - Project Id](/images/b/07.png)  
 
 ## Container Registry
 
@@ -131,7 +131,7 @@ kubectl exec -it [POD_NAME] -- bash
 ```
 
 出結果如下：  
-![GCP 教學 - Kubernetes 佈署 Docker Image - Kubernetes 佈署](/images/x412.png)  
+![GCP 教學 - Kubernetes 佈署 Docker Image - Kubernetes 佈署](/images/b/12.png)  
 
 ## 參考
 

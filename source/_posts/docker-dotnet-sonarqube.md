@@ -8,7 +8,7 @@ tags:
 categories:
   - Docker
 date: 2019-09-04 23:02
-featured_image: /images/x443.png
+featured_image: /images/b/43.png
 ---
 
 SonarQube 是常見的程式碼分析工具，本篇介紹如何透過 Docker 進行 .NET Core 程式碼分析；  
@@ -29,9 +29,9 @@ docker run --name SonarQube -p 9000:9000 sonarqube
 
 登入後，可新增 SonarQube 專案，步驟如下：  
 
-![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 新增 SonarQube 專案 1](/images/x441.png)  
+![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 新增 SonarQube 專案 1](/images/b/41.png)  
 
-![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 新增 SonarQube 專案 2](/images/x442.png)  
+![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 新增 SonarQube 專案 2](/images/b/42.png)  
 
 > 分析報告要上傳到 SonarQube Server 時，需要用到 `Project Key` 及步驟 8 的 `Token`。  
 
@@ -56,7 +56,7 @@ RUN dotnet sonarscanner begin /k:"<sonarqube_project_key>" \
     /d:sonar.login=<sonarqube_project_token> \
     /d:sonar.exclusions=**/*.js,**/*.ts,**/*.css,bin/**/*,obj/**/*,wwwroot/**/*,ClientApp/**/* \
     /d:sonar.cs.opencover.reportsPaths=/coverage/coverage.opencover.xml \
-    /d:sonar.coverage.exclusions=**/*Model.cs,**/MyProject.Test/**/*
+    /d:sonar.coverage.exclusions=**/*Model.cs,MyProject.Test/**/*
 # 執行 dotnet test
 RUN dotnet test \
     /p:CollectCoverage=true \
@@ -95,9 +95,9 @@ docker build -f build-unit-test.dockerfile .
 
 ## 執行結果
 
-![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 執行結果 1](/images/x443.png)  
+![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 執行結果 1](/images/b/43.png)  
 
-![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 執行結果 2](/images/x444.png)  
+![Docker 教學 - .NET Core 程式碼分析報告 (SonarQube) - 執行結果 2](/images/b/44.png)  
 
 
 ## 參考

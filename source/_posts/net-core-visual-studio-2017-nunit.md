@@ -10,9 +10,9 @@ tags:
 categories:
   - .NET Core
 date: 2017-06-08 12:44:00
-featured_image: /images/pasted-185.png
+featured_image: /images/a/185.png
 ---
-![NUnit Test Result](/images/pasted-185.png)
+![NUnit Test Result](/images/a/185.png)
 
 NUnit 是很多 .NET 工程師的必備良伴，寫 .NET Core 當然也少不了它。  
 本篇將介紹在 Visual Studio 2017 .NET Core 專案使用 NUnit。  
@@ -46,9 +46,9 @@ An exception occurred while test discoverer 'NUnit3TestDiscoverer' was loading t
 1. dotnet-test-nunit  
 2. NUnit3TestAdapter  
 
-![NuGet install dotnet-test-nunit](/images/pasted-184.png)
+![NuGet install dotnet-test-nunit](/images/a/184.png)
 
 ## 執行結果
 
 安裝完就可以順利執行 NUnit 的 Unit Test 了！
-![NUnit Test Result](/images/pasted-185.png)
+![NUnit Test Result](/images/a/185.png)

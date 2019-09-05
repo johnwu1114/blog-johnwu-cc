@@ -10,9 +10,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-17 21:03:00
-featured_image: /images/pasted-202.png
+featured_image: /images/a/202.png
 ---
-![ASP.NET Core 教學 - 多國語言 - 運作方式](/images/pasted-202.png)
+![ASP.NET Core 教學 - 多國語言 - 運作方式](/images/a/202.png)
 
 全球化的網站不免都要做多國語言，ASP.NET Core 的多國語言設定方式跟 ASP.NET MVC 有很大的落差。  
 本篇將介紹 ASP.NET Core 多國語言設定方式。  
@@ -28,8 +28,8 @@ featured_image: /images/pasted-202.png
 ## 2. 建立多國語言檔
 
 在網站目錄中建立 Resources 的資料夾，在裡面新增資源檔 `*.resx`。如下：
-![ASP.NET Core 教學 - 多國語言 - 新增資源檔 1](/images/pasted-200.png)
-![ASP.NET Core 教學 - 多國語言 - 新增資源檔 2](/images/pasted-201.png)
+![ASP.NET Core 教學 - 多國語言 - 新增資源檔 1](/images/a/200.png)
+![ASP.NET Core 教學 - 多國語言 - 新增資源檔 2](/images/a/201.png)
 
 ASP.NET Core 語系檔命名規則**必須**要與 Controllers / Views / Models 相互對應。如下：
 1. Resources\Controllers\HomeController.en-GB.resx  
@@ -212,7 +212,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ## 執行結果
 
-![ASP.NET Core 教學 - 多國語言 - 範例執行結果](/images/pasted-202.png)
+![ASP.NET Core 教學 - 多國語言 - 範例執行結果](/images/a/202.png)
 
 ## 程式碼下載
 

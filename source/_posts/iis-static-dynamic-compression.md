@@ -9,9 +9,9 @@ tags:
 categories:
   - IIS
 date: 2017-09-06 09:27:00
-featured_image: /images/x329.png
+featured_image: /images/a/329.png
 ---
-![IIS - 靜態檔案及動態內容壓縮 - 執行結果](/images/x329.png)
+![IIS - 靜態檔案及動態內容壓縮 - 執行結果](/images/a/329.png)
 
 IIS 可以設定把送出的封包壓縮，封包壓縮的好處是可以減少網路流量，使用者下載的速度也會變快。  
 本篇將介紹如何設定 IIS 自動把靜態檔案及 ASP.NET 產生的動態內容壓縮。  
@@ -25,13 +25,13 @@ IIS 可以設定把送出的封包壓縮，封包壓縮的好處是可以減少�
 
 我是以 Windows Server 2012 R2 為範例，其他版本設定起來也差不多。  
 打開 Server Manager 新增功能，如下圖：
-![IIS - 靜態檔案及動態內容壓縮 - 新增功能](/images/x326.png)
+![IIS - 靜態檔案及動態內容壓縮 - 新增功能](/images/a/326.png)
 
 ## 2. 啟動壓縮功能
 
 安裝完壓縮功能後，就可以在 IIS 打開壓縮功能，步驟如下：
-![IIS - 靜態檔案及動態內容壓縮 - 啟動功能 - 1](/images/x327.png)
-![IIS - 靜態檔案及動態內容壓縮 - 啟動功能 - 2](/images/x328.png)
+![IIS - 靜態檔案及動態內容壓縮 - 啟動功能 - 1](/images/a/327.png)
+![IIS - 靜態檔案及動態內容壓縮 - 啟動功能 - 2](/images/a/328.png)
 * Static Compression
  * 可以設定靜態檔案大於 *N* 才會進行壓縮，預設是大於 *2,700 Bytes* 的靜態檔案才會進行壓縮
  * 壓縮完的暫存檔也可以更改儲存位置及限制暫存位置的使用空間上限
@@ -39,23 +39,23 @@ IIS 可以設定把送出的封包壓縮，封包壓縮的好處是可以減少�
 ### 靜態檔案壓縮執行結果
 
 可以看到執行結果差很多，檔案大小差了約 **4.5倍**！
-![IIS - 靜態檔案壓縮執行結果](/images/x329.png)
+![IIS - 靜態檔案壓縮執行結果](/images/a/329.png)
 
 ### 動態內容壓縮執行結果
 
-![IIS - 動態內容壓縮執行結果](/images/x330.png)
+![IIS - 動態內容壓縮執行結果](/images/a/330.png)
 > 不要懷疑我！我沒貼錯，當封包太小，壓縮反而變大...  
 
 正常一點的範例：
-![IIS - 動態內容壓縮執行結果](/images/x331.png)
+![IIS - 動態內容壓縮執行結果](/images/a/331.png)
 
 ## 3. 壓縮設定
 
 ### 3.1. HTTP Compression
 
 壓縮的詳細設定可以打開 IIS 的 **Configuration Editor** 在 Section 欄位搜尋 `system.webServer/httpCompression`，步驟如下：
-![IIS - 靜態檔案及動態內容壓縮 - 壓縮設定 - 1](/images/x332.png)
-![IIS - 靜態檔案及動態內容壓縮 - 壓縮設定 - 2](/images/x333.png)
+![IIS - 靜態檔案及動態內容壓縮 - 壓縮設定 - 1](/images/a/332.png)
+![IIS - 靜態檔案及動態內容壓縮 - 壓縮設定 - 2](/images/a/333.png)
 
 此篇範例我只用到 `dynamicTypes` 及 `staticTypes`。
 
