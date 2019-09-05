@@ -55,7 +55,8 @@ RUN dotnet sonarscanner begin /k:"<sonarqube_project_key>" \
     /d:sonar.host.url=http://192.168.1.11:9000 \
     /d:sonar.login=<sonarqube_project_token> \
     /d:sonar.exclusions=**/*.js,**/*.ts,**/*.css,bin/**/*,obj/**/*,wwwroot/**/*,ClientApp/**/* \
-    /d:sonar.cs.opencover.reportsPaths=/coverage/coverage.opencover.xml
+    /d:sonar.cs.opencover.reportsPaths=/coverage/coverage.opencover.xml \
+    /d:sonar.coverage.exclusions=**/*Model.cs,**/MyProject.ExcludeExample/**/*
 # 執行 dotnet test
 RUN dotnet test \
     /p:CollectCoverage=true \
@@ -82,10 +83,12 @@ docker build -f build-unit-test.dockerfile .
   * **/d:sonar.login**  
     SonarQube 的 `Token`，錯誤的話無法成功上傳到 SonarQube Server。  
   * **/d:sonar.exclusions**  
-    忽略程式碼分析的檔案或目錄。可用 `,` 隔開指定多個關鍵字。  
+    忽略程式碼分析的檔案或目錄。可用 `,` 隔開指定多個 Patterns。  
     此例忽略 `*.js`、`*.ts` 及 `*.css` 的檔案，如果要分析 `*.js`、`*.ts` 或 `*.css`，還需要在 `Dockerfile` 安裝 `node.js`。  
   * **/d:sonar.cs.opencover.reportsPaths**  
     指定匯入 OpenCover 格式的測試報告路徑。可用 `,` 隔開匯入多個檔案。  
+  * **/d:sonar.coverage.exclusions**  
+    忽略測試覆蓋率分析報告的檔案或目錄。可用 `,` 隔開指定多個 Patterns。  
 * 結束 SonarScanner  
   * **/d:sonar.login**  
     SonarQube 的 `Token`，錯誤的話無法成功上傳到 SonarQube Server。  
