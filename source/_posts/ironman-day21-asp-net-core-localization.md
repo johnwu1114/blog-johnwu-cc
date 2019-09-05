@@ -10,7 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-09 12:00
-featured_image: /images/i21-1.png
+featured_image: /images/ironman/i21-1.png
 ---
 
 全球化的網站不免都要做多國語言，ASP.NET Core 的多國語言設定方式跟 ASP.NET MVC 有很大的落差。  
@@ -55,9 +55,9 @@ featured_image: /images/i21-1.png
 
 若以 Visual Studio IDE 開發 (如 Visual Studio 2017)，可以從 UI 新增資源檔 `*.resx`。在網站目錄中建立 Resources 的資料夾，並新增資源檔 `*.resx`。如下：  
 
-![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 1](/images/pasted-200.png)  
+![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 1](/images/a/200.png)  
 
-![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 2](/images/pasted-201.png)  
+![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 新增資源檔 2](/images/a/201.png)  
 
 ### 註冊服務  
 
@@ -281,7 +281,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ### 執行結果
 
-![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 範例執行結果](/images/i21-1.png)  
+![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 範例執行結果](/images/ironman/i21-1.png)  
 
 ## 共用語系檔
 
@@ -385,7 +385,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ### 執行結果
 
-![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 共用語系檔範例執行結果](/images/i21-2.png)  
+![[鐵人賽 Day21] ASP.NET Core 2 系列 - 多國語言 (Localization) - 共用語系檔範例執行結果](/images/ironman/i21-2.png)  
 
 ## 參考
 

@@ -8,9 +8,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-08-01 22:48:00
-featured_image: /images/pasted-258.png
+featured_image: /images/a/258.png
 ---
-![ASP.NET Core 教學 - 移除 Response Header 資訊](/images/pasted-258.png)
+![ASP.NET Core 教學 - 移除 Response Header 資訊](/images/a/258.png)
 
 ASP.NET Core 預設會在每個 Response 的 Header 帶上 Server 資訊。看似沒什麼影響，但存在兩個小問題：  
 1. 資安問題：讓別人知道使用的技術，有可能會針對該技術的漏洞攻擊。  
@@ -52,7 +52,7 @@ public class Program
 
 ### IIS
 
-![ASP.NET Core 教學 - IIS 移除 X-Powered-By](/images/pasted-259.png)
+![ASP.NET Core 教學 - IIS 移除 X-Powered-By](/images/a/259.png)
 
 ### Web.config 
 
@@ -73,4 +73,4 @@ public class Program
 
 ## 執行結果
 
-![ASP.NET Core 教學 - 移除 Response Header 資訊 - 執行結果](/images/pasted-260.png)
+![ASP.NET Core 教學 - 移除 Response Header 資訊 - 執行結果](/images/a/260.png)

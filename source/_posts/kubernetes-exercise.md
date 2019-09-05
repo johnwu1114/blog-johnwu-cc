@@ -10,7 +10,7 @@ categories:
 date: 2018-10-22 10:42:00
 updated: 2019-03-07 19:34:00
 ---
-![Kubernetes 安裝筆記](/images/logo-kubernetes.png)
+![Kubernetes 安裝筆記](/images/featured/kubernetes.png)
 
 用 CentOS 練習安裝 Kubernetes 的筆記。
 

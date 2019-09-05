@@ -7,9 +7,9 @@ tags:
 categories:
   - Hexo
 date: 2017-08-08 22:50:00
-featured_image: /images/x284.png
+featured_image: /images/a/284.png
 ---
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 執行結果](/images/x284.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 執行結果](/images/a/284.png)
 
 雖然 Hexo 有提供 Local Search 套件，但我個人覺得不是很好用。  
 我比較喜歡用 Google Search，Google Custom Search (GCS) 站內搜尋服務，GCS 可以巧妙的整合在網頁之中，速度又快又可以幫忙統計資訊。  
@@ -21,16 +21,16 @@ featured_image: /images/x284.png
 
 首先要到 GCS 申請自訂搜尋引擎：https://cse.google.com
 步驟如下：
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 新稱搜尋引擎](/images/x280.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 新稱搜尋引擎](/images/a/280.png)
 
 設定要被搜尋的路徑，例如我的部落格文章都放在 `blog.johnwu.cc/article/` 目錄之下，我就設定只要搜尋此目錄。  
 > 其他頁面如：Categories、Tags、Archives 等，都屬於索引頁面，沒有必要被搜尋，所以就不設定。  
 
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 設定搜尋引擎](/images/x281.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 設定搜尋引擎](/images/a/281.png)
 
 選擇版面，還可以設定主題風格等。本範例的設定參考就好。
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 選擇版面](/images/x282.png)
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 取得程式碼](/images/x283.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 選擇版面](/images/a/282.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 取得程式碼](/images/a/283.png)
 
 取得程式碼後就可以把 GCS 加入至 Hexo 了。
 
@@ -78,10 +78,10 @@ menu_icons:
 
 設定完成後，就可以點擊 Menu 就可以看到 GCS 整合到 Hexo 囉～
 
-![Hexo - 自訂站內搜尋 (Google Custom Search) - Menu](/images/x285.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - Menu](/images/a/285.png)
 
 點進去後，畫面完全崩壞：
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 跑版](/images/x286.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 跑版](/images/a/286.png)
 
 ## 4. 修正 UI
 
@@ -178,7 +178,7 @@ form.gsc-search-box{
 
 ## 執行結果
 
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 執行結果](/images/x284.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 執行結果](/images/a/284.png)
 
 實例連結：[Search](/search/)
 

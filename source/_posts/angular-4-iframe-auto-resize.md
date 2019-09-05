@@ -8,9 +8,9 @@ tags:
 categories:
   - Angular
 date: 2017-08-11 13:37:00
-featured_image: /images/x290.png
+featured_image: /images/a/290.png
 ---
-![Angular 4 教學 - IFrame 自動調整大小](/images/x290.png)
+![Angular 4 教學 - IFrame 自動調整大小](/images/a/290.png)
 
 在網頁新舊版本交界期，`IFrame` 算是蠻常用的手法，在 Angular 4 (Angular 2) 的 SPA 頁面中，利用 `IFrame` 插入舊版網頁，使系統整體感一致。  
 `IFrame` 的寬高大小又不能固定不變，太小會留下很多空白，太大會使內外頁都產生 Scrollbar。  
@@ -25,7 +25,7 @@ featured_image: /images/x290.png
 ```html
 <iframe src="https://blog.johnwu.cc/" width="100%" height="100%"></iframe>
 ```
-![Angular 4 教學 - IFrame 太小](/images/x291.png)
+![Angular 4 教學 - IFrame 太小](/images/a/291.png)
 
 ## IFrame 太大
 
@@ -33,7 +33,7 @@ featured_image: /images/x290.png
 ```html
 <iframe src="https://blog.johnwu.cc/" width="600px" height="800px"></iframe>
 ```
-![Angular 4 教學 - IFrame 太小](/images/x292.png)
+![Angular 4 教學 - IFrame 太小](/images/a/292.png)
 
 ## 動態計算
 
@@ -127,7 +127,7 @@ app.component.html
 
 ## 執行結果
 
-![Angular 4 教學 - IFrame 自動調整大小 - 執行結果](/images/x290.gif)
+![Angular 4 教學 - IFrame 自動調整大小 - 執行結果](/images/a/290.gif)
 
 ## 程式碼下載
 

@@ -13,9 +13,9 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-05-10 10:23:00
-featured_image: /images/pasted-11p.png
+featured_image: /images/a/11p.png
 ---
-![ASP.NET Core + Angular 4 教學 - Entity Framework Core 範例執行結果](/images/pasted-11p.png)
+![ASP.NET Core + Angular 4 教學 - Entity Framework Core 範例執行結果](/images/a/11p.png)
 
 本篇將介紹 ASP.NET Core 搭配 Entity Framework Core 存取資料庫，用的是 Code First 建立資料表。
 
@@ -213,7 +213,7 @@ public class ContactsController : Controller
 
 ### 執行結果
 
-![ASP.NET Core + Angular 4 教學 - Entity Framework Core 範例執行結果](/images/pasted-11.gif)
+![ASP.NET Core + Angular 4 教學 - Entity Framework Core 範例執行結果](/images/a/11.gif)
 
 ## 程式碼下載
 

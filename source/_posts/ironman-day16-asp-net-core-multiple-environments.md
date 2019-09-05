@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-04 12:00
-featured_image: /images/i16-3.png
+featured_image: /images/ironman/i16-3.png
 ---
 
 產品從開發到正式上線的過程中，通常都會有很多個環境，如：開發環境、測試環境及正式環境等。  
@@ -175,8 +175,8 @@ namespace MyWebsite
 
 Windows 系統變數的設定方式如下：
  **控制台** -> **系統及安全性**  -> **系統**
-![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數1](/images/i15-1.png)  
-![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數2](/images/i16-1.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數1](/images/ironman/i15-1.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - 環境變數2](/images/ironman/i16-1.png)  
 
 Windows 也可以用指令：
 ```sh
@@ -238,12 +238,12 @@ IIS 的 *Web.config* 也可以設定環境變數：
 
 透過 VS Code 啟動 **.NET Core Launch (web)** 時，就會套用該設定的環境名稱。如下：  
 
-![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - Visual Studio Code](/images/i16-2.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) - Visual Studio Code](/images/ironman/i16-2.png)  
 
 ### Visual Studio IDE
 
 若以 Visual Studio IDE 開發(如 Visual Studio 2017)，可以從 UI 設定環境名稱。如下：  
-![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/i16-3.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/ironman/i16-3.png)  
 
 或者從 *Properties\launchSettings.json* 設定：  
 
@@ -266,7 +266,7 @@ IIS 的 *Web.config* 也可以設定環境變數：
 ```
 
 用 Visual Studio 2017 啟動網站後，就會套用該設定的環境名稱。如下：  
-![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/i16-4.png)  
+![[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments) -Visual Studio 2017](/images/ironman/i16-4.png)  
 
 ## 參考
 

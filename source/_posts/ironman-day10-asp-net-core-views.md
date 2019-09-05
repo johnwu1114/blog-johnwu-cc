@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-29 12:00
-featured_image: /images/i10-1.png
+featured_image: /images/ironman/i10-1.png
 ---
 
 ASP.NET Core MVC 中的 Views 是負責網頁顯示，將資料一併渲染至 UI 包含 HTML、CSS 等。並能透過 Razor 語法在 `*.cshtml` 撰寫渲染畫面的程式邏輯。  
@@ -102,7 +102,7 @@ catch(Exception ex)
 ```
 
 輸出畫面：  
-![[鐵人賽 Day10] ASP.NET Core 2 系列 - Views - Razor 語法](/images/i10-1.png)  
+![[鐵人賽 Day10] ASP.NET Core 2 系列 - Views - Razor 語法](/images/ironman/i10-1.png)  
 
 ### 指令 (Directives)
 
@@ -161,7 +161,7 @@ public abstract class CustomRazorPage<TModel> : RazorPage<TModel>
 通常同網站的頁面都有類似的風格，可能只有部分的內容會不一樣，這種清況很適合用 Layout。  
 以下圖為例，網站的每頁都會有 **Header** 及 **Footer** 而且都長的一樣，就只有 **Content** 會不同。  
 
-![[鐵人賽 Day10] ASP.NET Core 2 系列 - Views - Layout](/images/i10-2.png)
+![[鐵人賽 Day10] ASP.NET Core 2 系列 - Views - Layout](/images/ironman/i10-2.png)
 
 通常 Layout 都會放在 *Views\Shared* 資料夾，建立一個 *_Layout.cshtml*：  
 
@@ -374,7 +374,7 @@ Views 的渲染過程都還是在 Server 端，所以可以透過 Razor 撰寫 C
 Razor 引擎最終會將渲染的結果以 HTML 的方式回傳給 Client。  
 回顧 Day06 資料流動畫：  
 
-![[鐵人賽 Day06] ASP.NET Core 2 系列 - MVC - 資料流](/images/i06-3.gif)  
+![[鐵人賽 Day06] ASP.NET Core 2 系列 - MVC - 資料流](/images/ironman/i06-3.gif)  
 
 要注意的是，Razor 的渲染是耗用 Server 的 CPU 資源，如果有多筆數的資料透過迴圈產生 HTML，也會變成網路傳輸的負擔。如果要注重效能，建議用 Single Page Application(SPA) 的方式取代 Razor。  
 

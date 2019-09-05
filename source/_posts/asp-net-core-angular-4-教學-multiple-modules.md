@@ -8,9 +8,9 @@ tags:
 categories:
   - Angular
 date: 2017-04-30 23:54:00
-featured_image: /images/pasted-107p.png
+featured_image: /images/a/107p.png
 ---
-![Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107p.png)
+![Angular 4 教學 - Multiple Modules 範例執行結果](/images/a/107p.png)
 
 本篇將介紹 Angular 4 的 Routing 在多個 Modules 的情況下，實現 Single Page Application(SPA)。  
 
@@ -248,7 +248,7 @@ export class AppRoutes {
 
 ### 2.3 執行結果
 
-![Angular 4 教學 - Multiple Modules 範例執行結果](/images/pasted-107.gif)
+![Angular 4 教學 - Multiple Modules 範例執行結果](/images/a/107.gif)
 
 ## 程式碼下載
 

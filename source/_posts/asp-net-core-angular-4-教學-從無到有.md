@@ -11,9 +11,9 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-12 21:30:00
-featured_image: /images/pasted-44.png
+featured_image: /images/a/44.png
 ---
-![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
+![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/a/44.png)
 
 本篇將介紹如何建立 ASP.NET Core 專案及建立 Angular 4 (Angular 2) 網站。包含各項套件的安裝說明及相依關係。
 
@@ -35,17 +35,17 @@ featured_image: /images/pasted-44.png
 
 打開 Visual Studio 2017 後，按下 `Ctrl` + `Shift` + `N`。
 
-![新增 ASP.NET Core Web 應用程式](/images/pasted-21.png)
+![新增 ASP.NET Core Web 應用程式](/images/a/21.png)
 
 我個人是喜歡一步一步自己建置需要的東西，所以我選擇*空白專案範本*。
 
-![建立 ASP.NET Core 空白專案範本](/images/pasted-35.png)
+![建立 ASP.NET Core 空白專案範本](/images/a/35.png)
 
 ### 1.1 專案內容
 
 建立完成後，可以看到方案總管很乾淨。
 
-![方案總管 ASP.NET Core 空白範本](/images/pasted-36.png)
+![方案總管 ASP.NET Core 空白範本](/images/a/36.png)
 
 因為我有點程式碼潔癖，所以我把 Startup.cs 內，暫時不會用到的程式碼移除，其他的部分就先不動。  
 Startup.cs 內容如下：
@@ -72,7 +72,7 @@ namespace MyWebsite
 
 ### 1.2 執行結果
 
-![MyWebsite Write Message](/images/pasted-37.png)
+![MyWebsite Write Message](/images/a/37.png)
 
 ## 2. 安裝 npm 套件
 
@@ -87,7 +87,7 @@ npm init -y
 
 執行完就可以看到他自動幫你建立的內容：
 
-![建立 npm package](/images/pasted-41.png)
+![建立 npm package](/images/a/41.png)
 
 由於我的程式碼潔癖又發作，所以我把 package.json 改成：
 
@@ -138,8 +138,8 @@ npm install --save-dev typescript@latest @types/jasmine @types/node
 
 由於要讓 ASP.NET Core 可以支援讀取的靜態檔案，所以用管理 NuGet 套件安裝 Microsoft.AspNetCore.StaticFiles。
 
-![管理 NuGet 套件](/images/pasted-42.png)
-![NuGet 安裝 Microsoft.AspNetCore.StaticFiles](/images/pasted-43.png)
+![管理 NuGet 套件](/images/a/42.png)
+![NuGet 安裝 Microsoft.AspNetCore.StaticFiles](/images/a/43.png)
 
 安裝完成後，編輯 Startup.cs：
 ``` cs
@@ -277,11 +277,11 @@ export class AppComponent {
 ### 4.2 專案內容
 
 完成上述步驟後，方案總管所有檔案的樣貌如下：
-![方案總管 ASP.NET Core + Angular 4](/images/pasted-45.png)
+![方案總管 ASP.NET Core + Angular 4](/images/a/45.png)
 
 ### 4.3 執行結果
 
-![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/pasted-44.png)
+![ASP.NET Core + Angular 4 教學 - 從無到有 範例執行結果](/images/a/44.png)
 
 ## 程式碼下載
 

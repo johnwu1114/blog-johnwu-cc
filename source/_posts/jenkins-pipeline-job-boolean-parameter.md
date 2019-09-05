@@ -9,10 +9,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-22 11:36:00
-featured_image: /images/x306.png
+featured_image: /images/a/306.png
 ---
 
-![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行結果 - 1](/images/x306.png)
+![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行結果 - 1](/images/a/306.png)
 
 Jenkins 的 Pipeline Job 傳遞 Boolean 參數時有一點雷，我第一次用 Boolean 參數真的被卡了一陣子。  
 本篇將介紹 Pipeline Job 在 Groovy 中取用 Boolean 參數的問題。  
@@ -23,8 +23,8 @@ Jenkins 的 Pipeline Job 傳遞 Boolean 參數時有一點雷，我第一次用 
 
 先建立一個帶 Boolean 參數的 Pipeline Job。步驟如下：
 
-![Jenkins - Pipeline Job 取用 Boolean 參數 - 新增參數 - 1](/images/x304.png)
-![Jenkins - Pipeline Job 取用 Boolean 參數 - 新增參數 - 2](/images/x305.png)
+![Jenkins - Pipeline Job 取用 Boolean 參數 - 新增參數 - 1](/images/a/304.png)
+![Jenkins - Pipeline Job 取用 Boolean 參數 - 新增參數 - 2](/images/a/305.png)
 
 ## 2. Groovy
 
@@ -47,8 +47,8 @@ echo "Done"
 ## 3. 執行 Pipeline Job
 
 執行 Pipeline Job 第一次把 isTest 打勾，第二次不要打勾：
-![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行](/images/x308.png)
-![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行結果 - 1](/images/x306.png)
+![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行](/images/a/308.png)
+![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行結果 - 1](/images/a/306.png)
 
 > 照 Groovy 邏輯 **isTest=false** 應該要顯示 *Do nothing..*，結果完全不符合預期。  
 
@@ -76,4 +76,4 @@ echo "Done"
 
 ## 執行結果
 
-![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行結果 - 2](/images/x307.png)
+![Jenkins - Pipeline Job 取用 Boolean 參數 - 執行結果 - 2](/images/a/307.png)

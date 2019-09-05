@@ -13,9 +13,9 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-07-20 21:03:00
-featured_image: /images/logo-asp-net-core-angular.png
+featured_image: /images/featured/asp-net-core-angular.png
 ---
-![ASP.NET Core + Angular 4 教學 - T4 Template 產生多國語言](/images/logo-asp-net-core-angular.png)
+![ASP.NET Core + Angular 4 教學 - T4 Template 產生多國語言](/images/featured/asp-net-core-angular.png)
 
 之前介紹過 [ASP.NET Core 教學 - T4 Template 產生強型別多國語言](/article/asp-net-core-t4-generate-localization.html)，JavaScript 的多國語言也可以透過 T4 Template 建立出來。  
 本篇將介紹用 T4 Template 製作 JavaScript 的多國語言檔，同時產生 Angular 需要的 TypeScript 定義檔。  
@@ -25,8 +25,8 @@ featured_image: /images/logo-asp-net-core-angular.png
 ## 1. 建立多國語言檔
 
 在網站目錄中建立 Resources 的資料夾，在裡面新增資源檔 `*.resx`。如下：
-![ASP.NET Core 教學 - 多國語言 - 新增資源檔 1](/images/pasted-200.png)
-![ASP.NET Core 教學 - 多國語言 - 新增資源檔 2](/images/pasted-201.png)
+![ASP.NET Core 教學 - 多國語言 - 新增資源檔 1](/images/a/200.png)
+![ASP.NET Core 教學 - 多國語言 - 新增資源檔 2](/images/a/201.png)
 
 語系檔名稱就可以依照類型自訂，跟 ASP.NET MVC 的命名方式相同如：  
 1. Text.en-GB.resx  
@@ -37,7 +37,7 @@ featured_image: /images/logo-asp-net-core-angular.png
 > `*.resx` 檔案**必須**要帶語系在後綴。如：`*.en-GB.resx`。  
 
 我的範例產生了四個資源檔，內容如下：
-![ASP.NET Core + Angular 4 教學 - T4 Template 產生多國語言 - 資源檔](/images/pasted-237.png)
+![ASP.NET Core + Angular 4 教學 - T4 Template 產生多國語言 - 資源檔](/images/a/237.png)
 
 ## 2. T4 Template
 
@@ -142,7 +142,7 @@ Resources\JsLocalizationGenerator.tt
 ## 3. Output
 
 只要 JsLocalizationGenerator.tt 有異動，或者是點右鍵**執行自訂工具**，就會觸發自動產生 `lang.d.ts` 定義檔及 `{culture}.js` 語系檔。  
-![ASP.NET Core 教學 - 多國語言 - 執行自訂工具](/images/pasted-207.png)  
+![ASP.NET Core 教學 - 多國語言 - 執行自訂工具](/images/a/207.png)  
 
 我在 JsLocalizationGenerator.tt 中指定了 `lang.d.ts` 定義檔及 `{culture}.js` 語系檔的輸出位置，如上述範例輸出的檔案內容如下：
 

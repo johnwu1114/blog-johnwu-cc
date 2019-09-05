@@ -10,7 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-15 12:00
-featured_image: /images/i27-3.png
+featured_image: /images/ironman/i27-3.png
 ---
 
 跨網站腳本 (Cross-Site Scripting, XSS) 攻擊是常見的攻擊手法，有效的阻擋方式是透過網頁內容安全政策 (Content Security Policy, CSP) 規範，告知瀏覽器發出的 Request 位置是否受信任，阻擋非預期的對外連線，加強網站安全性。  
@@ -34,7 +34,7 @@ featured_image: /images/i27-3.png
 ```
 當使用者開啟頁面，Cookie 就被送走了。情境如下：  
 
-![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - XSS 介紹](/images/i27-3.png)  
+![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - XSS 介紹](/images/ironman/i27-3.png)  
 
 ## CSP 介紹
 
@@ -104,7 +104,7 @@ CSP 的設定方式有兩種：
 
 在未使用 CSP 前，內容都是可以正常顯示，輸出畫面如下：  
 
-![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - 未使用 CSP 範例](/images/i27-1.png)  
+![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - 未使用 CSP 範例](/images/ironman/i27-1.png)  
 
 在 `Startup.Configure` 註冊一個 Pipeline，把每個 Requset 都加上 CSP 的 HTTP Header，如下：  
 
@@ -141,7 +141,7 @@ namespace MyWebsite
 
 套用 CSP 後，輸出畫面如下：  
 
-![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - 使用 CSP 範例](/images/i27-2.png)  
+![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - 使用 CSP 範例](/images/ironman/i27-2.png)  
 
 ## CSP 指令 (Directives)
 
@@ -354,7 +354,7 @@ namespace MyWebsite
 Clickjacking 是一種透過 IFrame 的偽裝攻擊方式。  
 攻擊者可以透過嵌入被攻擊目標網頁，偽裝成目標網頁，進而攔截使用者的資料。如下圖：  
 
-![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - Clickjacking 攻擊](/images/i27-4.png)  
+![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - Clickjacking 攻擊](/images/ironman/i27-4.png)  
 
 紅色框現內的 IFrame 用 **iT 邦幫忙** 的頁面，然後在 Main Frame 透過 JavaScript 攔截使用者的操作事件，範例程式碼：  
 ```html
@@ -393,7 +393,7 @@ Clickjacking 是一種透過 IFrame 的偽裝攻擊方式。
 
 當使用者以為點擊到被攻擊目標，實際上點到的是偽裝的網站，如圖：  
 
-![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - Clickjacking 攻擊](/images/i27-5.png)  
+![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - Clickjacking 攻擊](/images/ironman/i27-5.png)  
 
 ### X-Frame-Options
 
@@ -489,7 +489,7 @@ public class Startup
 Google 有設定 `X-Frame-Options` 為 `sameorigin` ，所以會產生錯誤訊息，如下：  
 > Refused to display '`https://www.google.com.tw/`' in a frame because it set 'X-Frame-Options' to 'sameorigin'.
 
-![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - X-Frame-Options](/images/i27-6.png)  
+![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - X-Frame-Options](/images/ironman/i27-6.png)  
 
 ## 參考
 

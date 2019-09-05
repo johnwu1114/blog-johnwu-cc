@@ -10,9 +10,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-21 13:58:00
-featured_image: /images/pasted-240.png
+featured_image: /images/a/240.png
 ---
-![ASP.NET Core 教學 - 跨域請求 Cross-Origin Requests (CORS)](/images/pasted-240.png)
+![ASP.NET Core 教學 - 跨域請求 Cross-Origin Requests (CORS)](/images/a/240.png)
 
 有些團隊會把前後端專案切開，放在不同的網域執行，如此一來就會遇到瀏覽器安全性問題，禁止不同網域的請求。如上圖。  
 本篇將介紹 ASP.NET Core 啟用跨域請求 Cross-Origin Requests (CORS)。  
@@ -105,7 +105,7 @@ public class ContactController : Controller
 
 ## 執行結果
 
-![ASP.NET Core 教學 - 跨域請求 Cross-Origin Requests (CORS) - 範例執行結果](/images/pasted-241.png)
+![ASP.NET Core 教學 - 跨域請求 Cross-Origin Requests (CORS) - 範例執行結果](/images/a/241.png)
 
 ## 程式碼下載
 

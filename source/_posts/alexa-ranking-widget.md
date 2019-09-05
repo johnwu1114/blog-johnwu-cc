@@ -8,9 +8,9 @@ categories:
   - SEO
 date: 2017-09-09 00:09:00
 updated: 2017-10-15 22:11:00
-featured_image: /images/x339.png
+featured_image: /images/a/339.png
 ---
-![SEO - 網頁插入 Alexa Widget - Site Status](/images/x339.png)
+![SEO - 網頁插入 Alexa Widget - Site Status](/images/a/339.png)
 
 一個無法查證的傳說，讓網站跟 Alexa 互動，可以增加 Ranking 排名，進而影響 SEO 成效。  
 本篇要來介紹一下，如何在網頁中插入 Alexa Ranking Widget。  
@@ -54,7 +54,7 @@ Traffic Rank 會顯示網站在全球網站中的流量排名。
 ```
 > `url=blog.johnwu.cc` 換成自己網站的 Domain。
 
-![SEO - 網頁插入 Alexa Widget - Traffic Rank](/images/x338.png)
+![SEO - 網頁插入 Alexa Widget - Traffic Rank](/images/a/338.png)
 
 ## Alexa Site Status
 
@@ -77,7 +77,7 @@ Site Status 除了會顯示 Traffic Rank 還會多加顯示外部網站連入的
 </script>
 ```
 
-![SEO - 網頁插入 Alexa Widget - Site Status](/images/x339.png)
+![SEO - 網頁插入 Alexa Widget - Site Status](/images/a/339.png)
 
 ## 修正 Alexa Widget
 
@@ -304,15 +304,15 @@ Alexa Graph 的用法是在網址 `https://traffic.alexa.com/graph?u=blog.johnwu
 
 **2017/09/08**  
 
-![SEO - 網頁插入 Alexa Widget - 2017/09/08](/images/x363.png)  
+![SEO - 網頁插入 Alexa Widget - 2017/09/08](/images/a/363.png)  
 
 **2017/10/11**  
 
-![SEO - 網頁插入 Alexa Widget - 2017/10/11](/images/x364.png)  
+![SEO - 網頁插入 Alexa Widget - 2017/10/11](/images/a/364.png)  
 
 **2017/09 ~ 2017/10  Alexa Traffic Ranks 統計圖**  
 
-![SEO - 網頁插入 Alexa Widget - 2017/09 ~ 2017/10](/images/x365.png)
+![SEO - 網頁插入 Alexa Widget - 2017/09 ~ 2017/10](/images/a/365.png)
 
 > 三月份才開始寫部落格，九月以前都沒有用 Alexa 查網域，所以 Alexa Traffic Ranks 統計圖才會八月以前都是空的。
 

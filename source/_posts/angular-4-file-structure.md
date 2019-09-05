@@ -8,9 +8,9 @@ tags:
 categories:
   - Angular
 date: 2017-04-25 11:41:00
-featured_image: /images/logo-angular.png
+featured_image: /images/featured/angular.png
 ---
-![angular](/images/logo-angular.png)
+![angular](/images/featured/angular.png)
 
 最近有一個新專案要用 Angular 4 開發，突然覺得之前開發 Angular 2 及 Angular 4 的目錄結構有點亂，想藉此機會整理一下檔案架構。  
 我重新檢視這一年來用 Angular 2 及 Angular 4 開發的專案。同時參考了國外 Angular 大師的 Blog 及一些 GitHub 專案，整理成這篇 Angular 4 File Structure。
@@ -105,7 +105,7 @@ Visual Studio 2017 開啟 **ASP.NET Core** 網站專案，會自動收合同名 
 這個功能讓整個檔案架構看起來超清爽～～  
 
 如下圖，左邊是 Visual Studio 2017 方案總管的呈現，右邊是實際的檔案位置：  
-![Visual Studio 2017 方案總管呈現 TypeScript 的 File Structure](/images/pasted-91.gif)
+![Visual Studio 2017 方案總管呈現 TypeScript 的 File Structure](/images/a/91.gif)
 
 ## 參考
 

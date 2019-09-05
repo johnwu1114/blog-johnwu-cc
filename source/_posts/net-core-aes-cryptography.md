@@ -8,9 +8,9 @@ tags:
 categories:
   - .NET Core
 date: 2017-06-08 10:38:00
-featured_image: /images/pasted-183.png
+featured_image: /images/a/183.png
 ---
-![AES Cryptography](/images/pasted-183.png)
+![AES Cryptography](/images/a/183.png)
 
 在 .NET Core 的 System.Security.Cryptography 已經找不到 RijndaelManaged 了。  
 取而代之的是 Aes.Create()，基本上是無痛升級，只是換幾個字而已。  

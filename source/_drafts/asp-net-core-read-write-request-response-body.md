@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2019-07-24 23:24
-featured_image: /images/logo-asp-net-core.png
+featured_image: /images/featured/asp-net-core.png
 ---
 
  

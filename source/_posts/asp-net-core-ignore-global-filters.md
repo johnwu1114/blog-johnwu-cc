@@ -8,9 +8,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-30 23:21:00
-featured_image: /images/pasted-247.png
+featured_image: /images/a/247.png
 ---
-![ASP.NET Core 教學 - 忽略 Global Filter](/images/pasted-247.png)
+![ASP.NET Core 教學 - 忽略 Global Filter](/images/a/247.png)
 
 本篇將介紹 ASP.NET Core 註冊全域 Global Filter 時，如何在特定的 Action 略過或取代 Global Filter。  
 
@@ -28,7 +28,7 @@ featured_image: /images/pasted-247.png
  又有彈性，又符合單一職責原則。  
 
 第三種作法就是本篇要介紹的方法了，當使用 Global Filter 時，讓大部分的 Action 都可以保持一致性的邏輯，遇到特殊區域註冊的 Filter 時，就忽略 Global Filter 的邏輯處理。如下圖所示：
-![ASP.NET Core 教學 - 忽略 Global Filter](/images/pasted-247.png)
+![ASP.NET Core 教學 - 忽略 Global Filter](/images/a/247.png)
 
 ## 1. Igonre Filter
 
@@ -97,7 +97,7 @@ public class GlobalActionFilter : IAsyncActionFilter
 
 ## 執行結果
 
-![ASP.NET Core 教學 - 忽略 Global Filter - 範例執行結果](/images/pasted-248.png)
+![ASP.NET Core 教學 - 忽略 Global Filter - 範例執行結果](/images/a/248.png)
 
 ## 相關文章
 

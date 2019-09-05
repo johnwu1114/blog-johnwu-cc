@@ -8,9 +8,9 @@ tags:
 categories:
   - ASP.NET
 date: 2017-08-27 10:01:00
-featured_image: /images/x312.png
+featured_image: /images/a/312.png
 ---
-![ASP.NET - 基本優化設定 - HTTP Modules 運作方式](/images/x312.png)
+![ASP.NET - 基本優化設定 - HTTP Modules 運作方式](/images/a/312.png)
 
 ASP.NET 有些基本的預設值是不必要的，既然不會用到，建議就把它移除。  
 本篇將介紹 ASP.NET 基本優化設定，把不必要的 `HTTP Modules`、`View Engines` 及 `HTTP Headers` 移除。  
@@ -26,7 +26,7 @@ var httpModules = HttpContext.ApplicationInstance.Modules;
 ```
 
 輸出內容如下：
-![ASP.NET - 基本優化設定 - 預設 HTTP Modules](/images/x313.png)
+![ASP.NET - 基本優化設定 - 預設 HTTP Modules](/images/a/313.png)
 
 可以看到有 16 個 HTTP Modules，但並不是每一個都會需要，例如驗證相關的邏輯都自己實作，完全不會用到 `WindowsAuthentication`、`FormsAuthentication`、`DefaultAuthentication`，那這三個 HTTP Modules 就應該把它移除，省的在每個 Request 及 Response 都會經過它們。  
 
@@ -50,7 +50,7 @@ var httpModules = HttpContext.ApplicationInstance.Modules;
 > 此例我移除了 6 個沒用到的 HTTP Modules
 
 再次查看 `HttpContext.ApplicationInstance.Modules`，就只剩下 10 個 HTTP Modules 了。
-![ASP.NET - 基本優化設定 - 移除預設 HTTP Modules](/images/x314.png)
+![ASP.NET - 基本優化設定 - 移除預設 HTTP Modules](/images/a/314.png)
 > 每個網站用到的 HTTP Modules 不同，請依照各自的需求移除，如果全照我的範例用，網站可能會發生錯誤。
 
 ## 2. View Engines
@@ -61,7 +61,7 @@ ASP.NET MVC 網站中，預設會有兩種 View Engines：
 
 View Engines 在實際執行時，是用 Trial and Error 的方式找 View File，如果只用到一種 View Engine，建議就把用不到的 View Engines 移除，可以加快找 View File 的速度。  
 建立一個 Action 而不建立 View File，輸出的錯誤會如下：  
-![ASP.NET - 基本優化設定 - 預設 View Engines Error](/images/x315.png)
+![ASP.NET - 基本優化設定 - 預設 View Engines Error](/images/a/315.png)
 
 ### RazorViewEngine
 
@@ -89,7 +89,7 @@ namespace MyWebsite
 ```
 
 我只用到 Razor View Engine，所以就只加入 Razor View Engine，再次查看輸出的錯誤。如下：  
-![ASP.NET - 基本優化設定 - Razor View Engines Error](/images/x316.png)
+![ASP.NET - 基本優化設定 - Razor View Engines Error](/images/a/316.png)
 
 ### CSharpViewEngine
 
@@ -121,7 +121,7 @@ namespace MyWebsite
 > 如果是用 Visual Basic 的 `*.vbhtml`，只要把 `_fileExtensions = "cshtml";` 改成 `_fileExtensions = "vbhtml";` 即可。
 
 再次查看輸出的錯誤。如下：  
-![ASP.NET - 基本優化設定 - Razor View Engines + C# Error](/images/x317.png)
+![ASP.NET - 基本優化設定 - Razor View Engines + C# Error](/images/a/317.png)
 
 ## 3. HTTP Headers
 
@@ -130,12 +130,12 @@ ASP.NET 預設會在每個 Response 的 Header 帶上 Server 資訊。看似沒�
 2. 浪費流量：每個 Response 都帶有不必要的內容時，就是積沙成塔的浪費。  
 
 HTTP Headers 如下：
-![ASP.NET - 基本優化設定 - HTTP Headers](/images/x318.png)
+![ASP.NET - 基本優化設定 - HTTP Headers](/images/a/318.png)
 
 此外，靜態檔案都會被加上 [ETag](https://zh.wikipedia.org/wiki/HTTP_ETag)，用來讓瀏覽器識別 Cache 的機制。但現在一些網站分析工具都不建議使用(如: [YSlow](https://goo.gl/VtD6sw))。  
 
 靜態檔 HTTP Headers 如下：
-![ASP.NET - 基本優化設定 - HTTP Headers](/images/x319.png)
+![ASP.NET - 基本優化設定 - HTTP Headers](/images/a/319.png)
 
 ### RemoveHeaderModule
 

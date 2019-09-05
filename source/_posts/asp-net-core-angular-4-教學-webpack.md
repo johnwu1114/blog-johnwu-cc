@@ -12,9 +12,9 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-15 13:35:58
-featured_image: /images/pasted-53-1.png
+featured_image: /images/a/53-1.png
 ---
-![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果未完成](/images/pasted-46.png)
+![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果未完成](/images/a/46.png)
 
 Angular 官方的範例是使用 SystemJS 載入，但網頁一開就載入一大堆 js 檔。request 這麼多檔案，看了就很不舒服。  
 可以看到圖片底部有 **46 requests**...  
@@ -185,7 +185,7 @@ webpack -p
 ```
 
 再打開網頁看一次 requset，只剩下三個 requsets，真是乾淨舒服～
-![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果完成](/images/pasted-53-1.png)
+![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果完成](/images/a/53-1.png)
 
 ## Visual Studio Extension
 
@@ -194,18 +194,18 @@ webpack -p
 1. WebPack Task Runner 可以用 Visual Studio 執行 Webpack
 2. NPM Task Runner 可以用 Visual Studio 安裝或更新 npm 套件
 
-![Visual Studio Extension](/images/pasted-52.png)
-![Visual Studio Extension: WebPack Task Runner and NPM Task Runner](/images/pasted-47.png)
+![Visual Studio Extension](/images/a/52.png)
+![Visual Studio Extension: WebPack Task Runner and NPM Task Runner](/images/a/47.png)
 
 ### NPM Task Runner
 
 打開 package.json 編輯 Visual Studio 會自動上抓取 npm package 還有最新版本。
 
-![編輯 package.json](/images/pasted-49.png)
+![編輯 package.json](/images/a/49.png)
 
 儲存 package.json 後可以在工作執行器總管，滑鼠左鍵點兩下 npm install，就可以透過 Visual Studio 執行安裝 npm。
-![NPM Task Runner](/images/pasted-50.png)
-![NPM Task Runner: install](/images/pasted-51.png)
+![NPM Task Runner](/images/a/50.png)
+![NPM Task Runner: install](/images/a/51.png)
 
 ### WebPack Watch - Development
 
@@ -214,14 +214,14 @@ webpack -p
 ```js
 /// <binding ProjectOpened='Watch - Development' />
 ```
-![WebPack Task Runner: Watch - Development](/images/pasted-54.png)
+![WebPack Task Runner: Watch - Development](/images/a/54.png)
 
 
 ### WebPack Run - Production
 
 發佈到正式環境就不能用 Development mode，Development mode 會夾帶 map 檔等，方便在 browser 開發程式，打包出來會很大一包，所以要用 Production mode。
 
-![WebPack Task Runner: Run - Production](/images/pasted-54.png)
+![WebPack Task Runner: Run - Production](/images/a/54.png)
 
 ## 程式碼下載
 

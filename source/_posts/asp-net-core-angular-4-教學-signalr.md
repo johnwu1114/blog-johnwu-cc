@@ -13,9 +13,9 @@ categories:
   - ASP.NET Core
   - Angular
 date: 2017-04-22 00:25:26
-featured_image: /images/pasted-69p.png
+featured_image: /images/a/69p.png
 ---
-![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-69p.png)
+![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/a/69p.png)
 
 本篇將介紹 Angular 4 跟 ASP.NET Core 透過 SignalR 的互動，範例是做一個簡單的即時聊天室。  
 透過 TypeScript 把 jQuery 及 SignalR 包裝成 Injectable class，讓使用更為便利。  
@@ -30,13 +30,13 @@ featured_image: /images/pasted-69p.png
 
 ASP.NET Core SignalR 的套件名稱為 Microsoft.AspNetCore.SignalR，是一個非常新的套件，還沒正式發布。在預設的 `nuget.org` 搜尋是找不到它滴！  
 首先我們先打開 NuGet 管理員，加入新的套件來源 *https://dotnet.myget.org/f/aspnetcore-dev/api/v3/index.json*，如下：
-![NuGet 新增 ASP.NET Core 套件來源](/images/pasted-10.png)
+![NuGet 新增 ASP.NET Core 套件來源](/images/a/10.png)
 
 新增來源後，套件管理員的右上角就可以切換來源了。選擇剛剛新增的 `asp.net core` 來源，並勾選搶鮮版(因為還沒正式發佈)，然後就可以搜尋到 Microsoft.AspNetCore.SignalR，但我們實際要安裝的是 **Microsoft.AspNetCore.SignalR.Server**。
-![NuGet 安裝 Microsoft.AspNetCore.SignalR.Server](/images/pasted-12.png)
+![NuGet 安裝 Microsoft.AspNetCore.SignalR.Server](/images/a/12.png)
 
 切換回 `nuget.org`，搜尋 **Microsoft.AspNetCore.WebSockets.Server** 並安裝。跟以前有點不一樣，以前安裝完 SignalR 套件後，會一併幫你把 WebSockets 的功能包含在裡面。
-![NuGet 安裝 Microsoft.AspNetCore.WebSockets.Server](/images/pasted-15.png)
+![NuGet 安裝 Microsoft.AspNetCore.WebSockets.Server](/images/a/15.png)
 
 > SignalR 有四種連線模式，就算不用 WebSockets 也能透過 long polling 連線。但目前版本 long polling 極度不穩定，連線速度超級慢，而且會一直斷線。 
 
@@ -301,7 +301,7 @@ export class ChatComponent {
 
 ## 執行結果
 
-![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/pasted-69.gif)
+![ASP.NET Core + Angular 4 教學 - SignalR 範例執行結果](/images/a/69.gif)
 
 
 ## 範例程式碼

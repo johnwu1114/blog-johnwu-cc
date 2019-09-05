@@ -8,7 +8,7 @@ tags:
 categories:
   - Unit Test
 date: 2017-11-22 23:28:00
-featured_image: /images/x387.png
+featured_image: /images/a/387.png
 ---
 
 初寫單元測試的工程師，經常會問到如何解決測試目標中使用外部方法，如系統時間(DateTime.Now)。  
@@ -152,7 +152,7 @@ public void Christmas_Discount()
 
 在專案的參考中，找到外部參考點右鍵，選擇**新增 Fakes 組件**：  
 
-![C# 單元測試 - 模擬系統時間 DateTime.Now - Microsoft Fakes](/images/x387.png)
+![C# 單元測試 - 模擬系統時間 DateTime.Now - Microsoft Fakes](/images/a/387.png)
 
 新增 Fakes 組件完成後，編輯測試程式碼如下：  
 ```cs

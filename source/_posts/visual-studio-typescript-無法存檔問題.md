@@ -9,9 +9,9 @@ tags:
 categories:
   - VS2017
 date: 2017-04-18 21:37:30
-featured_image: /images/pasted-61.png
+featured_image: /images/a/61.png
 ---
-![LockHunter - SearchProtocolHost.exe](/images/pasted-61.png)
+![LockHunter - SearchProtocolHost.exe](/images/a/61.png)
 
 最近在家用 Visual Studio 2017 寫 TypeScript 時，常常遇到無法儲存檔案，按下儲存就一直要我另存新檔，隔幾分鐘後再按儲存，才能成功儲存。用公司電腦就不會遇到此問題，搞的我很火大！  
 我上網找了專門查看檔案被 Lock 的工具 LockHunter（如上圖），發現我開啟的專案中，所有 TypeScript 檔案都被 SearchProtocolHost.exe 咬死，隔了很久才釋放資源，導致我都不能存檔。  
@@ -36,18 +36,18 @@ Windows 索引有兩種方式：
 ## 變更索引方式
 
 打開控制台 -> 變更檢視方式 -> 大圖示 -> 索引選項  
-![控制台](/images/pasted-62.png)
+![控制台](/images/a/62.png)
 
 按下進階  
-![控制台 - 索引選項](/images/pasted-63.png)
+![控制台 - 索引選項](/images/a/63.png)
 
 按下檔案類型 -> 找到 ts/csproj -> 選擇只有索引檔案屬性  
-![索引選項 - 進階選項](/images/pasted-64.png)
+![索引選項 - 進階選項](/images/a/64.png)
 
 ## 關閉索引
 
 打開服務 -> 找到 Windows Search -> 把啟動類型設為停用 -> 停止服務 -> 確定  
-![服務 - Windows Search](/images/pasted-65.png)
+![服務 - Windows Search](/images/a/65.png)
 
 後來仔細想了一下，三年前我在公司開發時，為了更好的效能，就把 Windows 索引給關了。家裡的電腦是後來買的，忘記關閉 Windows 索引。  
 我幾乎沒再用 Wdinwos 搜尋功能，所以我就直接把他關了，真的要搜尋檔案的時候會慢一些，但我個人是還能接受。  

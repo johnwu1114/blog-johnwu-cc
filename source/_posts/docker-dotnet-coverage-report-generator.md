@@ -7,7 +7,7 @@ tags:
 categories:
   - Docker
 date: 2019-08-29 00:59
-featured_image: /images/x440.png
+featured_image: /images/b/40.png
 ---
 
 本篇將介紹如何透過 Coverlet + ReportGenerator 產生 .NET Core 的測試報告；  
@@ -55,7 +55,7 @@ dotnet test /p:CollectCoverage=true \
 
 `dotnet test` 程式碼覆蓋率分析完成會輸出如下畫面：  
 
-![Docker 教學 - .NET Core 測試報告 - Coverlet 程式碼覆蓋率分析](/images/x438.png)  
+![Docker 教學 - .NET Core 測試報告 - Coverlet 程式碼覆蓋率分析](/images/b/38.png)  
 
 ## ReportGenerator  
 
@@ -92,7 +92,7 @@ reportgenerator \
 
 轉換完成就會生成一大堆的 HTML 檔案。如下：  
 
-![Docker 教學 - .NET Core 測試報告 - ReportGenerator 檔案](/images/x439.png)  
+![Docker 教學 - .NET Core 測試報告 - ReportGenerator 檔案](/images/b/39.png)  
 
 > 用瀏覽器開啟 `index.htm` 就可以看到圖形化的測試報告進入點。  
 
@@ -143,7 +143,7 @@ docker run -p 8080:80 my-project-coverage
 
 用瀏覽器開啟 http://localhost:8080/ 就可以看到圖形化的測試報告了。  
 
-![Docker 教學 - .NET Core 測試報告 - ReportGenerator 圖形化的測試報告](/images/x440.png)  
+![Docker 教學 - .NET Core 測試報告 - ReportGenerator 圖形化的測試報告](/images/b/40.png)  
 
 ## 參考
 

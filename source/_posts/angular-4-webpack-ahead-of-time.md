@@ -9,9 +9,9 @@ tags:
 categories:
   - Angular
 date: 2017-09-25 23:25:00
-featured_image: /images/x349.png
+featured_image: /images/a/349.png
 ---
-![Angular 4 教學 - Webpack AOT](/images/x349.png)
+![Angular 4 教學 - Webpack AOT](/images/a/349.png)
 
 之前用 Angular 4 (Angular 2) 開發後台系統，使用者都是在 PC 上面使用，網站啟動速度都很快，所以沒有使用到 Ahead-of-Time (AOT) 預先編譯的需求。  
 最近新產品上線，遇到很多 Android 的使用者開啟網站超級慢，舊一點的機型甚至開一分鐘才有畫面。事後才趕緊補上 AOT 編譯。  
@@ -158,7 +158,7 @@ webpack -p
 
 打開網頁用瀏覽器的開發工具，看到 `bundle-vendors.js` 及 `bundle.js` 檔案大小及載入時間：  
 
-![Angular 4 教學 - Webpack JIT](/images/x348.png)
+![Angular 4 教學 - Webpack JIT](/images/a/348.png)
 
 到目前為止，只是改成用 Webpack 打包 Angular 的 Source Code，所以還只是 JIT 編譯。  
 由於本篇範例實在是太簡單了，看到載入的速度很快，才 400/ms 左右。  
@@ -252,7 +252,7 @@ platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 
 再次執行 Webpack 打包後，打開網頁用瀏覽器的開發工具，看到 `bundle-vendors.js` 及 `bundle.js` 檔案大小及載入時間：  
 
-![Angular 4 教學 - Webpack AOT](/images/x349.png)
+![Angular 4 教學 - Webpack AOT](/images/a/349.png)
 
 可以看到 `bundle.js` 的檔案大小差異非常的大，從原本的 **1.8 KB** 變成 **4.6 KB**。  
 頁面載入速度稍微快了一點，從原本的 **400/ms** 變為 **250/ms** 左右，因為範例太簡單，所以速度差的沒有很多。  

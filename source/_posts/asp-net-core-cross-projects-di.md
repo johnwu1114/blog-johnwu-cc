@@ -7,9 +7,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-11 11:07:00
-featured_image: /images/logo-asp-net-core.png
+featured_image: /images/featured/asp-net-core.png
 ---
-![ASP.NET Core 範例 - 跨專案 DI](/images/logo-asp-net-core.png)
+![ASP.NET Core 範例 - 跨專案 DI](/images/featured/asp-net-core.png)
 
 先前介紹過 ASP.NET Core 的 Dependency Injection，後來有人問我如何再不同專案使用 DI。  
 例如：BLL (Business Logic Layer)、DAL(Data Access Layer) 抽出到其他專案。如何在 BLL 中使用 DAL。  
@@ -20,7 +20,7 @@ featured_image: /images/logo-asp-net-core.png
 ## 架構
 
 此篇範例我建立個四的專案，相依關係如下：
-![ASP.NET Core 範例 - 跨專案 DI - 架構](/images/pasted-236.png)
+![ASP.NET Core 範例 - 跨專案 DI - 架構](/images/a/236.png)
 1. Entities：存放資料交換的物件。DLL 類別庫專案。  
 2. DAL：資料存取層，用來跟資料庫溝通。DLL 類別庫專案。  
 3. BLL：商業邏輯層，用來管理商業邏輯，扮演 DAL 及 Website 溝通的橋梁。DLL 類別庫專案。  

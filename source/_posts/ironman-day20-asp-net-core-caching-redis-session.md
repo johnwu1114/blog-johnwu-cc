@@ -10,7 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-08 12:00
-featured_image: /images/i20-1.png
+featured_image: /images/ironman/i20-1.png
 ---
 
 為了程式效率，通常會利用記憶體存取速度遠高於磁碟讀取的特性，把常用但不常變動資料放在記憶體中，提升取用資料的速度。ASP.NET Core 有提供好用的快取機制，不用自己實作控制資料的快取物件。  
@@ -76,7 +76,7 @@ public class HomeController : Controller
 
 本機快取及分散式快取架構，如圖：  
 
-![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - 本機快取及分散式快取架構](/images/i20-1.png)  
+![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - 本機快取及分散式快取架構](/images/ironman/i20-1.png)  
 
 在 `Startup.ConfigureServices` 注入 `IDistributedCache` 使用分散式快取。如下：
 
@@ -190,12 +190,12 @@ ASP.NET Core 的 Redis Session 跟 ASP.NET MVC 普遍用的 `StackExchange.Redis
  也就是說 Session 會存在於 Website 及 Redis Cache 中，HA 的概念。  
  可以試著把 Redis Cache 中 Session 清掉，當使用者下一個 Requset 來的時候，又會重新出現在  Redis Cache 中。  
  運行方式如下圖：  
- ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET MVC - Redis Session 運行方式](/images/pasted-112.gif)
+ ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET MVC - Redis Session 運行方式](/images/a/112.gif)
 
 * **ASP.NET Core Redis Session**  
  `IDistributedCache` 運作方式變成 Session 直接在 Redis Cache 存取，如果把 Redis Cache 中 Session 清掉，當使用者下一個 Requset 來的時候，就會發現 Session 被清空了。  
  運行方式如下圖：  
- ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET Core - Redis Session 運行方式](/images/pasted-113.gif)
+ ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET Core - Redis Session 運行方式](/images/a/113.gif)
 
 ## 參考
 

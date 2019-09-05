@@ -8,10 +8,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-12 00:03:00
-featured_image: /images/x293.png
+featured_image: /images/a/293.png
 ---
 
-![Jenkins - Groovy 遞迴搜尋檔案 - 執行結果](/images/x293.png)
+![Jenkins - Groovy 遞迴搜尋檔案 - 執行結果](/images/a/293.png)
 
 之前有介紹過 [Jenkins - Groovy 搜尋檔案](/article/jenkins-groovy-find-file.html)，但 `FileNameFinder` 並不支援遞迴搜尋 (Recursively Search)。  
 所以我就直接用系統指令搜尋檔案，再用 Groovy 包裝成 Function，讓 Groovy 也能拿到遞迴搜尋檔案的結果。  
@@ -64,7 +64,7 @@ recursiveSearch(env.JENKINS_HOME, "conf*.xml") { fileName ->
 ```
 ## 執行結果
 
-![Jenkins - Groovy 遞迴搜尋檔案 - 執行結果](/images/x293.png)
+![Jenkins - Groovy 遞迴搜尋檔案 - 執行結果](/images/a/293.png)
 
 ## 授權執行
 

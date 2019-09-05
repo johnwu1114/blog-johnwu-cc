@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-10 12:00
-featured_image: /images/i22-1.png
+featured_image: /images/ironman/i22-1.png
 ---
 
 SignalR 是一套能讓 ASP.NET 輕鬆實現與 Client 即時互動的套件。  
@@ -192,7 +192,7 @@ namespace MyWebsite.Hubs
 
 ## 執行結果
 
-![[鐵人賽 Day22] ASP.NET Core 2 系列 - SignalR - 範例執行結果](/images/pasted-69.gif)  
+![[鐵人賽 Day22] ASP.NET Core 2 系列 - SignalR - 範例執行結果](/images/a/69.gif)  
 
 ## 參考
 

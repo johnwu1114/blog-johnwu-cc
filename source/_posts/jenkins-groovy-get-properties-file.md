@@ -8,10 +8,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-03 23:31:00
-featured_image: /images/pasted-272.png
+featured_image: /images/a/272.png
 ---
 
-![Jenkins - Groovy 從外部檔案取得變數 - 執行結果](/images/pasted-272.png)
+![Jenkins - Groovy 從外部檔案取得變數 - 執行結果](/images/a/272.png)
 
 本篇將介紹 Jenkins 的 Pipeline Job 透過 Groovy 讀取外部檔案，取得客製化的變數。  
 
@@ -59,4 +59,4 @@ org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: *****
 
 ## 執行結果
 
-![Jenkins - Groovy 從外部檔案取得變數 - 執行結果](/images/pasted-272.png)
+![Jenkins - Groovy 從外部檔案取得變數 - 執行結果](/images/a/272.png)

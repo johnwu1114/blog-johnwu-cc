@@ -9,9 +9,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-05-11 11:07:00
-featured_image: /images/pasted-114p.png
+featured_image: /images/a/114p.png
 ---
-![ASP.NET Core 教學 - Middleware - 運作方式](/images/pasted-114p.png)
+![ASP.NET Core 教學 - Middleware - 運作方式](/images/a/114p.png)
 
 本篇將介紹 ASP.NET Core 的 Middleware，透過 Middleware 掌握封包的進出。
 
@@ -22,7 +22,7 @@ featured_image: /images/pasted-114p.png
 ASP.NET Core 的每個 Request 都會經過所有註冊的 Middleware，Response 也是逐一回傳，以先進後出的方式處裡封包。  
 
 Request 流程如下圖：
-![ASP.NET Core 教學 - Middleware - 運作方式](/images/pasted-114.gif)
+![ASP.NET Core 教學 - Middleware - 運作方式](/images/a/114.gif)
 
 ## 1. 建立 Middleware
 
@@ -118,7 +118,7 @@ public class Startup
 
 ## 執行結果
 
-![ASP.NET Core 教學 - Middleware - 範例執行結果](/images/pasted-114.png)
+![ASP.NET Core 教學 - Middleware - 範例執行結果](/images/a/114.png)
 
 ## 程式碼下載
 

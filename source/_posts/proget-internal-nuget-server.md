@@ -7,7 +7,7 @@ tags:
 categories:
   - ProGet
 date: 2017-11-30 14:47:00
-featured_image: /images/x401.png
+featured_image: /images/a/401.png
 ---
 
 系統規模較大或模組較多時，並不適合用專案相依，避免編譯太久及程式碼管理的問題等。  
@@ -39,32 +39,32 @@ ProGet 有分**付費版**跟**免費版**，免費版支援的 Feed 跟付費�
 先下載 ProGet 安裝檔：[下載](https://inedo.com/proget/download)  
 
 安裝步驟如下：  
-![ProGet - 架設內部 NuGet Server](/images/x388-1.png)
+![ProGet - 架設內部 NuGet Server](/images/a/388-1.png)
 
 選擇版本，我直接選免費版，要試用企業版的人，也可以選企業版：  
-![ProGet - 架設內部 NuGet Server](/images/x388.png)
+![ProGet - 架設內部 NuGet Server](/images/a/388.png)
 
 輸入註冊資訊(必填)：  
-![ProGet - 架設內部 NuGet Server](/images/x389.png)
+![ProGet - 架設內部 NuGet Server](/images/a/389.png)
 
 安裝路徑：  
-![ProGet - 架設內部 NuGet Server](/images/x390.png)
+![ProGet - 架設內部 NuGet Server](/images/a/390.png)
 
 選擇 SQL Server 位置：  
 * 如果沒有 SQL Server，選第一個 `New Instance of SQL Express`，它會自動幫你下載 SQL Express 及安裝。  
-![ProGet - 架設內部 NuGet Server](/images/x391.png)
+![ProGet - 架設內部 NuGet Server](/images/a/391.png)
 
 * 如果已經有現成的 SQL Server 可以用，先建立好一個名稱為 `ProGet` 的資料庫，並給它資料庫的連線字串。  
-![ProGet - 架設內部 NuGet Server](/images/x392.png)
+![ProGet - 架設內部 NuGet Server](/images/a/392.png)
 
 選擇 Web Server，我在這邊是把 ProGet 架在 IIS 上面，如果沒有安裝 IIS 可以選擇有 Windows Service 的方式運行 ProGet：  
-![ProGet - 架設內部 NuGet Server](/images/x393.png)
+![ProGet - 架設內部 NuGet Server](/images/a/393.png)
 
 設定 ProGet Server 運行的權限：  
-![ProGet - 架設內部 NuGet Server](/images/x394.png)
+![ProGet - 架設內部 NuGet Server](/images/a/394.png)
 
 設定完成開始安裝：  
-![ProGet - 架設內部 NuGet Server](/images/x395.png)
+![ProGet - 架設內部 NuGet Server](/images/a/395.png)
 
 ## 新增 NuGet Feed
 
@@ -72,13 +72,13 @@ ProGet 有分**付費版**跟**免費版**，免費版支援的 Feed 跟付費�
 > *Admin* 預設帳號密碼都是 *Admin*。  
 > 例如：安裝在本機 Prot 81 的話，開啟 URL 就是 `http://localhost:81`。  
 
-![ProGet - 架設內部 NuGet Server - Create New Feed](/images/x396.png)
+![ProGet - 架設內部 NuGet Server - Create New Feed](/images/a/396.png)
 
 Feed Type 選擇 NuGet Feed，Feed Name 自訂：  
-![ProGet - 架設內部 NuGet Server - Create New Feed](/images/x397.png)
+![ProGet - 架設內部 NuGet Server - Create New Feed](/images/a/397.png)
 
 NuGet Feed 新增完成：
-![ProGet - 架設內部 NuGet Server - Create New Feed](/images/x398.png)
+![ProGet - 架設內部 NuGet Server - Create New Feed](/images/a/398.png)
 
 > NuGet Feed 新增完成後，就可以透過 NuGet Push 指令把 NuGet Package 上傳到 ProGet 囉～
 
@@ -87,7 +87,7 @@ NuGet Feed 新增完成：
 在 Feeds 清單中，點進剛剛建立的 Feed，選擇 `Add Package`，就可以看到上傳 NuGet Package 的方式。  
 如下：  
 
-![ProGet - 架設內部 NuGet Server - NuGet Package](/images/x399.png)
+![ProGet - 架設內部 NuGet Server - NuGet Package](/images/a/399.png)
 
 **API endpoint URL** 就是 NuGet Feed 的 URL，可以透過這個 URL 上傳或下載 NuGet Package。  
 
@@ -121,8 +121,8 @@ NuGet.exe push SampleLibrary.1.0.0.1.nupkg -ApiKey Admin:Admin -Source http://lo
 
 在 NuGet 管理中新增 NuGet Feed，如下：  
 
-![ProGet - 架設內部 NuGet Server - NuGet Package](/images/x400.png)
+![ProGet - 架設內部 NuGet Server - NuGet Package](/images/a/400.png)
 
 上傳完成就可以在 NuGet 管理中，看到自製的 NuGet Package 了。  
 
-![ProGet - 架設內部 NuGet Server - NuGet Package](/images/x401.png)
+![ProGet - 架設內部 NuGet Server - NuGet Package](/images/a/401.png)

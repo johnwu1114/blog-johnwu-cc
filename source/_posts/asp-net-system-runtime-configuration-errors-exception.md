@@ -8,9 +8,9 @@ categories:
   - ASP.NET
 date: 2017-09-01 23:47:00
 toc: false
-featured_image: /images/x334.png
+featured_image: /images/a/334.png
 ---
-![ASP.NET - System.Runtime ConfigurationErrorsException](/images/x334.png)
+![ASP.NET - System.Runtime ConfigurationErrorsException](/images/a/334.png)
 
 最近升級 ASP.NET MVC 專案中的 NuGet 套件，升級完成後，編譯跟單元測試都過了  
 但執行時卻遇到 `ConfigurationErrorsException: 無法載入檔案或組件 'System.Runtime' 或其相依性的其中之一。`  

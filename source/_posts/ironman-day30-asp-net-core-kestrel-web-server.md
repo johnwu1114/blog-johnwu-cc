@@ -11,7 +11,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-18 12:00
-featured_image: /images/i30-3.png
+featured_image: /images/ironman/i30-3.png
 ---
 
 ASP.NET Core 有兩種運行方式：  
@@ -34,17 +34,17 @@ Kestrel 是一套可以單獨運行的 HTTP Server，也可以透過其它 Web S
 * **單獨運行**  
   啟動 ASP.NET Core 後，就可以直接對外服務。  
   如下圖：  
-  ![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 單獨運行](/images/i30-1.png)  
+  ![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 單獨運行](/images/ironman/i30-1.png)  
   > ASP.NET Core 1.0 的 Kestrel 尚有安全性考量，並不適合對外開放，建議用其它 Web Server 有較高的安全性保護擋在外層，透過反向代理轉給 Kestrel。  
   > 在 ASP.NET Core 2.0 之後，Kestrel 有加強安全性，包含 Timeout 限制、封包大小限制、同時連線數限制等，已經可以獨當一面的使用。  
 * **反向代理**  
   搭配其它 Web Server，將收到的封包，透過反向代理轉給 Kestrel。  
   如下圖：  
-  ![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 反向代理](/images/i30-2.png)
+  ![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 反向代理](/images/ironman/i30-2.png)
   
 雖然 ASP.NET Core 2.0 之後 Kestrel 安全性提升可以單獨對外，但 Kestrel 並不支援共用 Port，例如同一台 Server 掛載兩個 ASP.NET Core 網站，若兩個都要用 80 Port 對外，就會變成搶 80 Port。用其它 Web Server 做反向代理，就可以透過綁定不同的 Domain 轉向指到不同的 ASP.NET Core 網站，如下圖：  
 
-![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 反向代理](/images/i30-3.png)
+![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 反向代理](/images/ironman/i30-3.png)
 
 ## Kestrel Options
 
@@ -175,7 +175,7 @@ openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
 
 指令輸出：  
 
-![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 製作憑證](/images/i30-4.png)
+![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 製作憑證](/images/ironman/i30-4.png)
 
 並將憑證安裝到電腦的 **CA ROOT**，讓自製憑證在你的電腦中變成合法憑證。  
 * **Windows**  
@@ -231,7 +231,7 @@ namespace MyWebsite
 設定 `UseHttps` 後，就可以在 localhost 使用 HTTPS 了，並保留 HTTP 可以使用，只要自己更改網址列就可以。  
 範例結果：  
 
-![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 範例結果](/images/i30-5.png)
+![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 範例結果](/images/ironman/i30-5.png)
 
 ### 強制 HTTPS
 

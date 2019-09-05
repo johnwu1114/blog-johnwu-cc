@@ -11,10 +11,10 @@ tags:
 categories:
   - Web Development
 date: 2017-04-02 16:03:00
-featured_image: /images/pasted-38.png
+featured_image: /images/a/38.png
 ---
 
-![Cross Domain IFrame - Can't Access Cookie](/images/pasted-38.png)
+![Cross Domain IFrame - Can't Access Cookie](/images/a/38.png)
 
 在 Safari 使用 IFrame 方式嵌入 Cross Domain 頁面，會發生 IFrame 無法使用 Cookie，導致每次的 Request 帶的 Session id 都不一樣。  
 改變 Safari 的安全性設定可以解掉此問題。但要請用戶改設定簡直天方夜譚。可以透過 JavaScript 變相解決此問題。  
@@ -60,7 +60,7 @@ if (isSafari && !hasCookiePermission) {
 
 當 Safari 打開 iframe.com/redirect 時，意味著 iframe.com 已經被認可存取 Cookie 了。所以此時我們只要轉向回原來的頁面即可。
 
-![Cross Domain IFrame - Get Cookie Access Permission](/images/pasted-39.png)
+![Cross Domain IFrame - Get Cookie Access Permission](/images/a/39.png)
 
 ```javascript
 /* iframe.com/redirect */  
@@ -87,7 +87,7 @@ window.location = ref;
 
 再度回到 parent.com/home 時，iframe.com 就能正常使用 Cookie 跟 Session 了。
 
-![Cross Domain IFrame - Got Cookie Access Permission](/images/pasted-40.png)
+![Cross Domain IFrame - Got Cookie Access Permission](/images/a/40.png)
 
 ## 參考
 

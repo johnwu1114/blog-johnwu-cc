@@ -8,9 +8,9 @@ tags:
 categories:
   - Unit Test
 date: 2017-07-25 13:58:00
-featured_image: /images/logo-nunit.png
+featured_image: /images/featured/nunit.png
 ---
-![NUnit - 測試案例 TestCaseSourceAttribute](/images/logo-nunit.png)
+![NUnit - 測試案例 TestCaseSourceAttribute](/images/featured/nunit.png)
 
 前篇介紹[NUnit - 測試案例 TestCaseAttribute](nunit-test-case-attribute.html)，簡化測試案例程式碼。  
 本篇將延伸介紹 NUnit 透過 TestCaseSourceAttribute 帶入較複雜的參數。  
@@ -78,10 +78,10 @@ public void Login(string expectedMessage, string loginName, string password, Mem
 
 測試案例用 Object Array 的方式傳入 TestCaseSourceAttribute，會遇到一個問題，就是測試結果不易閱讀。  
 TestCaseAttribute 可以帶入 TestName，測試結果可以清楚看到每一個測試案例的名稱，比要容易理解測試用途。如下：
-![NUnit - 測試案例 TestCaseAttribute - 測試結果](/images/pasted-244.png)
+![NUnit - 測試案例 TestCaseAttribute - 測試結果](/images/a/244.png)
 
 用 TestCaseSourceAttribute 的話，從測試結果只能看到測試方法名稱及參數內容，當測試案例複雜的時候，很難一下子從參數內容反推測試案例的主要用途。如下：
-![NUnit - 測試案例 TestCaseSourceAttribute - 測試結果](/images/pasted-245.png)
+![NUnit - 測試案例 TestCaseSourceAttribute - 測試結果](/images/a/245.png)
 
 比較好的方式是回傳 TestCaseData 集合，為了方便管理測試案例，我會把測試案例用類別包裝，集中放到自訂的 TestCases 目錄。  
 TestCases\LoginTestCases.cs
@@ -135,4 +135,4 @@ public string Login(string loginName, string password, Member member)
 ```
 
 再次查看執行結果，就可以看到測試案例名稱囉！
-![NUnit - 測試案例 TestCaseSourceAttribute - 測試結果](/images/pasted-246.png)
+![NUnit - 測試案例 TestCaseSourceAttribute - 測試結果](/images/a/246.png)

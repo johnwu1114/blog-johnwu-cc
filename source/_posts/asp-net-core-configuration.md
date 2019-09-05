@@ -7,9 +7,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-07-05 18:49:00
-featured_image: /images/logo-asp-net-core.png
+featured_image: /images/featured/asp-net-core.png
 ---
-![ASP.NET Core 教學 - 自訂組態設定檔](/images/logo-asp-net-core.png)
+![ASP.NET Core 教學 - 自訂組態設定檔](/images/featured/asp-net-core.png)
 
 .NET Core 讀取組態設定的方式跟過去有點不同，已經不再使用 ConfigurationManager 來取用組態設定值。  
 本篇將介紹 ASP.NET Core 的 Configuration 取用及建議做法。  

@@ -8,9 +8,9 @@ tags:
 categories:
   - Unit Test
 date: 2017-07-22 22:05:00
-featured_image: /images/pasted-243.png
+featured_image: /images/a/243.png
 ---
-![NUnit - 測試案例生命週期](/images/pasted-243.png)
+![NUnit - 測試案例生命週期](/images/a/243.png)
 
 寫 Unit Test 不免都要對 Test Case 做一些前置準備或善後處裡。  
 了解 Unit Test Framework 的 Life Cycle，可以善用測試案例生命週期，簡化在 Test Case 中的步驟。  
@@ -56,7 +56,7 @@ NUnit 測試類別的建構子會第一個被執行。
 
 ## 生命週期
 
-![NUnit - 測試案例生命週期](/images/pasted-243.png)
+![NUnit - 測試案例生命週期](/images/a/243.png)
 
 ## 範例程式
 

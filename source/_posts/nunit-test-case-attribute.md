@@ -8,9 +8,9 @@ tags:
 categories:
   - Unit Test
 date: 2017-07-25 13:08:00
-featured_image: /images/logo-nunit.png
+featured_image: /images/featured/nunit.png
 ---
-![NUnit - 測試案例 TestCaseAttribute](/images/logo-nunit.png)
+![NUnit - 測試案例 TestCaseAttribute](/images/featured/nunit.png)
 
 本篇將介紹 NUnit 的 TestCaseAttribute，簡化測試案例的程式碼。
 
@@ -170,7 +170,7 @@ public void ChangePassword_LoginName_Incorrect_Format()
 ## TestCaseAttribute
 
 NUnit 可以透過 TestCaseAttribute 把測試的參數傳入到測試方法，在 TestCaseAttribute 帶入 object 型態的陣列，該陣列的內容會依照索引傳入到測試方法，如下：
-![NUnit - 測試案例 TestCaseAttribute](/images/pasted-244.gif)
+![NUnit - 測試案例 TestCaseAttribute](/images/a/244.gif)
 
 ## 範例程式碼
 

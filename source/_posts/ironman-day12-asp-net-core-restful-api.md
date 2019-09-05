@@ -10,7 +10,7 @@ categories:
   - ASP.NET Core
 date: 2017-12-31 12:00
 updated: 2018-01-02 12:00
-featured_image: /images/i12-1.png
+featured_image: /images/ironman/i12-1.png
 ---
 
 RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱 CRUD 四種資料存取方式，簡約又直覺的風格，讓人用的愛不釋手。  
@@ -338,13 +338,13 @@ namespace MyWebsite.Controllers
 透過 Postman 測試 API。
 
 * **新增(Create)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 新增(Create)](/images/i12-1.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 新增(Create)](/images/ironman/i12-1.png)  
 * **查詢(Read)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 查詢(Read)](/images/i12-2.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 查詢(Read)](/images/ironman/i12-2.png)  
 * **修改(Update)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 修改(Update)](/images/i12-3.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 修改(Update)](/images/ironman/i12-3.png)  
 * **刪除(Delete)**  
-![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 刪除(Delete)](/images/i12-4.png)  
+![[鐵人賽 Day12] ASP.NET Core 2 系列 - REST-Like API - 刪除(Delete)](/images/ironman/i12-4.png)  
 
 ## 2018/01/02 補充
 

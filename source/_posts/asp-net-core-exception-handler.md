@@ -9,9 +9,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-20 09:45:00
-featured_image: /images/pasted-206.png
+featured_image: /images/a/206.png
 ---
-![ASP.NET Core 教學 - Exception Handler 層級](/images/pasted-206.png)
+![ASP.NET Core 教學 - Exception Handler 層級](/images/a/206.png)
 
 ASP.NET Core 要做一個通用的 Exception Handler 可以透過 Middleware 或 Filter，但兩者之間的執行週期確大不相同。  
 本篇將介紹 ASP.NET Core 透過 Middleware 及 Filter 異常處理的差異。  
@@ -63,7 +63,7 @@ public class Startup
 Middleware 註冊的層級可以在 Filters 的外層，也就是說所有的 Filter 都會經過 Middleware。  
 如果再把 Exception Middleware 註冊在所有 Middleware 的最外層，就可以變成全站的 Exception Handler。  
 Exception Handler 層級示意圖如下:
-![ASP.NET Core 教學 - Exception Handler 層級](/images/pasted-206.png)
+![ASP.NET Core 教學 - Exception Handler 層級](/images/a/206.png)
 
 Exception Middleware 實做範例：
 ```cs
@@ -108,7 +108,7 @@ public class Startup
 ## 執行結果
 
 我做了一個簡單的範例，從不同類型的 Filter 及 Middleware 丟出 Exception，攔截 Exception 的結果如下：
-![ASP.NET Core 教學 - Exception Handler - 範例執行結果](/images/pasted-206.gif)
+![ASP.NET Core 教學 - Exception Handler - 範例執行結果](/images/a/206.gif)
 
 ## 程式碼下載
 

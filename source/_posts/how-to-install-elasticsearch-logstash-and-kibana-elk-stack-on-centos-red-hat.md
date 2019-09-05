@@ -13,9 +13,9 @@ categories:
   - ELK
 date: 2017-04-27 22:19
 updated: 2019-01-15 16:23:00
-featured_image: /images/pasted-92p.png
+featured_image: /images/a/92p.png
 ---
-![ELK 教學架構](/images/pasted-92p.png)
+![ELK 教學架構](/images/a/92p.png)
 
 ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐集、分析、查詢系統。  
 可以在**不改變**原系統架構的情況下，架設 ELK 蒐集、分析、查詢 Log，簡化過去繁鎖又沒效率的查 Log 工作。  
@@ -39,12 +39,12 @@ ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐�
   [下載 RedHat7.3.ova](https://1drv.ms/u/s!AlHB4uP4MF7SiB9R85fONLZp4Va3)  
 3. 下載完成後，點兩下 RedHat7.3.ova 啟動匯入。建議給 2GB 記憶體，方便之後的練習。  
   如下圖：
-  ![匯入 VirtualBox](/images/pasted-91.png)  
+  ![匯入 VirtualBox](/images/a/91.png)  
 4. 匯入完成就請動了，帳號密碼都是 root。  
   如果無法啟動，可能因為 VM 裝 64位元版，而你的 BIOS 沒有啟動 Virtualization Technology。
 5. 看看能不能 ping 到 VM。
   如下圖：
-  ![ping vm](/images/pasted-92.png)
+  ![ping vm](/images/a/92.png)
 
 ## 1. Java
 
@@ -53,7 +53,7 @@ ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐�
 
 Red Hat 及 CentOS 可以下載 rpm 安裝檔。其他 Linux 版本的話就下載 tar 解壓縮安裝。  
 [Download JRE](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-![Download JRE](/images/pasted-93.png)
+![Download JRE](/images/a/93.png)
 
 下載後，透過 SCP 或 WinSCP 放到 `/tmp/`，執行以下安裝指令。
 
@@ -86,7 +86,7 @@ systemctl status elasticsearch
 curl "http://localhost:9200/_cat/nodes"
 ```
 
-![Elasticsearch 啟動成功](/images/pasted-94.png)
+![Elasticsearch 啟動成功](/images/a/94.png)
 
 ### 2.2 設定
 
@@ -147,10 +147,10 @@ curl "http://192.168.56.101:9200/_cat/nodes"
 ```
 
 > 記得換成你的 IP
-![curl 打開 Elasticsearch](/images/pasted-97.png)
+![curl 打開 Elasticsearch](/images/a/97.png)
 
 你也可以試試看用瀏覽器打開 `http://192.168.56.101:9200/_cat/nodes`，你會發現打沒有回應！！！
-![瀏覽器打開 Elasticsearch 沒有回應](/images/pasted-95.png)
+![瀏覽器打開 Elasticsearch 沒有回應](/images/a/95.png)
 
 ### 2.3 防火牆
 
@@ -172,7 +172,7 @@ firewall-cmd --reload
 > 正式環境請選擇 2 會比較安全。
 
 再次用瀏覽器打開，就可以看到回應了。
-![瀏覽器打開 Elasticsearch 有回應](/images/pasted-96.png)
+![瀏覽器打開 Elasticsearch 有回應](/images/a/96.png)
 
 ## 3. Beats
 
@@ -198,7 +198,7 @@ powershell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps
 ```
 
 如下圖：
-![Filebeat 檔案未經數位簽屬](/images/pasted-99.png)
+![Filebeat 檔案未經數位簽屬](/images/a/99.png)
 
 ### 3.1 設定
 
@@ -224,23 +224,23 @@ output.elasticsearch:
 ### 3.2 啟動
 
 打開服務，找到 filebeat 啟動它：
-![啟動 filebeat](/images/pasted-100.png)
+![啟動 filebeat](/images/a/100.png)
 
 ### 3.3 測試
 
 到 Log 位置新增 text.log 檔，隨便輸入文字，如圖：
-![Filebeat 測試](/images/pasted-101.png)
+![Filebeat 測試](/images/a/101.png)
 
 > 要有`Enter`斷行，斷行才會算這筆 Log 完整。完整的 Log 才會被 Filebeat 送出。
 
 用網頁打開 `http://192.168.56.101:9200/_cat/indices`  
 可以看到有名稱為 my-first-index 的 index  囉~
-![my-first-index in Elasticsearch](/images/pasted-102.png)
+![my-first-index in Elasticsearch](/images/a/102.png)
 
 ### 3.4 目前架構
 
 Elasticsearch + Filebeat 已經能夠蒐集 Log 了，目前架構如下圖：
-![Filebeat + Elasticsearch](/images/pasted-93.gif)
+![Filebeat + Elasticsearch](/images/a/93.gif)
 
 ## 4. Logstash
 
@@ -288,7 +288,7 @@ systemctl start logstash
 systemctl status logstash
 ```
 
-![Logstash 啟動成功](/images/pasted-98.png)
+![Logstash 啟動成功](/images/a/98.png)
 
 ### 4.2 設定
 
@@ -346,7 +346,7 @@ output.logstash:
 ```
 
 用瀏覽器打開 `http://192.168.56.101:9200/_search?pretty`，就可以查到資料了。
-![Elasticsearch Search Pretty](/images/pasted-102.png)
+![Elasticsearch Search Pretty](/images/a/102.png)
 
 ## 5. Kibana
 
@@ -372,7 +372,7 @@ systemctl start kibana
 systemctl status kibana
 ```
 
-![Kibana 啟動成功](/images/pasted-104.png)
+![Kibana 啟動成功](/images/a/104.png)
 
 ### 5.2 設定
 
@@ -392,15 +392,15 @@ server.host: "0.0.0.0"
 ```
 
 用瀏覽器打開 `http://192.168.56.101:5601` 設定 index：
-![pasted image](/images/pasted-103.png)
+![pasted image](/images/a/103.png)
 
 設定完成後，就可以到 Discover 查詢 Log 了～
-![pasted image](/images/pasted-105.png)
+![pasted image](/images/a/105.png)
 
 ## 總結
 
 本篇教學成果，是 ELK 常見的基本架構，資料流的流程如下圖：
-![ELK 教學架構](/images/pasted-92.gif)
+![ELK 教學架構](/images/a/92.gif)
 
 我個人認為導入 ELK 可以分為三個階段：  
 

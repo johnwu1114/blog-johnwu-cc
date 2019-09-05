@@ -8,7 +8,7 @@ tags:
 categories:
   - ProGet
 date: 2017-11-23 15:17:00
-featured_image: /images/x386.png
+featured_image: /images/a/386.png
 ---
 
 架設內部用的 NuGet Server，可以解決模組相依問題，但要偵錯(Debug)就變的比較麻煩。  
@@ -26,7 +26,7 @@ featured_image: /images/x386.png
 
 在 ProGet 的 NuGet Feed 管理中，找到 Symbols Server 設定，啟動 Symbols 服務：  
 
-![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - ProGet 設定](/images/x382.png)
+![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - ProGet 設定](/images/a/382.png)
 
 原本 ProGet 提供的 NuGet Feed 是 [https://{domain}/**nuget**/{feed-name}]()，此時會多出一個 [https://{domain}/**symbols**/{feed-name}]() 用來提供 Symbol 使用。
 
@@ -55,7 +55,7 @@ dotnet pack --include-symbols Sample.csproj
 
 在 Visual Studio 中打開 **Debug** > **Options** > **Symbols**，新增一個 Symbol 來源，把 ProGet 提供的 Symbol URL 貼上 [https://{domain}/**symbols**/{feed-name}]()，並設定 Symbol 從 Server 下載的暫存位置。如圖：  
 
-![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - Enable Symbol Server Support](/images/x383.png)
+![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - Enable Symbol Server Support](/images/a/383.png)
 
 ### Enable Source Server Support
 
@@ -65,17 +65,17 @@ dotnet pack --include-symbols Sample.csproj
 
 如圖：  
 
-![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - Enable Source Server Support](/images/x384.png)
+![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - Enable Source Server Support](/images/a/384.png)
 
 ### 偵錯
 
 設定完成後執行偵錯，專案內從 [https://{domain}/**nuget**/{feed-name}]() 安裝的 NuGet 套件，就會自動從 [https://{domain}/**symbols**/{feed-name}]() 下載 Symbol 到暫存位置。如圖：  
 
-![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - Symbol 暫存](/images/x385.png)
+![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - Symbol 暫存](/images/a/385.png)
 
 如此一來就可以透過 Debug 的 Step Into 進入自製的 NuGet 套件偵錯。  
 
-![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - 偵錯](/images/x386.png)
+![ProGet - Visual Studio 偵錯(Debug) NuGet 套件 - 偵錯](/images/a/386.png)
 
 ## 參考
 

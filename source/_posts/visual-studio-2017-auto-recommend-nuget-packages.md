@@ -7,9 +7,9 @@ tags:
 categories:
   - VS2017
 date: 2017-07-05 10:45:30
-featured_image: /images/pasted-229.png
+featured_image: /images/a/229.png
 ---
-![Visual Studio 2017 - 自動推薦 NuGet 套件](/images/pasted-229.png)
+![Visual Studio 2017 - 自動推薦 NuGet 套件](/images/a/229.png)
 
 Visual Studio 2017 有一個蠻不錯的功能，在程式碼輸入未安裝過的套件類別名稱，會提示推薦安裝 NuGet 套件。  
 但這個功能預設是關閉的，要自己打開這個功能。  
@@ -18,13 +18,13 @@ Visual Studio 2017 有一個蠻不錯的功能，在程式碼輸入未安裝過�
 
 ## 設定
 
-![Visual Studio 2017 - 設定自動推薦 NuGet 套件 - 1](/images/pasted-230.png)
-![Visual Studio 2017 - 設定自動推薦 NuGet 套件 - 2](/images/pasted-231.png)
+![Visual Studio 2017 - 設定自動推薦 NuGet 套件 - 1](/images/a/230.png)
+![Visual Studio 2017 - 設定自動推薦 NuGet 套件 - 2](/images/a/231.png)
 
 ## 提示效果
 
 例如我在程式碼輸入 **Image**，滑鼠移到燈泡圖示（或游標停在該文字按下 `Ctrl` + `.`），就可以看到 VS2017 提示推薦安裝 NuGet 套件，如下：
-![Visual Studio 2017 - 自動推薦 NuGet 套件](/images/pasted-229.png)
+![Visual Studio 2017 - 自動推薦 NuGet 套件](/images/a/229.png)
 
 ## 參考
 

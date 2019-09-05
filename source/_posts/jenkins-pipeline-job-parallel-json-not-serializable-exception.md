@@ -10,7 +10,7 @@ tags:
 categories:
   - Jenkins
 date: 2017-09-04 09:32:00
-featured_image:
+featured_image: /images/featured/jenkins.png
 ---
 
 先前有介紹過 [Jenkins - Groovy 從 JSON 檔案讀取變數](/article/jenkins-groovy-read-json-from-file.html)，但使用 Pipeline Job 平行處理時，會拋出 `NotSerializableException`。  

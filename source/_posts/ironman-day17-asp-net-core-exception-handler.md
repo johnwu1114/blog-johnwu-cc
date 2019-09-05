@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-05 12:00
-featured_image: /images/pasted-206.png
+featured_image: /images/a/206.png
 ---
 
 例外處理(Exception Handler)算是程式開發蠻重要的一件事，尤其程式暴露在外，要是不小心顯示了什麼不該讓使用者看到的東西就糟糕了。  
@@ -71,7 +71,7 @@ public class Startup
 Middleware 註冊的層級可以在 Filters 的外層，也就是說所有的 Filter 都會經過 Middleware。  
 如果再把 Exception Middleware 註冊在所有 Middleware 的最外層，就可以變成全站的 Exception Handler。  
 Exception Handler 層級示意圖如下:
-![ASP.NET Core 教學 - Exception Handler 層級](/images/pasted-206.png)
+![ASP.NET Core 教學 - Exception Handler 層級](/images/a/206.png)
 
 Exception Middleware 範例：  
 
@@ -251,7 +251,7 @@ public class Startup
 
 開發環境的錯誤資訊頁面如下：  
 
-![[鐵人賽 Day17] ASP.NET Core 2 系列 - 例外處理(Exception Handler) - UseDeveloperExceptionPage](/images/i17-1.png)  
+![[鐵人賽 Day17] ASP.NET Core 2 系列 - 例外處理(Exception Handler) - UseDeveloperExceptionPage](/images/ironman/i17-1.png)  
 
 ## 參考
 

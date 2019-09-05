@@ -8,7 +8,7 @@ tags:
 categories:
   - ELK
 date: 2017-12-04 11:46
-featured_image: /images/x402.png
+featured_image: /images/a/402.png
 ---
 
 Logstash 在 ELK 架構中，是負責把收到的純文字資料，做特定的規則處理，就可以變成指定的欄位。  
@@ -116,14 +116,14 @@ grok {
 
 Grok Debugger 很簡約，輸入預期的 Input Message 及 Patterns 就會立即驗證及產出 JSON 格式的欄位。如下：  
 
-![ELK 教學 - Logstash Grok Filter 建立欄位 - Grok Debugger](/images/x402.png)
+![ELK 教學 - Logstash Grok Filter 建立欄位 - Grok Debugger](/images/a/402.png)
 
 ### Grok Constructor
 
  Grok Constructor 有支援 Filter 多筆 Message，但不支援指派型別(例：`%{NUMBER:duration:double}`)。  
  畫面如下：  
 
- ![ELK 教學 - Logstash Grok Filter 建立欄位 - Grok Constructor](/images/x403.png)
+ ![ELK 教學 - Logstash Grok Filter 建立欄位 - Grok Constructor](/images/a/403.png)
 
 ## 參考
 

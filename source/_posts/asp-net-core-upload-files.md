@@ -9,10 +9,10 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-09-05 02:07:00
-featured_image: /images/x325.png
+featured_image: /images/a/325.png
 ---
 
-![ASP.NET Core 教學 - 檔案上傳 - 執行結果](/images/x325.png)
+![ASP.NET Core 教學 - 檔案上傳 - 執行結果](/images/a/325.png)
 
 在 ASP.NET Core 實作基本的檔案上傳功能算蠻簡易的，但對於大型檔案就稍微麻煩一些，若沒有額外處理，則容易造成 ASP.NET Core 死翹翹。  
 本篇將介紹如何在 ASP.NET Core 檔案上傳。  
@@ -150,7 +150,7 @@ public class UploadController : Controller
 
 ### 2.4. 執行結果
 
-![ASP.NET Core 教學 - 檔案上傳 - 執行結果](/images/x325.png)
+![ASP.NET Core 教學 - 檔案上傳 - 執行結果](/images/a/325.png)
 
 ## 3. 大型檔案上傳
 

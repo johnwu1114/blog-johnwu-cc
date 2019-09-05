@@ -9,10 +9,10 @@ tags:
 categories:
   - Jenkins
 date: 2017-08-17 00:04:00
-featured_image: /images/x300.png
+featured_image: /images/a/300.png
 ---
 
-![Jenkins - Pipeline Job 平行處理 - 執行結果](/images/x300.png)
+![Jenkins - Pipeline Job 平行處理 - 執行結果](/images/a/300.png)
 
 在撰寫 Pipeline Job 時，很多時候工作是沒有順序相依關係，如果純用 `stage` 逐一處理，略顯效率不彰。  
 本篇將介紹 Jenkins 使用 Groovy 撰寫 Pipeline Job 的平行處理。  
@@ -137,4 +137,4 @@ stage ("Commit Artifacts") { }
 ## 執行結果
 
 如果有安裝 `Blue Ocean` 的話，就可以看到漂亮的圖形化平行處理執行結果：
-![Jenkins - Pipeline Job 平行處理 - 執行結果](/images/x300.png)
+![Jenkins - Pipeline Job 平行處理 - 執行結果](/images/a/300.png)

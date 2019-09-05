@@ -6,7 +6,7 @@ tags:
 categories:
   - Docker
 date: 2018-01-24 23:20:00
-featured_image: /images/logo-docker.png
+featured_image: /images/featured/docker.png
 toc: false
 ---
 
@@ -29,9 +29,9 @@ Get https://registry-1.docker.io/v2/: net/http: request canceled while waiting f
 
 我是用 Windows GUI 把 Docker Service Restart，如下步驟：  
 
-![Docker - 連線到 *.docker.io 發生錯誤 - Windows Docker Service Restart - 1](/images/x404.png)  
+![Docker - 連線到 *.docker.io 發生錯誤 - Windows Docker Service Restart - 1](/images/b/04.png)  
 
-![Docker - 連線到 *.docker.io 發生錯誤 - Windows Docker Service Restart - 2](/images/x405.png)  
+![Docker - 連線到 *.docker.io 發生錯誤 - Windows Docker Service Restart - 2](/images/b/05.png)  
 
 Linux 或 macOS 的話可以用指令：  
 ```sh

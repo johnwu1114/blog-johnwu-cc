@@ -8,9 +8,9 @@ tags:
 categories:
   - Angular
 date: 2017-07-09 22:27:00
-featured_image: /images/pasted-234.png
+featured_image: /images/a/234.png
 ---
-![Angular 4 教學 - Service - Module Providers](/images/pasted-234.png)
+![Angular 4 教學 - Service - Module Providers](/images/a/234.png)
 
 為了使 Component 程式碼更致力於與 Template 互動，同常會把邏輯或 Client 端的資料暫存用 Service 包裝，需要用到 Service 時，再透過建構子注入使用。  
 本篇將介紹 Angular 4 (Angular 2) 的 Service 包裝及 DI (Dependency Injection)。  
@@ -74,7 +74,7 @@ export class MyComponent {
 當 Component 被實例化時，會建立一個新的 Service 實體，Service 的存活週期是跟隨著 Component。  
 所以註冊在 Component Providers 就只有該 Component 可以使用，並不會與其他的 Component 共用。示意圖如下：
 
-![Angular 4 教學 - Service - Component Providers](/images/pasted-232.png)
+![Angular 4 教學 - Service - Component Providers](/images/a/232.png)
 
 ### 2.2. Module Providers  
 
@@ -100,11 +100,11 @@ export class MyComponent {
 當 Module 被實例化時，會建立一個新的 Service 實體，Service 的實體是跟隨著 Module。  
 若註冊在 Module 則該 Mobulde 中的所有 Component 都會共用同一個實體。示意圖如下：
 
-![Angular 4 教學 - Service - Module Providers](/images/pasted-233.png)
+![Angular 4 教學 - Service - Module Providers](/images/a/233.png)
 > MyComponent、FirstComponent、SecondComponent 使用的 SampleService 會是同一個實體。  
 
 註冊在越高層級的 Module 則可使用範圍越廣。示意圖如下：
-![Angular 4 教學 - Service - Module Providers](/images/pasted-234.png)
+![Angular 4 教學 - Service - Module Providers](/images/a/234.png)
 > MyComponent、FirstComponent、FirstModule 的 FirstComponent 使用的 SampleService 會是同一個實體。  
 > 如果你希望程式啟動後，Service 共用同一個實體，就把 Service 註冊在 AppModule (Root Module)。
 
@@ -170,7 +170,7 @@ export class SingletonService  {
 > ThirdModule 是 Lazy Loading 的 Module  
 
 這個範例實際產生的 Service 實體如下：
-![Angular 4 教學 - Service - 範例](/images/pasted-235.png)
+![Angular 4 教學 - Service - 範例](/images/a/235.png)
 
 > SharedModule 是比較容易被混淆的，被 Import 的 Module 會跟著使用的 Module 一起被實例化。  
 > 所以 First、Second 及 ThirdModule 雖然都是 Import SharedModule，但 SharedModule 確是三個不同的實例。  

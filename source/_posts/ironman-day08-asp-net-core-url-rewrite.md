@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-27 12:00
-featured_image: /images/i08-3.png
+featured_image: /images/ironman/i08-3.png
 ---
 
 路由跟 URL 重寫的功能性略有不同。路由是將 Request 找到對應的服務，而 URL 重寫是為了~~推卸責任 XD~~轉送 Request。  
@@ -56,7 +56,7 @@ URL 重寫規則，主要有分兩種方式：
 
 URL 重寫是屬於 Server 端的轉換事件，當 Client 端 Request 來的時候，發現原網址已經被換掉了，就會自動回傳新網址的內容。情境如下：  
 
-![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫情境](/images/i08-3.png)  
+![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫情境](/images/ironman/i08-3.png)  
 
 上例 `AddRewrite` 有用到三個參數，當 URL 符合 **參數 1** 時，就將 **參數 2** 路由的內容回傳給 Client。  
 而 **參數 3** 是用來加速 URL 匹配的參數，類似 switch 的 break。若將 `skipRemainingRules` 設為 **true**，當找到匹配條件，就不再繼續往下找符合其他 **參數 1** 的規則。  
@@ -64,14 +64,14 @@ URL 重寫是屬於 Server 端的轉換事件，當 Client 端 Request 來的時
 
 範例結果：  
 
-![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - 範例結果](/images/i08-2.png)  
+![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - 範例結果](/images/ironman/i08-2.png)  
 
 
 ### URL 轉址
 
 URL 重寫是屬於 Client 端的轉換事件，當 Client 端 Request 來的時候，發現原網址已經被換掉了，Server 會先回傳給 Client 告知新網址，再由 Client 重新 Request 新網址。情境如下：  
 
-![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 轉址情境](/images/i08-4.png)  
+![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 轉址情境](/images/ironman/i08-4.png)  
 
 `AddRedirect` 的使用方式類似 `AddRewrite`，當 URL 符合 **參數 1** 時，就會回傳 **參數 2** 的 URL 給 Client。  
 * **參數 1** 同樣支援正規表示式(Regular Expressions)。  
@@ -98,12 +98,12 @@ public class Startup
  **301** 是要讓搜尋引擎知道，該網址已經永久轉移到另一個地方。  
  通常用於網站搬家或網站改版，新舊版本路徑不相同，要重新對應的情況。  
  範例結果：  
- ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 301 範例結果](/images/i08-5.png)  
+ ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 301 範例結果](/images/ironman/i08-5.png)  
 * **HTTP Status Code 302**  
  **302** 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的。  
  通常用於網站維護時，暫時原網址轉移到別的地方，如維修公告頁面。  
  範例結果：  
- ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 302 範例結果](/images/i08-1.png)  
+ ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 302 範例結果](/images/ironman/i08-1.png)  
 
 ## 正規表示式
 

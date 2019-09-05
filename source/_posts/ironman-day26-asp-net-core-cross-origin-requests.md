@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-14 12:00
-featured_image: /images/i26-2.png
+featured_image: /images/ironman/i26-2.png
 ---
 
 有些團隊會把前後端專案切開，放在不同的網域執行，如此一來就會遇到瀏覽器安全性問題，禁止不同網域的請求。  
@@ -28,12 +28,12 @@ featured_image: /images/i26-2.png
 
 當瀏覽器開啟 `http://blog.johnwu.cc` 頁面後，接著透過 AJAX 呼叫了 `http://api.johnwu.cc/cors-sample`，此時就形成的 A Domain 呼叫了 B Domain 的跨域請求 Cross-Origin Requests (CORS)，瀏覽器基於安全性考量，並不允許這種情況發生。情境圖如下：  
 
-![[鐵人賽 Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests) - 情境 1](/images/i26-1.png)  
+![[鐵人賽 Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests) - 情境 1](/images/ironman/i26-1.png)  
 
 因此，瀏覽器會拋出錯誤訊息如下：  
 > Failed to load `http://api.johnwu.cc/cors-sample`: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin '`http://blog.johnwu.cc`' is therefore not allowed access.  
 
-![[鐵人賽 Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests) - 錯誤訊息](/images/i26-3.png)  
+![[鐵人賽 Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests) - 錯誤訊息](/images/ironman/i26-3.png)  
 
 ## 註冊 Policy
 
@@ -130,7 +130,7 @@ public class HomeController : Controller
 
 在 ASP.NET Core 允取 CROS 後，完整的情境如下：  
 
-![[鐵人賽 Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests) - 情境 2](/images/i26-2.png)  
+![[鐵人賽 Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests) - 情境 2](/images/ironman/i26-2.png)  
 
 ## 參考
 

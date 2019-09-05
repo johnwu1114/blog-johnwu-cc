@@ -7,7 +7,7 @@ tags:
 categories:
   - Web Development
 date: 2016-12-16 11:44:00
-featured_image:
+featured_image: /images/a/8.png
 ---
 ## Install Node.js
 
@@ -19,47 +19,51 @@ Download & install Node.js stable version from official site: http://nodejs.org/
 ### 1. Install
 
 Download & unzip Weinre latest version from official site:  
-http://people.apache.org/~pmuellr/weinre/builds/
+http://people.apache.org/~pmuellr/weinre/builds/  
 
-*or install by npm*
-```
+or install by npm  
+
+```sh
 npm -g install weinre
 ```
-
 <!-- more -->
 
 ### 2. Start
 
 Run “Node.js command prompt” as administrator
-![](/images/pasted-5.png)
-```
+![Weinre - Remote Debugging Website with Chrome - Start](/images/a/5.png)
+
+```sh
 cd {your weinre path}
 node weinre --httpPort 9090 --boundHost -all-
 ```
+
 *DON’T close Node.js console.*
 
 ### 3. Script
 
-Adding below script to HTML to your web page.
-``` html
+Adding below script to HTML to your web page.  
+
+```html
 <script src="http://{Your IP}:9090/target/target-script-min.js#anonymous">
 </script>
 ```
-![](/images/pasted-7.png)
+
+![Weinre - Remote Debugging Website with Chrome - Import JavaScript](/images/a/7.png)
 
 ### 4. Run
 
 Open in your browser http://localhost:9090/
-![](/images/pasted-6.png)
+![Weinre - Remote Debugging Website with Chrome - Demo 1](/images/a/6.png)
 
 Run your web page.
-![](/images/pasted-8.png)
+![Weinre - Remote Debugging Website with Chrome - Demo 2](/images/a/8.png)
 
 Select target.
-![](/images/pasted-9.png)
+![Weinre - Remote Debugging Website with Chrome - Demo 3](/images/a/9.png)
 
 ### 5. Debug
 
-![](/images/pasted-16.png)
-![](/images/pasted-13.png)
-![](/images/pasted-14.png)
+![Weinre - Remote Debugging Website with Chrome - Demo 4](/images/a/16.png)  
+![Weinre - Remote Debugging Website with Chrome - Demo 5](/images/a/13.png)  
+![Weinre - Remote Debugging Website with Chrome - Demo 6](/images/a/14.png)  

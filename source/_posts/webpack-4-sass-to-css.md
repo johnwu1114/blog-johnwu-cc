@@ -8,7 +8,7 @@ categories:
   - Webpack
 date: 2018-10-22 11:04:00
 ---
-![Webpack 4 打包 Sass to Css 範例](/images/logo-webpack-sass-to-css.png)
+![Webpack 4 打包 Sass to Css 範例](/images/featured/webpack-sass-to-css.png)
 
 前幾天 Designer 來求助，問怎麼透過 Webpack 打包 Sass，順手就寫了一篇教學。  
 本文將介紹，如何透過 Webpack 4 將 Sass 打包成 Css 檔案。  

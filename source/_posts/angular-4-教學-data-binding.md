@@ -7,9 +7,9 @@ tags:
 categories:
   - Angular
 date: 2017-06-13 10:20:00
-featured_image: /images/pasted-196.png
+featured_image: /images/a/196.png
 ---
-![Angular 4 教學 - Data Binding](/images/pasted-196.png)
+![Angular 4 教學 - Data Binding](/images/a/196.png)
 
 Angular 透過 Data Binding 讓 TypeScript(Component) 及 HTML(Template) 兩邊互相傳遞資料，Data Binding 的方式有四種。  
 本篇將介紹 Angular 4 (Angular 2) 的四種 Data Binding 互動。  
@@ -150,7 +150,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 ## 執行結果
 
 以下四種綁定的範例執行結果：  
-![Angular 4 教學 - Data Binding 範例執行結果](/images/pasted-196.gif)
+![Angular 4 教學 - Data Binding 範例執行結果](/images/a/196.gif)
 
 ## 程式碼下載
 

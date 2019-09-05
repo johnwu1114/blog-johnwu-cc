@@ -7,7 +7,7 @@ tags:
 categories:
   - IIS
 date: 2017-09-27 23:24:00
-featured_image: /images/x353.png
+featured_image: /images/a/353.png
 ---
 
 最近看到同事搜尋我的網域 `johnwu.cc`，結果開出來是我測試機的 IIS Default Page，才想到我忘記把 root domain 轉址到我的部落格。  
@@ -22,7 +22,7 @@ featured_image: /images/x353.png
 
 或者從 Web Platform Installer 搜尋 URL Rewrite 並安裝。  
 
-![IIS - HTTP 301 / 302 轉址 - Web Platform Installer](/images/x351.png)
+![IIS - HTTP 301 / 302 轉址 - Web Platform Installer](/images/a/351.png)
 
 ## 轉址差異
 
@@ -68,17 +68,17 @@ HTTP 302 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的�
 
 ### IIS 設定
 
-![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 1](/images/x352.png)
-![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 2](/images/x353.png)
-![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 3](/images/x354.png)
-![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 4](/images/x355.png)
+![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 1](/images/a/352.png)
+![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 2](/images/a/353.png)
+![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 3](/images/a/354.png)
+![IIS - HTTP 301 / 302 轉址 - IIS 設定 - 4](/images/a/355.png)
 > 設定完成後套用即可。 上述的設定方式跟 `Web.config` 設定的內容是一樣的。 
 
 ## 轉址參數
 
 用 IIS 的 UI 介面可以測試 URL 規則，同時可以擷取內容，變成轉址的參數：  
 
-![IIS - HTTP 301 / 302 轉址 - 測試模式](/images/x359.png)
+![IIS - HTTP 301 / 302 轉址 - 測試模式](/images/a/359.png)
 
 ### 範例一
 
@@ -113,4 +113,4 @@ HTTP 302 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的�
 
 當連到 `johnwu.cc` 就轉址到我的部落格 `https://blog.johnwu.cc/`  
 
-![IIS - HTTP 301 / 302 轉址 - 執行結果](/images/x356.gif)
+![IIS - HTTP 301 / 302 轉址 - 執行結果](/images/a/356.gif)

@@ -9,7 +9,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-16 12:00
-featured_image: /images/i28-1.png
+featured_image: /images/ironman/i28-1.png
 ---
 
 對 Response 回傳結果適時的使用快取機制，可以有助於效能提升，避免重複的運算浪費。  
@@ -30,7 +30,7 @@ ASP.NET Core 可以透過 `[ResponseCache]` 設定 Response 的暫存方式。�
 
 透過 HTTP Header 的 `Cache-Control` 告知瀏覽器，把頁面存在瀏覽器暫存區。如下圖：  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Client 端暫存](/images/i28-1.png)  
+![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Client 端暫存](/images/ironman/i28-1.png)  
 
 Client 端暫存只要套用 `[ResponseCache]` 即可，不需要多註冊額外的服務，如下：  
 
@@ -109,7 +109,7 @@ dotnet add package Microsoft.AspNetCore.ResponseCaching
 
 Server 端 Response 快取適合用在常被呼叫的頁面或 API，且資料是 **可共用的資料** ，也就是所有網頁使用者看到的資料都一樣。當請求相同頁面時，會把上次的處理結果從 Server 的快取回傳給 Client，省去後續一連串的行為。如下圖：  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Server 端快取](/images/i28-2.png)  
+![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Server 端快取](/images/ironman/i28-2.png)  
 
 * 第一次呼叫 Action 時，會經過重重運算，甚至連到資料庫取值等等。  
 * 第二次呼叫 Action 時，由於上次回傳結果已經存在 Server 快取，因此就直接從快取回傳上次的結果，省去其他運算步驟。  
@@ -189,11 +189,11 @@ public class HomeController : Controller
 
 執行結果：  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Server 端快取 - 執行結果動畫](/images/i28-3.gif)  
+![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Server 端快取 - 執行結果動畫](/images/ironman/i28-3.gif)  
 
 第一次連入 `http://localhost:5000/` 時，就被放入 Server 快取中，後續的 Request 全部都是從 Server 快取回應，所以不會進到 Action，自然不會有 Action 中的 Log 資訊。  
 
-![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Server 端快取 - 執行結果](/images/i28-3.png)  
+![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Server 端快取 - 執行結果](/images/ironman/i28-3.png)  
 
 ### Server 快取條件
 

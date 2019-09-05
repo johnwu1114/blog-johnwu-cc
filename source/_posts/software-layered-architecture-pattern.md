@@ -7,9 +7,9 @@ tags:
 categories:
   - Software Design
 date: 2017-11-06 13:10:00
-featured_image: /images/x378.png
+featured_image: /images/a/378.png
 ---
-![軟體分層架構模式 - 基本分層](/images/x378.png)
+![軟體分層架構模式 - 基本分層](/images/a/378.png)
 
 最近在重構六年前做的產品，雖然當時已經有做分層架構，但還是有很多該改進的地方。  
 有些命名越看越不順眼，重構期間順便整理一下分層架構；不管在何時回頭看自己做的東西，都覺得很多進步空間。  
@@ -34,7 +34,7 @@ featured_image: /images/x378.png
 分層架構有一個很重要的特性，就是要把每一層的職責分離，**不應該跨層互動**，每層之間的關係只能是上下互動。  
 如圖：  
 
-![軟體分層架構模式 - 基本分層](/images/x378.png)
+![軟體分層架構模式 - 基本分層](/images/a/378.png)
 
 ### 服務型分層
 
@@ -45,7 +45,7 @@ featured_image: /images/x378.png
 
 如圖：  
 
-![軟體分層架構模式 - 服務型分層](/images/x379.png)
+![軟體分層架構模式 - 服務型分層](/images/a/379.png)
 
 ## 命名方式
 
@@ -178,7 +178,7 @@ var json = Newtonsoft.Json.JsonConvert.SerializeObject(new { });
 
 專案相依關係：  
 
-![軟體分層架構模式 - 專案相依關係](/images/x380.png)  
+![軟體分層架構模式 - 專案相依關係](/images/a/380.png)  
 
 檔案架構大致如下：
 ```yml

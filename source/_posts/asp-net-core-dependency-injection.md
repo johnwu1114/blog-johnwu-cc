@@ -7,9 +7,9 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-06-28 22:21:00
-featured_image: /images/pasted-209.png
+featured_image: /images/a/209.png
 ---
-![ASP.NET Core 教學 - Dependency Injection - 運作方式](/images/pasted-209.png)
+![ASP.NET Core 教學 - Dependency Injection - 運作方式](/images/a/209.png)
 
 ASP.NET Core 使用了大量的 DI (Dependency Injection) 設計，有用過 Autofac 或類似的 DI Framework 對此應該不陌生。  
 本篇將介紹 ASP.NET Core 的 Dependency Injection。
@@ -109,7 +109,7 @@ public class Startup
 > 第二個泛型為實做的類別。  
 
 Service 實例產生方式：
-![ASP.NET Core 教學 - Dependency Injection - 運作方式動畫](/images/pasted-209.gif)
+![ASP.NET Core 教學 - Dependency Injection - 運作方式動畫](/images/a/209.gif)
 * A 為 Singleton  
 * B 為 Scoped  
 * C 為 Transient  
@@ -214,7 +214,7 @@ public class Startup
 2. Scoped 在同一個 Requset 中，不論是在哪邊被注入，都是同樣的實體。(紅色箭頭)  
 3. Singleton 不管 Requset 多少次，都會是同一個實體。(藍色方框)  
 
-![ASP.NET Core 教學 - Dependency Injection - 範例執行結果](/images/pasted-208.png)
+![ASP.NET Core 教學 - Dependency Injection - 範例執行結果](/images/a/208.png)
 
 ## 程式碼下載
 

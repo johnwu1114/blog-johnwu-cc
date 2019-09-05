@@ -6,9 +6,9 @@ tags:
 categories:
   - 'C#'
 date: 2017-09-21 00:26:00
-featured_image: /images/x346.png
+featured_image: /images/a/346.png
 ---
-![C# - const vs static readonly - .NET Reflector](/images/x346.png)
+![C# - const vs static readonly - .NET Reflector](/images/a/346.png)
 
 偶而遇到有人問 `const` 跟 `static readonly` 有什麼差別，如果是使用基本型別或字串，可能會感覺差不多。  
 大部分的人都會回答是賦予值的階段不同，`const` 是編譯時賦予值，`static readonly` 是執行時賦予值。  
@@ -45,7 +45,7 @@ public static readonly string ReadonlyString = "ReadonlyString - 1";
 ## 執行比較
 
 我建了兩個範例專案，結構如下：  
-![C# - const vs static readonly - 範例專案結構](/images/x345.png)
+![C# - const vs static readonly - 範例專案結構](/images/a/345.png)
 
 Example 是給 ExampleApp 參考使用，在 Example 新增一個 Sample.cs：
 ```cs
@@ -112,7 +112,7 @@ ReadonlyString = ReadonlyString - 1
 
 如果有裝 .NET Reflector，可以看到編異後的 C# 程式碼：  
 
-![C# - const vs static readonly - .NET Reflector](/images/x346.png)
+![C# - const vs static readonly - .NET Reflector](/images/a/346.png)
 
 > `Sample.ConstString` 被轉換成 `"ConstString - 1"`。  
 
@@ -121,7 +121,7 @@ ReadonlyString = ReadonlyString - 1
 
 但卻落入一個陷阱，假設更新 Example.dll 而不異動 ExampleApp.exe 的情況，會發生什麼事？  
 
-![C# - const vs static readonly - 更新 Example.dll](/images/x347.png)
+![C# - const vs static readonly - 更新 Example.dll](/images/a/347.png)
 
 例如把 Example 的 Sample.cs 修改成下面內容：
 ```cs

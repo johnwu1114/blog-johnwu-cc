@@ -10,7 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-13 12:00
-featured_image: /images/i25-5.png
+featured_image: /images/ironman/i25-5.png
 ---
 
 .NET Core 的單元測試框架有支援 xUnit、NUnit 及 MSTest，官方是比較推薦用 xUnit，但 NUnit 似乎比較受 .NET 工程師歡迎，我個人也是比較愛用 NUnit。  
@@ -45,11 +45,11 @@ dotnet new web --name MyWebsite
 dotnet new nunit --name MyWebsite.Tests
 ```
 
-![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 建立方案](/images/i25-1.png)
+![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 建立方案](/images/ironman/i25-1.png)
 
 包含 Web 專案及 NUnit 專案的方案內容如下：  
 
-![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 方案內容](/images/i25-2.png)
+![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 方案內容](/images/ironman/i25-2.png)
 
 ## 執行測試
 
@@ -59,7 +59,7 @@ NUnit 樣板專案會預帶一個 *UnitTest1.cs* 做為單元測試的範例，�
 dotnet test MyWebsite.Tests
 ```
 
-![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 執行測試](/images/i25-3.png)
+![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 執行測試](/images/ironman/i25-3.png)
 
 ### 測試案例
 
@@ -175,7 +175,7 @@ namespace MyWebsite.Tests.Controllers
 
 測試結果如下：  
 
-![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 測試結果](/images/i25-4.png)
+![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - 測試結果](/images/ironman/i25-4.png)
 
 ## Visual Studio Code
 
@@ -184,7 +184,7 @@ VS Code 有測試專案用的擴充套件，可以直接在程式碼中看到那
 
 打開 VS Code 在 Extensions 搜尋列輸入 **test** ，便可以找到 `.NET Core Test Explorer` 的擴充套件安裝。如下圖：  
 
-![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - .NET Core Test Explorer](/images/i25-5.png)
+![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - .NET Core Test Explorer](/images/ironman/i25-5.png)
 
 安裝完成後在方案資料夾下的 *.vscode\settings.json* 新增 `dotnet-test-explorer.testProjectPath` 指定測試專案位置，如下：  
 
@@ -197,7 +197,7 @@ VS Code 有測試專案用的擴充套件，可以直接在程式碼中看到那
 
 就可以透過 VS Code UI 執行單元測試，並且能在程式碼中看到那些測試案例成功或失敗。如下：  
 
-![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - .NET Core Test Explorer](/images/i25-6.png)
+![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - .NET Core Test Explorer](/images/ironman/i25-6.png)
 
 ## 參考
 

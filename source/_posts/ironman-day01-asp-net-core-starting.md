@@ -8,7 +8,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2017-12-20 12:16
-featured_image: /images/i01-4.png
+featured_image: /images/ironman/i01-4.png
 ---
 
 來勢洶洶的 .NET Core 似乎要取代 .NET Framework，ASP.NET 也隨之發佈 .NET Core 版本。雖說名稱沿用 ASP.NET，但相較於 ASP.NET 確有許多架構上的差異，可說是除了名稱外，已是兩個不同的框架。  
@@ -39,11 +39,11 @@ dotnet --version
 dotnet new web
 ```
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - 建立專案](/images/i01-1.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - 建立專案](/images/ironman/i01-1.png)
 
 .NET Core CLI 會在該資料夾，建立一個空的 ASP.NET Core 專案，內容如下：  
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - 專案目錄](/images/i01-2.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - 專案目錄](/images/ironman/i01-2.png)
 ```sh
 obj/                            # 專案暫存目錄
 wwwroot/                        # 預設網站根目錄 (空的)
@@ -60,7 +60,7 @@ dotnet run
 ```
 .NET Core CLI 預設會起一個`http://localhost:5000/`的站台，用瀏覽器打開此連結就可以看到 ASP.NET Core 網站了。如下：  
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - 啟動網站](/images/i01-3.png)  
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - 啟動網站](/images/ironman/i01-3.png)  
 
 ## Visual Studio Code  
 
@@ -73,20 +73,20 @@ VS Code 是一套可安裝擴充套件的文字編輯器，有支援 Windows、M
 
 打開 VS Code 可以在左邊看到五個 Icon，點選最下面的那個 Extensions 圖示，並在 Extensions 搜尋列輸入 **C#** ，便可以找到 `C#` 的擴充套件安裝。如下圖：
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code C# 擴充套件](/images/i01-4.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code C# 擴充套件](/images/ironman/i01-4.png)
 
 ### 開啟專案
 
 VS Code 跟一般文字編輯器有些不同，它是以資料夾為工作區域，開啟一個目錄，就等通於是開啟一個專案。從上方工具列 **File** -> **Open Folder** 選擇 ASP.NET Core 專案目錄，大概隔幾秒後，VS Code 會提示是否要幫此專案加入 Build/Debug 的設定。如下圖：  
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code 開啟專案](/images/i01-5.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code 開啟專案](/images/ironman/i01-5.png)
 
 ### Build/Debug 設定
 
 如果沒有自動提示加入 Build/Debug 設定，可以在左邊 Icon，點選倒數第二個 Debug 圖示，手動加入 Build/Debug 設定。如下步驟：  
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code Build/Debug 設定](/images/i01-6.png)
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code Build/Debug 設定](/images/i01-7.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code Build/Debug 設定](/images/ironman/i01-6.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code Build/Debug 設定](/images/ironman/i01-7.png)
 
 設定完成後，VS Code 會自動建立 *.vscode* 目錄及設定檔 *launch.json*、*tasks.json*。目錄結構如下：
 ```sh
@@ -104,11 +104,11 @@ Startup.cs                      # 啟動網站設定
 
 在程式碼行號左邊點擊滑鼠就可以下中斷點了，跟一般 IDE 差不多。然後在 Debug 側欄啟動偵錯：  
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code 中斷點除錯](/images/i01-8.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code 中斷點除錯](/images/ironman/i01-8.png)
 
 當執行到該中斷點後，就會停下來，並在 Debug 側欄顯示當前變數狀態等，也可以用滑鼠移到變數上面檢視該變數的內容。如下：
 
-![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code 中斷點除錯](/images/i01-9.png)
+![[鐵人賽 Day01] ASP.NET Core 2 系列 - 從頭開始 - VS Code 中斷點除錯](/images/ironman/i01-9.png)
 
 偵錯方式跟大部分的 IDE 都差不多，可以 Step over、Step in/out 等。  
 如此一來就可以用 VS Code 輕鬆開發 ASP.NET Core。  
