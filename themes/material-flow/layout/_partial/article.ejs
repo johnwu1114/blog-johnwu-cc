@@ -15,7 +15,8 @@
         itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="1" />
 		<a itemscope itemtype="https://schema.org/Thing"
-		   itemprop="item" href="<%= config.url + url_for(cate.path) %>">
+		   itemprop="item" href="<%= config.url + url_for(cate.path) %>"
+		   id="<%= cate.path %>">
 			<meta itemprop="name" content="<%= cate.name %>"/>
 		</a>
 	</li>
@@ -23,7 +24,8 @@
         itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="2" />
 		<a itemscope itemtype="https://schema.org/Thing"
-           itemprop="item" href="<%= config.url + url_for(post.path) %>">
+		   itemprop="item" href="<%= config.url + url_for(post.path) %>"
+		   id="<%= post.path %>">
 			<meta itemprop="name" content="<%= page.title %>"/>
 			<meta itemprop="image" content="<%= config.url + (post.featured_image ? post.featured_image : config.avatar) %>" />
 		</a>
