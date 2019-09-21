@@ -19,7 +19,8 @@
         itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="1" />
 		<a itemscope itemtype="https://schema.org/Thing"
-           itemprop="item" href="<%= config.url %>/categories/">
+           itemprop="item" href="<%= config.url %>/categories/"
+		   id="categories">
             <meta itemprop="name" content="Categories"/>
         </a>
 	</li>
@@ -27,7 +28,8 @@
         itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="2" />
 		<a itemscope itemtype="https://schema.org/Thing"
-           itemprop="item" href="<%= config.url + url_for(page.path) %>">
+           itemprop="item" href="<%= config.url + url_for(page.path) %>"
+		   id="<%= 'categories_' + page.path %>">
             <meta itemprop="name" content="<%= page.category %>"/>
         </a>
 	</li>

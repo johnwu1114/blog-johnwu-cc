@@ -29,7 +29,8 @@
       itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="1" />
 		<a itemscope itemtype="https://schema.org/Thing"
-       	   itemprop="item" href="<%= config.url %>/archives/">
+       	   itemprop="item" href="<%= config.url %>/archives/"
+            id="archives">
 			<meta itemprop="name" content="Archives"/>
 		</a>
 	</li>
@@ -38,7 +39,8 @@
         itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="2" />
 		<a itemscope itemtype="https://schema.org/Thing"
-		   itemprop="item" href="<%= config.url + '/archives/' + page.year %>">
+           itemprop="item" href="<%= config.url + '/archives/' + page.year %>"
+           id="<%= 'archives_' + page.year %>">
 			<meta itemprop="name" content="<%= page.year %>"/>
 		</a>
 	</li>
@@ -47,7 +49,8 @@
         itemtype="https://schema.org/ListItem">
 		<meta itemprop="position" content="3" />
 		<a itemscope itemtype="https://schema.org/Thing"
-           itemprop="item" href="<%= config.url + '/archives/' + page.month %>">
+           itemprop="item" href="<%= config.url + '/archives/' + page.month %>"
+           id="<%= 'archives_' + page.year + '_' + page.month %>">
 			<meta itemprop="name" content="<%= padLeft(page.month) %>"/>
 		</a>
 	</li>
