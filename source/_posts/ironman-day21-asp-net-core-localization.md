@@ -10,6 +10,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2018-01-09 12:00
+updated: 2019-09-30 23:40
 featured_image: /images/ironman/i21-1.png
 ---
 
@@ -103,6 +104,7 @@ namespace MyWebsite
     }
 }
 ```
+
 * **AddLocalization**  
   主要的多國語言服務，ResourcesPath 是指定**資源檔的目錄位置**。  
 * **AddViewLocalization**  
@@ -381,6 +383,30 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 @localizer["Hello"]<br />
 @Html.DisplayNameFor(m => m.Content)<br />
 @sharedLocalizer["Hello"]<br />
+```
+
+### Model (2019/09/30 補充)
+
+有網友問到在 Model 使用共用語系檔不會生效，所以補充一下。  
+
+在註冊 `AddDataAnnotationsLocalization` 時，要一併宣告 DataAnnotation 所使用的 LocalizerProvider，如下：  
+
+*Startup.cs*
+```cs
+namespace MyWebsite
+{
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // ...
+            services.AddDataAnnotationsLocalization(options => {
+                options.DataAnnotationLocalizerProvider = (type, factory) =>
+                factory.Create(typeof(SharedResource));
+            });
+        }
+    }
+}
 ```
 
 ### 執行結果
