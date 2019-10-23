@@ -3,6 +3,7 @@ title: 'ASP.NET Core 3 系列 - 從頭開始'
 author: John Wu
 tags:
   - ASP.NET Core
+  - ASP.NET Core 3
   - VS Code
 categories:
   - ASP.NET Core
@@ -127,7 +128,7 @@ Startup.cs                      # 啟動網站設定
 如果 VS Code 自動建立失敗，那就手動新增 *launch.json* 及 *tasks.json* 吧...  
 內容如下：  
 
-**launch.json**:  
+*launch.json*:  
 
 ```json
 {
@@ -148,7 +149,7 @@ Startup.cs                      # 啟動網站設定
 }
 ```
 
-**tasks.json**:  
+*tasks.json*:  
 
 ```json
 {
