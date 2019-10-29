@@ -291,6 +291,24 @@ public class Startup
 }
 ```
 
+如果有特殊需求，也可以透過委派的方式註冊。如下：  
+
+```cs
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddTransient<ISampleTransient>(srv => {
+            var sample = new Sample();
+            // Do something ...
+            return sample;
+        });
+        services.AddScoped<ISampleScoped>(srv => new Sample());
+        services.AddSingleton<ISampleSingleton>(srv => new Sample());
+    }
+}
+```
+
 ## Service Injection
 
 > **只要是透過 WebHost 產生實例的類別，都可以在建構子定義型態注入**。  
