@@ -21,7 +21,7 @@ featured_image: /images/b/51.png
 以下介面作為範例：
 
 ```cs
-public enum PayType
+public enum WalletType
 {
     Alipay,
     CreditCard,
@@ -30,11 +30,13 @@ public enum PayType
 
 public interface IWalletService
 {
+    WalletType WalletType { get; }
     void Debit(decimal amount);
 }
 
 public class AlipayService : IWalletService
 {
+    public WalletType WalletType { get; } = WalletType.Alipay;
     public void Debit(decimal amount)
     {
         // 從支付寶扣錢
@@ -43,6 +45,7 @@ public class AlipayService : IWalletService
 
 public class CreditCardService : IWalletService
 {
+    public WalletType WalletType { get; } = WalletType.CreditCard;
     public void Debit(decimal amount)
     {
         // 從信用卡扣錢
@@ -51,6 +54,7 @@ public class CreditCardService : IWalletService
 
 public class LinePayService : IWalletService
 {
+    public WalletType WalletType { get; } = WalletType.LinePay;
     public void Debit(decimal amount)
     {
         // 從 Line Pay 扣錢
@@ -97,9 +101,9 @@ namespace MyWebsite.Controllers
             _walletServices = walletServices;
         }
 
-        public IActionResult Checkout(PayType payType, decimal amount)
+        public IActionResult Checkout(WalletType walletType, decimal amount)
         {
-            var walletService = _walletServices.Single(x => x.GetType().Name.StartsWith(payType.ToString()));
+            var walletService = _walletServices.Single(x => x.WalletType == walletType);
             walletService.Debit(amount);
             return Ok();
         }
