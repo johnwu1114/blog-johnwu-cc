@@ -7,7 +7,7 @@ tags:
 categories:
   - ASP.NET Core
 date: 2019-10-29 23:52
-featured_image: /images/b/51.png
+featured_image: /images/b/52.png
 ---
 
 通常在使用 ASP.NET Core 依賴注入 (Dependency Injection, DI) 都是一個介面對應一個實作類別。  
