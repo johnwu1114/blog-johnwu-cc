@@ -91,7 +91,7 @@ pageviews_api: https://asia-east2-blog-johnwu-cc.cloudfunctions.net/page-views
 disqus_shortname: blog-johnwu-cc
 
 # Google Plugins
-google_translate: true
+google_translate: false
 google_custom_search: true
 # google_analytics:
 
