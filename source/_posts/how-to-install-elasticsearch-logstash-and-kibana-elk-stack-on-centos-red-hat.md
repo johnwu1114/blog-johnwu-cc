@@ -417,51 +417,131 @@ server.host: "0.0.0.0"
 本文範例 VM 無法連到外網，如果是使用可以連上網路的環境，能透過以下快速包下載及安裝：
 
 ```sh
+#!/bin/bash
 cd /tmp
 
-# 下載 jre-8u191-linux-x64.rpm
-wget --no-cookies --no-check-certificate \
-  --header "Cookie: gpw_e24=http%3a%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjdk8-downloads-2133151.html; oraclelicense=accept-securebackup-cookie;" \
-  "https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jre-8u191-linux-x64.rpm"
-# 安裝 jre-8u191-linux-x64.rpm
-rpm -ivh jre-*.rpm
+main() {
+    enter_parameters
+    install_tools
+    install_java
+    install_elasticsearch
+    install_kibana
+}
 
-# 下載 elasticsearch-6.5.4.rpm
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.4.rpm
-# 安裝 elasticsearch-6.5.4.rpm
-rpm -ivh elasticsearch-*.rpm
+install_tools() {
+    echo "###### Install Tools ######"
+    yum -y install epel-release
+    yum -y update
+    yum -y install net-tools wget
+}
 
-# 下載 logstash-6.5.4.rpm
-wget https://artifacts.elastic.co/downloads/logstash/logstash-6.5.4.rpm
-# 安裝 logstash-6.5.4.rpm
-rpm -ivh logstash-*.rpm
-/usr/share/logstash/bin/system-install
+install_java() {
+    echo "###### Install JDK ######"
+    yum -y install java-11-openjdk
+}
 
-# 下載 kibana-6.5.4-x86_64.rpm
-wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-x86_64.rpm
-# 安裝 kibana-6.5.4-x86_64.rpm
-rpm -ivh /tmp/kibana-*.rpm
+install_elasticsearch() {
+    echo "###### Install Elasticsearch ######"
 
-# 啟用服務
-systemctl daemon-reload
-systemctl enable elasticsearch
-systemctl start elasticsearch
-systemctl enable logstash
-systemctl start logstash
-systemctl enable kibana
-systemctl start kibana
+    # download
+    wget "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-x86_64.rpm"
 
-# 增加防火牆規則
-firewall-cmd --add-service=elasticsearch --permanent
-# Logstash default port
-firewall-cmd --add-port=5044/tcp --permanent
-# Kibana default port
-firewall-cmd --add-port=5601/tcp --permanent
-firewall-cmd --reload
+    # install
+    rpm -ivh elasticsearch-*.rpm
 
-# 刪除安裝檔
-rm -f jre-*.rpm
-rm -f elasticsearch-*.rpm
-rm -f logstash-*.rpm
-rm -f kibana-*.rpm
+    # Setting
+    swapoff -a
+    sed -i "s/^-Xms[[:digit:]]\{1,\}g/-Xms${ES_MAX_MEM_GB}g/g" /etc/elasticsearch/jvm.options
+    sed -i "s/^-Xmx[[:digit:]]\{1,\}g/-Xmx${ES_MAX_MEM_GB}g/g" /etc/elasticsearch/jvm.options
+    mkdir -p /etc/systemd/system/elasticsearch.service.d/
+    cat <<EOF > /etc/systemd/system/elasticsearch.service.d/override.conf
+[Service]
+LimitMEMLOCK=infinity
+EOF
+
+cat <<EOF > /etc/elasticsearch/elasticsearch.yml
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+cluster.name: $ES_CLUSTER_NAME
+node.name: $ES_NODE_NAME
+bootstrap.memory_lock: true
+network.host: 0.0.0.0
+http.host: 0.0.0.0
+network.publish_host: $ES_PUBLISH_HOST
+discovery.seed_hosts: ["127.0.0.1", "[::1]", "$ES_OTHER_NODE_HOST"]
+EOF
+    
+    # Start Service
+    systemctl daemon-reload
+    systemctl enable elasticsearch
+    systemctl start elasticsearch
+
+    rm -f elasticsearch-*.rpm
+}
+
+install_kibana() {
+    echo "###### Install Kibana ######"
+
+    # download
+    wget "https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-x86_64.rpm"
+
+    # install
+    rpm -ivh kibana-*.rpm
+
+    # Setting
+    sed -i "s/^#server\.host\:.*/server.host: \"0.0.0.0\"/g" /etc/kibana/kibana.yml
+
+    # Start Service
+    systemctl daemon-reload
+    systemctl enable kibana
+    systemctl start kibana
+
+    rm -f kibana-*.rpm
+}
+
+enter_parameters() {
+    
+    DEF_ES_VERSION="7.4.0"
+    DEF_ES_MAX_MEM_GB=`awk '/MemTotal/ {print int(int($2 / 1024 / 1024 + 0.5) / 2)}' /proc/meminfo`
+    DEF_ES_CLUSTER_NAME="my-cluster"
+    DEF_ES_NODE_NAME="es-node-1"
+    DEF_ES_PUBLISH_HOST="192.168.1.1"
+    DEF_ES_OTHER_NODE_HOST="192.168.1.2"
+
+    read -p "Install Elasticsearch Version [$DEF_ES_VERSION]: " ES_VERSION
+    ES_VERSION=${ES_VERSION:-$DEF_ES_VERSION}
+
+    while :
+    do
+        read -p "Memory GB [$DEF_ES_MAX_MEM_GB]: " ES_MAX_MEM_GB
+        ES_MAX_MEM_GB=${ES_MAX_MEM_GB:-$DEF_ES_MAX_MEM_GB}
+        if (( ES_MAX_MEM_GB >= 1 && ES_MAX_MEM_GB <= 32 )); then 
+            break
+        else
+            echo "Memory should between 1 and 32 GB"
+        fi
+    done
+
+    read -p "Cluster name [$DEF_ES_CLUSTER_NAME]: " ES_CLUSTER_NAME
+    ES_CLUSTER_NAME=${ES_CLUSTER_NAME:-$DEF_ES_CLUSTER_NAME}
+
+    read -p "Node name [$DEF_ES_NODE_NAME]: " ES_NODE_NAME
+    ES_NODE_NAME=${ES_NODE_NAME:-$DEF_ES_NODE_NAME}
+    
+    read -p "Publish host to other nodes (self ip) [$DEF_ES_PUBLISH_HOST]: " ES_PUBLISH_HOST
+    ES_PUBLISH_HOST=${ES_PUBLISH_HOST:-$DEF_ES_PUBLISH_HOST}
+
+    read -p "Other node host [$DEF_ES_OTHER_NODE_HOST]: " ES_OTHER_NODE_HOST
+    ES_OTHER_NODE_HOST=${ES_OTHER_NODE_HOST:-$DEF_ES_OTHER_NODE_HOST}
+
+    echo "###### Parameters ######"
+    echo "ES_VERSION=$ES_VERSION"
+    echo "ES_MAX_MEM_GB=$ES_MAX_MEM_GB"
+    echo "ES_CLUSTER_NAME=$ES_CLUSTER_NAME"
+    echo "ES_NODE_NAME=$ES_NODE_NAME"
+    echo "ES_PUBLISH_HOST=$ES_PUBLISH_HOST"
+    echo "ES_OTHER_NODE_HOST=$ES_OTHER_NODE_HOST"
+}
+
+main "$@"
 ```
