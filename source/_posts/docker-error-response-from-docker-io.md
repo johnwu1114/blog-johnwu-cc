@@ -23,7 +23,7 @@ Get https://registry-1.docker.io/v2/: net/http: request canceled while waiting f
 第一個 Step 就死了...
 
 上網查了一下，還不少人遇到一樣的問題，可能性有兩個：  
-1. 網路不通，Docker CLI 連不到 `https://registry-1.docker.io/v2/`，需要設定 Proxy 讓 Docker CLI 可以連到 Interner。  
+1. 網路不通，Docker CLI 連不到 `https://registry-1.docker.io/v2/`，需要設定 Proxy 讓 Docker CLI 可以連到 Internet。  
   *(不過我是在家沒被 MIS 擋，網路暢通，不是這個原因。)*  
 2. Docker 更新後，可能某些組態設定要重載，把 Docker Service Restart 就好了。  
 
