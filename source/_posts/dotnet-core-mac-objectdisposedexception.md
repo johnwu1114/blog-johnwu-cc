@@ -35,7 +35,7 @@ ps x | grep "dotnet exec"
 kill -9 <pid>
 
 # 整合以上兩行
-kill -9 $(ps -ax | grep "dotnet exec" | awk '{ print $1 }') &>2
+kill -9 $(ps -ax | grep "dotnet exec" | awk '{ print $1 }') 2> /dev/null
 ```
 
 ![.NET Core - 開發階段無法取用 Disposed Object - kill dotnet process](/images/b/55.png)
