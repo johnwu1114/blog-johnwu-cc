@@ -132,10 +132,10 @@ ENTRYPOINT dotnet $project_dll
 
 ![Docker 教學 - 打包 ASP.NET Core 前後端專案 Docker Image - Dockerfile npm](/images/b/29.png)  
 
-## .dotnetignore
+## .dockerignore
 
 從 Host 複製 `src` 目錄到 Container 時，可能會複製到不必要的檔案，如開發階段所產生的目錄： `bin`、`obj` 及 `node_modules` 等。  
-為了加速複製檔案，我們可以在方案根目錄新增 `.dotnetignore`，告知 **COPY** 忽略這些目錄或檔案，例：  
+為了加速複製檔案，我們可以在方案根目錄新增 `.dockerignore`，告知 **COPY** 忽略這些目錄或檔案，例：  
 
 ```yml
 .git/
