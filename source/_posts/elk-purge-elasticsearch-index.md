@@ -8,6 +8,7 @@ tags:
 categories:
   - ELK
 date: 2017-07-27 22:19
+update_date: 2021-01-04 11:33
 featured_image: /images/featured/elasticsearch.png
 ---
 ![ELK 教學 - 定期清除 Elasticsearch 資料](/images/featured/elasticsearch.png)
@@ -91,39 +92,50 @@ vi /etc/elasticsearch/purge.sh
 ``` bash
 #!/bin/sh
 
-KEEP_WEEK=12
 ES_URL_AND_PORT=localhost:9200
 
-i=0
-KEEPS=""
-YEAR=$(date +%Y)
-WEEK=$(date +%V)
-TEMP_WEEK=$WEEK
+main() {
+  delete_indices "uat-*" 2
+  delete_indices "prod-*" 3
 
-while [ $i -lt $KEEP_WEEK ]
-do
-  if [[ $TEMP_WEEK -le 1 ]]; then 
-    YEAR=`expr $YEAR - 1` 
-    WEEK=`expr 52 + $i`
-  fi
-  TEMP_WEEK=`expr $WEEK - $i`
-  KEEPS="$KEEPS\-$YEAR\.`printf %02d $TEMP_WEEK`|"
-  ((i++))
-done
+  curl -XPUT "$ES_URL_AND_PORT/_settings" -H "Content-Type: application/json" -d '{ "index.blocks.read_only_allow_delete": "false" }'
+  curl -XDELETE "$ES_URL_AND_PORT/.monitoring-*"
+  # curl "$ES_URL_AND_PORT/_cat/indices"
+}
 
-echo "KEEPS = $KEEPS"
+delete_indices() {
+  local pattern=$1
+  local keep_week=$2
 
-if [[ $i != 0 ]]; then
-  EXPIRED_INDICES=`curl "http://$ES_URL_AND_PORT/_cat/indices?v&h=i" | grep -P "\-\d{4}\.\d{2}$" | grep -Pv "(${KEEPS::-1})\b"`
-  for name in $EXPIRED_INDICES
-  do  
-    #echo "curl -XDELETE $ES_URL_AND_PORT/$name"
-    curl -XDELETE "$ES_URL_AND_PORT/$name"
+  local i=0
+  local keeps=""
+  local year=$(date +%Y)
+  local week=$(date +%V)
+  local temp_week=$week
+
+  while [ $i -lt $keep_week ]; do
+    keeps="$keeps\-$year\.`printf %02d $temp_week`|"
+    if [[ $temp_week -le 1 ]]; then
+      year=`expr $year - 1`
+      temp_week=53
+      ((i--))
+    else
+      ((temp_week--))
+    fi
+    ((i++))
   done
-fi
 
-curl -XDELETE "$ES_URL_AND_PORT/*\[fields\]\[source_type\]*"
-curl "$ES_URL_AND_PORT/_cat/indices"
+  if [[ $i != 0 ]]; then
+    EXPIRED_INDICES=`curl "http://$ES_URL_AND_PORT/_cat/indices/$pattern?v&h=i" | grep -P "\-\d{4}\.\d{2}$" | grep -Pv "(${keeps::-1})\b"`
+    for name in $EXPIRED_INDICES
+    do
+      # echo "curl -XDELETE $ES_URL_AND_PORT/$name"
+      curl -XDELETE "$ES_URL_AND_PORT/$name"
+    done
+  fi
+}
+
+main "$@"
 ```
 > 我的範例是留 12 週，基本上需求。我個人認為超過三週的 Log 就已經沒有價值了。  
 > 但如果你是拿 Log 來做分析，就另當別論了！
@@ -151,3 +163,7 @@ vi /etc/crontab
 > 我設定在每週一的早上五點執行清除 Elasticsearch。  
 
 這樣就不會留太多舊資料，導致硬碟爆炸囉～
+
+## 2021-01-04 更新
+
+修正 `purge.sh` 跨年度 bug
