@@ -1,5 +1,6 @@
 # Google Plugins
 google_analytics: <GOOGLE_ANALYTICS_ID>
+google_analytics_v4: "G-NSKXB3JS7L"
 
 # Facebook SDK Support
 facebook_sdk:
