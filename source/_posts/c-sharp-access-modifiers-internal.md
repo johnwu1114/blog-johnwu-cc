@@ -23,7 +23,7 @@ featured_image: /images/a/381.png
 
 ## protected internal
 
-`internal`可以跟`protected`何在一起使用，存取範圍就變成：  
+`internal`可以跟`protected`合在一起使用，存取範圍就變成：  
 > 相同組件 **或** 子類別都可以存取。  
 
 如下範例：
