@@ -125,8 +125,7 @@ namespace MyWebsite.Controllers
     {
         private static readonly string[][] _smapleData = new string[][]
         {
-            new string[]{ "John Wu Blog","https://blog.johnwu.cc/" },
-            new string[]{ "大內攻城粉絲團", "https://www.facebook.com/SoftwareENG.NET" }
+            new string[]{ "John Wu Blog","https://blog.johnwu.cc/" }
         };
 
         [HttpGet]

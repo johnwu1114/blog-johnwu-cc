@@ -103,12 +103,6 @@ facebook_sdk:
   like_button: true
   webmaster: true
 
-# Facebook Fans Page
-facebook_fans:
-  enable: true
-  name: "大內攻城 - Software Engineering in .NET"
-  url: https://www.facebook.com/SoftwareENG.NET/
-
 # hexo-renderer-marked
 marked:
   breaks: false
