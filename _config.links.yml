@@ -31,12 +31,8 @@ links:
   url: https://larrynung.github.io/
 - name: Yowko - Yowko's Notes
   url: https://blog.yowko.com/
-- name: James - 詹爸的隨手筆記
-  url: https://blog.papajames.tw/
 - name: Bruno - 饅頭小舖
   url: https://yi-shiuan.github.io/
-- name: Max W. - Retry
-  url: https://retrydb.blogspot.tw/
 - name: Sam Xiao - 資料探索世界
   url: https://medium.com/@xiaoxiaosam007/
 
@@ -51,7 +47,5 @@ nofollow:
   - blackie1019.github.io
   - larrynung.github.io
   - blog.yowko.com
-  - blog.papajames.tw
   - yi-shiuan.github.io
-  - retrydb.blogspot.tw
   - medium.com

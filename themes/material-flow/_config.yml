@@ -18,11 +18,9 @@ widgets:
   - about
   - toc
   - awards-certs
-  - facebook
   #- categories
   - recents
   - links
-  - statistics
   #- tagcloud
 
 # Less
