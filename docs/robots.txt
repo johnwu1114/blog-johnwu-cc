@@ -1,0 +1,20 @@
+Sitemap: https://blog.johnwu.cc/sitemap.xml
+Sitemap: https://blog.johnwu.cc/baidusitemap.xml
+
+User-Agent: Googlebot
+Allow: *.js
+Allow: *.css
+
+User-Agent: bingbot
+Allow: *.js
+Allow: *.css
+
+User-agent: *
+Allow: /
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /js/
+Disallow: /about/
+Disallow: /error/
+Disallow: /search/
