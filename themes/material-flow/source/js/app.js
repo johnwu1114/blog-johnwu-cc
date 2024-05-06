@@ -213,7 +213,7 @@ addLoadingBarProgress(10);
 		let urls = [];
 		let pageviews = {};
 		$(".pageviews").each(function () {
-			let url = $(this).data("path");
+			let url = decodeURIComponent($(this).data("path"));
 			urls.push(url);
 			pageviews[url] = $(this).find(".count");
 		}).promise().done(function () {
