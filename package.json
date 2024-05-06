@@ -5,13 +5,14 @@
   "scripts": {
     "start": "webpack -d&&hexo server --config _config.yml,_config.links.yml,_config.local.yml",
     "preview": "webpack -p&&hexo server --config _config.yml,_config.links.yml,_config.release.yml",
-    "watch": "webpack -d --watch"
+    "watch": "webpack -d --watch",
+    "deploy": "webpack -p&&hexo clean&&hexo deploy --generate --config _config.yml,_config.links.yml,_config.release.yml"
   },
   "hexo": {
-    "version": "3.9.0"
+    "version": "6.3.0"
   },
   "dependencies": {
-    "hexo": "^3.9.0",
+    "hexo": "^6.3.0",
     "hexo-all-minifier": "^0.5.3",
     "hexo-autonofollow": "^1.0.1",
     "hexo-generator-archive": "^0.1.4",

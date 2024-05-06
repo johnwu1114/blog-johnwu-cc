@@ -4,8 +4,8 @@ google_analytics_v4: "G-NSKXB3JS7L"
 
 # Facebook SDK Support
 facebook_sdk:
-  app_id: <FBSDK_APP_ID>
-  fb_admin: <FBSDK_ADMIN_ID>
+  app_id: "1046791958755149"
+  fb_admin: "972414696145753"
 
 ## hexo-all-minifier
 html_minifier:
