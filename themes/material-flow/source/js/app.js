@@ -7,7 +7,8 @@ addLoadingBarProgress(10);
 
 	function scrolltoElement(elem, correction) {
 		correction = correction || scrollCorrection;
-		const $elem = elem.href ? $(elem.getAttribute("href")) : $(elem);
+		var href = decodeURIComponent(elem.getAttribute("href"));
+		const $elem = elem.href ? $(href) : $(elem);
 		$("html, body").animate({
 			"scrollTop": $elem.offset().top - correction
 		}, 400);
@@ -174,7 +175,8 @@ addLoadingBarProgress(10);
 		//function animate above will convert float to int.
 		const getAnchor = function () {
 			return liElements.map(function (elem) {
-				return Math.floor($(elem.getAttribute("href")).offset().top - scrollCorrection);
+				var href = decodeURIComponent(elem.getAttribute("href"));
+				return Math.floor($(href).offset().top - scrollCorrection);
 			});
 		};
 
