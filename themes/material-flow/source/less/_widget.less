@@ -9,7 +9,7 @@
         &:before{
             //content: '#';
             //margin-left: -10px;
-            margin-right: @gap/2;
+            margin-right: @gap*0.5;
             color: @secondary-color;
         }
         font-size: 1.2rem;
@@ -19,7 +19,7 @@
     }
     .content{
         border-top: 1px solid fade(@black,10%); 
-        padding: @gap/2 0;
+        padding: @gap*0.5 0;
     }
      ul.entry > li > a {
         padding: 0 @gap;
@@ -76,15 +76,15 @@
     }
     .social-wrapper {
         text-align: center;
-        padding: @gap/2 @gap;
+        padding: @gap*0.5 @gap;
         .social {
-            padding: @gap/2;
+            padding: @gap*0.5;
         }
     }
 }
 .m_widget.tagcloud {
     .content{
-        padding: @gap/2 @gap;
+        padding: @gap*0.5 @gap;
         a{
             display:inline-block;
             .enable-trans(.1s);
@@ -123,7 +123,7 @@
 .m_widget.awards-certs {
     .content {
         text-align: center;
-        padding: 0 @gap/2 @gap/2 @gap/2;
+        padding: 0 @gap*0.5 @gap*0.5 @gap*0.5;
     }
     ul > li {
         label {
@@ -137,6 +137,6 @@
             font-size: .75rem;
             color: darken(@grey-color,10%);
         }
-        padding: @gap/2 0;
+        padding: @gap*0.5 0;
     }
 }

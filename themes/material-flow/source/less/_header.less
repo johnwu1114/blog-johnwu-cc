@@ -55,7 +55,7 @@
 			.enable-trans();
 			display: block;
 			color: fade(@white,70%);
-			padding: 0 @gap / 2;
+			padding: 0 @gap*0.5;
 			&:hover,&.active{
 				color: @white;
 			}
@@ -145,7 +145,7 @@
 		width: @search-height;
 		line-height: @search-height;
 		top: 0;
-		left: @gap/2;
+		left: @gap*0.5;
 	}
 	.input {
 		display:block;
@@ -205,7 +205,7 @@
 	right: 0;
 	width: 220px;
 	z-index:9999;
-	padding: @gap/2 0px;
+	padding: @gap*0.5 0px;
 	line-height: 2 * @gap;
 	background: white;
 	border: 1px solid #e6e7e6;

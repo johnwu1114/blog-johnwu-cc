@@ -7,7 +7,7 @@
         margin: 0px auto;
         columns: 400px;
         column-gap: 0;
-        margin: -@gap /2;
+        margin: -@gap*0.5;
         @media(max-width: @on-phone) {
             margin: 0;
         }
@@ -20,7 +20,7 @@
             padding: @gap;
         }
     }
-    .post-wrapper{
+    .post-wrapper {
         // for firefox
         column-break-inside: avoid;
         break-inside: avoid-column;
@@ -55,7 +55,7 @@
         }
     }
     .post-wrapper {
-        padding: @gap /2;
+        padding: @gap*0.5;
         .mobile-post();
         .tags {
             margin-bottom: -1.5*@gap;
