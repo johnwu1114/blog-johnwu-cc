@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,macos,visualstudiocode,hexo
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,visualstudiocode,hexo
+# Created by https://www.toptal.com/developers/gitignore/api/hexo,node,macos,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=hexo,node,macos,visualstudiocode
 
 ### Hexo ###
 db.json
@@ -198,7 +198,4 @@ dist
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/node,macos,visualstudiocode,hexo
-
-_multiconfig.yml
-package-lock.json
+# End of https://www.toptal.com/developers/gitignore/api/hexo,node,macos,visualstudiocode
