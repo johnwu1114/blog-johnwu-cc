@@ -44,7 +44,7 @@ new FileNameFinder().getFileNames(env.JENKINS_HOME, "*.xml", "jenkins*")
 
 ## 2. eachFile*
 
-除了 `FileNameFinder` 以外，還有其他的搜尋方式，但我用 `Jenkins 2.60.2` 版本及 `Pipeline: Groovy 2.38` 版本，`eachFile*` 有 Bug 尚未修復，找到第一筆資料後就終止了。  
+除了 `FileNameFinder` 以外，還有其它的搜尋方式，但我用 `Jenkins 2.60.2` 版本及 `Pipeline: Groovy 2.38` 版本，`eachFile*` 有 Bug 尚未修復，找到第一筆資料後就終止了。  
 用較早之前的版本，可以參考以下方法：
 
 ### 2.1. eachFile

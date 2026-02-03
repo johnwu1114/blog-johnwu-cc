@@ -179,7 +179,7 @@ public class Startup
 
 ## 回傳格式
 
-以 RESTful API 的例子來看，回傳的格式都是 JSON，所以可以直接在 Controller 加上 `[Produces("application/json")]` 表示回傳的型別都是 JSON，在 Swagger 的 Response Content Type 選項就會被鎖定只有 application/json 可以使用。如下：
+以 RESTful API 的例子來看，回傳的格式都是 JSON，所以可以直接在 Controller 加上 `[Produces("application/json")]` 表示回傳的型別都是 JSON，在 Swagger 的 Response Content Type 選項就會被鎖定只有 application/JSON 可以使用。如下：
 ```cs
 // ...
 [Route("api/[controller]s")]

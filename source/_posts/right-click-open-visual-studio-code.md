@@ -22,7 +22,7 @@ featured_image: /images/featured/vs-code.png
 在安裝 Visual Studio Code 的時候，其中有兩個選項是問，要不要把開啟 VS Code 加入到右鍵選單中，如下圖：
 ![Visual Studio Code - 右鍵開啟檔案或資料夾 - 安裝時啟用](/images/a/238.png)
 
-如果你跟我一樣不小心忽略了這個選項就直接安裝的話，也不用急著重裝，可以透過其他方式把 VS Code 加入選單中。
+如果你跟我一樣不小心忽略了這個選項就直接安裝的話，也不用急著重裝，可以透過其它方式把 VS Code 加入選單中。
 
 ## Windows 註冊檔
 

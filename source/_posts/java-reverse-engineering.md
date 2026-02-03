@@ -36,7 +36,7 @@ featured_image: /images/a/28.png
 
 ## 模擬物件
 
-由於授權資訊跟限制條件是在 LicenseProvider 載入，只要把他改寫，就可以成功延長授權，步驟如下：
+由於授權資訊跟限制條件是在 LicenseProvider 載入，只要把它改寫，就可以成功延長授權，步驟如下：
 
 ### 1. 用 eclipse 開新 Java 專案(或其它 Java IDE)  
 

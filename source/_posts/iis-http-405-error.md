@@ -20,7 +20,7 @@ featured_image: /images/a/350.png
 
 ## 發生原因
 
-ASP.NET Web API 或 ASP.Net Core 在使用 HTTP Method `PUT` 或 `DELETE` 時，會與 `WebDAV` 這套件衝突。  
+ASP.NET Web API 或 ASP.NET Core 在使用 HTTP Method `PUT` 或 `DELETE` 時，會與 `WebDAV` 這套件衝突。  
 
 當發生衝突時，就會顯示以下錯誤訊息：
 ```sh

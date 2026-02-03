@@ -25,7 +25,7 @@ featured_image: /images/a/192.png
 開發工具：
 1. Visual Studio Code。[官網下載頁面](https://code.visualstudio.com/Download)  
 > 基本上 VS Code 就是純文字編輯工具，你要用 Sublime、Notepade++、Atom、TextEdit都可以。  
-2. Nodejs 6.9.x 以上版本及 npm 3 以上版本。[官網下載頁面](https://nodejs.org/en/download/)  
+2. Node.js 6.9.x 以上版本及 npm 3 以上版本。[官網下載頁面](https://nodejs.org/en/download/)  
 
 有很多人問我為什麼不用 VS Code 來做為 Angular 4 的開發工具，因為三個原因：  
 1. 在我們部門前端工程師要包含 ASP.NET MVC、Web API 等，所以要寫 C# 控制伺服端事件。用不同的 IDE 開發對我們來說並不方便。  

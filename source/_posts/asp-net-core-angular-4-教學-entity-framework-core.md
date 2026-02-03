@@ -30,7 +30,7 @@ featured_image: /images/a/11p.png
 1. Microsoft.EntityFrameworkCore.SqlServer
 2. Microsoft.Extensions.Configuration
 3. Microsoft.Extensions.Configuration.Binder
-4. Microsoft.Extensions.Configuration.Json
+4. Microsoft.Extensions.Configuration.json
 
 ## 2. 建立資料庫
 

@@ -20,7 +20,7 @@ featured_image: /images/a/290.png
 
 ## IFrame 太小
 
-如果只是把 `IFrame` 設定寬高 `100%` 實際上他不會真的套用百分比的設定，視窗大於 `IFrame` 時，就會空出空間。如下：
+如果只是把 `IFrame` 設定寬高 `100%` 實際上它不會真的套用百分比的設定，視窗大於 `IFrame` 時，就會空出空間。如下：
 
 ```html
 <iframe src="https://blog.johnwu.cc/" width="100%" height="100%"></iframe>

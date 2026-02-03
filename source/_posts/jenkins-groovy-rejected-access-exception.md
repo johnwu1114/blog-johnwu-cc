@@ -28,7 +28,7 @@ org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: *****
 ![Jenkins - Groovy RejectedAccessException - In-process Script Approval](/images/a/268.png)
 ![Jenkins - Groovy RejectedAccessException - Approve](/images/a/269.png)
 
-> 授權完之後再執行，又會遇到其他的權限不足，重複以上步驟直到沒有再提示 `RejectedAccessException`。  
+> 授權完之後再執行，又會遇到其它的權限不足，重複以上步驟直到沒有再提示 `RejectedAccessException`。  
 
 
 例如，此範例遇到 5 個權限需要被授權：

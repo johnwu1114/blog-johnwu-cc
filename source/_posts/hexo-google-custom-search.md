@@ -24,7 +24,7 @@ featured_image: /images/a/284.png
 ![Hexo - 自訂站內搜尋 (Google Custom Search) - 新稱搜尋引擎](/images/a/280.png)
 
 設定要被搜尋的路徑，例如我的部落格文章都放在 `blog.johnwu.cc/article/` 目錄之下，我就設定只要搜尋此目錄。  
-> 其他頁面如：Categories、Tags、Archives 等，都屬於索引頁面，沒有必要被搜尋，所以就不設定。  
+> 其它頁面如：Categories、Tags、Archives 等，都屬於索引頁面，沒有必要被搜尋，所以就不設定。  
 
 ![Hexo - 自訂站內搜尋 (Google Custom Search) - 設定搜尋引擎](/images/a/281.png)
 
@@ -74,7 +74,7 @@ menu_icons:
   search: search 
 ```
 
-> 由於我的 Theme 是用 NexT，所以我以 NexT 為例，其他 Theme 的使用者請自行變通一下。
+> 由於我的 Theme 是用 NexT，所以我以 NexT 為例，其它 Theme 的使用者請自行變通一下。
 
 設定完成後，就可以點擊 Menu 就可以看到 GCS 整合到 Hexo 囉～
 

@@ -55,7 +55,7 @@ featured_image: /images/a/310.png
 ## 3. 快速失敗保護 (Rapid-Fail Protection)
 
 Enabled 預設值是 **True**，當 *N* 分鐘內，發生 *M* 次錯誤，IIS 就會終止網站。  
-如果有能力在 ASP.NET 中處理錯誤，或實作一些異常處裡的保護機制，我建議把這個值設定成 `False`，關閉快速失敗保護。  
+如果有能力在 ASP.NET 中處理錯誤，或實作一些異常處理的保護機制，我建議把這個值設定成 `False`，關閉快速失敗保護。  
 
 > 以前發生過 SignalR 某個版本的 Bug，導致 Client 連線丟出過多例外，對網站根本無關痛癢，但 IIS 就把網站停了...  
 

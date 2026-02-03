@@ -50,7 +50,7 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 
 ## [hidden] 陷阱
 
-由於 HTML 元素的 hidden 屬性是由 Browser 控制，效果同 CSS `display: none;`，如果該 HTML 元素有被賦予其他的 CSS，並複寫了 `display`，hidden 屬性就會被影響。  
+由於 HTML 元素的 hidden 屬性是由 Browser 控制，效果同 CSS `display: none;`，如果該 HTML 元素有被賦予其它的 CSS，並複寫了 `display`，hidden 屬性就會被影響。  
 如下範例：
 ```html
 <style>

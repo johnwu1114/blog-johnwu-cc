@@ -51,7 +51,7 @@ ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐�
 因為 Elasticsearch 及 Logstash 是用 Java 開發，所以要安裝 JVM。  
 本篇教學是用 Elasticsearch 5.3 版本，需要 Java 8 以上版本，官方推薦 1.8.0_73 上版本。  
 
-Red Hat 及 CentOS 可以下載 rpm 安裝檔。其他 Linux 版本的話就下載 tar 解壓縮安裝。  
+Red Hat 及 CentOS 可以下載 rpm 安裝檔。其它 Linux 版本的話就下載 tar 解壓縮安裝。  
 [Download JRE](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 ![Download JRE](/images/a/93.png)
 
@@ -292,7 +292,7 @@ systemctl status logstash
 
 ### 4.2 設定
 
-透過 vi 或其他文字編輯器，新增 Logstah 的 Filter 設定檔：  
+透過 vi 或其它文字編輯器，新增 Logstah 的 Filter 設定檔：  
 
 ```bash
 vi /etc/logstash/conf.d/pipeline.conf

@@ -92,7 +92,7 @@ public class Program
     同時連線數限制。  
     *(預設無限)*  
   * **MaxConcurrentUpgradedConnections**  
-    同時連線數限制，包含如 WebSockets 等，其他非連線方式 HTTP。  
+    同時連線數限制，包含如 WebSockets 等，其它非連線方式 HTTP。  
     *(預設無限)*  
   * **MaxRequestBodySize**  
     Request 封包限制。  
@@ -107,7 +107,7 @@ public class Program
     Server 處理一個封包最長的時間。  
     *(預設 30 秒)*  
 
-> 其他設定可以參考 KestrelHttpServer 的 GitHub 原始碼，目前還沒有線上文件，但 Summary 註解詳細。  
+> 其它設定可以參考 KestrelHttpServer 的 GitHub 原始碼，目前還沒有線上文件，但 Summary 註解詳細。  
 > * [KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs)  
 > * [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs)  
 > * [ListenOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/ListenOptions.cs)  

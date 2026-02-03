@@ -98,7 +98,7 @@ VS Code 是一套可安裝擴充套件的文字編輯器，有支援 Windows、M
 
 ### 開啟專案
 
-VS Code 跟一般文字編輯器有些不同，它是以資料夾為工作區域，開啟一個目錄，就等通於是開啟一個專案。從上方工具列 **File** -> **Open Folder** 選擇 ASP.NET Core 專案目錄，大概隔幾秒後，VS Code 會提示是否要幫此專案加入 Build/Debug 的設定。如下圖：  
+VS Code 跟一般文字編輯器有些不同，它是以資料夾為工作區域，開啟一個目錄，就等同於是開啟一個專案。從上方工具列 **File** -> **Open Folder** 選擇 ASP.NET Core 專案目錄，大概隔幾秒後，VS Code 會提示是否要幫此專案加入 Build/Debug 的設定。如下圖：  
 
 ![ASP.NET Core 3 系列 - 從頭開始 - VS Code 開啟專案](/images/ironman/i01-5.png)
 

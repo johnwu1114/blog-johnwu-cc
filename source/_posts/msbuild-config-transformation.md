@@ -74,7 +74,7 @@ Input/Web.Release.config
 
 ## 建立 MSBuild 專案
 
-MSBuild 專案是 XML 格式，所以建個 XML 檔案 Configuration.xml，如下：
+MSBuild 專案是 XML 格式，所以建個 XML 檔案 Configuration.XML，如下：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">

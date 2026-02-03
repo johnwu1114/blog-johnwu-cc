@@ -87,7 +87,7 @@ docker build -f [DOCKERFILE_PATH] -t [IMAGE_NAME]:[TAG] --build-arg project_name
 
 ### npm
 
-此範例除了有 ASP.NET Core 專案，同時也包含了前端專案在裡面，前端專案如果是用 *TypeScript* 編寫或其他需要 *Webpack* 打包等動作，都會需要 *node.js*。  
+此範例除了有 ASP.NET Core 專案，同時也包含了前端專案在裡面，前端專案如果是用 *TypeScript* 編寫或其它需要 *Webpack* 打包等動作，都會需要 *node.js*。  
 因此，可以透過另一個暫存 Container，負責打包前端專案。  
 
 `build/build-image.dockerfile` 內容如下：  
@@ -155,7 +155,7 @@ scripts/
 
 ## 清除 Temp images
 
-`Dockerfile` 執行建置後，只會把最後一個 Container 賦予名稱當作最終結果，其他的 Stage 並不會消失，若執行 `docker images` 指令，會發現有一大堆顯示為 **&lt;none&gt;** 的 Docker Image。  
+`Dockerfile` 執行建置後，只會把最後一個 Container 賦予名稱當作最終結果，其它的 Stage 並不會消失，若執行 `docker images` 指令，會發現有一大堆顯示為 **&lt;none&gt;** 的 Docker Image。  
 可透過以下指令快速移除：
 
 ```sh

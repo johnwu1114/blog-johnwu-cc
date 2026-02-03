@@ -62,4 +62,3 @@ Build 完的 Output console 可以看到成品在 Server的位置，可以登到
 
 每次的 Release 都會被保留，預設是保留 30 天，至少保留 3 個版本。如下：
 ![TFS - ASP.NET Releases](/images/a/182.png)
-

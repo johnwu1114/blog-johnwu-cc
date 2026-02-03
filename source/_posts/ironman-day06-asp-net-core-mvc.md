@@ -116,11 +116,11 @@ public class HomeController : Controller
  回應包含 HTTP Status。常用的回應有 `Ok`、`BadRequest`、`NotFound` 等。  
  例如：`return BadRequest("Internal Server Error")`，會回應 HTTP Status 400 及 **Internal Server Error** 字串。   
 * **Redirect**  
- 可以把 Request 轉給其他的 Action 或 URL。轉向的方法有 `Redirect`、`LocalRedirect`、`RedirectToAction`、`RedirectToRoute` 等。  
+ 可以把 Request 轉給其它的 Action 或 URL。轉向的方法有 `Redirect`、`LocalRedirect`、`RedirectToAction`、`RedirectToRoute` 等。  
  例如：`return RedirectToAction("Login", "Authentication")`，就會把 Request 轉向到 **AuthenticationController** 的 **Login()**。    
 * **Formatted Response**  
  回應時指定 **Content-Type**。Web API 的回傳通常都用這種方式，序列化物件順便標註 **Content-Type**。  
- 例如：`return Json(user)`，會將物件序列化成 JSON 字串，並在 HTTP Headers 帶上 **Content-Type=application/json**。  
+ 例如：`return Json(user)`，會將物件序列化成 JSON 字串，並在 HTTP Headers 帶上 **Content-Type=application/JSON**。  
 
 ### View
 

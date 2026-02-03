@@ -11,14 +11,14 @@ featured_image: /images/a/162.png
 ---
 ![ASP.NET Core 教學 - Application Lifetime](/images/a/162.png)
  
-本篇將介紹 ASP.NET Core 補捉 Application 啟動及停止事件。  
+本篇將介紹 ASP.NET Core 捕捉 Application 啟動及停止事件。  
 
 <!-- more -->
 
 ## ApplicationLifetime
 
-Application 停起事件對於除錯很重要，ASP.NET Core 不像 ASP.NET MVC 用繼承的方式補捉啟動及停止事件。  
-是透過注入的 IApplicationLifetime 來補捉，IApplicationLifetime 需要安裝套件 `Microsoft.AspNetCore.Hosting`。  
+Application 啟停事件對於除錯很重要，ASP.NET Core 不像 ASP.NET MVC 用繼承的方式捕捉啟動及停止事件。  
+是透過注入的 IApplicationLifetime 來捕捉，IApplicationLifetime 需要安裝套件 `Microsoft.AspNetCore.Hosting`。  
 
 IApplicationLifetime 有三個事件可以注冊監聽。如下：  
 

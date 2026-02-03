@@ -29,7 +29,7 @@ featured_image: /images/a/166.png
  What were the things the team desired or wished for but were not present during the sprint?  
 3. 請團隊成員對每個問題提出想法，寫在便條紙上  
  > 一張便條紙只寫一件事  
-4. 寫完就貼在白板上，等其他人完成，以上步驟我大概抓 10~15 分鐘  
+4. 寫完就貼在白板上，等其它人完成，以上步驟我大概抓 10~15 分鐘  
 5. 請大家分別描述一下自己寫的內容，大概長這樣： 
 ![Scrum - 回顧方法 - 4Ls - Setp 5](/images/a/167.png)
 6. 把相似的內容圈在一起，如下：  

@@ -54,7 +54,7 @@ featured_image: /images/a/378.png
 
 ### Domain Project
 
-專案相依：不應該相依於其他專案。  
+專案相依：不應該相依於其它專案。  
 專案名稱：*CompanyName.ProjectName.Domain*  
 
 這個專案主要是用來分離各層相依關係的，內容含如下：
@@ -144,7 +144,7 @@ namespace CompanyName.ProjectName.BusinessLayer.Logics
 #### API Library
 
 由於 Service Layer 是屬於對外開放的接口，所以我並沒有特別推薦命名方式，不要太突兀就好。  
-可以參考許多第三方套件的 API 命名方式，例如常見的 `Newtonsoft.Json`：
+可以參考許多第三方套件的 API 命名方式，例如常見的 `Newtonsoft.json`：
 ```cs
 var json = Newtonsoft.Json.JsonConvert.SerializeObject(new { });
 ```

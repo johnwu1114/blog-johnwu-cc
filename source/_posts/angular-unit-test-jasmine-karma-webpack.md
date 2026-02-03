@@ -54,7 +54,7 @@ app/                                # Angular 4 的主要目錄
  * **karma-webpack**  
 
 * 由於我是用 Chrome 開發及測試，所以裝了這個套件，當啟動 *Karma* 就會開啟 Chrome 進行測試。  
-其他瀏覽器也有相關套件：
+其它瀏覽器也有相關套件：
  * **karma-chrome-launcher**  
  * karma-phantomjs-launcher  
  * karma-firefox-launcher  
@@ -140,7 +140,7 @@ if (process.env.NODE_ENV === "production") {
 module.exports = config;
 ```
 
-> 有一點要注意，在測試階段不要啟用 `CommonsChunkPlugin`。其他部分就保留原本 *Webpack* 使用的設定即可。  
+> 有一點要注意，在測試階段不要啟用 `CommonsChunkPlugin`。其它部分就保留原本 *Webpack* 使用的設定即可。  
 
 ### 2.2. Karma 設定
 
@@ -181,7 +181,7 @@ module.exports = function (config) {
 * **files**: 是設定單元測試需要載入的檔案。可以換成自己的路徑。  
 * **preprocessors**: 啟動單元測試前要做的事。  
  這邊我做的是把 `app/main.test.ts` 用 *Webpack* 打包。  
-* **browsers**: 如果要用其他瀏覽器執行測試，除了要安裝套件，也要在這邊設定。  
+* **browsers**: 如果要用其它瀏覽器執行測試，除了要安裝套件，也要在這邊設定。  
 
 ### 2.3. 單元測試進入點
 
@@ -218,7 +218,7 @@ TestBed.initTestEnvironment(
 * **require.context()** 會把指定路徑的符合 *.spec.ts 的檔案，都當作測試案例載入。
  * 參數1: 我把 main.test.ts 放在 app 資料夾，所以 `"."` 指的就是 `/app/` 資料夾。  
  * 參數2: 是否包含子目錄。  
- * 參數3: 這邊指定 `*.spec.ts` 檔案，都是單元測試的測試案例檔，也可以換成其他的檔案格式或名稱。  
+ * 參數3: 這邊指定 `*.spec.ts` 檔案，都是單元測試的測試案例檔，也可以換成其它的檔案格式或名稱。  
 
 ### 2.4. NPM 指令設定
 

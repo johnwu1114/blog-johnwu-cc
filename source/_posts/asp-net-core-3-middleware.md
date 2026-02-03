@@ -156,7 +156,7 @@ First Middleware out.
 ## App.Run
 
 `Run` 是 Middleware 的最後一個行為，以上面圖例來說，就是最末端的 Action。  
-它不像 `Use` 能串聯其他 Middleware，但 `Run` 還是能完整的使用 Request 及 Response。  
+它不像 `Use` 能串聯其它 Middleware，但 `Run` 還是能完整的使用 Request 及 Response。  
 
 ## App.Map
 
@@ -343,4 +343,4 @@ namespace MyWebsite
 ## 參考
 
 * [ASP.NET Core Middleware Fundamentals](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware)  
-* [Creating Custom Middleware In ASP.Net Core](https://dotnetcoretutorials.com/2017/03/10/creating-custom-middleware-asp-net-core/)  
+* [Creating Custom Middleware In ASP.NET Core](https://dotnetcoretutorials.com/2017/03/10/creating-custom-middleware-asp-net-core/)  

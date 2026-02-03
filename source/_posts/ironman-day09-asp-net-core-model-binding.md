@@ -52,7 +52,7 @@ namespace MyWebsite.Controllers
 
 ## Binding Attributes
 
-除了預設的三種 Binding 來源外，還可以透過 Model Binding Attributes 從 HTTP Requset 的其他資訊中 Binding。有以下 6 種類別：  
+除了預設的三種 Binding 來源外，還可以透過 Model Binding Attributes 從 HTTP Requset 的其它資訊中 Binding。有以下 6 種類別：  
 * **[FromHeader]**  
  從 HTTP Header 取值。  
 * **[FromForm]**  
@@ -280,5 +280,5 @@ namespace MyWebsite.Attributes
 
 [Overview of ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview)  
 [Introduction to model validation in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)  
-[ASP.NET CORE 2.0 MVC MODEL BINDING](https://tahirnaushad.com/2017/08/22/asp-net-core-2-0-mvc-model-binding/)  
-[ASP.NET CORE 2.0 MVC MODEL VALIDATION](https://tahirnaushad.com/2017/08/22/asp-net-core-2-0-mvc-model-validation/)  
+[ASP.NET Core 2.0 MVC MODEL BINDING](https://tahirnaushad.com/2017/08/22/asp-net-core-2-0-mvc-model-binding/)  
+[ASP.NET Core 2.0 MVC MODEL VALIDATION](https://tahirnaushad.com/2017/08/22/asp-net-core-2-0-mvc-model-validation/)  

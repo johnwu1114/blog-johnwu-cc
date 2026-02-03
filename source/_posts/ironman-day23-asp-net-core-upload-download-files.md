@@ -471,4 +471,4 @@ public class Program
 ## 參考
 
 [File uploads in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)  
-[Uploading Files In ASP.net Core](https://dotnetcoretutorials.com/2017/03/12/uploading-files-asp-net-core/)  
+[Uploading Files In ASP.NET Core](https://dotnetcoretutorials.com/2017/03/12/uploading-files-asp-net-core/)  

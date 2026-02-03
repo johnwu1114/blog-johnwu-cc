@@ -80,7 +80,7 @@ docker build -t [HOSTNAME]/[PROJECT_ID]/[IMAGE_NAME]:[TAG] - < [DOCKERFILE_PATH]
 
 * **HOSTNAME**  
  選項如下：
- * `gcr.io` 美國 United States (未來可能會換到其他地區)  
+ * `gcr.io` 美國 United States (未來可能會換到其它地區)  
  * `us.gcr.io` 美國 United States  
  * `eu.gcr.io` 歐洲 European Union  
  * `asia.gcr.io` 亞洲 Asia  

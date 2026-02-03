@@ -19,7 +19,7 @@ ASP.NET 有些基本的預設值是不必要的，既然不會用到，建議就
 
 ## 1. HTTP Modules
 
-每個 Request 都會經過所有註冊的 HTTP Modules，Response 也是逐一回傳，以先進後出的方式處裡封包。如上圖。  
+每個 Request 都會經過所有註冊的 HTTP Modules，Response 也是逐一回傳，以先進後出的方式處理封包。如上圖。  
 ASP.NET 預設註冊的 HTTP Modules 有 16 個，取得已註冊 HTTP Modules 的程式碼如下：  
 ```cs
 var httpModules = HttpContext.ApplicationInstance.Modules;

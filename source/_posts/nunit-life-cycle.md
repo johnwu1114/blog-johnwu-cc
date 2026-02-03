@@ -12,7 +12,7 @@ featured_image: /images/a/243.png
 ---
 ![NUnit - 測試案例生命週期](/images/a/243.png)
 
-寫 Unit Test 不免都要對 Test Case 做一些前置準備或善後處裡。  
+寫 Unit Test 不免都要對 Test Case 做一些前置準備或善後處理。  
 了解 Unit Test Framework 的 Life Cycle，可以善用測試案例生命週期，簡化在 Test Case 中的步驟。  
 本篇將介紹 NUnit 的測試案例生命週期 Life Cycle。  
 

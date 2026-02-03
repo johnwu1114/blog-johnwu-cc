@@ -25,7 +25,7 @@ ASP.NET Core 要做一個通用的 Exception Handler 可以透過 Middleware 或
 
 ## Exception Filter
 
-Exception Filter 僅能補捉到 Action 及 Action Filter 所發出的 Exception。  
+Exception Filter 僅能捕捉到 Action 及 Action Filter 所發出的 Exception。  
 其它的類型的 Filter 或 Middleware 產生的 Exception，並沒有辦法透過 Exception Filter 攔截。  
 如果要做全站的通用的 Exception Handler，可能就沒有這麼合適。  
 

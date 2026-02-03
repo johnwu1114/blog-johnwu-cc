@@ -20,7 +20,7 @@ featured_image: /images/a/157.png
 
 ## 1. 套件來源
 
-新增一個自訂的套件來源位置，把接下來要發佈的套件指向這裡，其他人要安裝或更新 NuGet 套件，都是從這邊提取。  
+新增一個自訂的套件來源位置，把接下來要發佈的套件指向這裡，其它人要安裝或更新 NuGet 套件，都是從這邊提取。  
 步驟如圖：  
 ![TFS - Create Packages Feed - 1](/images/a/144.png)
 ![TFS - Create Packages Feed - 2](/images/a/145.png)
@@ -53,7 +53,7 @@ Failed...
 
 解法：  
 我用到 NETStandard.Library，必須要用新版的 NuGet。  
-到套件來源下載最新版的 nuget.exe，這個連結會到微軟官網下載最新版的 nuget.exe。如圖：  
+到套件來源下載最新版的 NuGet.exe，這個連結會到微軟官網下載最新版的 NuGet.exe。如圖：  
 ![TFS - Download NuGet.exe](/images/a/148.png)
 
 下載完成後，放到 TFS 上面，並指定路徑：  
@@ -93,7 +93,7 @@ Failed...
 終於發佈成功，但開心的太早，因為第一次成功，第二次之後都失敗...  
 舊的 `*.nupkg` 一直留在 Build Agent 的 _work 目錄中，所以被誤判發佈相同版本，而 NuGet 不允許重複發佈同版本。
 > Response status code does not indicate success: 409 (Conflict).  
-> ##[error]Error: D:\TfsData\agent-2.112.0\_work\_tasks\NuGetPublisher_333b11bd-d341-40d9-afcf-b32d5ce6f25b\0.2.30\node_modules\nuget-task-common\NuGet\3.5.0\NuGet.exe failed with  
+> ##[error]Error: D:\TfsData\agent-2.112.0\_work\_tasks\NuGetPublisher_333b11bd-d341-40d9-afcf-b32d5ce6f25b\0.2.30\node_modules\NuGet-task-common\NuGet\3.5.0\NuGet.exe failed with  
 > ##[error]Packages failed to publish  
 
 ![TFS - Build Agent - status](/images/a/140.png)
