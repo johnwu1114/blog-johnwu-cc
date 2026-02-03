@@ -31,10 +31,6 @@ links:
   url: https://larrynung.github.io/
 - name: Yowko - Yowko's Notes
   url: https://blog.yowko.com/
-- name: Bruno - 饅頭小舖
-  url: https://yi-shiuan.github.io/
-- name: Sam Xiao - 資料探索世界
-  url: https://medium.com/@xiaoxiaosam007/
 
 # hexo-autonofollow
 nofollow:
@@ -43,9 +39,7 @@ nofollow:
   - mvp.microsoft.com
   - www.youracclaim.com
   - ithelp.ithome.com.tw
-  - blog.jimmywu.cc
   - blackie1019.github.io
   - larrynung.github.io
   - blog.yowko.com
-  - yi-shiuan.github.io
   - medium.com

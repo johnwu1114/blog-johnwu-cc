@@ -109,7 +109,7 @@ namespace MyWebsite
   設定 Gzip 的壓縮方式。  
   *(預設是 `CompressionLevel.Fastest` 快速壓縮)*  
 
-調整完 MimeTypes 及 CompressionLevel 後，原本沒有 Gzip 壓縮的 PNG 圖檔都被壓縮了，並且其他的封包也比先前壓縮得更小了，如圖：  
+調整完 MimeTypes 及 CompressionLevel 後，原本沒有 Gzip 壓縮的 PNG 圖檔都被壓縮了，並且其它的封包也比先前壓縮得更小了，如圖：  
 
 ![[鐵人賽 Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 執行結果](/images/ironman/i29-3.png)  
 

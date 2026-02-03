@@ -58,7 +58,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 > Error: BrowserModule has already been loaded. If you need access to common directives such as NgIf and NgFor from a lazy loaded module, import CommonModule instead.  
 
-由於 BrowserModule 只能被載入一次，而 Angular Application Main Module 又必定要載入他，導致其他的 Modules 不能二次載入。  
+由於 BrowserModule 只能被載入一次，而 Angular Application Main Module 又必定要載入它，導致其它的 Modules 不能二次載入。  
 
 ## CommonModule
 
@@ -78,7 +78,7 @@ export class FirstModule { }
 
 ## SharedModule
 
-你可能會想說，為什麼不做一個 SharedModule 把 BrowserModule 載到裡面，其他要用到 BrowserModule 的只要載入 SharedModule 就好？  
+你可能會想說，為什麼不做一個 SharedModule 把 BrowserModule 載到裡面，其它要用到 BrowserModule 的只要載入 SharedModule 就好？  
 例如：
 ```ts
 @NgModule({

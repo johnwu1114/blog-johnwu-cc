@@ -71,4 +71,3 @@ Code Runner 支援很多種不同的程式語言，基本上它是幫你呼叫 C
 
 完成上述步驟後，就可以針對開啟的檔案，利用快速鍵 `Ctrl` + `Alt` + `N` 或者是右上角的執行按鈕執行：
 ![VS Code - 撰寫及執行 Groovy - Code Runner 執行](/images/a/337.png)
-

@@ -94,7 +94,7 @@ NuGet Feed 新增完成：
 ProGet 有提供四種上傳 NuGet Package 的方式：  
 * 從頁面上傳 `*.nupkg`  
 * 透過 NuGet Push 指令上傳  
-* 從其他 NuGet Server 同步過來  
+* 從其它 NuGet Server 同步過來  
 * 從實體路徑載入  
 
 > 本篇以 NuGet Push 指令為主，`NuGet.exe` 可以到 NuGet 官網[下載](https://www.nuget.org/downloads)。

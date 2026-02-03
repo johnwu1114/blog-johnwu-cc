@@ -11,7 +11,7 @@ featured_image: /images/a/256.png
 ![Windows Server - 踢掉遠端桌面 Idle 的 Session - Group Policy - 2](/images/a/368.png)
 
 常常有人遠端桌面連到 Windows Server 就忘記登出，不然就是掛在那邊沒做事。  
-偏偏 Windows Server 遠端桌面就只有兩個 Serssion，占著茅坑不拉屎，害其他人都連不進去。  
+偏偏 Windows Server 遠端桌面就只有兩個 Serssion，占著茅坑不拉屎，害其它人都連不進去。  
 可以改 Computer Policy 把 Idle 的人都踢掉。  
 
 <!-- more -->

@@ -144,7 +144,7 @@ public void Christmas_Discount()
 }
 ```
 
-> 測試專案要使用其他專案的 `internal` 可以參考這篇：[C# 存取修飾詞 - internal](/article/c-sharp-access-modifiers-internal.html)
+> 測試專案要使用其它專案的 `internal` 可以參考這篇：[C# 存取修飾詞 - internal](/article/c-sharp-access-modifiers-internal.html)
 
 ## Microsoft Fakes
 
@@ -181,7 +181,7 @@ public void Christmas_Discount()
 
 ## 結論
 
-1. 自製包裝比較土法煉鋼的方式，優點是其他語言也能用此方法。缺點是必須要異動被測試目標。  
+1. 自製包裝比較土法煉鋼的方式，優點是其它語言也能用此方法。缺點是必須要異動被測試目標。  
 2. Microsoft Fakes 的好處是不用改原本的程式碼，缺點是口袋要夠深，畢竟要 **Visual Studio Enterprise** 版本才能用。  
 
 如果是新專案沒有歷史包袱的話，我會比較建議一開始就用自製包裝的方式，彈性會比較高。  

@@ -44,7 +44,7 @@ featured_image: /images/a/161.png
 }
 ```
 
-設定 SSL Port 後，就可以在 localhost 使用 HTTPS 了。但會遇到隱私權問題，因為我們沒有真的匯入憑證，可以先把他忽略。步驟如下：  
+設定 SSL Port 後，就可以在 localhost 使用 HTTPS 了。但會遇到隱私權問題，因為我們沒有真的匯入憑證，可以先把它忽略。步驟如下：  
 ![ASP.NET Core 教學 - 忽略憑證 - 1](/images/a/159.png)
 ![ASP.NET Core 教學 - 忽略憑證 - 2](/images/a/160.png)
 

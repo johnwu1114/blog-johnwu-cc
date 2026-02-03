@@ -177,7 +177,7 @@ Response Headers
   若使用 `Content-Security-Policy-Report-Only` 就需要搭配 `report-uri`。  
   > 強烈建議使用回報功能，當被 XSS 攻擊時才會知道。  
 
-> 其他 CSP 指令可以參考 [W3C 的 CSP 規範](https://w3c.github.io/webappsec-csp/#csp-directives)。  
+> 其它 CSP 指令可以參考 [W3C 的 CSP 規範](https://w3c.github.io/webappsec-csp/#csp-directives)。  
 
 每個 CSP 指令可以限制一個或多個能發出 Request 的位置，設定參數如下：  
 * `*`  
@@ -191,7 +191,7 @@ Response Headers
   如：`script-src 'self';`，只允許載入同網域的 `*.js`。  
 * URL  
   指定允許發出 Request 的位置，可搭配 `*` 使用。  
-  如：`img-src http://cdn.johnwu.cc https:;`，只允許從 `http://cdn.johnwu.cc` 或其他 HTTPS 的位置載入 `*.css`。  
+  如：`img-src http://cdn.johnwu.cc https:;`，只允許從 `http://cdn.johnwu.cc` 或其它 HTTPS 的位置載入 `*.css`。  
 
 ## 建立 CSP Middleware
 
@@ -493,7 +493,7 @@ Google 有設定 `X-Frame-Options` 為 `sameorigin` ，所以會產生錯誤訊�
 
 ## 參考
 
-[USING CSP HEADER IN ASP.NET CORE 2.0](https://tahirnaushad.com/2017/09/12/using-csp-header-in-asp-net-core-2-0/)  
+[USING CSP HEADER IN ASP.NET Core 2.0](https://tahirnaushad.com/2017/09/12/using-csp-header-in-asp-net-core-2-0/)  
 [Content Security Policy Level 3](https://w3c.github.io/webappsec-csp/)  
 [Content-Security-Policy - HTTP Headers 的資安議題 (2)](https://devco.re/blog/2014/04/08/security-issues-of-http-headers-2-content-security-policy/)  
 [[翻譯] 我是這樣拿走大家網站上的信用卡號跟密碼的](https://medium.com/@CQD/%E7%BF%BB%E8%AD%AF-%E6%88%91%E6%98%AF%E9%80%99%E6%A8%A3%E6%8B%BF%E8%B5%B0%E5%A4%A7%E5%AE%B6%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9A%84%E4%BF%A1%E7%94%A8%E5%8D%A1%E8%99%9F%E8%B7%9F%E5%AF%86%E7%A2%BC%E7%9A%84-991cb6c4631e)*(推薦閱讀)*  

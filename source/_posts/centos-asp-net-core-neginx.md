@@ -72,7 +72,7 @@ sudo sh setup-aspnet-core.sh
 
 ## 註冊 ASP.NET Core 服務
 
-在 `/etc/systemd/system/<自訂名稱>.service` 新增一個服務，把 ASP.NET Core 的停起都透過系統服務控制。  
+在 `/etc/systemd/system/<自訂名稱>.service` 新增一個服務，把 ASP.NET Core 的啟停都透過系統服務控制。  
 例 `/etc/systemd/system/my-website.service` 內容如下：
 
 ```yml
@@ -129,7 +129,7 @@ systemctl status my-website.service
 
 ## 設定 Nginx Proxy
 
-新增檔案 `/etc/nginx/conf.d/default_proxy_settings`，以便其他設定重複使用：  
+新增檔案 `/etc/nginx/conf.d/default_proxy_settings`，以便其它設定重複使用：  
 
 ```yml
 proxy_http_version 1.1;

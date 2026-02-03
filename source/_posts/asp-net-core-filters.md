@@ -26,7 +26,7 @@ ASP.NET Core 有以下五種 Filter 可以使用：
 1. Authorization Filter  
 Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。  
 2. Resource Filter  
-Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處裡才用。  
+Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處理才用。  
 3. Action Filter  
 最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但並不會經過 Model Binding。  
 4. Exception Filter  
@@ -36,7 +36,7 @@ Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執
 
 ## 2. Filter 運作方式
 
-ASP.NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 都會以先進後出的方式處裡封包。  
+ASP.NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 都會以先進後出的方式處理封包。  
 Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖：
 ![ASP.NET Core 教學 - Filters - 運作方式](/images/a/198.png)
 > 黃色箭頭是正常情況流程  

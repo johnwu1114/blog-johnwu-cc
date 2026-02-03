@@ -72,7 +72,7 @@ export class MyComponent {
 }
 ```
 當 Component 被實例化時，會建立一個新的 Service 實體，Service 的存活週期是跟隨著 Component。  
-所以註冊在 Component Providers 就只有該 Component 可以使用，並不會與其他的 Component 共用。示意圖如下：
+所以註冊在 Component Providers 就只有該 Component 可以使用，並不會與其它的 Component 共用。示意圖如下：
 
 ![Angular 4 教學 - Service - Component Providers](/images/a/232.png)
 
@@ -111,7 +111,7 @@ export class MyComponent {
 ## 3. Singleton Service
 
 基本上只要在 AppModule (Root Module) 的 Providers 註冊 Service，該 Service 就只會有一個實體。  
-但如果你是負責提供 Service 的人，深怕其他人誤用，要確保你的 Service 一定只能有一個實體的話，你也可以自己實作 Singleton Service。  
+但如果你是負責提供 Service 的人，深怕其它人誤用，要確保你的 Service 一定只能有一個實體的話，你也可以自己實作 Singleton Service。  
 程式碼如下：
 ```ts
 import { Injectable } from "@angular/core";

@@ -22,7 +22,7 @@ featured_image: /images/a/386.png
 ### ProGet 設定
 
 > 由於我的 NuGet Server 是用 ProGet 架設，所以此節會說明 ProGet 的設定，若是以其它方式架設 NuGet Server，可以跳錯此節。  
-> ProGet 架設可以參考這篇：[ProGet - 架設內部 NuGet Server](/article/proget-internal-nuget-server.html)  
+> ProGet 架設可以參考這篇：[ProGet - 架設內部 NuGet Server](/article/proget-internal-NuGet-server.html)  
 
 在 ProGet 的 NuGet Feed 管理中，找到 Symbols Server 設定，啟動 Symbols 服務：  
 

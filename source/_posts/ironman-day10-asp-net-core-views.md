@@ -124,7 +124,7 @@ Razor Views 會被 Razor 引擎動態轉換成 Class，所以也有些類似 C# 
 Hello~ 我是 @Model.Name
  ```
 * `@inherits`  
- 讓 Razor View 繼承其他自訂的 RazorPage 類別。例：  
+ 讓 Razor View 繼承其它自訂的 RazorPage 類別。例：  
  *CustomRazorPage.cs*
  ```cs
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -215,7 +215,7 @@ public abstract class CustomRazorPage<TModel> : RazorPage<TModel>
 * **ViewBag**  
  ViewBag 是 Dynamic 類型的物件，可以在同一個 Request 中，跨 Controller 及 Views 存取資料。  
 * **@section**  
- 在使用 Layout 時，並不一定會將 Razor View 全部填入至 `RenderBody`，可能會有需求將某些內容填入至 Layout 的其他地方。如：`*.css` 的引用填入至 `<head></head>` 中；`*.js` 的引用填入至 `</body>` 之前。  
+ 在使用 Layout 時，並不一定會將 Razor View 全部填入至 `RenderBody`，可能會有需求將某些內容填入至 Layout 的其它地方。如：`*.css` 的引用填入至 `<head></head>` 中；`*.js` 的引用填入至 `</body>` 之前。  
 
 當打開 `http://localhost:5000/home/index` 時，Razor 引擎會將 *Index.cshtml* 的結果都填入 *Views\Shared\\_Layout.cshtml* 的 `@RenderBody()`。  
 實際輸出的 HTML 結果：  

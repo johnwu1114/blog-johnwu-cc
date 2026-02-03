@@ -112,7 +112,7 @@ Server 端 Response 快取適合用在常被呼叫的頁面或 API，且資料�
 ![[鐵人賽 Day28] ASP.NET Core 2 系列 - Response 快取 - Server 端快取](/images/ironman/i28-2.png)  
 
 * 第一次呼叫 Action 時，會經過重重運算，甚至連到資料庫取值等等。  
-* 第二次呼叫 Action 時，由於上次回傳結果已經存在 Server 快取，因此就直接從快取回傳上次的結果，省去其他運算步驟。  
+* 第二次呼叫 Action 時，由於上次回傳結果已經存在 Server 快取，因此就直接從快取回傳上次的結果，省去其它運算步驟。  
 
 如果要搭配 Server 端 Response 快取，除了套用 `[ResponseCache]` 外，還需要在 DI 容器注入 ResponseCaching 服務及註冊 ResponseCaching 的 Middleware，如下：  
 
@@ -202,7 +202,7 @@ public class HomeController : Controller
 要使用 Server 快取，必須要達成以下條件：  
 1. 回傳的狀態必須是 HTTP Status 200 (OK)。  
 2. Request 的 HTTP Methods 必須是 `GET` 或 `HEAD`。  
-3. 不能有其他的 Middleware 在加工 ResponseCachingMiddleware 之前異動 Response。  
+3. 不能有其它的 Middleware 在加工 ResponseCachingMiddleware 之前異動 Response。  
 4. HTTP Header 不能用 `Authorization`。  
 5. HTTP Header 的 `Cache-Control` 值必須是 `public`。  
   *(`F5` 刷新頁面不會帶 `Cache-Control`，所以使用 Server 快取條件不成立)*

@@ -177,7 +177,7 @@ namespace MyWebsite.Controllers
 
 ![Web API Http Get 測試](/images/a/57.png)
 
-如果有安裝 Postman 或類似工具的話可以測測看其他的 methods：  
+如果有安裝 Postman 或類似工具的話可以測測看其它的 methods：  
 
 ![Web API Http Post 測試](/images/a/58.png)
 

@@ -69,7 +69,7 @@ export class FirstModule { }
 ## 建立共用模組
 
 在使用 Lazy Loading 時，同樣的 Declaration 不能被重複定義在不同的 Module。  
-要避免此問題的話，需要另外建立一個共用的 Module，給其他 Module 載入。如下：  
+要避免此問題的話，需要另外建立一個共用的 Module，給其它 Module 載入。如下：  
 
 shared\shared.module.ts
 ```ts

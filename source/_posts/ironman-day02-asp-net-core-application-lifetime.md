@@ -13,7 +13,7 @@ featured_image: /images/ironman/i02-2.png
 要了解程式的運作原理，要先知道程式的進入點及生命週期。  
 過往 ASP.NET MVC 啟動方式，是繼承 `HttpApplication` 做為網站開始的進入點。  
 ASP.NET Core 改變了網站啟動的方式，變的比較像是 Console Application。  
-本篇將介紹 ASP.NET Core 的程式生命週期 (Application Lifetime) 及補捉 Application 停啟事件。  
+本篇將介紹 ASP.NET Core 的程式生命週期 (Application Lifetime) 及捕捉 Application 停啟事件。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
  [[Day02] ASP.NET Core 2 系列 - 程式生命週期 (Application Lifetime)](https://ithelp.ithome.com.tw/articles/10192497)  
@@ -152,8 +152,8 @@ namespace MyWebsite
 
 ## Application Lifetime
 
-除了程式進入點外，WebHost 的停起也是網站事件很重要一環，ASP.NET Core 不像 ASP.NET MVC 用繼承的方式補捉啟動及停止事件。
-是透過 `Startup.Configure` 注入 `IApplicationLifetime` 來補捉 Application 停啟事件。  
+除了程式進入點外，WebHost 的啟停也是網站事件很重要一環，ASP.NET Core 不像 ASP.NET MVC 用繼承的方式捕捉啟動及停止事件。
+是透過 `Startup.Configure` 注入 `IApplicationLifetime` 來捕捉 Application 停啟事件。  
 
 `IApplicationLifetime` 有三個註冊監聽事件及終止網站事件可以觸發。如下：  
 ```cs

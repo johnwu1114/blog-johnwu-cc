@@ -59,7 +59,7 @@ URL 重寫是屬於 Server 端的轉換事件，當 Client 端 Request 來的時
 ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫情境](/images/ironman/i08-3.png)  
 
 上例 `AddRewrite` 有用到三個參數，當 URL 符合 **參數 1** 時，就將 **參數 2** 路由的內容回傳給 Client。  
-而 **參數 3** 是用來加速 URL 匹配的參數，類似 switch 的 break。若將 `skipRemainingRules` 設為 **true**，當找到匹配條件，就不再繼續往下找符合其他 **參數 1** 的規則。  
+而 **參數 3** 是用來加速 URL 匹配的參數，類似 switch 的 break。若將 `skipRemainingRules` 設為 **true**，當找到匹配條件，就不再繼續往下找符合其它 **參數 1** 的規則。  
 * **參數 1** 支援正規表示式(Regular Expressions)。  
 
 範例結果：  

@@ -1,12 +1,12 @@
 ---
-title: Jenkins - Pipeline Job 平行處理發生 JSON 例外
+title: Jenkins - Pipeline Job 平行處理發生 json 例外
 author: John Wu
 tags:
   - Jenkins
   - Groovy
   - Pipeline Job
   - Parallel
-  - JSON
+  - json
 categories:
   - Jenkins
 date: 2017-09-04 09:32:00
