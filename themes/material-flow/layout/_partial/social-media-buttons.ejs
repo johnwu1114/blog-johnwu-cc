@@ -4,18 +4,15 @@
     post.tags.each(function(item){
         tags.push(item.name);
     });
+    let share_url = encodeURIComponent(post_path);
+    let share_title = encodeURIComponent(post.title);
+    let share_tags = encodeURIComponent(tags.join(','));
     // https://www.w3schools.com/howto/howto_css_social_media_buttons.asp
     // https://simplesharebuttons.com/html-share-buttons/ 
 %>
 <div class="social-media-buttons">
-    <a class="fa fa-facebook" title="Share" target="_blank" href="javascript:window.open('https://www.facebook.com/sharer.php?u=<%= post_path %>', 'Share on Facebook','width=600, height=600')"></a>
-    <a class="fa fa-linkedin" title="Share" target="_blank" href="javascript:window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= post_path %>', 'Share on Linkedin','width=600, height=600')"></a>
-    <a class="fa fa-google" title="Share" target="_blank" href="javascript:window.open('https://plus.google.com/share?url=<%= post_path %>', 'Share on Google Plus','width=400, height=600')"></a>
-    <a class="fa fa-twitter" title="Share" target="_blank" href="javascript:window.open('https://twitter.com/share?url=<%= post_path %>&amp;text=<%= post.title %>&amp;hashtags=<%= tags.join() %>', 'Share on Twitter','width=600, height=260')"></a>
-    <!-- 
-        Not Support HTTPS
-        <a class="fa fa-weibo" title="Share" target="_blank" href="javascript:window.open('https://service.weibo.com/share/share.php?url=<%= post_path %>&amp;title=<%= post.title %> : <%= post_path %>', 'Share on Weibo','width=600, height=400')"></a> 
-    -->
-    <a class="fa fa-envelope-o" title="Mail" href="mailto:?Subject=<%= post.title %>&amp;Body=<%= post.title %> : <%= post_path %>" ></a>
-    <a class="fa fa-print" title="Print" href="javascript:void(0);" onclick="window.print()" ></a>
+    <a class="fa fa-facebook" title="Share" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=<%= share_url %>"></a>
+    <a class="fa fa-linkedin" title="Share" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=<%= share_url %>"></a>
+    <a class="fa fa-envelope-o" title="Mail" href="mailto:?Subject=<%= share_title %>&amp;Body=<%= share_title %> : <%= share_url %>"></a>
+    <a class="fa fa-print" title="Print" href="#" onclick="window.print(); return false;"></a>
 </div>
