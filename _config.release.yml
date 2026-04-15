@@ -18,4 +18,4 @@ js_minifier:
   enable: true
 
 image_minifier:
-  enable: true
+  enable: false

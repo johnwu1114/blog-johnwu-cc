@@ -19,13 +19,14 @@ root: /
 permalink: article/:title.html
 permalink_defaults: null
 source_dir: source
-public_dir: artifacts
+public_dir: docs
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: ':lang'
-skip_render: null
+skip_render:
+  - files/**
 new_post_name: ':title.md'
 default_layout: draft
 titlecase: false
@@ -99,7 +100,7 @@ js_minifier:
   exclude:
     - '*.min.js'
 image_minifier:
-  enable: true
+  enable: false
   interlaced: true
   multipass: true
   optimizationLevel: 4
