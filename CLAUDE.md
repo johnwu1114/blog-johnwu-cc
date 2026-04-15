@@ -43,7 +43,7 @@ npm run deploy
 - `source/_drafts/` — 草稿
 - `source/images/` — 圖片資源（主圖在 `featured/`，截圖在 `a/`）
 - `themes/material-flow/` — 主題（EJS 模板 + LESS 樣式 + JS）
-- `docs/` — 產出目錄（`public_dir`），供 GitHub Pages 使用
+- `docs/` — 產出目錄（`public_dir`），供 GitHub Pages 靜態網站使用，目錄名稱不可變更
 - `skills/` — Claude Code 寫作技能定義（語氣與格式規範）
 
 ### 前端建置
@@ -59,4 +59,5 @@ Webpack 3 負責打包主題 JS：
 - 預設 layout 為 `draft`（新文章建在 `_drafts/`）
 - 啟用 `post_asset_folder`，每篇文章可有對應資源資料夾
 - 導言後必須插入 `<!-- more -->` 作為摘要斷點
+- 封面圖（`featured_image`）尺寸統一為 **600 x 315 px**，放在 `source/images/featured/`
 - 寫作風格與格式規範詳見 `skills/README.md` 和 `skills/tone.md`
