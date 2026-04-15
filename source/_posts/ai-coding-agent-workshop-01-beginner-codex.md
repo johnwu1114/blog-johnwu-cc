@@ -15,11 +15,15 @@ date: 2026-04-15 21:00:00
 featured_image: /images/b/60.png
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pwbbTtk3K1Y" title="AI Coding Agent 實戰工作坊 — 初階場 (Codex)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 本篇分享 AI Coding Agent 實戰工作坊初階場的內容，以 Codex 作為主要示範工具，帶大家從零開始體驗 AI 輔助開發的完整流程。初階場的核心目標不是背名詞，而是**完成一次可驗收的人機協作**。
 
 <!-- more -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pwbbTtk3K1Y" title="AI Coding Agent 實戰工作坊 — 初階場 (Codex)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## 簡報下載
+
+* [AI Coding Agent 實戰工作坊 — 初階場 (Codex) (PDF)](/files/20260415-AI-Workshop-01-beginner.pdf)
 
 ## 三個心智模型轉換
 
