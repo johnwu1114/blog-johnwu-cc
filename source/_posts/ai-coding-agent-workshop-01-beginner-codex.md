@@ -5,8 +5,9 @@ tags:
   - Vibe Coding
   - Codex
   - Prompt Engineering
-  - OpenSpec
+  - Context Engineering
   - Superpowers
+  - OpenSpec
   - AI 工作坊
   - AI Agent
 categories:
