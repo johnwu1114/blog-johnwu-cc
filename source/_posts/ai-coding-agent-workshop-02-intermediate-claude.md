@@ -49,7 +49,7 @@ featured_image: /images/b/61.png
 | **Context** | 菜單、廚房規矩、食材資訊 | AI 取得到的專案知識與外部資訊 |
 | **Harness** | 廚房制度、權限、安全檢查 | AI 可以怎麼做、做到哪裡、何時該停下來 |
 
-### 為什麼同一句需求，結果還是會飄？
+**為什麼同一句需求，結果還是會飄？**
 
 通常不是單一原因：
 
@@ -59,7 +59,7 @@ featured_image: /images/b/61.png
 
 **所以要學的不是「寫超長 prompt」，而是判斷這次要補的是哪一層。**
 
-## Prompt — 你怎麼點餐
+## Prompt
 
 不是每件事都要用同樣鬆緊度：
 
@@ -72,7 +72,7 @@ featured_image: /images/b/61.png
 
 > 越危險的操作，prompt 越要明確；越探索的任務，可以留多一點空間。
 
-## Context — 廚房知道什麼
+## Context
 
 如果 Prompt 是點餐，那 Context 就是：這是一家什麼餐廳、廚房有什麼規矩、現在有哪些食材、有沒有外部系統可以查資料。
 
@@ -82,7 +82,7 @@ featured_image: /images/b/61.png
 
 ⚠ context 不只影響品質，也影響成本與效率——塞太多不相關的東西，判斷會變差、資源也會浪費。
 
-### 專案指引檔是廚房規矩
+**專案指引檔是廚房規矩**
 
 | 概念 | Claude Code | Codex | Gemini |
 | :--- | :--- | :--- | :--- |
@@ -91,7 +91,7 @@ featured_image: /images/b/61.png
 
 你是在跟 AI 說：「這是我們家的廚房，我們平常就是這樣做事」。寫一次，之後每次對話都比較容易站在同一套規則上。
 
-### 專案指引檔怎麼寫才有用？
+**專案指引檔怎麼寫才有用？**
 
 | 要寫 | 不要寫 |
 | :--- | :--- |
@@ -104,7 +104,7 @@ featured_image: /images/b/61.png
 
 ⚠️ 有研究指出：AI 自己生的指引檔，任務成功率反而**下降**；人寫但塞太多，也幾乎沒幫助。**只寫最小必要規則，效果最好。**
 
-### Prompt 其實是組裝出來的
+**Prompt 其實是組裝出來的**
 
 你寫的不只是一份 CLAUDE.md，而是可組合的模組：
 
@@ -118,7 +118,7 @@ CLAUDE.md → role → policy → stack → skills → templates
 * **Skills**：怎麼做 — 任務有固定 SOP 時載入
 * **Templates**：結構化的資訊格式 — 任務背景、報告、提案都是模板
 
-## Harness — 廚房怎麼被管住
+## Harness
 
 | 機制 | 餐廳比喻 | 說明 |
 | :--- | :--- | :--- |
@@ -141,7 +141,7 @@ CLAUDE.md → role → policy → stack → skills → templates
 
 > Harness 像安全帶 — 不是綁手綁腳，而是讓你敢放手讓 AI 跑。
 
-### Harness 的兩個面向
+**Harness 的兩個面向**
 
 | 面向 | 做什麼 |
 | :--- | :--- |
@@ -150,7 +150,7 @@ CLAUDE.md → role → policy → stack → skills → templates
 
 只有護欄沒有調校，規則會僵化；只有調校沒有護欄，每次都靠人盯。兩者搭配才完整。
 
-## Skills / MCP / Plugins，分別在做什麼？
+## Skills、MCP 與 Plugins
 
 | 概念 | 白話 |
 | :--- | :--- |
@@ -160,7 +160,7 @@ CLAUDE.md → role → policy → stack → skills → templates
 | **MCP** | 讓 AI 連到外部工具或資料 |
 | **Plugins** | 把常用能力打包成可重用組合 |
 
-### Skills — 把做事方法變成 SOP
+**Skills — 把做事方法變成 SOP**
 
 Skill 把常見任務的流程寫好：
 
@@ -170,11 +170,11 @@ Skill 把常見任務的流程寫好：
 
 > Skill 不只是 prompt 模板，而是可重複套用的工作流程。
 
-### MCP — 讓廚房自己去拿資訊
+**MCP — 讓廚房自己去拿資訊**
 
 MCP 讓 AI 在需要時自己去查資料或做操作，例如讀 issue、查資料庫、看團隊討論脈絡、讀檔案。關鍵不是「接了多少系統」，而是：**AI 能不能在對的時候，自己拿到它需要的資訊**。
 
-## Live Demo：從 0 到 1 做一個 RWD 任務管理系統
+## Live Demo
 
 Demo 的主軸是讓 AI 按流程做出產品雛形，對應三大支柱：
 
@@ -210,7 +210,7 @@ Demo 的主軸是讓 AI 按流程做出產品雛形，對應三大支柱：
 | Skill 爆量 | 太多 SOP 互相衝突 | 最多 3 個，聚焦當前任務 |
 | 規則遺失 | 每次對話都要重新交代 | 寫進 CLAUDE.md，自動生效 |
 
-### 3. Brainstorm 把需求收斂成 Design Spec
+### 3. Brainstorm 收斂成 Spec
 
 安裝 [Superpowers](https://github.com/obra/superpowers) 後：
 
@@ -254,7 +254,7 @@ Demo 的主軸是讓 AI 按流程做出產品雛形，對應三大支柱：
 
 > OpenSpec 不是文件倉庫，而是讓每次變更都有脈絡可追。
 
-## 實務提醒：成本與 context 意識
+## 成本與 Context 意識
 
 前面提過，context 不只影響品質，也影響成本。這些情況通常都比較耗資源：
 

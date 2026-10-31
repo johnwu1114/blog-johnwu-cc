@@ -42,7 +42,7 @@ featured_image: /images/b/62.png
 
 > 上次你學會開一間廚房，今天你要設計整座工廠的流水線。
 
-### 三大支柱的進階視角
+**三大支柱的進階視角**
 
 同樣的 Prompt / Context / Harness，中階跟進階看的是不同層面：
 
@@ -54,7 +54,7 @@ featured_image: /images/b/62.png
 
 > 從「會用」升級到「會設計」。
 
-## Vibe Coding 什麼時候該、什麼時候不該？
+## Vibe Coding 與 SDD
 
 Vibe 不是不好，關鍵是**判斷何時該放手、何時該拿 spec 收斂**：
 
@@ -64,7 +64,7 @@ Vibe 不是不好，關鍵是**判斷何時該放手、何時該拿 spec 收斂*
 | 獨立小功能、utility | 跨多系統整合 |
 | 探索性 prototype | 架構決策（AI 不知道你的取捨） |
 
-### Spec-Driven Development（SDD）
+**Spec-Driven Development（SDD）**
 
 Vibe 不夠時，先寫 spec 再讓 AI 做：
 
@@ -81,7 +81,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 > Spec 越清楚，AI 產出越可預測、越可驗收。後面的 OpenSpec `proposal.md` 就是在回答這三題。
 
-## 從 Prompt Engineering 到 Workflow Engineering
+## 從 Prompt 到 Workflow
 
 單靠寫好 prompt 已經解不了下面這些痛點：
 
@@ -94,7 +94,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 > 核心轉變：從「提示詞怎麼寫」→「**工作流怎麼搭**」。
 
-### Agentic Workflow — 你設計流水線，AI 跑產線
+**Agentic Workflow — 你設計流水線，AI 跑產線**
 
 | 層次 | 比喻 | 做法 |
 | :--- | :--- | :--- |
@@ -104,7 +104,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 你的角色變成**流水線設計師**：你負責設計流程（spec）與品管驗收（review），AI 負責每一個工站（plan → implement → test）。
 
-## 多 Agent 架構——為什麼要拆？
+## 多 Agent 架構
 
 一個 Agent 什麼都做，看起來最簡單，但也最容易崩：
 
@@ -124,7 +124,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 跟微服務一樣：**單一職責、介面明確**。
 
-### 多 Agent 的核心收益
+**多 Agent 的核心收益**
 
 | 收益 | 說明 |
 | :--- | :--- |
@@ -134,7 +134,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 > 多 Agent 首先是 **context hygiene**（上下文乾淨），其次才是速度。
 
-### 什麼時候用多 Agent？
+**什麼時候用多 Agent？**
 
 | 適合 | 不適合 |
 | :--- | :--- |
@@ -144,7 +144,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 > 正確順序是：**先 plan，再拆 Agent**。
 
-## 多模型協作：Claude 調度 Codex 與 Gemini
+## 多模型協作
 
 透過 Plugin，Claude Code 可以在一條流水線裡調度其他模型：
 
@@ -155,7 +155,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 個人感受：**Codex 擅長規劃，Claude 擅長實作，Gemini 擅長大範圍分析**。不同模型有不同強項——組合起來比單打獨鬥更穩。
 
-### 分工原則：做事的和審查的不該是同一個
+**分工原則：做事的和審查的不該是同一個**
 
 | 階段 | 做事的 | Review 的 |
 | :--- | :--- | :--- |
@@ -165,7 +165,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 > **同一個模型不該自己做又自己審** — 換模型 = 換視角。
 
-## Subagent 怎麼被觸發？
+## Subagent 觸發與派工
 
 | 方式 | 怎麼觸發 | 例子 |
 | :--- | :--- | :--- |
@@ -174,7 +174,7 @@ Vibe 不夠時，先寫 spec 再讓 AI 做：
 
 每個子 Agent 獨立 **context**，主 Claude 只看到最終回報——這就是為什麼多 Agent 能做到 context hygiene。
 
-### 派工時就決定模型等級
+**派工時就決定模型等級**
 
 不必等事後手動切，派工時直接指定：
 
@@ -187,7 +187,7 @@ B（用 haiku）：把 README.md 的標題層級與條列符號統一成 playboo
 
 > 在流水線設計階段就決定每個工站用什麼等級的模型，不是事後手動切。
 
-### Agent Handoff Contract
+**Agent Handoff Contract**
 
 子 Agent 接什麼、交什麼，要寫清楚：
 
@@ -200,11 +200,11 @@ B（用 haiku）：把 README.md 的標題層級與條列符號統一成 playboo
 
 > 沒有 handoff contract，就不是分工，而是把混亂分散出去。
 
-## Playbook：跨專案共用的規範層
+## Playbook
 
 一個團隊、N 個專案，規範怎麼不失焦？答案是把規則跟程式碼一樣版控、跨 repo 共用。
 
-### 設定層級：專案級 vs 個人級
+**設定層級：專案級 vs 個人級**
 
 | 類型 | 專案級（跟著 repo 走） | 個人級（跟著你走） |
 | :--- | :--- | :--- |
@@ -214,7 +214,7 @@ B（用 haiku）：把 README.md 的標題層級與條列符號統一成 playboo
 
 > 專案級由資深人員維護，個人級自己管理。衝突時**專案級優先**——團隊規範贏過個人偏好。
 
-### 為什麼需要 Playbook？
+**為什麼需要 Playbook？**
 
 | 沒有 Playbook | 有 Playbook |
 | :--- | :--- |
@@ -224,7 +224,7 @@ B（用 haiku）：把 README.md 的標題層級與條列符號統一成 playboo
 
 > Playbook = 團隊共用的 AI 工作規範，跨專案一次落地。
 
-### Playbook 的分層結構
+**Playbook 的分層結構**
 
 [Playbook](https://github.com/johnwu1114/playbook) 是 **core + overlay**，優先層級從高到低：
 
@@ -242,7 +242,7 @@ CLAUDE.md               ← 全域規則（最高）
 
 ## Permission Mode 與失敗隔離
 
-### 信任程度要跟護欄強度匹配
+**信任程度要跟護欄強度匹配**
 
 | 模式 | AI 可以做什麼 | 適合場景 |
 | :--- | :--- | :--- |
@@ -252,7 +252,7 @@ CLAUDE.md               ← 全域規則（最高）
 
 > 越寬鬆，Hook 越不能少。
 
-### Agentic 常見失敗模式
+**Agentic 常見失敗模式**
 
 | 症狀 | 根因 | 對策 |
 | :--- | :--- | :--- |
@@ -262,7 +262,7 @@ CLAUDE.md               ← 全域規則（最高）
 
 > 大部分 Agentic 失敗不是 AI 不夠聰明，而是 **spec 或 context 出了問題**。
 
-### 讓錯誤停在工站
+**讓錯誤停在工站**
 
 | 做法 | 目的 |
 | :--- | :--- |
@@ -272,7 +272,7 @@ CLAUDE.md               ← 全域規則（最高）
 
 > 進階不是避免出錯，而是讓錯誤**可隔離、可回退、可重來**。
 
-## Live Demo：主 Claude 實作 + 多 reviewer 並行審查
+## Live Demo
 
 ### 1. 一行指令載入 Playbook
 
@@ -304,7 +304,7 @@ review 剛剛的產出
 
 四個 reviewer 各自有獨立 context、各自的關注點，不會互相覆蓋視角。
 
-### 4. 多模型協作：交叉驗證
+### 4. 多模型交叉驗證
 
 ```txt
 請 codex 做 adversarial-review；
@@ -326,7 +326,7 @@ rm -rf ~/sample                         # dangerous-bash 擋
 
 > Policy（prompt 層，靠 AI 自律）+ Hook（tool-call 層，硬擋）——**兩層都在，才叫 defense in depth**。
 
-### Demo 每一步對應哪支柱？
+### 對應三大支柱
 
 | Demo 步驟 | 做了什麼 | 對應支柱 |
 | :--- | :--- | :--- |
@@ -338,7 +338,7 @@ rm -rf ~/sample                         # dangerous-bash 擋
 
 > **主 Claude 沒有單打獨鬥**——Playbook 帶知識、Agent 分工實作、reviewer 換視角、Hook 守底線。
 
-## 怎麼知道流水線變好了？——Agentic 的觀測指標
+## 評估流水線
 
 流水線跟產線一樣，要靠指標看它到底有沒有進步：
 
@@ -351,7 +351,7 @@ rm -rf ~/sample                         # dangerous-bash 擋
 | **Token / task** | 上升通常代表 context 污染或拆太細；**多 Agent + 多模型時尤其需要關注** |
 | **Rollback 次數** | 高了代表風險控制設計得太後面 |
 
-### 多 Agent 流水線的收益與成本
+**多 Agent 流水線的收益與成本**
 
 | 面向 | 說明 |
 | :--- | :--- |
@@ -364,7 +364,7 @@ rm -rf ~/sample                         # dangerous-bash 擋
 
 > 流水線的價值在長期累積，但你還是要設計人為關卡與最終審核點。
 
-## 課後練習：兩週落地路徑
+## 課後練習
 
 想把今天的方法套到實際工作，不用一次重建整條流水線——**先做一站，驗證再擴**：
 
