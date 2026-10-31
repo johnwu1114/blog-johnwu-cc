@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.johnwu.cc/article/ai-coding-agent-workshop-01-beginner-codex.html</loc>
+    
+    <lastmod>2026-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.johnwu.cc/article/team-ai-practice-leverage-agents.html</loc>
     
     <lastmod>2026-10-31</lastmod>
@@ -13,7 +22,7 @@
   <url>
     <loc>https://blog.johnwu.cc/article/ai-coding-agent-workshop-03-advanced-claude-codex-gemini.html</loc>
     
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-10-31</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,16 +31,7 @@
   <url>
     <loc>https://blog.johnwu.cc/article/ai-coding-agent-workshop-02-intermediate-claude.html</loc>
     
-    <lastmod>2026-04-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.johnwu.cc/article/ai-coding-agent-workshop-01-beginner-codex.html</loc>
-    
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -686,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/gcp-kubernetes-deploy-docker-image.html</loc>
+    <loc>https://blog.johnwu.cc/article/hexo-google-custom-search.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -695,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/hexo-google-custom-search.html</loc>
+    <loc>https://blog.johnwu.cc/article/gcp-kubernetes-deploy-docker-image.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -731,7 +731,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/ironman-day28-asp-net-core-response-caching.html</loc>
+    <loc>https://blog.johnwu.cc/article/ironman-day29-asp-net-core-response-compression.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -740,7 +740,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/ironman-day29-asp-net-core-response-compression.html</loc>
+    <loc>https://blog.johnwu.cc/article/ironman-day28-asp-net-core-response-caching.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -758,7 +758,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/jenkins-groovy-trigger-another-job.html</loc>
+    <loc>https://blog.johnwu.cc/article/jenkins-groovy-rejected-access-exception.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -767,7 +767,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/jenkins-groovy-rejected-access-exception.html</loc>
+    <loc>https://blog.johnwu.cc/article/jenkins-groovy-trigger-another-job.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -884,7 +884,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/tags/index.html</loc>
+    <loc>https://blog.johnwu.cc/search/index.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -893,7 +893,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/search/index.html</loc>
+    <loc>https://blog.johnwu.cc/tags/index.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1226,7 +1226,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/c-sharp-const-vs-static-readonly.html</loc>
+    <loc>https://blog.johnwu.cc/article/asp-net-system-runtime-configuration-errors-exception.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1235,7 +1235,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/asp-net-system-runtime-configuration-errors-exception.html</loc>
+    <loc>https://blog.johnwu.cc/article/c-sharp-const-vs-static-readonly.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1325,7 +1325,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/asp-net-core-response-header.html</loc>
+    <loc>https://blog.johnwu.cc/article/asp-net-core-routing.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1334,7 +1334,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/asp-net-core-routing.html</loc>
+    <loc>https://blog.johnwu.cc/article/asp-net-core-response-header.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1388,7 +1388,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-lazy-loading.html</loc>
+    <loc>https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-multiple-modules.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1397,7 +1397,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-multiple-modules.html</loc>
+    <loc>https://blog.johnwu.cc/article/asp-net-core-angular-4-%E6%95%99%E5%AD%B8-lazy-loading.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1478,7 +1478,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/angular-4-file-structure.html</loc>
+    <loc>https://blog.johnwu.cc/article/angular-4-ie9-javascript-error.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1487,7 +1487,7 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/article/angular-4-ie9-javascript-error.html</loc>
+    <loc>https://blog.johnwu.cc/article/angular-4-file-structure.html</loc>
     
     <lastmod>2026-02-03</lastmod>
     
@@ -1721,20 +1721,6 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/tags/typescript/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.johnwu.cc/tags/angular-modules/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.johnwu.cc/tags/ie9/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1750,6 +1736,20 @@
   
   <url>
     <loc>https://blog.johnwu.cc/tags/component/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.johnwu.cc/tags/typescript/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.johnwu.cc/tags/angular-modules/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1994,6 +1994,13 @@
   </url>
   
   <url>
+    <loc>https://blog.johnwu.cc/tags/routermiddleware/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.johnwu.cc/tags/iis/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -2002,13 +2009,6 @@
   
   <url>
     <loc>https://blog.johnwu.cc/tags/web-config/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.johnwu.cc/tags/routermiddleware/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2470,6 +2470,13 @@
   </url>
   
   <url>
+    <loc>https://blog.johnwu.cc/tags/tfs/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.johnwu.cc/tags/ai-%E5%B0%8E%E5%85%A5/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -2485,13 +2492,6 @@
   
   <url>
     <loc>https://blog.johnwu.cc/tags/%E5%9C%98%E9%9A%8A%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.johnwu.cc/tags/tfs/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2717,14 +2717,14 @@
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/categories/tfs/nuget/</loc>
+    <loc>https://blog.johnwu.cc/categories/webpack/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.johnwu.cc/categories/webpack/</loc>
+    <loc>https://blog.johnwu.cc/categories/tfs/nuget/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
