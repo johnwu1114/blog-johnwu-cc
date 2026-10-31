@@ -37,7 +37,7 @@ tags:
 categories:
   - <Category>
 date: <YYYY-MM-DD HH:mm:ss>
-featured_image: /images/featured/<image>.png
+featured_image: /images/b/<編號>.png
 ---
 ```
 
@@ -64,13 +64,16 @@ featured_image: /images/featured/<image>.png
 - 範例精簡且可執行，重點在下方補充說明。
 
 ## Images
-- 主圖使用 `/images/featured/`；截圖使用 `/images/a/`。
+- 新文章的主圖（封面）放 `/images/b/`，比例 40:21（例：800 x 420 px）；截圖使用 `/images/a/`。
 - Alt text 以標題或截圖描述為主。
 - UI/工具教學需補 `執行結果` 截圖。
 
 ## Categories and Tags (Common)
-- 常見分類：`ASP.NET Core`、`Angular`、`Jenkins`、`Scrum`、`IIS`、`Docker`、`ELK`、`Kubernetes`、`TFS`、`Unit Test`。
-- 常見標籤：`ASP.NET Core`、`C#`、`Angular`、`TypeScript`、`Middleware`、`Jenkins`、`Groovy`、`Pipeline Job`、`Web API`、`Webpack`、`npm`、`Routing`、`Security`。
+- 選分類與標籤前，先現查既有用法與篇數（`tags` 同理，把 `categories:` 換成 `tags:`）：
+
+```bash
+awk '$0=="categories:"{f=1;next} f&&/^  - /{print substr($0,5);next} {f=0}' source/_posts/*.md | sed -E "s/[[:space:]]+$//; s/^['\"](.*)['\"]$/\1/" | sort | uniq -c | sort -rn
+```
 - 鐵人賽系列需加 `iT 邦幫忙 2018 鐵人賽`，檔名格式 `ironman-dayXX-...`。
 
 ## Length Guidance
