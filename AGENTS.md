@@ -8,7 +8,7 @@ Hexo 7 部落格（版本見 `package.json`），文章以繁體中文撰寫，�
 | --- | --- | --- |
 | `docs/` | `public_dir` 產出目錄，`npm run deploy` 會先用 `hexo clean` 整個刪掉再重產；目錄名稱不可變更 | 改 `source/` 或 `themes/`，再照〈發佈〉重產 |
 | `themes/material-flow/source/js/bundle.js` | Webpack 3 從 `main.js` 打包的產物，自動注入 jQuery、Waves、ScrollReveal | 改 `themes/material-flow/source/js/main.js`，再跑 `npm start` 或 `npm run watch` |
-| `_multiconfig.yml` | hexo 以 `--config` 合併多檔時自動重寫，有進版控 | 不改；被臨時設定檔改到時用 `git checkout -- _multiconfig.yml` 還原 |
+| `_multiconfig.yml` | hexo 以 `--config` 合併多檔時自動重寫，有進版控 | 不改；改 `_config*.yml`，再用〈驗證文章能產生〉最後一行重寫。不要用 `git checkout` 還原，會丟掉還沒 commit 的設定變更 |
 
 ## 寫或改文章
 
@@ -29,7 +29,7 @@ Hexo 7 部落格（版本見 `package.json`），文章以繁體中文撰寫，�
 V="${TMPDIR:-/tmp}/blog-verify"; printf 'public_dir: %s\n' "$V" > "$V.yml"
 npx hexo generate --config "_config.yml,_config.links.yml,_config.release.yml,$V.yml"
 ls "$V/article/<檔名>.html"
-git checkout -- _multiconfig.yml
+npx hexo list page --config _config.yml,_config.links.yml,_config.release.yml > /dev/null   # 以正式設定重寫 _multiconfig.yml
 ```
 
 ## 指令
