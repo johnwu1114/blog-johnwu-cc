@@ -34,12 +34,12 @@ ps x | grep "dotnet exec"
 # 強制停止該 dotnet process
 kill -9 <pid>
 
-# 整合以上兩行
+# 整合以上兩行
 kill -9 $(ps -ax | grep "dotnet exec" | awk '{ print $1 }') 2> /dev/null
 ```
 
-![.NET Core - 開發階段無法取用 Disposed Object - kill dotnet process](/images/b/55.png)
+![.NET Core - 開發階段無法取用 Disposed Object - kill dotnet process](/images/b/55.png)
 
 刪除後又回復正常了。  
 
-![.NET Core - 開發階段無法取用 Disposed Object Success](/images/b/56.png)
+![.NET Core - 開發階段無法取用 Disposed Object Success](/images/b/56.png)

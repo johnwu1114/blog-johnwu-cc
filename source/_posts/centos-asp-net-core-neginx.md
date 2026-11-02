@@ -129,7 +129,7 @@ systemctl status my-website.service
 
 ## 設定 Nginx Proxy
 
-新增檔案 `/etc/nginx/conf.d/default_proxy_settings`，以便其它設定重複使用：  
+新增檔案 `/etc/nginx/conf.d/default_proxy_settings`，以便其它設定重複使用：  
 
 ```yml
 proxy_http_version 1.1;
