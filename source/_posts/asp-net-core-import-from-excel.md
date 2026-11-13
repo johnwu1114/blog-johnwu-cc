@@ -27,7 +27,7 @@ Open XML SDK 這個套件支援 .NET 操作 Word、Excel、PowerPoint。
 
 ```html
 <form method="post" enctype="multipart/form-data" action="/api/import">
-    <input type="file" name="files" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+    <input type="file" name="files" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
     <input type="submit" value="送出" />
 </form>
 ```

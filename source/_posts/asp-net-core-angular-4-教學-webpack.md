@@ -184,7 +184,7 @@ namespace MyWebsite
 webpack -p
 ```
 
-再打開網頁看一次 requset，只剩下三個 requsets，真是乾淨舒服～
+再打開網頁看一次 request，只剩下三個 requests，真是乾淨舒服～
 ![ASP.NET Core + Angular 4 教學 - Webpack打包 範例執行結果完成](/images/a/53-1.png)
 
 ## Visual Studio Extension
@@ -199,7 +199,7 @@ webpack -p
 
 ### NPM Task Runner
 
-打開 package.json 編輯 Visual Studio 會自動上抓取 npm package 還有最新版本。
+打開 package.json 編輯 Visual Studio 會自動抓取 npm package 還有最新版本。
 
 ![編輯 package.json](/images/a/49.png)
 

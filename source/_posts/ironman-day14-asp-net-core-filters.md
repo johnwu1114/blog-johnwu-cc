@@ -22,7 +22,7 @@ Filter 是延續 ASP.NET MVC 的產物，同樣保留了五種的 Filter，分�
 ## Filter 介紹
 
 Filter 的作用是在 Action **執行前**或**執行後**做一些加工處理。  
-某種程度來看，會跟 Middleware 很像，但執行的順序略有不同，用對 Filter 不僅可以減少程式碼，還可以減省執行效率。  
+某種程度來看，會跟 Middleware 很像，但執行的順序略有不同，用對 Filter 不僅可以減少程式碼，還可以提升執行效率。  
 
 ASP.NET Core 有以下五種 Filter 可以使用：  
 * **Authorization Filter**  
@@ -30,16 +30,16 @@ Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Reques
 * **Resource Filter**  
 Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處理才用。  
 * **Action Filter**  
-最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但並不會經過 Model Binding。  
+最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但會在 Model Binding 之後執行。  
 * **Exception Filter**  
-異常處理的 Exception。  
+異常處理的 Filter。  
 * **Result Filter**  
 當 Action 完成後，最終會經過的 Filter。
 
 ## Filter 運作方式
 
 ASP.NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 預設都會以先進後出的方式處理封包。  
-Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖：  
+Response 在某些 Filter 並不會做處理，會直接 Bypass。Request 及 Response 的運作流程如下圖：  
 
 ![[鐵人賽 Day14] ASP.NET Core 2 系列 - Filter - 運作方式](/images/a/198.png)
 * 黃色箭頭是正常情況流程  
@@ -239,7 +239,7 @@ Filter 有兩種註冊方式，一種是全域註冊，另一種是用 `[Attribu
 
 ### 全域註冊
 
-在 `Startup.ConfigureServices` 的 MVC 服務中註冊 Filter，這樣就可以套用到所有的 Request。如下：
+在 `Startup.ConfigureServices` 的 MVC 服務中註冊 Filter，這樣就可以套用到進入 MVC Action 的 Request。如下：
 ```cs
 // ...
 public class Startup

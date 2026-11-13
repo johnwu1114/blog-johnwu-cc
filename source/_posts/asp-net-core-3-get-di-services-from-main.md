@@ -45,7 +45,7 @@ namespace MyWebsite
 }
 ```
 
-在 *HostBuilder* 建置出 *Host* 的實例之前，需要透過 `ConfigureServices` 先宣告 DI Services，當 *HostBuilder* 建置出 *Host* 實例時，就會依照 `ConfigureServices` 註冊的配置告知 Service Provider，讓 Service Provider 可以提供請求者 Services。  
+在 *HostBuilder* 建置出 *Host* 的實例之前，需要透過 `ConfigureServices` 先宣告 DI Services，當 *HostBuilder* 建置出 *Host* 實例時，就會依照 `ConfigureServices` 註冊的設定告知 Service Provider，讓 Service Provider 可以提供請求者 Services。  
 而 Service Provider 的實例會一直存在 *Host* 的實例之中。  
 
 ## 取用 Service Provider
@@ -84,7 +84,7 @@ public class Sample : ISampleTransient, ISampleScoped, ISampleSingleton
 }
 ```
 
-在 `Main` 方法 *HostBuilder* 建置出的 *Host* 實例，再從 Service Provider 中獲取需要的服務。  
+在 `Main` 方法取得 *HostBuilder* 建置出的 *Host* 實例，再從 Service Provider 中獲取需要的服務。  
 
 **Singleton** 及 **Transient** 類型的服務，都可以直接透過 Service Provider 取出，但 **Scoped** 類型的服務，必須先建立出 Service Scope，才可以在該 Scope 內的 Service Provider 中取出服務。  
 範例如下：  

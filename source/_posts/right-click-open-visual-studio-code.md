@@ -26,7 +26,7 @@ featured_image: /images/featured/vs-code.png
 
 ## Windows 註冊檔
 
-隨意建立一個 `*.txt` 的檔案，把以下內容貼入到 `*txt`。
+隨意建立一個 `*.txt` 的檔案，把以下內容貼入到 `*.txt`。
 ```powershell
 Windows Registry Editor Version 5.00
 

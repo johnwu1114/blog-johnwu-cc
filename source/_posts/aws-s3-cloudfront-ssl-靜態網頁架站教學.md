@@ -38,7 +38,7 @@ Region 的話，我個人是覺得在台灣連日本比較快一點。
 ![建立 Bucket - 2](/images/a/66.png)
 
 **Step 4**  
-要把 Everyone Read 權限打開，不然沒人連的到網站。
+要把 Everyone Read 權限打開，不然沒人連得到網站。
 ![建立 Bucket - 3](/images/a/67.png)
 
 **Step 5**  
@@ -104,7 +104,7 @@ AWS 會發送認證信給 Domain 管理員，請務必要有以下帳號能收�
 ### 設定 Distribution
 
 **Step 1**  
-Price Class 我是選亞州，因為比較便宜 XD  
+Price Class 我是選亞洲，因為比較便宜 XD  
 CNAMEs，除了在這邊綁定外，記得也要到購買網域的 DNS 管理設定。  
 指向：**xxxxxxxxxxxx.cloudfront.net**。  
 網域驗證通過的話，就可以選擇剛剛建立的憑證了。
@@ -131,5 +131,5 @@ CNAMEs，除了在這邊綁定外，記得也要到購買網域的 DNS 管理設
 > Step 3 & Step 4 要綁的 Domain 不要設錯喔！
 
 ## 完成
-上傳 index.html 到 S3，就可以成功看到的 domain 變 HTTPS 了～～
+上傳 index.html 到 S3，就可以成功看到 domain 變 HTTPS 了～～
 ![自訂網域使用SSL成功](/images/a/89.png)

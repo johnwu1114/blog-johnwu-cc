@@ -20,7 +20,7 @@ Jenkins 的 Pipeline Job 彈性幾乎跟 Batch/Shell 一樣，但比起前兩者
 
 ## 前言
 
-要使用 Pipeline Job 必需要安裝 [Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Plugin)，如果你安裝 Jenkins 時是預設值，應該就會自動安裝 Pipeline Plugin。
+要使用 Pipeline Job 必須要安裝 [Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Plugin)，如果你安裝 Jenkins 時是預設值，應該就會自動安裝 Pipeline Plugin。
 
 ## 1. 新增 Pipeline Job
 
@@ -76,7 +76,7 @@ node {
   }
 }
 ```
-> Groovy 骨子裡是呼叫 Java，所以它的語法特性會跟 Java，只是比較不嚴謹。  
+> Groovy 骨子裡是呼叫 Java，所以它的語法特性會跟 Java 很像，只是比較不嚴謹。  
 
 ## 執行結果
 

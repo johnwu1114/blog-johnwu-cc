@@ -66,16 +66,16 @@ $(function () {
 
 Add below html to layout, in themes\\*{your theme}*\\layout\\{where you want to show}.
 ```html
-<span id="visits">Visits: <font class="count">--<font></span>
-<span id="pageviews">Pageviews: <font class="count">--<font></span>
+<span id="visits">Visits: <font class="count">--</font></span>
+<span id="pageviews">Pageviews: <font class="count">--</font></span>
 ```
 
 ### Add references
 
-Add below references to layout footer, must after jquery reference.
+Add below references to layout footer, must be placed after the jQuery reference.
 ```html
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-<script src="js/src/custom.js"></script>
+<script src="/js/src/custom.js"></script>
 ```
 
 ## Demo

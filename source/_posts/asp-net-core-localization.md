@@ -47,7 +47,7 @@ ASP.NET Core 語系檔命名規則**必須**要與 Controllers / Views / Models 
 
 ## 3. Startup
 
-在 Startup 註冊多國語言需要服務，以及修改多國語的 Routing 方式。如下：
+在 Startup 註冊多國語言需要的服務，以及修改多國語的 Routing 方式。如下：
 ```cs
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -124,7 +124,7 @@ namespace MyWebsite.Middlewares
     }
 }
 ```
-每個 Requset 都會執行 RequestCultureProviders 中的 CultureProvider，用來判斷語系資訊，套用正確的資源檔。  
+每個 Request 都會執行 RequestCultureProviders 中的 CultureProvider，用來判斷語系資訊，套用正確的資源檔。  
 `Microsoft.AspNetCore.Localization` 套件支援的 CultureProvider 有三種：  
 * `QueryStringRequestCultureProvider` 從 QueryString 判斷語系資訊。  
 * `CookieRequestCultureProvider` 從 Cookie 判斷語系資訊。  
@@ -146,7 +146,7 @@ public class HomeController : Controller
 
 ### 5.1. Controller
 
-在 Controller 要使用多國語言的話，需要在建構子加入 IStringLocalizer 參數，執行期間會把 Localizer 的實體注入近來。  
+在 Controller 要使用多國語言的話，需要在建構子加入 IStringLocalizer 參數，執行期間會把 Localizer 的實體注入進來。  
 把 Resource Key 丟入 Localizer，就可以得到值。
 
 ```cs
@@ -172,7 +172,7 @@ public class HomeController : Controller
 
 ### 5.2. View
 
-要在 cshtml 使用多國語言的話，要先在 Setup 的 Services 中加入 ViewLocalization。  
+要在 cshtml 使用多國語言的話，要先在 Startup 的 Services 中加入 ViewLocalization。  
 注入 IViewLocalizer，把 Resource Key 丟入 Localizer，就可以得到值。  
 
 ```html
@@ -189,7 +189,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ### 5.3. Model
 
-要在 Model 使用多國語言的話，要先在 Setup 的 Services 中加入 DataAnnotationsLocalization。  
+要在 Model 使用多國語言的話，要先在 Startup 的 Services 中加入 DataAnnotationsLocalization。  
 
 ```cs
 public class SampleModel

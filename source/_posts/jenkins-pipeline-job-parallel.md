@@ -34,8 +34,8 @@ stage("Task 3") {
 } 
 ```
 
-若沒有相依關係就可以改成平行處理，平行處理透過調用 `parallel` 方法實現。  
-`parallel` 調用是以 `String` 為 key， `Delegate Method` 為 Value。  
+若沒有相依關係就可以改成平行處理，平行處理透過呼叫 `parallel` 方法實現。  
+`parallel` 呼叫是以 `String` 為 key， `Delegate Method` 為 Value。  
 範例如下：
 ```groovy
 parallel (
@@ -92,7 +92,7 @@ Task 6
 Task 6
 ```
 
-主要是因為 `Delegate Method` 使用的外部變數，在執行 `parallel` 時，早就跑完迴圈被改成 6 了。  
+主要是因為 `Delegate Method` 使用的外部變數，在執行 `parallel` 時，早就跑完迴圈被改成 5 了，所以 `i+1` 都是 6。  
 如果真的想要在 `Delegate Method` 取得外部變數，建議另外用區域變數儲存，避免外部變數在執行前被改變。如下：
 ```groovy
 def tasks = [:]
@@ -112,7 +112,7 @@ parallel(tasks)
 ## 部分平行處理
 
 較複雜的流程可能會有部分的工作能平行處理，但之後的工作又有相依關係。  
-在 `parallel` 平行處理後，可以透過 `stage` 等待平行處理工作全部完成，再繼續往下動作。  
+`parallel` 本身會等待各分支全部完成，再繼續執行後面的 `stage`。  
 如下範例，有兩段工作群可以平行處理：
 ```groovy
 stage ("Checkout Source Code") { }

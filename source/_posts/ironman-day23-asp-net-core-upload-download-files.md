@@ -98,7 +98,7 @@ namespace MyWebsite.Controllers
     }
 }
 ```
-> 此範例有個小缺陷，就是上傳檔名不能重複，如果檔名重複會被複寫。  
+> 此範例有個小缺陷，就是上傳檔名不能重複，如果檔名重複會被覆寫。  
 
 * **HTTP POST**  
   前端用 HTML Form 上傳檔案。`enctype` 使用 **multipart/form-data**，把 `action` 指向接收上傳資料的 API，可以用 `accept` 限制上傳檔案類型。如下：  
@@ -157,7 +157,7 @@ public async Task<IActionResult> Album(AlbumModel model)
 
 HTML Form 如下：  
 ```html
-<form method="post" enctype="multipart/form-data" action="/api/users/album">
+<form method="post" enctype="multipart/form-data" action="/api/files/album">
     名稱：<input type="text" name="title" /><br />
     日期：<input type="date" name="date" /><br />
     相片：<input type="file" name="photos" multiple accept="image/*" /><br />
@@ -421,7 +421,7 @@ public async Task<IActionResult> Album()
 * **DisableFormValueModelBindingFilter**  
   Action 套用此 Filter 後，HTML Form 就不會被轉換成物件傳入 Action，因此也就可以移除 Action 的參數了。  
 * **StreamFile**  
-  StreamFile 會將 HTML Form 的內容以 `FormValueProvider` 包裝後回傳，並以委派方法讓你實做上傳的事件，以此例來說就是直接以串流的方式直接寫檔。  
+  StreamFile 會將 HTML Form 的內容以 `FormValueProvider` 包裝後回傳，並以委派方法讓你實作上傳的事件，以此例來說就是直接以串流的方式直接寫檔。  
   這樣就能避免 ASP.NET Core 依賴緩衝記憶體上傳檔案。  
 
 ### Request Limits
@@ -429,7 +429,7 @@ public async Task<IActionResult> Album()
 上傳大檔可能還會遇到單一 Request 封包過大的錯誤。  
 
 * **Kestrel**
-  若是將 ASP.NET Core 單獨運行在 `Kestrel` 上，預設單一上傳封包是 **30,000,000 bytes** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 `KestrelServerLimits` 修改 `MaxRequestBodySize`。如下：  
+  若是將 ASP.NET Core 單獨執行在 `Kestrel` 上，預設單一上傳封包是 **30,000,000 bytes** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 `KestrelServerLimits` 修改 `MaxRequestBodySize`。如下：  
   *Program.cs*
   ```cs
 // ...
@@ -452,7 +452,7 @@ public class Program
 }
   ```
 * **IIS**
-  若是將 ASP.NET Core 運行在 `IIS` 上，預設單一上傳封包是 **30,000,000 bytes** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 *Web.config* 修改 `maxAllowedContentLength`。如下：  
+  若是將 ASP.NET Core 執行在 `IIS` 上，預設單一上傳封包是 **30,000,000 bytes** 大約是 28.6MB，單次 Request 上傳的大小限制可以在 *Web.config* 修改 `maxAllowedContentLength`。如下：  
   *Web.config*
   ```xml
 <?xml version="1.0" encoding="utf-8"?>

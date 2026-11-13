@@ -13,7 +13,7 @@ featured_image: /images/a/341.png
 ![.NET Core - 從 DLL 取得內嵌資源 (Embedded Resource) - 內嵌資源名稱](/images/a/341.png)
 
 設定成內嵌資源(Embedded Resource)的檔案，在編譯時會被封裝到 DLL 中。編譯時期若沒有參考的話，就需要使用 Assembly Load 動態載入取得內嵌資源。  
-本篇將介紹 .NET Core 如何從在執行階段，動態載入 DLL 取得 Embedded Resource。  
+本篇將介紹 .NET Core 如何在執行階段，動態載入 DLL 取得 Embedded Resource。  
 
 <!-- more -->
 
@@ -52,6 +52,7 @@ AssemblyLoadContext 可以幫助載入 DLL，使用方式如下：
 using System.IO;
 using System.Resources;
 using System.Runtime.Loader;
+using System.Text;
 
 // ...
 

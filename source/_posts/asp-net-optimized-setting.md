@@ -28,7 +28,7 @@ var httpModules = HttpContext.ApplicationInstance.Modules;
 輸出內容如下：
 ![ASP.NET - 基本優化設定 - 預設 HTTP Modules](/images/a/313.png)
 
-可以看到有 16 個 HTTP Modules，但並不是每一個都會需要，例如驗證相關的邏輯都自己實作，完全不會用到 `WindowsAuthentication`、`FormsAuthentication`、`DefaultAuthentication`，那這三個 HTTP Modules 就應該把它移除，省的在每個 Request 及 Response 都會經過它們。  
+可以看到有 16 個 HTTP Modules，但並不是每一個都會需要，例如驗證相關的邏輯都自己實作，完全不會用到 `WindowsAuthentication`、`FormsAuthentication`、`DefaultAuthentication`，那這三個 HTTP Modules 就應該把它移除，省得在每個 Request 及 Response 都會經過它們。  
 
 可以在網站根目錄的 Web.config 編輯，移除預設的 HTTP Modules。範例如下：
 ```xml
@@ -94,7 +94,7 @@ namespace MyWebsite
 ### CSharpViewEngine
 
 ASPX 的 View File 都被忽略了，但還是有點美中不足的部分，我只用到 `C#`，但 View Engine 卻去找 Visual Basic 的 View File。  
-我們在小改一下程式，建立一個 CSharpViewEngine 繼承 RazorViewEngine，改寫一下 View Engine 的規則。
+我們再小改一下程式，建立一個 CSharpViewEngine 繼承 RazorViewEngine，改寫一下 View Engine 的規則。
 
 ```cs
 using System.Web.Mvc;
@@ -198,7 +198,7 @@ namespace MyWebsite
 1. 從 IIS 移除  
 2. 從 Web.config 移除  
 
-以 Web.config 為例，在網站根目錄的 Web.config 編輯，移除預設的 HTTP Modules。範例如下：
+以 Web.config 為例，在網站根目錄的 Web.config 編輯，移除 `X-Powered-By`。範例如下：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>

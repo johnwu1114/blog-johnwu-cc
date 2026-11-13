@@ -16,7 +16,7 @@ featured_image: /images/a/324.png
 ![Jenkins - Pipeline Job 平行處理 - 執行結果 - 2](/images/a/324.png)
 
 先前有介紹過 [Jenkins - Pipeline Job 平行處理](/article/jenkins-pipeline-job-parallel.html)，大致說明了基本用法。  
-本篇稍為進階一點，透過 JSON 檔案控製 Pipeline Job 平行處理的執行順序。
+本篇稍微進階一點，透過 JSON 檔案控制 Pipeline Job 平行處理的執行順序。
 
 <!-- more -->
 
@@ -192,12 +192,12 @@ Caused: java.io.NotSerializableException: java.util.TreeMap$Entry
   ...
 ```
 
-> 因為 buildDependency 經過 `sort()` 處理後，已由原本的 `LinkedHashMap` 型態，轉變為 `TreeMap` 型態，而 `TreeMap` 無法被序列化。  
+> 因為 buildDependency 經過 `sort()` 處理後，已由原本的 `LinkedHashMap` 型態，轉變為 `TreeMap` 型態，而迭代 `TreeMap` 時產生的 `TreeMap$Entry` 無法被序列化。  
 > 前篇 [Jenkins - Pipeline Job 平行處理發生 JSON 例外](/article/jenkins-pipeline-job-parallel-json-not-serializable-exception.html) 有說明，Pipeline Job 平行處理不能使用到無法被序列化的物件。
 
 ### TreeMap to ArrayList
 
-解決方是只要把 `TreeMap` 轉換成 `ArrayList` 即可，建立一個簡短的轉換方法：
+解決方式是只要把 `TreeMap` 轉換成 `ArrayList` 即可，建立一個簡短的轉換方法：
 ```groovy
 def entrySet(m) { m.collect { k, v -> [ k, v ] } }
 ```

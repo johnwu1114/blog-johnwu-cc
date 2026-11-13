@@ -10,9 +10,9 @@ date: 2017-08-26 01:47:00
 featured_image: /images/a/310.png
 ---
 
-運行 ASP.NET 基本上都是掛載在 IIS 上面，但 IIS 預設的設定，並不適合 24 小時不中斷的營運系統。  
+執行 ASP.NET 基本上都是掛載在 IIS 上面，但 IIS 預設的設定，並不適合 24 小時不中斷的營運系統。  
 如果沒有適當的調整，可能會造成使用者的感受不佳，而你又偏偏不會遇到。  
-本篇將介紹 IIS 運行 ASP.NET 網站的基本優化設定。
+本篇將介紹 IIS 執行 ASP.NET 網站的基本優化設定。
 
 <!-- more -->
 
@@ -25,8 +25,8 @@ featured_image: /images/a/310.png
 
 ### 佇列長度 (Queue Length)
 
-預設值是 **1000**，當封包數量在同一時間到達該指定值，之後的 Request 都會變成 HTTP Status 503 Service Unavailable。  
-> 例：當有同時間有 1001 個 Request 一起送到 IIS，第 1001 個 Request 會直接回傳 503，不會進到 ASP.NET 處理。  
+預設值是 **1000**，當排隊中的 Request 數量到達該指定值，之後的 Request 都會變成 HTTP Status 503 Service Unavailable。  
+> 例：當同時間有 1001 個 Request 一起送到 IIS，第 1001 個 Request 會直接回傳 503，不會進到 ASP.NET 處理。  
 
 也不是無限大就好，也是要看伺服器等級。  
 > 假設調成 10000，也真的有同時 10000 的量，可能會演變成 *CPU High* 的問題。  
@@ -65,7 +65,7 @@ Enabled 預設值是 **True**，當 *N* 分鐘內，發生 *M* 次錯誤，IIS �
 
 預設值是 **Terminate**，當網站閒置 *N* 分鐘，IIS 就會把 ASP.NET 網站終止並把資源釋放，直到下個使用者 Request 進來，IIS 才會把網站重新啟動。行為類似**啟動模式 (Start Mode)**。
 
-建議設定成 `Suspend`，Suspend 的行為是把網站狀態暫存在記憶體中，僅釋放 CPU 資源和用不到的記憶體，當 Request 進來後，可以快速的復原網站狀態。
+建議設定成 `Suspend`，Suspend 的行為是把網站的工作處理序暫停並將記憶體分頁到磁碟，釋放 CPU 及記憶體資源，當 Request 進來後，可以快速的復原網站狀態。
 
 ## 設定範例
 

@@ -31,7 +31,7 @@ ASP.NET Core 的 MVC(Model-View-Controller) 架構模式延續 ASP.NET MVC，把
 * **View**  
  負責 UI 顯示，如 HTML、CSS 等介面設計配置。  
 * **Controller**  
- 負責將使用者 Requset 找到相對應的 Model 及 View，做為控制流程的角色。  
+ 負責將使用者 Request 找到相對應的 Model 及 View，做為控制流程的角色。  
 
 > 在 ASP.NET Core 中使用 MVC 或 Web API，需要 `Microsoft.AspNetCore.Mvc` 套件。  
  ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Mvc`，所以不用再安裝。  
@@ -139,7 +139,7 @@ View 跟 Controller 有相互的對應關係，預設在 Controller 使用 `View
 Hello~ 我是 @Model.Name
 ```
 
-在 `*.cshtml` 用 `@model` 綁定 Model 的型別，才可以使用 `@Model` 取得 Controller 傳入的物件。  
+在 `*.cshtml` 用 `@model` 綁定 Model 的型別，就可以使用強型別的 `@Model` 取得 Controller 傳入的物件。  
 
 ### 範例結果
 

@@ -124,7 +124,7 @@ public static class SystemTime
 }
 ```
 
-如此一來就可以在測試方法中，透過 internal set `SystemTime.Now` 模擬回傳值。  
+先將被測試方法內的時間讀取改為 `var now = SystemTime.Now;`，再於測試方法中透過 internal set `SystemTime.Now` 模擬回傳值。  
 
 測試程式碼如下：  
 ```cs
@@ -171,7 +171,7 @@ public void Christmas_Discount()
         System.Fakes.ShimDateTime.NowGet = () => Convert.ToDateTime("2017/12/25");
 
         // Act
-        var actual = Discount(amount);
+        var actual = _target.Discount(amount);
 
         // Assert
         Assert.AreEqual(expected, actual);
@@ -181,7 +181,7 @@ public void Christmas_Discount()
 
 ## 結論
 
-1. 自製包裝比較土法煉鋼的方式，優點是其它語言也能用此方法。缺點是必須要異動被測試目標。  
+1. 自製包裝是比較土法煉鋼的方式，優點是其它語言也能用此方法。缺點是必須要異動被測試目標。  
 2. Microsoft Fakes 的好處是不用改原本的程式碼，缺點是口袋要夠深，畢竟要 **Visual Studio Enterprise** 版本才能用。  
 
 如果是新專案沒有歷史包袱的話，我會比較建議一開始就用自製包裝的方式，彈性會比較高。  

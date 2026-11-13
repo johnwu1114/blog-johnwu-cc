@@ -11,7 +11,7 @@ date: 2019-10-23 23:12
 featured_image: /images/b/45.png
 ---
 
-自九月推出 .NET Core 3.0 正式版後，最近終於開始把產品從 .NET Core 2 開始升級到 .NET Core 3.0。  
+自九月推出 .NET Core 3.0 正式版後，最近終於開始把產品從 .NET Core 2 升級到 .NET Core 3.0。  
 之前寫的 [ASP.NET Core 2 系列文章](/tags/it-邦幫忙-2018-鐵人賽/) 有部分內容已過時，所以將重新整理成 ASP.NET Core 3 的內容，並補充一些說明。  
 本篇主要介紹基本的 ASP.NET Core 3 環境準備及如何用 Visual Studio Code (VS Code) 開發 ASP.NET Core。  
 
@@ -19,7 +19,7 @@ featured_image: /images/b/45.png
 
 ## 前言
 
-開發 .NET Core 必需要安裝 .NET Core SDK，所以先到官網下載 .NET Core SDK 的安裝檔，官網下載位置[點此](https://dotnet.microsoft.com/download)。  
+開發 .NET Core 必須要安裝 .NET Core SDK，所以先到官網下載 .NET Core SDK 的安裝檔，官網下載位置[點此](https://dotnet.microsoft.com/download)。  
 
 .NET Core 是跨作業系統的框架，不再像 .NET Framework 要依附在 Windows 的作業系統才能執行，所以可以依照各平台版本進行下載及安裝。  
 文中範例用的截圖大部分是 Windows 作業系統，但本系列教學都會是以指令為主，並不受限於 Windows 平台。  
@@ -63,7 +63,7 @@ Startup.cs                      # 啟動網站設定
 ```
 
 > .NET Core 3.0 之後，`*.csproj` 專案檔變得很乾淨俐落，如上圖。  
-> 當宣告 `<Project Sdk="Microsoft.NET.Sdk.Web">` 就會預設參考 `Microsoft.AspNetCore.App` 套件。  
+> 當宣告 `<Project Sdk="Microsoft.NET.Sdk.Web">` 就會預設參考 `Microsoft.AspNetCore.App` 共用框架。  
 
 ## 啟動網站
 

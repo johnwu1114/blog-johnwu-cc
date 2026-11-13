@@ -20,7 +20,7 @@ ASP.NET Core 提供了好用的 Logging API，預設就已經將 Logger 物件�
 
 ## Logger
 
-ASP.NET Core 2 預設就把 Logger 放進 DI 容器，能直接透過 DI 取用 `ILogger` 實例。如下：  
+ASP.NET Core 2 預設就把 Logger 放進 DI 容器，能直接透過 DI 取用 `ILogger<T>` 實例。如下：  
 
 *Controllers\HomeController.cs*
 ```cs
@@ -56,7 +56,7 @@ namespace MyWebsite.Controllers
 
 ![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Sample](/images/ironman/i18-1.png)  
 
-會發現上例預期輸出 6 筆 Log，但實際上確出現一大堆 Log，其中只有 4 筆 Log 是由 `Home.Index()` 輸出。  
+會發現上例預期輸出 6 筆 Log，但實際上卻出現一大堆 Log，其中只有 4 筆 Log 是由 `Home.Index()` 輸出。  
 
 ## Log Level
 
@@ -66,7 +66,7 @@ ASP.NET Core 的 Log 有分為以下六種：
 * **Debug** *(Log Level = 1)*  
   這類型的 Log 是為了在正式環境除錯使用，但平常不應該開啟，避免 Log 量太大，反而會造成正式環境的問題。 **(預設不會輸出)**  
 * **Information** *(Log Level = 2)*  
-  常見的 Log 類型，主要是紀錄程試運行的流程。  
+  常見的 Log 類型，主要是紀錄程式執行的流程。  
 * **Warning** *(Log Level = 3)*  
   紀錄可預期的錯誤或者效能不佳的事件；不改不會死，但改了會更好的問題。  
 * **Error** *(Log Level = 4)*  
@@ -104,7 +104,7 @@ namespace MyWebsite
 
 ## Log Filter 
 
-大部都是 `Microsoft.AspNetCore` 輸出的 Log，但這類型的 Log 你可能不需要關注。如下：  
+大部分都是 `Microsoft.AspNetCore` 輸出的 Log，但這類型的 Log 你可能不需要關注。如下：  
 
 ![[鐵人賽 Day18] ASP.NET Core 2 系列 - Logging - Log Filter](/images/ironman/i18-2.png)  
 

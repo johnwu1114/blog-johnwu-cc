@@ -13,7 +13,7 @@ featured_image: /images/a/206.png
 ---
 ![ASP.NET Core 教學 - Exception Handler 層級](/images/a/206.png)
 
-ASP.NET Core 要做一個通用的 Exception Handler 可以透過 Middleware 或 Filter，但兩者之間的執行週期確大不相同。  
+ASP.NET Core 要做一個通用的 Exception Handler 可以透過 Middleware 或 Filter，但兩者之間的執行週期卻大不相同。  
 本篇將介紹 ASP.NET Core 透過 Middleware 及 Filter 異常處理的差異。  
 
 <!-- more -->

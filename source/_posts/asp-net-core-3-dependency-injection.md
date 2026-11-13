@@ -10,7 +10,7 @@ date: 2019-10-28 22:09
 featured_image: /images/ironman/i04-4.png
 ---
 
-ASP.NET Core 使用了大量的依賴注入 (Dependency Injection, DI)，把控制翻轉 (Inversion Of Control, IoC) 運用的相當落實。  
+ASP.NET Core 使用了大量的依賴注入 (Dependency Injection, DI)，把控制翻轉 (Inversion Of Control, IoC) 運用得相當落實。  
 DI 可算是 ASP.NET Core 最精華的一部分，有用過 Autofac 或類似的 DI Framework 對此應該不陌生。  
 本篇將介紹 ASP.NET Core 的依賴注入。  
 
@@ -106,7 +106,7 @@ public class Sample : ISample
 }
 ```
 
-要注入的 Service 需要在 `ConfigureServices` 中註冊實做類別。*Startup.cs* 如下：  
+要注入的 Service 需要在 `ConfigureServices` 中註冊實作類別。*Startup.cs* 如下：  
 
 ```cs
 using Microsoft.AspNetCore.Builder;
@@ -140,10 +140,10 @@ namespace MyWebsite
 ```
 
 * 第一個泛型為注入的類型  
- 建議用 Interface 來包裝，這樣在才能把相依關係拆除。  
-* 第二個泛型為實做的類別  
+ 建議用 Interface 來包裝，這樣才能把相依關係拆除。  
+* 第二個泛型為實作的類別  
 
-ASP.NET Core 3 開始，建議透過 Generic Host 建立 Web Host，所以也能用 HostBuilter 中的 `ConfigureServices` 方法註冊：
+ASP.NET Core 3 開始，建議透過 Generic Host 建立 Web Host，所以也能用 HostBuilder 中的 `ConfigureServices` 方法註冊：
 
 ```cs
 using Microsoft.AspNetCore.Hosting;
@@ -220,7 +220,7 @@ namespace MyWebsite.Controllers
 [ISample]
 Id: 1
 HashCode: 14145203
-Tpye: MyWebsite.Sample
+Type: MyWebsite.Sample
 ```
 
 ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型的參數，就把 Sample 的實例注入給該 Controller。  
@@ -239,7 +239,7 @@ ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型�
 * **Scoped**  
  每個 **Request** 都重新 `new` 一個新的實例，同一個 **Request** 不管經過多少個 Pipeline 都是用同一個實例。上例所使用的就是 **Scoped**。  
 * **Singleton**  
- 被實例化後就不會消失，程式運行期間只會有一個實例。  
+ 被實例化後就不會消失，程式執行期間只會有一個實例。  
 
 小改一下 Sample 類別的範例程式：  
 
@@ -367,7 +367,7 @@ public class HomeController : Controller
 輸出內容如下：  
 
 ![ASP.NET Core 3 系列 - 依賴注入 (Dependency Injection) - Service 生命週期 - Controller](/images/ironman/i04-1.png)  
-從左到又打開頁面三次，可以發現 **Singleton** 的 Id 及 HashCode 都是一樣的，此例還看不太出來 **Transient** 及 **Scoped** 的差異。
+從左到右打開頁面三次，可以發現 **Singleton** 的 Id 及 HashCode 都是一樣的，此例還看不太出來 **Transient** 及 **Scoped** 的差異。
 
 Service 實例產生方式：  
 
@@ -376,7 +376,7 @@ Service 實例產生方式：
 圖例說明：  
 
 * **A** 為 **Singleton** 物件實例  
- 一但實例化，就會一直存在於 DI 容器中。  
+ 一旦實例化，就會一直存在於 DI 容器中。  
 * **B** 為 **Scoped** 物件實例  
  每次 **Request** 就會產生新的實例在 DI 容器中，讓同 **Request** 週期的使用方，拿到同一個實例。  
 * **C** 為 **Transient** 物件實例  
@@ -414,8 +414,8 @@ View 注入 Service 的方式，直接在 `*.cshtml` 使用 `@inject`，如範�
 
 ![ASP.NET Core 3 系列 - 依賴注入 (Dependency Injection) - Service 生命週期 - View](/images/ironman/i04-2.png)  
 
-從左到又打開頁面三次，**Singleton** 的 Id 及 HashCode 如前例是一樣的。  
-**Transient** 及 **Scoped** 的差異在這次就有明顯差異，**Scoped** 在同一次 Request 的 Id 及 HashCode 都是一樣的，如紅綠籃框。  
+從左到右打開頁面三次，**Singleton** 的 Id 及 HashCode 如前例是一樣的。  
+**Transient** 及 **Scoped** 的差異在這次就有明顯差異，**Scoped** 在同一次 Request 的 Id 及 HashCode 都是一樣的，如紅綠藍框。  
 
 ### Service
 
@@ -494,14 +494,14 @@ public class Startup
 
 ![ASP.NET Core 3 系列 - 依賴注入 (Dependency Injection) - Service 生命週期 - Servie](/images/ironman/i04-3.png)  
 
-從左到又打開頁面三次：  
+從左到右打開頁面三次：  
 
 * **Transient**  
  如預期，每次注入都是不一樣的實例。  
 * **Scoped**  
- 在同一個 Requset 中，不論是在哪邊被注入，都是同樣的實例。  
+ 在同一個 Request 中，不論是在哪邊被注入，都是同樣的實例。  
 * **Singleton**  
- 不管 Requset 多少次，都會是同一個實例。  
+ 不管 Request 多少次，都會是同一個實例。  
 
 ## 參考
 

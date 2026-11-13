@@ -26,7 +26,7 @@ featured_image: /images/a/372.png
 
 ### Free-Style
 
-Free-Style 的建置專案(Build Environment)，可以在建置環境找到 `Color ANSI Console Output`，把它打勾即可：  
+Free-Style 的建置專案，可以在建置環境(Build Environment)找到 `Color ANSI Console Output`，把它打勾即可：  
 
 ![Jenkins - AnsiColor 輸出不同顏色的文字訊息 - 建置專案](/images/a/373.png)
 

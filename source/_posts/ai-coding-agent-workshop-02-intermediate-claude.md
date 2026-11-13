@@ -95,7 +95,7 @@ featured_image: /images/b/61.png
 
 | 要寫 | 不要寫 |
 | :--- | :--- |
-| 規則（約束怎麼工作、什麼不能做） | 介紹（項目是什麼、目錄結構） |
+| 規則（約束怎麼工作、什麼不能做） | 介紹（專案是什麼、目錄結構） |
 | 團隊/倉庫獨有的限制 | 模型本來就會的常識 |
 | 長期有效的流程 | 臨時任務（應寫成 Skill 或 Hook） |
 | 反面例子「不要這樣做」 | 正面套話「保持優雅」 |
@@ -126,7 +126,7 @@ CLAUDE.md → role → policy → stack → skills → templates
 | **Hooks / 自動檢查** | 出餐前先過品管 | 在特定時機自動跑檢查或流程 |
 | **Workflow 約束** | 廚房標準流程 | 先看 code、再改、最後驗證 |
 
-例如在 `.claude/settings.json` 設一個 hook，每次 AI 改完檔案自動跑 lint：
+例如在 `.claude/settings.json` 設一個 hook，每次 AI 使用 Edit 工具改完檔案後自動跑 lint：
 
 ```jsonc
 {

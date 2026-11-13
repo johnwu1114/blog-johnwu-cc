@@ -25,7 +25,7 @@ ASP.NET Core Routing 不熟悉的話，請先參考：
 
 ## 1. Single Module
 
-### 1.2 File Structure
+### 1.1 File Structure
 
 首先我建立兩個資料夾分別為 `first` 及 `second`，各三個 Component 為 `one.component`、`two.component`及`three.component`。  
 檔案結構如下：
@@ -72,7 +72,7 @@ export class AppModule { }
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
-如過不想拆分模組，可以把 Routing 全部註冊在 app.routes.ts，例如：
+如果不想拆分模組，可以把 Routing 全部註冊在 app.routes.ts，例如：
 ```
 // ...
 

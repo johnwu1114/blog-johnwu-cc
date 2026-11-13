@@ -13,7 +13,7 @@ updated: 2018-01-02 12:00
 featured_image: /images/ironman/i12-1.png
 ---
 
-RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱 CRUD 四種資料存取方式，簡約又直覺的風格，讓人用的愛不釋手。  
+RESTful 幾乎已算是 API 設計的標準，透過 HTTP Method 區分新增(Create)、查詢(Read)、修改(Update)跟刪除(Delete)，簡稱 CRUD 四種資料存取方式，簡約又直覺的風格，讓人用得愛不釋手。  
 本篇將介紹如何透過 ASP.NET Core 實作 REST-Like API。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
@@ -98,7 +98,7 @@ public class UserController : Controller
     }
 }
 ```
-> 目前 ASP.NET Core 還沒有像 ASP.NET MVC 的 MapHttpAttributeRoutes 可以綁 Http Method 的全域路由，都要在 Action 加上 HTTP Method Attribute。
+> 目前 ASP.NET Core 還沒有像 ASP.NET Web API 的 MapHttpRoute 可以綁 Http Method 的全域路由，都要在 Action 加上 HTTP Method Attribute。
 
 ## SerializerSettings 
 
@@ -184,7 +184,7 @@ public class Startup
 }
 ```
 
-> `DefaultContractResolver` 名稱是延續 ASP.NET，雖然名稱叫 Default，但在 ASP.NET Core 它不是 **Default**。`CamelCasePropertyNamesContractResolver` 才是 ASP.NET Core 的 **Default** ContractResolver。
+> `DefaultContractResolver` 名稱是來自 Json.NET，雖然名稱叫 Default，但在 ASP.NET Core 它不是 **Default**。`CamelCasePropertyNamesContractResolver` 才是 ASP.NET Core 的 **Default** ContractResolver。
 
 呼叫 `http://localhost:5000/api/users/1` 會回傳 JSON 如下：
 ```json
@@ -258,7 +258,7 @@ namespace MyWebsite.Models
     }
 }
 ```
-> 我習慣用一個 ResultModel 來包裝每個 API 回傳的內容，不論調用 Web API 成功失敗都用此物件包裝，避免直接 throw exception 到 Client，產生 HTTP Status 200 以外的狀態。  
+> 我習慣用一個 ResultModel 來包裝每個 API 回傳的內容，不論呼叫 Web API 成功失敗都用此物件包裝，避免直接 throw exception 到 Client，產生 HTTP Status 200 以外的狀態。  
 
 *Controllers/UserController.cs*
 ```cs
@@ -312,6 +312,7 @@ namespace MyWebsite.Controllers
             int index;
             if ((index = _users.FindIndex(c => c.Id == id)) != -1)
             {
+                user.Id = id;
                 _users[index] = user;
                 result.IsSuccess = true;
             }

@@ -42,7 +42,7 @@ dotnet test /p:CollectCoverage=true \
 ```
 
 * **CollectCoverage**  
-  使否啟用程式碼覆蓋率分析。  
+  是否啟用程式碼覆蓋率分析。  
   *(預設為 false)*  
 * **CoverletOutputFormat**  
   程式碼覆蓋率分析報告的格式。  

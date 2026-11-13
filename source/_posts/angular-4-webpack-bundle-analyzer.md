@@ -11,7 +11,7 @@ featured_image: /images/a/279.png
 ---
 ![Angular 4 - Webpack 打包檔案分析](/images/a/279.png)
 
-Angular 4 (Angular 2) 參考都是一連串的往底層參考，有時候用 Webpack 打包完的檔案大的莫名其妙。  
+Angular 4 (Angular 2) 參考都是一連串的往底層參考，有時候用 Webpack 打包完的檔案大得莫名其妙。  
 本篇將介紹如何用 `webpack-bundle-analyzer` 這個套件分析 Webpack 打包出來的檔案。  
 
 <!-- more -->

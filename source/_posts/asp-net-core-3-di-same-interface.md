@@ -11,7 +11,7 @@ featured_image: /images/b/52.png
 ---
 
 通常在使用 ASP.NET Core 依賴注入 (Dependency Injection, DI) 都是一個介面對應一個實作類別。  
-若有多個類別時做相同的介面時，注入的方式就會有點變化。  
+若有多個類別實作相同的介面時，注入的方式就會有點變化。  
 本篇將介紹 ASP.NET Core 依賴注入多個相同的介面 (Interface)  
 
 <!-- more -->

@@ -21,7 +21,7 @@ featured_image: /images/a/284.png
 
 首先要到 GCS 申請自訂搜尋引擎：https://cse.google.com
 步驟如下：
-![Hexo - 自訂站內搜尋 (Google Custom Search) - 新稱搜尋引擎](/images/a/280.png)
+![Hexo - 自訂站內搜尋 (Google Custom Search) - 新增搜尋引擎](/images/a/280.png)
 
 設定要被搜尋的路徑，例如我的部落格文章都放在 `blog.johnwu.cc/article/` 目錄之下，我就設定只要搜尋此目錄。  
 > 其它頁面如：Categories、Tags、Archives 等，都屬於索引頁面，沒有必要被搜尋，所以就不設定。  
@@ -63,7 +63,7 @@ comments: false
 
 ## 3. 設定 Menu
 
-編輯 `/themes/next/_condig.yml`，把搜尋頁面加入到 Menu。如下：
+編輯 `/themes/next/_config.yml`，把搜尋頁面加入到 Menu。如下：
 ```yml
 menu:
   # ...
@@ -76,7 +76,7 @@ menu_icons:
 
 > 由於我的 Theme 是用 NexT，所以我以 NexT 為例，其它 Theme 的使用者請自行變通一下。
 
-設定完成後，就可以點擊 Menu 就可以看到 GCS 整合到 Hexo 囉～
+設定完成後，點擊 Menu 就可以看到 GCS 整合到 Hexo 囉～
 
 ![Hexo - 自訂站內搜尋 (Google Custom Search) - Menu](/images/a/285.png)
 
@@ -86,7 +86,7 @@ menu_icons:
 ## 4. 修正 UI
 
 由於 GCS 是動態產生 HTML 在 Hexo 頁面，不是用 IFrame 包裝，所以 CSS 會被主頁影響。  
-而 Hexo 的 CSS 複寫了 GCS 的樣式，所以導致 GCS 顯示不正常。  
+而 Hexo 的 CSS 覆寫了 GCS 的樣式，所以導致 GCS 顯示不正常。  
 
 新建一個 `/themes/next/source/css/_common/components/google-custom-search.styl` 檔案來修正 GCS 跑版的問題。
 ```css
@@ -165,7 +165,7 @@ form.gsc-search-box{
 @import "google-custom-search";
 ```
 
-> 如果你 Theme 不是用 NexT，可能不會有 `components.styl`，你可以建立一個 `google-custom-search.css`，直接加入參考到頁面中。
+> 如果你的 Theme 不是用 NexT，可能不會有 `components.styl`，你可以建立一個 `google-custom-search.css`，直接加入參考到頁面中。
 
 ## 移除廣告
 

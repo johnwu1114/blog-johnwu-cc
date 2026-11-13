@@ -15,7 +15,7 @@ featured_image: /images/a/349.png
 
 之前用 Angular 4 (Angular 2) 開發後台系統，使用者都是在 PC 上面使用，網站啟動速度都很快，所以沒有使用到 Ahead-of-Time (AOT) 預先編譯的需求。  
 最近新產品上線，遇到很多 Android 的使用者開啟網站超級慢，舊一點的機型甚至開一分鐘才有畫面。事後才趕緊補上 AOT 編譯。  
-本篇將介紹用 Webpack 預先編譯 AOT 編譯。  
+本篇將介紹如何用 Webpack 進行 AOT 預先編譯。  
 
 <!-- more -->
 
@@ -123,7 +123,7 @@ module.exports = {
         }), 
         new webpack.ContextReplacementPlugin( 
             /angular(\\|\/)core(\\|\/)@angular/, 
-            __dirname + "./app"
+            __dirname + "/app"
         )
     ] 
 }
@@ -161,7 +161,7 @@ webpack -p
 ![Angular 4 教學 - Webpack JIT](/images/a/348.png)
 
 到目前為止，只是改成用 Webpack 打包 Angular 的 Source Code，所以還只是 JIT 編譯。  
-由於本篇範例實在是太簡單了，看到載入的速度很快，才 400/ms 左右。  
+由於本篇範例實在是太簡單了，看到載入的速度很快，才 400 ms 左右。  
 
 ### 安裝 AOT 套件
 
@@ -266,7 +266,7 @@ platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 ```
 npm uninstall systemjs --save
 ```
-system.config.js 也可以隨之移除。
+systemjs.config.js 也可以隨之移除。
 
 改成用 AOT 編譯後，前端不再需要動態編譯，所以在 `bundle-vendors` 中可以把 `@angular/*` 移除：
 ```js
@@ -299,7 +299,7 @@ module.exports = {
 > 類似的問題：[angular2 loading slow on android(had use lazy loading)](https://github.com/angular/angular/issues/14092)  
 
 所以，如果產品需要支援手機或嵌入式裝置等，建議一開始就使用 AOT。  
-如果只需要支援 PC 版，用 JIT 會較省下載速度及流量，可以比較不用擔心啟動效率問題。  
+如果只需要支援 PC 版，用 JIT 會較省下載時間及流量，可以比較不用擔心啟動效率問題。  
 
 ## 程式碼下載
 

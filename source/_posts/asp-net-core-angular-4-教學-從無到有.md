@@ -136,7 +136,7 @@ npm install --save-dev typescript@latest @types/jasmine @types/node
 
 ## 3. 安裝 NuGet 套件
 
-由於要讓 ASP.NET Core 可以支援讀取的靜態檔案，所以用管理 NuGet 套件安裝 Microsoft.AspNetCore.StaticFiles。
+由於要讓 ASP.NET Core 可以支援讀取靜態檔案，所以用管理 NuGet 套件安裝 Microsoft.AspNetCore.StaticFiles。
 
 ![管理 NuGet 套件](/images/a/42.png)
 ![NuGet 安裝 Microsoft.AspNetCore.StaticFiles](/images/a/43.png)

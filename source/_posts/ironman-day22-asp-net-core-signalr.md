@@ -53,7 +53,7 @@ dotnet add package Microsoft.AspNetCore.SignalR.Server -v 0.2.0-preview2-* -s ht
 ### 註冊 SignalR 服務
 
 在 `Startup.ConfigureServices` 加入 SignalR 的服務，同時在 `Startup.Configure` 將 SignalR 加入至 Pipeline。  
-由於 ASP.NET Core 底層都是改用 DI 的機制注入需要的功能；因此，要用 WebSockets 連線的話要自己加至 Pipeline。  
+由於 ASP.NET Core 底層都是改用 Middleware 的機制組合需要的功能；因此，要用 WebSockets 連線的話要自己加至 Pipeline。  
 
 **Startup.cs**  
 ```cs

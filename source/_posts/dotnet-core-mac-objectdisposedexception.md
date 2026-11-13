@@ -23,9 +23,9 @@ Object name: 'IServiceProvider'.
 <!-- more -->
 
 主要原因是本機整合測試時，為了要使用 `IServiceProvider`，所以建立出 `IHostBuilder` 實體。  
-但很不幸的是這個 `Host` 死在背景，而且站著資源放不掉，所以重跑測試時一直無法 Build 出新的 Host，導致 `IServiceProvider` 不能被使用。
+但很不幸的是這個 `Host` 死在背景，而且佔著資源放不掉，所以重跑測試時一直無法 Build 出新的 Host，導致 `IServiceProvider` 不能被使用。
 
-可透過以下指令找出在背景的 dotnet process，在強制刪除，如下：  
+可透過以下指令找出在背景的 dotnet process，再強制刪除，如下：  
 
 ```sh
 # 找到死在背景的 dotnet process

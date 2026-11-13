@@ -12,7 +12,7 @@ featured_image: /images/a/378.png
 ![軟體分層架構模式 - 基本分層](/images/a/378.png)
 
 最近在重構六年前做的產品，雖然當時已經有做分層架構，但還是有很多該改進的地方。  
-有些命名越看越不順眼，重構期間順便整理一下分層架構；不管在何時回頭看自己做的東西，都覺得很多進步空間。  
+有些命名越看越不順眼，重構期間順便整理一下分層架構；不管在何時回頭看自己做的東西，都覺得有很多進步空間。  
 本篇介紹一下常見的*軟體分層架構模式 (Software Layered Architecture Pattern)*，以及推薦的命名方式。  
 
 <!-- more -->
@@ -21,7 +21,7 @@ featured_image: /images/a/378.png
 
 ### 基本分層
 
-基本分層架構模式主分為：  
+基本分層架構模式主要分為：  
 * **展示層 (Presentation Layer)**  
  * UI 互動相關的部分
 * **業務層 (Business Layer)**  
@@ -57,7 +57,7 @@ featured_image: /images/a/378.png
 專案相依：不應該相依於其它專案。  
 專案名稱：*CompanyName.ProjectName.Domain*  
 
-這個專案主要是用來分離各層相依關係的，內容含如下：
+這個專案主要是用來分離各層相依關係的，內容包含如下：
 * 資料傳輸物件 Data Transfer Object(DTO)
  * 常見的 DTO 命名有：User**DTO**、User**VO**、User**TO**、User**Model** 等。  
  > 蠻有趣的比較：[Value Object (VO) vs. Transfer Object (TO) vs. Data Transfer Object (DTO)](https://coderanch.com/t/154686/certification/Object-VO-Transfer-Object-Data)  
@@ -93,7 +93,7 @@ namespace CompanyName.ProjectName.Domain.Enums
 常見的命名有：User**DAL**、User**Engine**、User**Manager**、User**Repository** 等。  
 > DAL 全名 Data Access Layer，名稱應該是從 *[3-tier Architecture with ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/bb288041.aspx)* 誕生出來的。
 
-建議的命名Class 命名規則：名稱加上後綴 **Manager**。  
+建議的命名：Class 名稱加上後綴 **Manager**。  
 如果有用 Repository Pattern，就在 Class 名稱加上後綴 **Repository**。  
 範例：
 ```cs
@@ -121,10 +121,10 @@ namespace CompanyName.ProjectName.DataLayer.Repositorys
 專案名稱：*CompanyName.ProjectName.BusinessLayer*   
 
 常見的命名有：User**BLL**、User**Logic** 等。  
-> BLL 全名是 Business Logic Layer，名稱出現同 DAL。
+> BLL 全名是 Business Logic Layer，名稱出處同 DAL。
 
 建議的命名：Class 名稱加上後綴 **Logic**。  
-> 網路上非常多的範例適用 **BLL**，尤其是 ASP.NET 的範例。  
+> 網路上非常多的範例使用 **BLL**，尤其是 ASP.NET 的範例。  
 > 但我不推用 BLL 的原因是，Class 名稱出現連續的全大寫，看久了有點不舒服，還是比較習慣 *Pascal Case*。
 
 範例：  
@@ -143,7 +143,7 @@ namespace CompanyName.ProjectName.BusinessLayer.Logics
 
 #### API Library
 
-由於 Service Layer 是屬於對外開放的接口，所以我並沒有特別推薦命名方式，不要太突兀就好。  
+由於 Service Layer 是屬於對外開放的介面，所以我並沒有特別推薦命名方式，不要太突兀就好。  
 可以參考許多第三方套件的 API 命名方式，例如常見的 `Newtonsoft.json`：
 ```cs
 var json = Newtonsoft.Json.JsonConvert.SerializeObject(new { });
@@ -156,23 +156,23 @@ var json = Newtonsoft.Json.JsonConvert.SerializeObject(new { });
 命名方式建議使用 `RESTful` 風格，用起來比較乾淨俐落，好處可以參考 Wiki。  
 
 前陣子有人問我：  
-> 如果把 *Web API* 符合 `RESTful`，是不就變成 **Data Layer** 了？  
+> 如果把 *Web API* 符合 `RESTful`，是不是就變成 **Data Layer** 了？  
 
 這兩個層級的職責是完全不一樣的：
 * **Service Layer**：提供資源給外部使用，負責轉手資料。  
 * **Data Layer**：負責提供及存取 **Business Layer** 收送的資料。  
 
-但如果從另一個角度來看，對調用方來說，*Web API* 也是它的 **Data Layer**，把 *Web API* 符合 `RESTful` 只是為了讓調用方更容易使用。  
+但如果從另一個角度來看，對呼叫方來說，*Web API* 也是它的 **Data Layer**，讓 *Web API* 符合 `RESTful` 只是為了讓呼叫方更容易使用。  
 
 ### Presentation Layer
 
 專案相依：*CompanyName.ProjectName.Domain* 及 *CompanyName.ProjectName.ServiceLayer* (或 *CompanyName.ProjectName.BusinessLayer* )
 專案名稱：*CompanyName.ProjectName.Website*  
 
-以 Web 專案來說，這層是屬與 HTML、jQuery 或 Angular 這類的前端框架。  
+以 Web 專案來說，這層是屬於 HTML、jQuery 或 Angular 這類的前端框架。  
 如果有用前端框架，命名方式就依照該框架建議的指南命名。  
 
-> 如果是純前端框架，其實根本不用相宜於任何專案，是以 Web API 作為相依關係。  
+> 如果是純前端框架，其實根本不用相依於任何專案，是以 Web API 作為相依關係。  
 
 ## 範例架構
 

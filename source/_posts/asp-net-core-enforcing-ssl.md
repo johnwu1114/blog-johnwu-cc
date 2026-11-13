@@ -21,7 +21,7 @@ featured_image: /images/a/161.png
 
 ## 啟用 SSL
 
-可以再 Web 專案點滑鼠右鍵，用圖形化的工具啟用 SSL Port，如下：  
+可以在 Web 專案點滑鼠右鍵，用圖形化的工具啟用 SSL Port，如下：  
 ![ASP.NET Core 教學 - Launch Settings](/images/a/158.png)
 
 或直接編輯 Properties\launchSettings.json  
@@ -50,7 +50,7 @@ featured_image: /images/a/161.png
 
 ## 強制 SSL
 
-只有單純啟動 SSL Port 的話，依然可以使用 HTTP，只要自己更改網址列就可以。強制走 HTTPS 的話還要經過以下設定。 
+只有單純啟用 SSL Port 的話，依然可以使用 HTTP，只要自己更改網址列就可以。強制走 HTTPS 的話還要經過以下設定。 
 
 先安裝兩個套件：  
 1. Microsoft.AspNetCore.Mvc  
@@ -92,7 +92,7 @@ public class Startup
 ```
 
 
-`RequireHttpsAttribute` 轉址預設是轉到 443 Port，如果 HTTPS 不是用 443 Prot，就要在註冊 MVC 服務的時候，修改 `SslPort`，如下：  
+`RequireHttpsAttribute` 轉址預設是轉到 443 Port，如果 HTTPS 不是用 443 Port，就要在註冊 MVC 服務的時候，修改 `SslPort`，如下：  
 
 *Startup.cs*
 ```cs
@@ -131,7 +131,7 @@ public class Startup
 public class Startup
 {
     // ...
-    public void Configure(IApplicationBuilder app, )
+    public void Configure(IApplicationBuilder app)
     {        
         app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, _httpsPort));
         // ...

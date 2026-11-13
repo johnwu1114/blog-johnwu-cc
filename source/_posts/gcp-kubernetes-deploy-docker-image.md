@@ -51,7 +51,7 @@ gcloud container clusters get-credentials [CLUSTER_NAME] --zone=[CLUSTER_ZONE] -
 
 ## Container Registry
 
-GCP 有提供私有的 Docker Registry 叫做 Container Registry，此篇範例我將做一個 Docker 推到 GCP 提供的 Container Registry。　　
+GCP 有提供私有的 Docker Registry 叫做 Container Registry，此篇範例我將做一個 Docker Image 推到 GCP 提供的 Container Registry。　　
 
 ### Build
 
@@ -69,7 +69,7 @@ RUN apt-get update \
         mysql-client
 CMD [ "/bin/bash", "-c", "tail -f /dev/null" ]
 ```
-> `tail -f /dev/null` 很重要，如果沒有持續性的運行，Kubernetes 會當作這個容器已經結束工作，重新把它啟用，然後就出現 **CrashLoopBackOff**。  
+> `tail -f /dev/null` 很重要，如果沒有持續性的執行，Kubernetes 會當作這個容器已經結束工作，重新把它啟用，然後就出現 **CrashLoopBackOff**。  
 
 接著使用 `docker build` 建立 Docker Image：  
 ```sh
@@ -130,7 +130,7 @@ kubectl exec -it [POD_NAME] -- bash
 # 範例： kubectl exec -it toolbox-db89c544f-j4p8s -- bash
 ```
 
-出結果如下：  
+輸出結果如下：  
 ![GCP 教學 - Kubernetes 佈署 Docker Image - Kubernetes 佈署](/images/b/12.png)  
 
 ## 參考

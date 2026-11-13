@@ -103,6 +103,6 @@ docker build -f build-unit-test.dockerfile .
 ## 參考
 
 * [Coverlet](https://github.com/tonerdo/coverlet/)  
-* [SonarQube - ReportGenSonarScanner for MSBuilderator](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/)  
+* [SonarQube - SonarScanner for MSBuild](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/)  
 * [SonarQube - Narrowing the Focus](https://docs.sonarqube.org/latest/project-administration/narrowing-the-focus/)  
 * [SonarCloud - Test Coverage & Execution](https://sonarcloud.io/documentation/analysis/coverage/)  

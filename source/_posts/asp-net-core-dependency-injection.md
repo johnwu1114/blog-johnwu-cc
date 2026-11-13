@@ -92,7 +92,7 @@ public class Sample : ISampleTransient, ISampleScoped, ISampleSingleton
 2. Scoped  
 每個 **Request** 都重新 `new` 一個新的實體。  
 3. Singleton  
-程式啟動後會 `new` 一個實體。也就是運行期間只會有一個實體。  
+程式啟動後會 `new` 一個實體。也就是執行期間只會有一個實體。  
 
 ```cs
 public class Startup
@@ -105,7 +105,7 @@ public class Startup
     }
 }
 ```
-> 第一個泛型為注入的類型，建議用 interface 來包裝，這樣在才能把相依關係拆除。  
+> 第一個泛型為注入的類型，建議用 interface 來包裝，這樣才能把相依關係拆除。  
 > 第二個泛型為實做的類別。  
 
 Service 實例產生方式：
@@ -169,7 +169,7 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton<SampleService, SampleService>();
+        services.AddScoped<SampleService, SampleService>();
     }
 }
 ```
@@ -211,8 +211,8 @@ public class Startup
 ## 執行結果
 
 1. Transient 如預期，每次都不一樣。  
-2. Scoped 在同一個 Requset 中，不論是在哪邊被注入，都是同樣的實體。(紅色箭頭)  
-3. Singleton 不管 Requset 多少次，都會是同一個實體。(藍色方框)  
+2. Scoped 在同一個 Request 中，不論是在哪邊被注入，都是同樣的實體。(紅色箭頭)  
+3. Singleton 不管 Request 多少次，都會是同一個實體。(藍色方框)  
 
 ![ASP.NET Core 教學 - Dependency Injection - 範例執行結果](/images/a/208.png)
 

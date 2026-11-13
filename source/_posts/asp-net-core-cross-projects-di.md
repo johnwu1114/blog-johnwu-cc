@@ -11,7 +11,7 @@ featured_image: /images/featured/asp-net-core.png
 ---
 ![ASP.NET Core 範例 - 跨專案 DI](/images/featured/asp-net-core.png)
 
-先前介紹過 ASP.NET Core 的 Dependency Injection，後來有人問我如何再不同專案使用 DI。  
+先前介紹過 ASP.NET Core 的 Dependency Injection，後來有人問我如何在不同專案使用 DI。  
 例如：BLL (Business Logic Layer)、DAL(Data Access Layer) 抽出到其它專案。如何在 BLL 中使用 DAL。  
 因此本篇將介紹 ASP.NET Core 的跨專案 DI。  
 
@@ -19,7 +19,7 @@ featured_image: /images/featured/asp-net-core.png
 
 ## 架構
 
-此篇範例我建立個四的專案，相依關係如下：
+此篇範例我建立四個專案，相依關係如下：
 ![ASP.NET Core 範例 - 跨專案 DI - 架構](/images/a/236.png)
 1. Entities：存放資料交換的物件。DLL 類別庫專案。  
 2. DAL：資料存取層，用來跟資料庫溝通。DLL 類別庫專案。  
@@ -80,7 +80,7 @@ public class MemberController : Controller
 
 ## 2. BLL DI DAL
 
-假設 MemberBLL 需要存取資料庫，在職責分離的清況下，我們需要透過 DAL 跟資料庫溝通。  
+假設 MemberBLL 需要存取資料庫，在職責分離的情況下，我們需要透過 DAL 跟資料庫溝通。  
 我在 DAL 專案建立一個 MemberDAL 類別，程式碼如下：
 ```cs
 public interface IMemberDAL
@@ -162,7 +162,7 @@ public class Startup
 }
 ```
 
-在 MemberDAL 的建構子注入 Config，由於 DAL 會跟資料庫連線，為了方便每次使用完畢就釋放資料庫連線資源，我用一個父類別實做 IDisposable 專們釋放資源。如下：
+在 MemberDAL 的建構子注入 Config，由於 DAL 會跟資料庫連線，為了方便每次使用完畢就釋放資料庫連線資源，我用一個父類別實做 IDisposable 專門釋放資源。如下：
 ```cs
 public abstract class AbstractBaseDAL : IDisposable
 {
@@ -212,13 +212,13 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton(GetSettings());
 }
 ```
-* Config 使用 Singleton 是因為程式起動後，不管建立幾個實例，讀的 Config 檔都會是同一份，所以建立一份共用就好。  
+* Config 使用 Singleton 是因為程式啟動後，不管建立幾個實例，讀的 Config 檔都會是同一份，所以建立一份共用就好。  
 * BLL 及 DAL 使用 Transient 是因為要讓資源使用完畢後自動被釋放。  
 
 > 有的人會認為 BLL 是邏輯層，應該要使用 Singleton，因為邏輯不會變。  
 
 這個論述是對的，但是如果 BLL 改成 Singleton，DAL 會在 BLL 實例化的同時就被注入進來，BLL 釋放前 DAL 都不會被釋放。意味著 DAL 的資料庫連線建立後就不會被中斷。  
-因此，要把 BLL 改成 Singleton 的話，DAL 就不能使用實做 IDisposable 的方式釋放連限資源。  
+因此，要把 BLL 改成 Singleton 的話，DAL 就不能使用實做 IDisposable 的方式釋放連線資源。  
 
 ## 程式碼下載
 

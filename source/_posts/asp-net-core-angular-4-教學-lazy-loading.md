@@ -15,7 +15,7 @@ featured_image: /images/a/108p.png
 ---
 ![Angular 4 教學 - Lazy Loading 範例執行結果](/images/a/108p.png)
 
-本篇將介紹 Angular 4 的 Lazy Loading，避免寫 SPA 程式越做越大，啟動時載入全部的 JavaScript 檔很累贅又恨慢。  
+本篇將介紹 Angular 4 的 Lazy Loading，避免寫 SPA 程式越做越大，啟動時載入全部的 JavaScript 檔很累贅又很慢。  
 比較好的做法是用到什麼功能，再載入當下用到 Module 的 JavaScript 檔案，節省載入時間。  
 
 <!-- more -->
@@ -174,7 +174,7 @@ export class AppRoutes {
 
 ## 執行結果
 
-上述都設定好後，就可以完成了，執行下面如下：  
+上述都設定好後，就可以完成了，執行畫面如下：  
 
 ![Angular 4 教學 - Lazy Loading 範例執行結果](/images/a/108.gif)  
 

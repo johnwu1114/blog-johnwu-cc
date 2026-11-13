@@ -12,7 +12,7 @@ featured_image: /images/b/49.png
 ---
 
 本篇將介紹 ASP.NET Core 3 透過 Middleware 讀寫 Request/Response Body 的用法。  
-若對 Middleware 基本知識不熟習的話，可以參考 [ASP.NET Core 3 系列 - Middleware](/article/asp-net-core-3-middleware)。  
+若對 Middleware 基本知識不熟悉的話，可以參考 [ASP.NET Core 3 系列 - Middleware](/article/asp-net-core-3-middleware)。  
 
 <!-- more -->
 
@@ -60,7 +60,7 @@ namespace MyWebsite
 
 ## 讀取 Response Body
 
-Middleware 取得 Response Body 相較於 Request 麻煩很多，因為 Response.Body 的 Stream 並不允許被讀取讀取，但可以被替換。  
+Middleware 取得 Response Body 相較於 Request 麻煩很多，因為 Response.Body 的 Stream 並不允許被讀取，但可以被替換。  
 所以在 Response.Body 開始被寫入之前，先抽換成 MemoryStream；這樣之後的 Pipeline 在寫入 Response.Body 時，實際上都是寫入到被抽換的 MemoryStream 之中。  
 等到下層 Pipeline 都做完的時候，就可以讀取 MemoryStream 的資料，讀完後再把 MemoryStream 寫到真實的 Response.Body。  
 範例如下：  

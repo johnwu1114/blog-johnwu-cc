@@ -11,7 +11,7 @@ date: 2018-01-17 12:00
 featured_image: /images/ironman/i29-3.png
 ---
 
-ASP.NET Core 並不會自動把所有封包壓縮，要針對 Response 的內容做壓縮，可以使用的 ResponseCompression 套件提供的壓縮方式。  
+ASP.NET Core 並不會自動把所有封包壓縮，要針對 Response 的內容做壓縮，可以使用 ResponseCompression 套件提供的壓縮方式。  
 本篇將介紹 ASP.NET Core 以 Gzip 方式對 Response 封包壓縮。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
@@ -113,7 +113,7 @@ namespace MyWebsite
 
 ![[鐵人賽 Day29] ASP.NET Core 2 系列 - 封包壓縮 (Gzip) - 執行結果](/images/ironman/i29-3.png)  
 
-> 壓縮的好處是 Response 的封包變小，節省一些網路流量，但缺點是會消耗一點 CUP 效能。  
+> 壓縮的好處是 Response 的封包變小，節省一些網路流量，但缺點是會消耗一點 CPU 效能。  
 
 ## 自訂壓縮
 

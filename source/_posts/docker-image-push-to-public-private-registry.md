@@ -33,12 +33,12 @@ featured_image: /images/b/32.png
 
 ## 製作 Docker Image
 
-在建置 Docker Image 時，可利用 Docker Layer 的特性，將非敏感資料及敏感資料分層，把敏感資料的 Layer Size 降至最低，透過 Cleanroom 傳送到生產環境，其餘則直接退送到外部公開的 Docker Registry。  
+在建置 Docker Image 時，可利用 Docker Layer 的特性，將非敏感資料及敏感資料分層，把敏感資料的 Layer Size 降至最低，透過 Cleanroom 傳送到生產環境，其餘則直接推送到外部公開的 Docker Registry。  
 
-Docker Image 分為以下三個階段，分別建置出三個 Docker Image，再拼裝成可直接被運行的 Docker Image。  
+Docker Image 分為以下三個階段，分別建置出三個 Docker Image，再拼裝成可直接被執行的 Docker Image。  
 此範例主要是以 ASP.NET Core 作為建置範例，但此範例不侷限於 ASP.NET Core 專案。  
 
-ASP.NET Core 編譯出來的專案，會依照 namespase 區分出對應的 DLL，例如：  
+ASP.NET Core 編譯出來的專案，會依照專案名稱區分出對應的 DLL，例如：  
 
 1. MyProject.Website 專案，會生成 MyProject.Website.dll  
 2. MyProject.Common 專案，會生成 MyProject.Common.dll  
@@ -70,7 +70,7 @@ RUN rm -rf /publish/MyProject*
 docker build -f artifacts.dockerfile -t artifacts:latest .
 ```
 
-> `artifacts.dockerfile` 所產出的 Docker Image 包含的原始碼及編譯後的 DLL，只用在以下兩個 Docker Image 建置時使用。  
+> `artifacts.dockerfile` 所產出的 Docker Image 包含原始碼及編譯後的 DLL，只用在以下兩個 Docker Image 建置時使用。  
 > 使用完畢**應立即刪除**，最好不要推上 Docker Registry。  
 
 ### Build Third-Party Reference
@@ -99,7 +99,7 @@ docker build -f third-party.dockerfile -t third-party:latest .
 
 ### Build Final Image
 
-最後以 `third-party.dockerfile` 為運行環境的基底，做出最後可被執行的 Docker Image。  
+最後以 `third-party.dockerfile` 為執行環境的基底，做出最後可被執行的 Docker Image。  
 
 檔案 `app.dockerfile`：
 
@@ -111,17 +111,17 @@ COPY --from=artifacts /sensitive .
 ENTRYPOINT dotnet MyProject.Website.dll
 ```
 
-建置運行環境的 Docker Image：  
+建置執行環境的 Docker Image：  
 
 ```sh
 docker build -f app.dockerfile -t my-project:latest .
 ```
 
-> `app.dockerfile` 產出的 Docker Image，就是 Artifacts 當初編譯後的結果，只是將資料分在兩個 Dockre Image。  
+> `app.dockerfile` 產出的 Docker Image，就是 Artifacts 當初編譯後的結果，只是將資料分在兩個 Docker Image。  
 
 ## Push to Docker Registry
 
-將以上 Docker Image 準備好後，就可以開始時實作此範例流程了：  
+將以上 Docker Image 準備好後，就可以開始實作此範例流程了：  
 
 ![Docker 教學 - Docker Image 混合公有及私有 Docker Registry - 範例實作結果流程圖](/images/b/32.png)
 
@@ -152,7 +152,7 @@ docker push prod-private-registry/my-project:latest
 docker run prod-private-registry/my-project:latest
 ```
 
-步驟 6 在推送的時候，會先比對目標 Docker Registry 使否已經有 Image 相依 Layers，如果有就不會傳送。  
+步驟 6 在推送的時候，會先比對目標 Docker Registry 是否已經有 Image 相依 Layers，如果有就不會傳送。  
 而 Layers 的比較依據是 sha，所以 Docker Image 名稱或 Tag 改變，也不會受影響。
 
 > `dev-private-registry`、`prod-private-registry`及`public-registry`請記得換上實際的 Docker Registry URL。

@@ -40,7 +40,7 @@ featured_image: /images/ironman/i27-3.png
 
 CSP 是瀏覽器提供網站設定白名單的機制，網站可以告知瀏覽器，該網頁有哪些位置可以連、哪些位置不能連。現行大部分的瀏覽器都有支援 CSP，可以從 [Can I use Content Security Policy](http://caniuse.com/contentsecuritypolicy) 查看支援的瀏覽器及版本。  
 
-CSP 的設定方式有兩種：  
+CSP 的設定方式有三種：  
 1. HTTP Header 加入 `Content-Security-Policy: {Policy}`  
   當有不符合安全政策的情況，瀏覽器就會提報錯誤， **並終止該行為執行**。  
 2. HTTP Header 加入 `Content-Security-Policy-Report-Only: {Policy}`  
@@ -106,7 +106,7 @@ CSP 的設定方式有兩種：
 
 ![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - 未使用 CSP 範例](/images/ironman/i27-1.png)  
 
-在 `Startup.Configure` 註冊一個 Pipeline，把每個 Requset 都加上 CSP 的 HTTP Header，如下：  
+在 `Startup.Configure` 註冊一個 Pipeline，把每個 Response 都加上 CSP 的 HTTP Header，如下：  
 
 *Startup.cs*
 ```cs
@@ -191,14 +191,14 @@ Response Headers
   如：`script-src 'self';`，只允許載入同網域的 `*.js`。  
 * URL  
   指定允許發出 Request 的位置，可搭配 `*` 使用。  
-  如：`img-src http://cdn.johnwu.cc https:;`，只允許從 `http://cdn.johnwu.cc` 或其它 HTTPS 的位置載入 `*.css`。  
+  如：`img-src http://cdn.johnwu.cc https:;`，只允許從 `http://cdn.johnwu.cc` 或其它 HTTPS 的位置載入圖片。  
 
 ## 建立 CSP Middleware
 
 上述 CSP 套用在 Header 的格式實在很容易打錯字，而且又是弱型別，日後實在不易維護。  
 所以可以自製一個 CSP Middleware 來包裝這 CSP，方便日後使用。  
 
-把 CSP 指令都變成強強型，如下：  
+把 CSP 指令都變成強型別，如下：  
 
 * *CspDirective.cs*
 ```cs
@@ -356,7 +356,7 @@ Clickjacking 是一種透過 IFrame 的偽裝攻擊方式。
 
 ![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - Clickjacking 攻擊](/images/ironman/i27-4.png)  
 
-紅色框現內的 IFrame 用 **iT 邦幫忙** 的頁面，然後在 Main Frame 透過 JavaScript 攔截使用者的操作事件，範例程式碼：  
+紅色框線內的 IFrame 用 **iT 邦幫忙** 的頁面，然後在 Main Frame 透過 JavaScript 攔截使用者的操作事件，範例程式碼：  
 ```html
 <head>
     <meta name="viewport" content="width=device-width" />

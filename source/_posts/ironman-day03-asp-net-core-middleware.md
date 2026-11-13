@@ -22,7 +22,7 @@ Middleware 除了簡化了 HTTP Modules/Handlers 的使用方式，還帶入了 
 
 ## Middleware 概念
 
-ASP.NET Core 在 Middleware 的官方說明中，使用了 Pipeline 這個名詞，意旨 Middleware 像水管一樣可以串聯在一起，所有的 Request 及 Response 都會層層經過這些水管。  
+ASP.NET Core 在 Middleware 的官方說明中，使用了 Pipeline 這個名詞，意指 Middleware 像水管一樣可以串聯在一起，所有的 Request 及 Response 都會層層經過這些水管。  
 用圖例可以很容易理解，如下圖：  
 
 ![[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware - 概念](/images/ironman/i03-1.png)
@@ -143,7 +143,7 @@ Second Middleware out.
 First Middleware out. 
 ```
 
-在 Second Middleware 中，因為沒有達成條件，所以封包也就不在往後面的水管傳送。流程如圖：  
+在 Second Middleware 中，因為沒有達成條件，所以封包也就不再往後面的水管傳送。流程如圖：  
 
 ![[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware - 概念](/images/ironman/i03-2.png)  
 
@@ -278,7 +278,7 @@ public class HomeController : Controller
 ### Extensions
 
 大部分擴充的 Middleware 都會用一個靜態方法包裝，如：`UseMvc()`、`UseRewriter()`等。  
-自製的 Middleware 當然也可以透過靜態方法包，範例如下：  
+自製的 Middleware 當然也可以透過靜態方法包裝，範例如下：  
 
 *Extensions\CustomMiddlewareExtensions.cs*
 ```cs

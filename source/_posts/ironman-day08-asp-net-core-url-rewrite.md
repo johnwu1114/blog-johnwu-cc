@@ -69,7 +69,7 @@ URL 重寫是屬於 Server 端的轉換事件，當 Client 端 Request 來的時
 
 ### URL 轉址
 
-URL 重寫是屬於 Client 端的轉換事件，當 Client 端 Request 來的時候，發現原網址已經被換掉了，Server 會先回傳給 Client 告知新網址，再由 Client 重新 Request 新網址。情境如下：  
+URL 轉址是屬於 Client 端的轉換事件，當 Client 端 Request 來的時候，發現原網址已經被換掉了，Server 會先回傳給 Client 告知新網址，再由 Client 重新 Request 新網址。情境如下：  
 
 ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 轉址情境](/images/ironman/i08-4.png)  
 
@@ -101,7 +101,7 @@ public class Startup
  ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 301 範例結果](/images/ironman/i08-5.png)  
 * **HTTP Status Code 302**  
  **302** 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的。  
- 通常用於網站維護時，暫時原網址轉移到別的地方，如維修公告頁面。  
+ 通常用於網站維護時，將原網址暫時轉移到別的地方，如維修公告頁面。  
  範例結果：  
  ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 302 範例結果](/images/ironman/i08-1.png)  
 

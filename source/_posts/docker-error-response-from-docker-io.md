@@ -33,7 +33,7 @@ Get https://registry-1.docker.io/v2/: net/http: request canceled while waiting f
 
 ![Docker - 連線到 *.docker.io 發生錯誤 - Windows Docker Service Restart - 2](/images/b/05.png)  
 
-Linux 或 macOS 的話可以用指令：  
+Linux 的話可以用指令：  
 ```sh
 sudo service docker stop
 sudo service docker start

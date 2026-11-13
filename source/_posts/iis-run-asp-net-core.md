@@ -13,13 +13,13 @@ featured_image: /images/a/256.png
 ---
 ![IIS - 運行 ASP.NET Core 網站 - 範例執行結果](/images/a/256.png)
 
-本篇將介紹如何在 IIS 運行 ASP.NET Core 網站。  
+本篇將介紹如何在 IIS 執行 ASP.NET Core 網站。  
 
 <!-- more -->
 
 ## 1. 安裝 .NET Core Windows Server Hosting
 
-要在 IIS 上運行 ASP.NET Core，必須先安裝 [.NET Core Windows Server Hosting](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer) (依照需要的版本安裝)。  
+要在 IIS 上執行 ASP.NET Core，必須先安裝 [.NET Core Windows Server Hosting](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer) (依照需要的版本安裝)。  
 安裝完畢後，用系統管理員身分執行指令：
 ```bat
 net stop was /y
@@ -35,7 +35,7 @@ net start w3svc
 ![IIS - 運行 ASP.NET Core 網站 - 新增站台](/images/a/251.png)
 ![IIS - 運行 ASP.NET Core 網站 - 網站資訊](/images/a/252.png)
 
-程網站新增完成後，到應用程式集區，把 CLR 版本改為`沒有 Managed 程式碼`：
+網站新增完成後，到應用程式集區，把 CLR 版本改為`沒有 Managed 程式碼`：
 ![IIS - 運行 ASP.NET Core 網站 - 網站資訊](/images/a/253.png)
 
 ## 3. 佈署網站

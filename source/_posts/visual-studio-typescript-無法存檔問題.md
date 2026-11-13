@@ -13,9 +13,9 @@ featured_image: /images/a/61.png
 ---
 ![LockHunter - SearchProtocolHost.exe](/images/a/61.png)
 
-最近在家用 Visual Studio 2017 寫 TypeScript 時，常常遇到無法儲存檔案，按下儲存就一直要我另存新檔，隔幾分鐘後再按儲存，才能成功儲存。用公司電腦就不會遇到此問題，搞的我很火大！  
+最近在家用 Visual Studio 2017 寫 TypeScript 時，常常遇到無法儲存檔案，按下儲存就一直要我另存新檔，隔幾分鐘後再按儲存，才能成功儲存。用公司電腦就不會遇到此問題，搞得我很火大！  
 我上網找了專門查看檔案被 Lock 的工具 LockHunter（如上圖），發現我開啟的專案中，所有 TypeScript 檔案都被 SearchProtocolHost.exe 咬死，隔了很久才釋放資源，導致我都不能存檔。  
-> SearchProtocolHost.exe 是 Windows 幫檔案建立索引用的背景程式，透過建立索引可以加快搜尋檔案時。
+> SearchProtocolHost.exe 是 Windows 幫檔案建立索引用的背景程式，透過建立索引可以加快搜尋檔案的速度。
 
 <!-- more -->
 
@@ -50,4 +50,4 @@ Windows 索引有兩種方式：
 ![服務 - Windows Search](/images/a/65.png)
 
 後來仔細想了一下，三年前我在公司開發時，為了更好的效能，就把 Windows 索引給關了。家裡的電腦是後來買的，忘記關閉 Windows 索引。  
-我幾乎沒再用 Wdinwos 搜尋功能，所以我就直接把它關了，真的要搜尋檔案的時候會慢一些，但我個人是還能接受。  
+我幾乎沒再用 Windows 搜尋功能，所以我就直接把它關了，真的要搜尋檔案的時候會慢一些，但我個人是還能接受。  

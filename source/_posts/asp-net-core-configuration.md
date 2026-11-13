@@ -20,7 +20,7 @@ featured_image: /images/featured/asp-net-core.png
 
 在專案當中建立一個 Configuration 的資料夾，並建立 Settings.json。  
 可以依照個人喜好或團隊習慣的方式建立組態檔，檔名跟路徑並沒有特別的規則。  
-JSON 的內容也沒有限制，只要是符合 JSON 格式即可，我的範例 Settings.json 就建立的很隨興。  
+JSON 的內容也沒有限制，只要是符合 JSON 格式即可，我的範例 Settings.json 就建立得很隨興。  
 
 Configuration\Settings.json
 ```json
@@ -32,7 +32,7 @@ Configuration\Settings.json
   ],
   "CustomObject": {
     "Property": {
-      "SubProperty": 1,
+      "SubProperty1": 1,
       "SubProperty2": true,
       "SubProperty3": "This is sub property."
     }
@@ -68,7 +68,7 @@ public class Startup
 主要是透過 ConfigurationBuilder 產生 IConfigurationRoot 的實例。  
 * SetBasePath：設定 Configuration 的目錄位置，如果是放在不同目錄，再把路徑換掉即可。  
 * AddJsonFile：
- 1. path：加入要被使用組態檔案。  
+ 1. path：加入要被使用的組態檔案。  
  2. optional：如果是必要組態檔 optional 就要設定為 false，當檔案不存在就會拋出 FileNotFoundException。  
  3. reloadOnChange：如果檔案被更新，就同步更新 IConfigurationRoot 實例的值。  
 
@@ -92,7 +92,7 @@ public HomeController(IConfigurationRoot config)
 
 上面範例有兩個很大的問題：  
 1. 使用字串當做 Key 是弱型別，沒辦法在編譯期間檢查出打錯字。  
-2. 型態不符合預期，不管是數值或布林值全都是變字串型態。  
+2. 型態不符合預期，不管是數值或布林值全都變成字串型態。  
 
 要使用強型別，首先要建立相對應的類別，Settings.json 的對應類別如下：
 ```cs

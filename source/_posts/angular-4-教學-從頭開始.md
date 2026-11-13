@@ -24,20 +24,20 @@ featured_image: /images/a/192.png
 
 開發工具：
 1. Visual Studio Code。[官網下載頁面](https://code.visualstudio.com/Download)  
-> 基本上 VS Code 就是純文字編輯工具，你要用 Sublime、Notepade++、Atom、TextEdit都可以。  
+> 基本上 VS Code 就是純文字編輯工具，你要用 Sublime、Notepad++、Atom、TextEdit都可以。  
 2. Node.js 6.9.x 以上版本及 npm 3 以上版本。[官網下載頁面](https://nodejs.org/en/download/)  
 
-有很多人問我為什麼不用 VS Code 來做為 Angular 4 的開發工具，因為三個原因：  
+之前有很多人問我為什麼不用 VS Code 來做為 Angular 4 的開發工具，因為三個原因：  
 1. 在我們部門前端工程師要包含 ASP.NET MVC、Web API 等，所以要寫 C# 控制伺服端事件。用不同的 IDE 開發對我們來說並不方便。  
 2. 我從 Visual Studio 2003 就開始用 Visual Studio，用習慣了轉不了。其實是我念舊...  
-3. Visual Studio 2017 這麼貴，而 VS Code 免費。公司有花錢買 Visual Studio 2017，我當然選貴的用阿！  
+3. Visual Studio 2017 這麼貴，而 VS Code 免費。公司有花錢買 Visual Studio 2017，我當然選貴的用啊！  
 
-也人問我為什麼不用 Angular CLI，不是 Angular CLI 不好，純粹是我個人是喜歡一步一步自己建置需要的東西。  
+也有人問我為什麼不用 Angular CLI，不是 Angular CLI 不好，純粹是我個人喜歡一步一步自己建置需要的東西。  
 Angular CLI 也是很方便的選擇喔！請參考 [Angular CLI 官網](https://cli.angular.io/)
 
 ## 1. 建立專案資料夾
 
-新增一個資料夾，然後用 VS Code 打開。可以在左邊的 EXPLORER 看到你開始的資料夾名稱，如下圖：
+新增一個資料夾，然後用 VS Code 打開。可以在左邊的 EXPLORER 看到你開啟的資料夾名稱，如下圖：
 ![專案資料夾](/images/a/187.png)
 
 ## 2. 安裝 npm 套件

@@ -71,7 +71,7 @@ public class HomeController : Controller
   例如：`VaryByQueryKeys = new string[] { "q" }`。  
   `http://localhost:5000/?q=123` 及 `http://localhost:5000/?q=456` 雖然是連上同一個 URL，但因為設定的 URL Query String 的 `q` 不同，所以 Response 暫存的內容也會有所不同。  
 * `CacheProfileName`  
-  可以在 MVC Service 設定 CacheProfile，然透套用到多個地方如：  
+  可以在 MVC Service 設定 CacheProfile，然後套用到多個地方如：  
 ```cs
 // Startup.cs
 public void ConfigureServices(IServiceCollection services)
@@ -147,7 +147,7 @@ namespace MyWebsite
 Server 快取可以設定的參數如下：  
 * `UseCaseSensitivePaths`  
   URL 是否區分大小寫為不同的 Response 快取。  
-  *(預設為 true)*  
+  *(預設為 false)*  
 * `MaximumBodySize`  
   單個 Response 快取的大小限制(單位是 Bytes)。  
   *(預設為 64 MB)*  

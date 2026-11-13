@@ -33,7 +33,7 @@ featured_image: /images/a/290.png
 ```html
 <iframe src="https://blog.johnwu.cc/" width="600px" height="800px"></iframe>
 ```
-![Angular 4 教學 - IFrame 太小](/images/a/292.png)
+![Angular 4 教學 - IFrame 太大](/images/a/292.png)
 
 ## 動態計算
 
@@ -105,7 +105,7 @@ export class AppComponent {
 
     constructor(private sanitizer: DomSanitizer) {
         let url = "https://blog.johnwu.cc/";
-        this.frameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url));
+        this.frameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
 }
 ```

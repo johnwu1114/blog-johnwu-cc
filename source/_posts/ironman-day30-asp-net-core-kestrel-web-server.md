@@ -14,13 +14,13 @@ date: 2018-01-18 12:00
 featured_image: /images/ironman/i30-3.png
 ---
 
-ASP.NET Core 有兩種運行方式：  
+ASP.NET Core 有兩種執行方式：  
 1. **HTTP.sys** *(Windows Only)*  
 2. **Kestrel** *(跨平台)*  
 
 ASP.NET Core 預設是使用 Kestrel 做為 HTTP Server。  
 Kestrel 是一套輕量的跨平台 HTTP Server，由 [libuv](https://github.com/libuv/libuv) 這套函式庫做為底層非同步事件驅動的控制。  
-本篇將介紹 ASP.NET Core 在 Kestrel 的運行方式、調整及自製 localhost SSL 憑證綁定 HTTPS。  
+本篇將介紹 ASP.NET Core 在 Kestrel 的執行方式、調整及自製 localhost SSL 憑證綁定 HTTPS。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
  [[Day30] ASP.NET Core 2 系列 - Kestrel Web Server](https://ithelp.ithome.com.tw/articles/10197326)  
@@ -29,9 +29,9 @@ Kestrel 是一套輕量的跨平台 HTTP Server，由 [libuv](https://github.com
 
 ## Kestrel
 
-Kestrel 是一套可以單獨運行的 HTTP Server，也可以透過其它 Web Server 如 IIS、Nginx 或 Apache 等，搭配反向代理 (Reverse Proxy) 使用。  
+Kestrel 是一套可以單獨執行的 HTTP Server，也可以透過其它 Web Server 如 IIS、Nginx 或 Apache 等，搭配反向代理 (Reverse Proxy) 使用。  
 
-* **單獨運行**  
+* **單獨執行**  
   啟動 ASP.NET Core 後，就可以直接對外服務。  
   如下圖：  
   ![[鐵人賽 Day30] ASP.NET Core 2 系列 - Kestrel Web Server - 單獨運行](/images/ironman/i30-1.png)  
@@ -49,7 +49,7 @@ Kestrel 是一套可以單獨運行的 HTTP Server，也可以透過其它 Web S
 ## Kestrel Options
 
 如果是用其它 Web Server 做反向代理，基本上都不太需要動到 Kestrel Options，畢竟 Kestrel 只是一個輕量級的 HTTP Server，它的功能大部分都被 IIS、Nginx 或 Apache 等，完整的 Web Server 涵蓋。  
-單獨運行 Kestrel 的情況比較會需要調整 Kestrel Options，如 Timeout 限制、封包大小限制、同時連線數限制等，設定方式如下：  
+單獨執行 Kestrel 的情況比較會需要調整 Kestrel Options，如 Timeout 限制、封包大小限制、同時連線數限制等，設定方式如下：  
 
 *Program.cs*
 ```cs
@@ -92,7 +92,7 @@ public class Program
     同時連線數限制。  
     *(預設無限)*  
   * **MaxConcurrentUpgradedConnections**  
-    同時連線數限制，包含如 WebSockets 等，其它非連線方式 HTTP。  
+    已升級為 WebSockets 等非 HTTP 協定的同時連線數限制。  
     *(預設無限)*  
   * **MaxRequestBodySize**  
     Request 封包限制。  
@@ -104,7 +104,7 @@ public class Program
     Response 傳送速率若低於每秒 N bytes，連續 Y 秒，則視為連線逾時。  
     *(預設連續 5 秒低於 240 bytes為連線逾時)*  
   * **RequestHeadersTimeout**  
-    Server 處理一個封包最長的時間。  
+    Server 接收 Request Header 的最長時間。  
     *(預設 30 秒)*  
 
 > 其它設定可以參考 KestrelHttpServer 的 GitHub 原始碼，目前還沒有線上文件，但 Summary 註解詳細。  
@@ -160,7 +160,7 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1   = localhost
-DNS.2   = 127.0.0.1
+IP.1    = 127.0.0.1
 ```
 
 透過 `openssl` 指令產生 Private Key 文字檔及 Certificate 文字檔：
@@ -183,9 +183,9 @@ openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
   2. 憑證存放區選擇 **受信任的根憑證授權單位**  
 * **Mac**  
   1. 打開 KeyChain Access  
-  2. 再左側欄選擇 System  
+  2. 在左側欄選擇 System  
   3. 把 `*.pfx` 拖曳到 System 的清單中  
-* **Linux** 透過以下指另安裝憑證：  
+* **Linux** 透過以下指令安裝憑證：  
 ```sh
 certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n "localhost" -i localhost.crt
 ```
@@ -270,7 +270,7 @@ public class Startup
 }
 ```
 
-`RequireHttpsAttribute` 轉址預設是轉到 443 Port，如果 HTTPS 不是用 443 Prot，就要在註冊 MVC 服務的時候，修改 `SslPort`，如下：  
+`RequireHttpsAttribute` 轉址預設是轉到 443 Port，如果 HTTPS 不是用 443 Port，就要在註冊 MVC 服務的時候，修改 `SslPort`，如下：  
 
 *Startup.cs*
 ```cs

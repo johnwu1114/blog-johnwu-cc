@@ -17,7 +17,7 @@ date: 2019-03-17 12:26:00
 
 又踩到雷，還是踩到大地雷，搞了我好幾天！！！  
 
-在本機開發，直接運行 Integration Test 是正常的，但只要放到 Docker 裡運行 Integration Test 就跑不過；  
+在本機開發，直接執行 Integration Test 是正常的，但只要放到 Docker 裡執行 Integration Test 就跑不過；  
 Deploy 出去服務也都正常，想破頭都想不出來，覺得怎麼會這樣，還暫時改 Build Flow 跳過 Integration Test。  
 
 最後只好進到 Docker 下一大堆 Log 除錯，終於找到原因，DI 的 `IHttpContextAccessor`，取用 `HttpContext` 竟然是 `null`，導致拿不到 Session。  
@@ -25,7 +25,7 @@ Deploy 出去服務也都正常，想破頭都想不出來，覺得怎麼會這�
 不查就算了，一查差點嘔了幾十兩血，沒想到是 dotnet core 2.2 的 BUG...  
 > [https://github.com/aspnet/AspNetCore/issues/6080](https://github.com/aspnet/AspNetCore/issues/6080)  
 
-我們的情境偏偏只在 Docker + WebApplicationFactory 才會發生。雷阿～～～  
+我們的情境偏偏只在 Docker + WebApplicationFactory 才會發生。雷啊～～～  
 
 ## 解法
 

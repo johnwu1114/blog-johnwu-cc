@@ -42,7 +42,7 @@ XXXX.sln                    # dotnet 的方案檔
 ### dotnet core
 
 大部分的 `Dockerfile` 範例，會把這個檔案放在方案根目錄；  
-但此檔跟建置相關，放到 `build` 目錄會比較是適合，同時改一下檔案名稱，比較容易識別。如：  
+但此檔跟建置相關，放到 `build` 目錄會比較適合，同時改一下檔案名稱，比較容易識別。如：  
 
 `build/build-image.dockerfile` 內容如下：  
 
@@ -63,7 +63,7 @@ ENV project_dll="${project_name}.dll"
 ENTRYPOINT dotnet $project_dll
 ```
 
-> * 檔案名稱可以自訂，附檔名也沒有任何限制；但可透過修改 IDE 自動偵測附檔名，把 `*.dockerfile` 都以 `Dockerfile` 的格式開啟會比較方便。  
+> * 檔案名稱可以自訂，副檔名也沒有任何限制；但可透過修改 IDE 自動偵測副檔名，把 `*.dockerfile` 都以 `Dockerfile` 的格式開啟會比較方便。  
 > * ASPNET_PROJECT_NAME  
   名稱從外部帶入有個好處，就是大部分的 dotnet core 專案都適用這個 `Dockerfile` 建置 Docker Image。  
 

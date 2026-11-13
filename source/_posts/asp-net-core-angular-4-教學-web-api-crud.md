@@ -66,7 +66,7 @@ namespace MyWebsite
 
 ### 2.2 Models
 
-我習慣用一個 Result Model 來包裝每個 Service 的回傳內容，不論調用 Web API 成功失敗都用此物件包裝，避免直接 throw exception 到 client，產生 http status 200 以外的狀態。  
+我習慣用一個 Result Model 來包裝每個 Service 的回傳內容，不論呼叫 Web API 成功失敗都用此物件包裝，避免直接 throw exception 到 client，產生 http status 200 以外的狀態。  
 
 Models\ResultModel.cs
 ```cs

@@ -322,7 +322,7 @@ cat > .env <<< "OPENAI_KEY=sk-sample"   # secret-guard 擋
 rm -rf ~/sample                         # dangerous-bash 擋
 ```
 
-`policies/agent-security.md` 寫進 system prompt 讓 AI 自律（soft）；Hook 是 AI 真的嘗試執行時才擋（hard）。
+`policies/agent-security.md` 載入對話 context 讓 AI 自律（soft）；Hook 是 AI 真的嘗試執行時才擋（hard）。
 
 > Policy（prompt 層，靠 AI 自律）+ Hook（tool-call 層，硬擋）——**兩層都在，才叫 defense in depth**。
 
@@ -380,7 +380,7 @@ rm -rf ~/sample                         # dangerous-bash 擋
 
 ## 三個 Takeaway
 
-1. **寫的跟審的永遠不同一個** — 主 Agent 實作、reviewer Agents 審查；獨立 context 避免自我偏見
+1. **寫的跟審的永遠不是同一個** — 主 Agent 實作、reviewer Agents 審查；獨立 context 避免自我偏見
 2. **每個工站的 prompt / model / 工具都為它的職責設計** — sonnet 審邏輯、haiku 做對照題、**Gemini 吃 1M context 做跨檔影響分析**；reviewer 只給唯讀工具
 3. **流水線的延伸性來自檔案化的 Agent** — 一個 `.md` = 一個新工站；團隊 playbook 讓它們變成共享資產
 

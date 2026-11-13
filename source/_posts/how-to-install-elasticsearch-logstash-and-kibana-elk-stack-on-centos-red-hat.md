@@ -18,15 +18,15 @@ featured_image: /images/a/92p.png
 ![ELK 教學架構](/images/a/92p.png)
 
 ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐集、分析、查詢系統。  
-可以在**不改變**原系統架構的情況下，架設 ELK 蒐集、分析、查詢 Log，簡化過去繁鎖又沒效率的查 Log 工作。  
+可以在**不改變**原系統架構的情況下，架設 ELK 蒐集、分析、查詢 Log，簡化過去繁瑣又沒效率的查 Log 工作。  
 
 <!-- more -->
 
 ## 前言
 
-過往架設網站或伺服端系統時，通常把 Log 寫在檔案中，當發生問題要查詢時，用筆記本打開查到眼花撩亂。  
+過往架設網站或伺服端系統時，通常把 Log 寫在檔案中，當發生問題要查詢時，用記事本打開查到眼花撩亂。  
 或聰明一點的方式，用 Log Parser 之類的分析工具查看，但速度很慢，畢竟是查詢文字內容。  
-如果你還在用筆記本查 Log，強烈建議你馬上在測試環境裝起來，試試 ELK 強大的威力吧！  
+如果你還在用記事本查 Log，強烈建議你馬上在測試環境裝起來，試試 ELK 強大的威力吧！  
 *※特別強調，不需要改變原系統架構。*
 
 ## VirtualBox
@@ -40,7 +40,7 @@ ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐�
 3. 下載完成後，點兩下 RedHat7.3.ova 啟動匯入。建議給 2GB 記憶體，方便之後的練習。  
   如下圖：
   ![匯入 VirtualBox](/images/a/91.png)  
-4. 匯入完成就請動了，帳號密碼都是 root。  
+4. 匯入完成就啟動了，帳號密碼都是 root。  
   如果無法啟動，可能因為 VM 裝 64位元版，而你的 BIOS 沒有啟動 Virtualization Technology。
 5. 看看能不能 ping 到 VM。
   如下圖：
@@ -49,7 +49,7 @@ ELK 是由 Elasticsearch、Logstash 及 Kibana 三個系統所組成的 Log 蒐�
 ## 1. Java
 
 因為 Elasticsearch 及 Logstash 是用 Java 開發，所以要安裝 JVM。  
-本篇教學是用 Elasticsearch 5.3 版本，需要 Java 8 以上版本，官方推薦 1.8.0_73 上版本。  
+本篇教學是用 Elasticsearch 5.3 版本，需要 Java 8 以上版本，官方推薦 1.8.0_73 以上版本。  
 
 Red Hat 及 CentOS 可以下載 rpm 安裝檔。其它 Linux 版本的話就下載 tar 解壓縮安裝。  
 [Download JRE](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -149,7 +149,7 @@ curl "http://192.168.56.101:9200/_cat/nodes"
 > 記得換成你的 IP
 ![curl 打開 Elasticsearch](/images/a/97.png)
 
-你也可以試試看用瀏覽器打開 `http://192.168.56.101:9200/_cat/nodes`，你會發現打沒有回應！！！
+你也可以試試看用瀏覽器打開 `http://192.168.56.101:9200/_cat/nodes`，你會發現沒有回應！！！
 ![瀏覽器打開 Elasticsearch 沒有回應](/images/a/95.png)
 
 ### 2.3 防火牆
@@ -191,14 +191,14 @@ Filebeat 是一個 exe 的執行檔，為了方便常駐啟用，可以把它註
 .\install-service-filebeat.ps1
 ```
 
-如果提示**檔案未經數位簽屬**等訊息，請改用以下指令：
+如果提示**檔案未經數位簽署**等訊息，請改用以下指令：
 
 ```bash
 powershell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1
 ```
 
 如下圖：
-![Filebeat 檔案未經數位簽屬](/images/a/99.png)
+![Filebeat 檔案未經數位簽署](/images/a/99.png)
 
 ### 3.1 設定
 
@@ -252,7 +252,7 @@ Logstash 主要的工作是把收到的資料，做特定的規則處理，例�
 ```
 
 * Filebeat 是以純文字送給 Elasticsearch，所以只能當字串查詢。  
-* Logstash 可以透過 grok 正則表示，把這筆 Log 拆分成好幾個欄位：  
+* Logstash 可以透過 grok 正規表示式，把這筆 Log 拆分成好幾個欄位：  
 ```
 grok {		
 	match => [ "message", "%{TIMESTAMP_ISO8601:logTimestamp} \[%{NUMBER:thread}\] %{DATA:logType} %{DATA:logger} - %{GREEDYDATA:detail}" ]
@@ -292,7 +292,7 @@ systemctl status logstash
 
 ### 4.2 設定
 
-透過 vi 或其它文字編輯器，新增 Logstah 的 Filter 設定檔：  
+透過 vi 或其它文字編輯器，新增 Logstash 的 Filter 設定檔：  
 
 ```bash
 vi /etc/logstash/conf.d/pipeline.conf
@@ -391,7 +391,7 @@ server.port: 5601
 server.host: "0.0.0.0"
 ```
 
-用瀏覽器打開 `http://192.168.56.101:5601` 設定 index：
+先執行 `systemctl restart kibana` 套用綁定位址設定，再用瀏覽器打開 `http://192.168.56.101:5601` 設定 index：
 ![pasted image](/images/a/103.png)
 
 設定完成後，就可以到 Discover 查詢 Log 了～

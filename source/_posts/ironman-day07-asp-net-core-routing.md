@@ -111,13 +111,13 @@ public class Startup
 ```
 可以看到上面程式碼，建立了兩個物件：  
 * **RouteHandler**：這個物件如同簡單路由的 `Run` 事件，當路由成立的時候，就會執行這個事件。  
-* **RouteBuilder**：在這個物件定義路由規則，當 Requset URL 符合規則就會執行該事件。  
+* **RouteBuilder**：在這個物件定義路由規則，當 Request URL 符合規則就會執行該事件。  
   * **MapRoute**：預設的路由規則，可以支援正規表示式(Regular Expressions)。
   * **MapGet** & **MapPost**  
    HTTP Method 路由：同樣的 URL 可以透過不同的 HTTP Method，對應不同的事件。  
 
 第一個路由 `MapRoute` 定義：  
-* URL 第一層透過正規表示式必需是 **default** 或 **home**，並放到路由變數 *first* 中。
+* URL 第一層透過正規表示式必須是 **default** 或 **home**，並放到路由變數 *first* 中。
 * URL 第二層可有可無，如果有的話，放到路由變數 *second* 中。  
 
 第二個路由 `MapGet` 定義： 

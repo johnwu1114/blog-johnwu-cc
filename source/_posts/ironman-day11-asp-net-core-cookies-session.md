@@ -12,7 +12,7 @@ date: 2017-12-30 12:00
 featured_image: /images/ironman/i11-1.png
 ---
 
-基本上 HTTP 是沒有紀錄狀態的協定，但可以透過 Cookies 將 Request 來源區分出來，並將部分資料暫存於 Cookies 及 Session，是寫網站常用的用戶資料暫存方式。  
+基本上 HTTP 是沒有記錄狀態的協定，但可以透過 Cookies 將 Request 來源區分出來，並將部分資料暫存於 Cookies 及 Session，是寫網站常用的用戶資料暫存方式。  
 本篇將介紹如何在 ASP.NET Core 使用 Cookie 及 Session。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
@@ -117,7 +117,7 @@ HTTP Cookies 資訊如下：
 
 ### 物件型別
 
-以前 ASP.NET 可以將物件型別直接存放到 Session，現在 ASP.NET Core Session 不再自動序列化物件到 Sesson。  
+以前 ASP.NET 可以將物件型別直接存放到 Session，現在 ASP.NET Core Session 不再自動序列化物件到 Session。  
 如果要存放物件型態到 Session 就要自己序列化了，這邊以 JSON 格式作為範例：  
 
 *Extensions\SessionExtensions.cs*
@@ -161,7 +161,7 @@ context.Session.SetObject("user", user);
  修改合理的 Session 到期時間。預設是 20 分鐘沒有跟 Server 互動的 Request，就會將 Session 變成過期狀態。  
  (20分鐘有點長，不過還是要看產品需求。)  
 * **Name**  
- 沒必要將 Server 或網站技術的資訊爆露在外面，所以預設 Session 名稱 `.AspNetCore.Session` 可以改掉。  
+ 沒必要將 Server 或網站技術的資訊暴露在外面，所以預設 Session 名稱 `.AspNetCore.Session` 可以改掉。  
 
 ```cs
 // ...
@@ -179,7 +179,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## 強型別
 
-由於 Cookies 及 Session 預設都是使用字串的方式存取資料，弱型別無法在開發階段判斷有沒有打錯字，還是建議包裝成強強型比較好。  
+由於 Cookies 及 Session 預設都是使用字串的方式存取資料，弱型別無法在開發階段判斷有沒有打錯字，還是建議包裝成強型別比較好。  
 而且直接存取 Cookies/Session 的話邏輯相依性太強，對單元測試很不友善，所以還是建議包裝一下。  
 
 *Wappers\SessionWapper.cs*
@@ -238,7 +238,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 * **IHttpContextAccessor**  
  ASP.NET Core 實作了 `IHttpContextAccessor`，讓 `HttpContext` 可以輕鬆的注入給需要用到的物件使用。  
- 由於 `IHttpContextAccessor` 只是取用 `HttpContext` 實例的接口，用 **Singleton** 的方式就可以供其它物件使用。  
+ 由於 `IHttpContextAccessor` 只是取用 `HttpContext` 實例的介面，用 **Singleton** 的方式就可以供其它物件使用。  
 
 在 Controller 就可以直接注入 `ISessionWapper`，以強型別的方式存取 Session，如下：  
 

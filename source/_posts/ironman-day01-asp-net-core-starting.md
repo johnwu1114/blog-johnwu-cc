@@ -21,7 +21,7 @@ featured_image: /images/ironman/i01-4.png
 
 ## 前言
 
-要開發 .NET Core 必需要安裝 .NET Core SDK，所以先到官網下載 .NET Core SDK 的安裝檔，官網下載位置[點我](https://www.microsoft.com/net/download/)。  
+要開發 .NET Core 必須要安裝 .NET Core SDK，所以先到官網下載 .NET Core SDK 的安裝檔，官網下載位置[點我](https://www.microsoft.com/net/download/)。  
 
 .NET Core 是跨作業系統的框架，不再像 .NET Framework 要依附在 Windows 的作業系統才能執行，所以你可以依照你需要的版本進行下載及安裝。  
 雖然我的電腦是 Windows 作業系統，但接下來的系列教學都會是以指令為主。  
@@ -34,7 +34,7 @@ dotnet --version
 
 ## 建立網站專案
 
-先建立一個專案資料夾 `MyWebsite`，然後在該資料夾執行 .NET Core CLI 建置網站的指令：
+先建立一個專案資料夾 `MyWebsite`，然後在該資料夾執行 .NET Core CLI 建立網站的指令：
 ```sh
 dotnet new web
 ```
@@ -48,7 +48,7 @@ dotnet new web
 obj/                            # 專案暫存目錄
 wwwroot/                        # 預設網站根目錄 (空的)
 MyWebsite.csproj                # 專案檔
-Program.cs                      # 程式進入檔
+Program.cs                      # 程式進入點
 Startup.cs                      # 啟動網站設定
 ```
 
@@ -92,7 +92,7 @@ VS Code 跟一般文字編輯器有些不同，它是以資料夾為工作區域
 ```sh
 .vscode/                        # VS Code 設定檔目錄
   launch.json                   # 用 VS Code 啟動程式的設定檔
-  tasks.json                    # 定義 launch.json 會用道的指令設定檔
+  tasks.json                    # 定義 launch.json 會用到的指令設定檔
 obj/                            # 專案暫存目錄
 wwwroot/                        # 預設網站根目錄 (空的)
 MyWebsite.csproj                # 專案檔
