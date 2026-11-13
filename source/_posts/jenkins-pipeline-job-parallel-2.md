@@ -192,7 +192,7 @@ Caused: java.io.NotSerializableException: java.util.TreeMap$Entry
   ...
 ```
 
-> 因為 buildDependency 經過 `sort()` 處理後，已由原本的 `LinkedHashMap` 型態，轉變為 `TreeMap` 型態，而 `TreeMap` 無法被序列化。  
+> 因為 buildDependency 經過 `sort()` 處理後，已由原本的 `LinkedHashMap` 型態，轉變為 `TreeMap` 型態，而迭代 `TreeMap` 時產生的 `TreeMap$Entry` 無法被序列化。  
 > 前篇 [Jenkins - Pipeline Job 平行處理發生 JSON 例外](/article/jenkins-pipeline-job-parallel-json-not-serializable-exception.html) 有說明，Pipeline Job 平行處理不能使用到無法被序列化的物件。
 
 ### TreeMap to ArrayList

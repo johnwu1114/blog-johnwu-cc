@@ -270,7 +270,7 @@ namespace MyWebsite.Attributes
             }
 
             // 自訂錯誤訊息
-            return $"{validationContext.DisplayName} can't be in future";
+            return $"{validationContext.DisplayName} must be between {MinimumAge} and {MaximumAge} years old";
         }
     }
 }

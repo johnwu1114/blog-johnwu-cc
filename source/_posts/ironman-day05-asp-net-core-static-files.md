@@ -172,7 +172,7 @@ public class Startup
 * `UseStaticFiles` 的職責是回傳請求的檔案。  
 
 > `UseDefaultFiles` 必須註冊在 `UseStaticFiles` 之前。  
-如果先註冊 `UseStaticFiles`，當 URL 是 **/** 時，`UseStaticFiles` 找不到該檔案，就會直接回傳找不到；所以就沒有機會進到 `UseDefaultFiles`。  
+如果先註冊 `UseStaticFiles`，當 URL 是 **/** 時，`UseStaticFiles` 找不到該檔案就會交給下一個 Middleware；之後 `UseDefaultFiles` 才把 URL 改寫成預設檔案，但已經沒有 `UseStaticFiles` 能回傳該檔案。  
 
 ### 自訂預設檔案
 

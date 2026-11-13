@@ -134,7 +134,7 @@ function AlexaSiteStatsWidget() {
         var scriptSource = thisScript.src;
         if (scriptSource != null) {
             var urlMatched = scriptSource.match(jsUrlRegex);
-            var decodedURL = decodeURIComponent(urlMatched[4] || document.location.hostname);
+            var decodedURL = urlMatched && decodeURIComponent(urlMatched[4] || document.location.hostname);
             if (urlMatched != null) {
                 var base64EncodedURL = encode64(decodedURL);
                 var imageURL = imageSrcPrefix + urlMatched[1] + "/" + urlMatched[2] + "/" +
@@ -142,7 +142,7 @@ function AlexaSiteStatsWidget() {
                 var img = new Image();
                 img.src = imageURL;
                 img.setAttribute("border", "0");
-                if (urlMatched[1] == "s")
+                if (urlMatched[1] == "t")
                     img.alt = "Alexa Certified Traffic Ranking for " + decodedURL;
                 else
                     img.alt = "Alexa Certified Site Stats for " + decodedURL;

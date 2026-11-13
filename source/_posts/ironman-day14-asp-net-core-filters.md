@@ -30,7 +30,7 @@ Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Reques
 * **Resource Filter**  
 Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處理才用。  
 * **Action Filter**  
-最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但並不會經過 Model Binding。  
+最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但會在 Model Binding 之後執行。  
 * **Exception Filter**  
 異常處理的 Filter。  
 * **Result Filter**  

@@ -41,7 +41,7 @@ SSL For Free 要確認該網域是你所擁有，才會發憑證給你。
 
 ### 2.1. FTP 驗證
 
-要申請的網域有 FTP 的話，可以在這邊填入 FTP 登入資訊，讓 SSL For Free 把憑證上傳到該 Server。  
+要申請的網域有 FTP 的話，可以在這邊填入 FTP 登入資訊，讓 SSL For Free 把驗證檔上傳到該 Server。  
 
 ![免費 SSL 申請 - FTP Validation](/images/a/212.png)
 
@@ -57,7 +57,7 @@ SSL For Free 要確認該網域是你所擁有，才會發憑證給你。
 1. 點擊圖中的 `Download File #1` 下載驗證檔。  
 2. 把驗證檔放到 Web Server 上的 /.well-known/acme-challenge/ 路徑。  
  * 例：`http://{domain}/.well-known/acme-challenge/{驗證檔}`  
- * 由於路徑中多了一個 `.` 會導致該連結變成 404 Not Found，可以在 Web.config 加入 mimeMap 避免這個問題：
+ * 由於驗證檔沒有副檔名，IIS 預設不提供未知 MIME 類型的檔案，會導致該連結變成 404 Not Found，可以在 Web.config 加入 mimeMap 避免這個問題：
  ```xml
 <configuration>
   <!-- ... -->

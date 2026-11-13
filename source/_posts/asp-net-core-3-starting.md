@@ -63,7 +63,7 @@ Startup.cs                      # 啟動網站設定
 ```
 
 > .NET Core 3.0 之後，`*.csproj` 專案檔變得很乾淨俐落，如上圖。  
-> 當宣告 `<Project Sdk="Microsoft.NET.Sdk.Web">` 就會預設參考 `Microsoft.AspNetCore.App` 套件。  
+> 當宣告 `<Project Sdk="Microsoft.NET.Sdk.Web">` 就會預設參考 `Microsoft.AspNetCore.App` 共用框架。  
 
 ## 啟動網站
 

@@ -92,7 +92,7 @@ Task 6
 Task 6
 ```
 
-主要是因為 `Delegate Method` 使用的外部變數，在執行 `parallel` 時，早就跑完迴圈被改成 6 了。  
+主要是因為 `Delegate Method` 使用的外部變數，在執行 `parallel` 時，早就跑完迴圈被改成 5 了，所以 `i+1` 都是 6。  
 如果真的想要在 `Delegate Method` 取得外部變數，建議另外用區域變數儲存，避免外部變數在執行前被改變。如下：
 ```groovy
 def tasks = [:]

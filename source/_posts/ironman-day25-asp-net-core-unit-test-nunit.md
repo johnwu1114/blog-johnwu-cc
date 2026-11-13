@@ -82,6 +82,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using MyWebsite.Controllers;
+using MyWebsite.Models;
 using MyWebsite.Repositories;
 using NSubstitute;
 using NUnit.Framework;

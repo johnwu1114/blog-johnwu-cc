@@ -143,7 +143,7 @@ public class HomeController : Controller
 }
 ```
 `IDistributedCache` 的 `Get`/`Set` 不像 `IMemoryCache` 可以存取任意型別，`IDistributedCache` 的 `Get`/`Set` 只能存取 `byte[]` 型別，如果要將物件存入分散式快取，就必須將物件轉換成 `byte[]` 型別，或轉成字串型別用 `GetString`/`SetString` 存取於分散式快取。  
-> 如果要將物件透過 `MemoryStream` 序列化，記得在物件加上 `[Serializable]`。  
+> 如果要將物件透過 `BinaryFormatter` 序列化，記得在物件加上 `[Serializable]`。  
 
 ## Redis Session
 

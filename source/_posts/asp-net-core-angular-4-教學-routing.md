@@ -132,7 +132,7 @@ export class RouteMaps {
 * RouteMaps
  * getRoutes - 取得 routes。其實也可以 export routes，但是我不喜歡，包裝看起來比較舒服。
  * getComponents - 取得 routes 中全部的 Component。
- * findComponents - 遞迴找出 routes 中全部的 Component，並且過濾掉重複的 Component。
+ * findComponents - 遞迴找出 routes 中全部的 Component（重複的 Component 由 getComponents 過濾）。
 
 ### 1.3 Menu
 

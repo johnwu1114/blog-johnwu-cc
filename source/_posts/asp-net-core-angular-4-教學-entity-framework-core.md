@@ -208,8 +208,8 @@ public class ContactsController : Controller
 }
 ```
 > 仔細看一下 _context，會發現我都沒有對它做 Dispose。  
-> 不是 Entity Framework Core 改成自動 Dispose，而是 Startup 注入的 AddDbContext 幫我們實做了 Dispose。  
-> 當 Request 進來時，MyContext 會開啟連線，Response 結束時，會關閉連線，所以才不用自己 Dispose。
+> 不是 Entity Framework Core 改成自動 Dispose，而是 AddDbContext 把 MyContext 註冊成 Scoped 服務，由 DI 容器幫我們呼叫 Dispose。  
+> MyContext 通常在執行資料庫操作時開啟連線，操作完成後關閉連線；Request 的 DI Scope 結束時會釋放 MyContext，所以才不用自己 Dispose。
 
 ### 執行結果
 

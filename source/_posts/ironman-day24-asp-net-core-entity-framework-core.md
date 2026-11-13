@@ -33,7 +33,7 @@ Entity Framework 基本上都是搭配 SQL Server，以下範例也是使用 SQL
 
 > SQL Server 2017 超級佛心！！！  
  過去 Express edition 就已經是免費版本，這次依然免費，不怎麼意外。  
- 但這次連 Developer edition 都變成**免費**！  
+ 而且 Developer edition 也是**免費**！  
 
 ## 建立 DbContext
 

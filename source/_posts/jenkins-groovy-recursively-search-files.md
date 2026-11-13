@@ -47,7 +47,7 @@ def recursiveSearch(path, pattern, func) {
 def recursiveSearch(path, pattern, func) {
     def sout = new StringBuffer()
     def serr = new StringBuffer()
-    def proc = "find `pwd` -name \"${pattern}\"".execute(null, new File(path))
+    def proc = ["find", path, "-name", pattern].execute()
     proc.consumeProcessOutput(sout, serr)
     proc.waitFor();
     if(sout) for(def line : sout.readLines()) func(line) 

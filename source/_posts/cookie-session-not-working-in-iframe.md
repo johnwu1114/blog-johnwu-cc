@@ -49,7 +49,7 @@ var isSafari = userAgent.indexOf("safari") != -1 && userAgent.indexOf("chrome") 
 var hasCookiePermission = document.cookie.indexOf("hasCookiePermission=true") != -1;
 
 if (isSafari && !hasCookiePermission) {
-    window.top.location = "http://iframe.com/redirect?ref=" + document.referrer;
+    window.top.location = "http://iframe.com/redirect?ref=" + encodeURIComponent(document.referrer);
 }
 
 ```

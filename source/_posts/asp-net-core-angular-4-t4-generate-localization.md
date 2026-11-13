@@ -196,7 +196,7 @@ var R = {
 ## 4. 載入語系
 
 取得 culture 的資訊，載入對應的語系檔。  
-Views\Home\index.html
+Views\Home\Index.cshtml
 ```html
 @using System.Text.RegularExpressions
 @using System.Globalization

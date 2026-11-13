@@ -159,7 +159,7 @@ namespace MyWebsite.Middlewares
 每個 Request 都會執行 `RequestCultureProviders` 中的 `CultureProvider`，用來判斷語系資訊，套用正確的資源檔。  
 `Microsoft.AspNetCore.Localization` 套件支援的 CultureProvider 有三種：  
 * **QueryStringRequestCultureProvider**  
-  從 QueryString 判斷語系資訊。如：`http://localhost:500/?culture=zh-TW`  
+  從 QueryString 判斷語系資訊。如：`http://localhost:5000/?culture=zh-TW`  
 * **CookieRequestCultureProvider**  
   從 Cookie 判斷語系資訊。  
 * **AcceptLanguageHeaderRequestCultureProvider**  
@@ -365,7 +365,7 @@ namespace MyWebsite
 
 ### View
 
-注入 `IViewLocalizer` 改成注入 `IHtmlLocalizer`，並指派型別，如下：  
+除了注入 `IViewLocalizer`，再額外注入 `IHtmlLocalizer`，並指派型別，如下：  
 
 *Views\Home\Index.cshtml*
 ```cs
@@ -400,7 +400,7 @@ namespace MyWebsite
         public void ConfigureServices(IServiceCollection services)
         {
             // ...
-            services.AddDataAnnotationsLocalization(options => {
+            services.AddMvc().AddDataAnnotationsLocalization(options => {
                 options.DataAnnotationLocalizerProvider = (type, factory) =>
                 factory.Create(typeof(SharedResource));
             });

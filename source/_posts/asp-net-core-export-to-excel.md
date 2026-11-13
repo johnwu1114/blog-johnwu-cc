@@ -54,7 +54,7 @@ using (var document = SpreadsheetDocument.Create(memoryStream, SpreadsheetDocume
 | 類別 | 說明 |
 | ------ | ------ |
 | Workbook | Excel 主要的文件組件的根元素。 |
-| Worksheet | Excel 工作表的集合 |
+| Worksheet | Excel 工作表 |
 | SheetData | 工作表中的資料 |
 | Sheets | Sheet 的集合 |
 | Sheet | 工作表與資料的關聯 |

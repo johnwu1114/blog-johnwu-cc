@@ -98,7 +98,7 @@ public class UserController : Controller
     }
 }
 ```
-> 目前 ASP.NET Core 還沒有像 ASP.NET MVC 的 MapHttpAttributeRoutes 可以綁 Http Method 的全域路由，都要在 Action 加上 HTTP Method Attribute。
+> 目前 ASP.NET Core 還沒有像 ASP.NET Web API 的 MapHttpRoute 可以綁 Http Method 的全域路由，都要在 Action 加上 HTTP Method Attribute。
 
 ## SerializerSettings 
 
@@ -184,7 +184,7 @@ public class Startup
 }
 ```
 
-> `DefaultContractResolver` 名稱是延續 ASP.NET，雖然名稱叫 Default，但在 ASP.NET Core 它不是 **Default**。`CamelCasePropertyNamesContractResolver` 才是 ASP.NET Core 的 **Default** ContractResolver。
+> `DefaultContractResolver` 名稱是來自 Json.NET，雖然名稱叫 Default，但在 ASP.NET Core 它不是 **Default**。`CamelCasePropertyNamesContractResolver` 才是 ASP.NET Core 的 **Default** ContractResolver。
 
 呼叫 `http://localhost:5000/api/users/1` 會回傳 JSON 如下：
 ```json
@@ -312,6 +312,7 @@ namespace MyWebsite.Controllers
             int index;
             if ((index = _users.FindIndex(c => c.Id == id)) != -1)
             {
+                user.Id = id;
                 _users[index] = user;
                 result.IsSuccess = true;
             }

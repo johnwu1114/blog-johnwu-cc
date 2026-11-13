@@ -52,6 +52,7 @@ AssemblyLoadContext 可以幫助載入 DLL，使用方式如下：
 using System.IO;
 using System.Resources;
 using System.Runtime.Loader;
+using System.Text;
 
 // ...
 

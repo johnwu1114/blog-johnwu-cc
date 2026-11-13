@@ -123,7 +123,7 @@ module.exports = {
         }), 
         new webpack.ContextReplacementPlugin( 
             /angular(\\|\/)core(\\|\/)@angular/, 
-            __dirname + "./app"
+            __dirname + "/app"
         )
     ] 
 }

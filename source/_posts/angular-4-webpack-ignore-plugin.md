@@ -17,7 +17,7 @@ featured_image: /images/a/288.png
 <!-- more -->
 
 上圖是用 `webpack-bundle-analyzer` 套件分析的結果。  
-> `webpack-bundle-analyzer` 套件請參考 [Angular 4 - Webpack 打包檔案分析](angular-4-webpack-bundle-analyzer)。  
+> `webpack-bundle-analyzer` 套件請參考 [Angular 4 - Webpack 打包檔案分析](/article/angular-4-webpack-bundle-analyzer.html)。  
 
 可以看到 `moment` 套件中的 `locale` 比 `moment.js` 還要大 1.3 倍，而 `locale` 是多國語言的支援檔，實際上我根本不需要用到這麼多。  
 

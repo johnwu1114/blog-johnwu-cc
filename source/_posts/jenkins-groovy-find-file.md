@@ -35,7 +35,7 @@ new FileNameFinder().getFileNames(env.JENKINS_HOME, "*.xml", "jenkins*")
 ```
 * getFileNames  
  * 參數 1: 要搜尋的資料夾  
- * 參數 2: 符合的 Pattern(可省略)  
+ * 參數 2: 符合的 Pattern  
  * 參數 3: 排除的 Pattern(可省略)  
 
 ### 執行結果
