@@ -30,7 +30,7 @@ featured_image: /images/a/381.png
 ```cs
 namespace AssemblyA
 {
-    class Parent
+    public class Parent
     {
         protected internal int Number;
     }

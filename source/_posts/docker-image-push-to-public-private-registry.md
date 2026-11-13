@@ -38,7 +38,7 @@ featured_image: /images/b/32.png
 Docker Image 分為以下三個階段，分別建置出三個 Docker Image，再拼裝成可直接被執行的 Docker Image。  
 此範例主要是以 ASP.NET Core 作為建置範例，但此範例不侷限於 ASP.NET Core 專案。  
 
-ASP.NET Core 編譯出來的專案，會依照 namespase 區分出對應的 DLL，例如：  
+ASP.NET Core 編譯出來的專案，會依照專案名稱區分出對應的 DLL，例如：  
 
 1. MyProject.Website 專案，會生成 MyProject.Website.dll  
 2. MyProject.Common 專案，會生成 MyProject.Common.dll  

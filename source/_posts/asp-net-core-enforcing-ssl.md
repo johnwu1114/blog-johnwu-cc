@@ -131,7 +131,7 @@ public class Startup
 public class Startup
 {
     // ...
-    public void Configure(IApplicationBuilder app, )
+    public void Configure(IApplicationBuilder app)
     {        
         app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, _httpsPort));
         // ...

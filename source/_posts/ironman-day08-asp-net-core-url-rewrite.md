@@ -69,7 +69,7 @@ URL 重寫是屬於 Server 端的轉換事件，當 Client 端 Request 來的時
 
 ### URL 轉址
 
-URL 重寫是屬於 Client 端的轉換事件，當 Client 端 Request 來的時候，發現原網址已經被換掉了，Server 會先回傳給 Client 告知新網址，再由 Client 重新 Request 新網址。情境如下：  
+URL 轉址是屬於 Client 端的轉換事件，當 Client 端 Request 來的時候，發現原網址已經被換掉了，Server 會先回傳給 Client 告知新網址，再由 Client 重新 Request 新網址。情境如下：  
 
 ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 轉址情境](/images/ironman/i08-4.png)  
 

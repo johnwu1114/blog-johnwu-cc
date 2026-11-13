@@ -220,7 +220,7 @@ namespace MyWebsite.Controllers
 [ISample]
 Id: 1
 HashCode: 14145203
-Tpye: MyWebsite.Sample
+Type: MyWebsite.Sample
 ```
 
 ASP.NET Core 實例化 Controller 時，發現建構子有 ISample 這個類型的參數，就把 Sample 的實例注入給該 Controller。  

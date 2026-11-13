@@ -57,7 +57,7 @@ ERROR: (gcloud.sql.connect) Mysql client not found.  Please install a mysql clie
 試著輸入 `status`，會顯示 MySQL 的資訊如下：  
 ![GCP 教學 - MySQL status](/images/b/17.png)  
 
-要修改密碼或允許 root 連入來源，可透過 Cloud SDK 執行以下指令：
+要修改 root@% 使用者的密碼，可透過 Cloud SDK 執行以下指令：
 
 ```sh
 gcloud sql users set-password root --host=% --instance cloudsql-mysql --password=<密碼>

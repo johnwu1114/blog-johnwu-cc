@@ -63,7 +63,7 @@ comments: false
 
 ## 3. 設定 Menu
 
-編輯 `/themes/next/_condig.yml`，把搜尋頁面加入到 Menu。如下：
+編輯 `/themes/next/_config.yml`，把搜尋頁面加入到 Menu。如下：
 ```yml
 menu:
   # ...

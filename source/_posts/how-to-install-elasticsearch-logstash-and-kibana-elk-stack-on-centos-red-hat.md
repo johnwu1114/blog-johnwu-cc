@@ -391,7 +391,7 @@ server.port: 5601
 server.host: "0.0.0.0"
 ```
 
-用瀏覽器打開 `http://192.168.56.101:5601` 設定 index：
+先執行 `systemctl restart kibana` 套用綁定位址設定，再用瀏覽器打開 `http://192.168.56.101:5601` 設定 index：
 ![pasted image](/images/a/103.png)
 
 設定完成後，就可以到 Discover 查詢 Log 了～

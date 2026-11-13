@@ -112,7 +112,7 @@ parallel(tasks)
 ## 部分平行處理
 
 較複雜的流程可能會有部分的工作能平行處理，但之後的工作又有相依關係。  
-在 `parallel` 平行處理後，可以透過 `stage` 等待平行處理工作全部完成，再繼續往下動作。  
+`parallel` 本身會等待各分支全部完成，再繼續執行後面的 `stage`。  
 如下範例，有兩段工作群可以平行處理：
 ```groovy
 stage ("Checkout Source Code") { }

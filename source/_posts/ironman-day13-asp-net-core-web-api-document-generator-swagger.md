@@ -30,7 +30,7 @@ dotnet add package Swashbuckle.AspNetCore
 
 ## 註冊 Swagger
 
-在 `Startup.cs` 的 `ConfigureServices` 加入 Swagger 的服務及 Middleware。如下：  
+在 `Startup.cs` 的 `ConfigureServices` 加入 Swagger 的服務，並在 `Configure` 加入 Swagger 的 Middleware。如下：  
 
 *Startup.cs*
 ```cs
@@ -192,7 +192,7 @@ public class UserController : Controller
 
 ## 回傳型別
 
-若有預期 API 在不同的 HTTP Status Code 時，會回傳不同的物件，可以透過 `[ProducesResponseType(type)]` 定義回傳的物件。在 Swagger 中就可以清楚看到該 API 可能會發生的 HTTP Status Code 及回傳物件。例如：
+若有預期 API 在不同的 HTTP Status Code 時，會回傳不同的物件，可以透過 `[ProducesResponseType(type, statusCode)]` 定義回傳的物件。在 Swagger 中就可以清楚看到該 API 可能會發生的 HTTP Status Code 及回傳物件。例如：
 
 ```cs
 // ...

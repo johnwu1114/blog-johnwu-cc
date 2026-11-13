@@ -322,7 +322,7 @@ cat > .env <<< "OPENAI_KEY=sk-sample"   # secret-guard 擋
 rm -rf ~/sample                         # dangerous-bash 擋
 ```
 
-`policies/agent-security.md` 寫進 system prompt 讓 AI 自律（soft）；Hook 是 AI 真的嘗試執行時才擋（hard）。
+`policies/agent-security.md` 載入對話 context 讓 AI 自律（soft）；Hook 是 AI 真的嘗試執行時才擋（hard）。
 
 > Policy（prompt 層，靠 AI 自律）+ Hook（tool-call 層，硬擋）——**兩層都在，才叫 defense in depth**。
 

@@ -198,7 +198,7 @@ namespace MyWebsite
 1. 從 IIS 移除  
 2. 從 Web.config 移除  
 
-以 Web.config 為例，在網站根目錄的 Web.config 編輯，移除預設的 HTTP Modules。範例如下：
+以 Web.config 為例，在網站根目錄的 Web.config 編輯，移除 `X-Powered-By`。範例如下：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>

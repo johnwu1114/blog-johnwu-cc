@@ -27,10 +27,10 @@ public void Login(string expectedMessage, string loginName, string password, Mem
     // ...
 }
 ```
-上述的程式碼在編譯時期就會有問題 ，因為 `new Member { IsActive = true } }` 不是 Attribute 的合法型別。  
+上述的程式碼在編譯時期就會有問題 ，因為 `new Member { IsActive = true }` 不是 Attribute 的合法型別。  
 
 > Attribute 的參數類型只能使用以下型別：
-* 基本型別 (bool, byte, char, double, float, int, long, short)
+* 基本型別 (bool, byte, sbyte, char, double, float, int, uint, long, ulong, short, ushort)
 * string 
 * object 
 * System.Type  

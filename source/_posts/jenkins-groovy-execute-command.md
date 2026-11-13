@@ -55,7 +55,7 @@ def proc = "ping 8.8.8.8".execute()
 proc.consumeProcessOutput(sout, serr)
 proc.waitFor();
 if(sout) echo sout.toString().trim()
-if(serr) echo sout.toString().trim()
+if(serr) echo serr.toString().trim()
 ```
 > 如此一來就可以將指令的執行結果輸出到 Jenkins 上了。
 

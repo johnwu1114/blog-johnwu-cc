@@ -72,7 +72,7 @@ public class HomeController : Controller
 ## 分散式快取
 
 當 ASP.NET Core 網站有橫向擴充，架設多個站台需求時，分散式快取就是一個很好的同步快取資料解決方案。  
-基本上就是 NoSQL 的概念，把分散式快取的資料位置，指向外部的儲存空間，如：SQL Server、Redis 等等。只要實作 `IDistributedCache`，就可以被當作分散式快取的服務使用。  
+基本上就是多個站台共用快取的概念，把分散式快取的資料位置，指向外部的儲存空間，如：SQL Server、Redis 等等。只要實作 `IDistributedCache`，就可以被當作分散式快取的服務使用。  
 
 本機快取及分散式快取架構，如圖：  
 

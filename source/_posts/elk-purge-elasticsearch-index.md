@@ -60,7 +60,7 @@ curl "http://localhost:9200/_cat/indices?v&h=i" | grep -P "\-\d{4}\.\d{2}$"
 
 最後再排除 N 週內的資料，結果就是要被刪除的 Index Name 囉～
 ```bash
-curl "http://localhost:9200/_cat/indices?v&h=i" | grep -P "\-\d{4}\.\d{2}$" | grep -Pv "(\-2017\.27|\-2017\.28|\-2017\.29)\b"`
+curl "http://localhost:9200/_cat/indices?v&h=i" | grep -P "\-\d{4}\.\d{2}$" | grep -Pv "(\-2017\.27|\-2017\.28|\-2017\.29)\b"
 ```
 
 查詢結果：
@@ -137,7 +137,7 @@ delete_indices() {
 
 main "$@"
 ```
-> 我的範例是留 12 週，基本上需求。我個人認為超過三週的 Log 就已經沒有價值了。  
+> 我的範例是 uat 保留 2 週、prod 保留 3 週，可依需求調整。我個人認為超過三週的 Log 就已經沒有價值了。  
 > 但如果你是拿 Log 來做分析，就另當別論了！
 
 

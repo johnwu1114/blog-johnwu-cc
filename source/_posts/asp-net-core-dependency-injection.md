@@ -169,7 +169,7 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton<SampleService, SampleService>();
+        services.AddScoped<SampleService, SampleService>();
     }
 }
 ```

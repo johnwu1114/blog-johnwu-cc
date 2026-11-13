@@ -172,7 +172,7 @@ public class HomeController : Controller
 
 ### 5.2. View
 
-要在 cshtml 使用多國語言的話，要先在 Setup 的 Services 中加入 ViewLocalization。  
+要在 cshtml 使用多國語言的話，要先在 Startup 的 Services 中加入 ViewLocalization。  
 注入 IViewLocalizer，把 Resource Key 丟入 Localizer，就可以得到值。  
 
 ```html
@@ -189,7 +189,7 @@ CurrentUICulture: @CultureInfo.CurrentUICulture.Name <br />
 
 ### 5.3. Model
 
-要在 Model 使用多國語言的話，要先在 Setup 的 Services 中加入 DataAnnotationsLocalization。  
+要在 Model 使用多國語言的話，要先在 Startup 的 Services 中加入 DataAnnotationsLocalization。  
 
 ```cs
 public class SampleModel

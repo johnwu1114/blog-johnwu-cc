@@ -126,7 +126,7 @@ CLAUDE.md → role → policy → stack → skills → templates
 | **Hooks / 自動檢查** | 出餐前先過品管 | 在特定時機自動跑檢查或流程 |
 | **Workflow 約束** | 廚房標準流程 | 先看 code、再改、最後驗證 |
 
-例如在 `.claude/settings.json` 設一個 hook，每次 AI 改完檔案自動跑 lint：
+例如在 `.claude/settings.json` 設一個 hook，每次 AI 使用 Edit 工具改完檔案後自動跑 lint：
 
 ```jsonc
 {

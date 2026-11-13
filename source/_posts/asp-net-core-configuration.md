@@ -32,7 +32,7 @@ Configuration\Settings.json
   ],
   "CustomObject": {
     "Property": {
-      "SubProperty": 1,
+      "SubProperty1": 1,
       "SubProperty2": true,
       "SubProperty3": "This is sub property."
     }

@@ -120,7 +120,7 @@ export class RouteMaps {
             }
         });
 
-        arr.filter((value, index, self) => {
+        arr = arr.filter((value, index, self) => {
             return self.indexOf(value) === index;
         });
         return arr;

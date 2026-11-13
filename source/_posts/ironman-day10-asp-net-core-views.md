@@ -217,7 +217,7 @@ public abstract class CustomRazorPage<TModel> : RazorPage<TModel>
 * **@section**  
  在使用 Layout 時，並不一定會將 Razor View 全部填入至 `RenderBody`，可能會有需求將某些內容填入至 Layout 的其它地方。如：`*.css` 的引用填入至 `<head></head>` 中；`*.js` 的引用填入至 `</body>` 之前。  
 
-當打開 `http://localhost:5000/home/index` 時，Razor 引擎會將 *Index.cshtml* 的結果都填入 *Views\Shared\\_Layout.cshtml* 的 `@RenderBody()`。  
+當打開 `http://localhost:5000/home/index` 時，Razor 引擎會將 *Index.cshtml* 中未定義為 section 的內容填入 *Views\Shared\\_Layout.cshtml* 的 `@RenderBody()`。  
 實際輸出的 HTML 結果：  
 ```html
 <!DOCTYPE html>

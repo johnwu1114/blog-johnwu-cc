@@ -79,7 +79,7 @@ public class ContactModel
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MyWebsite;"
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MyWebsite;Trusted_Connection=True;"
   }
 }
 ```

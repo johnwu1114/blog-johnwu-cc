@@ -20,7 +20,7 @@ ASP.NET Core 提供了好用的 Logging API，預設就已經將 Logger 物件�
 
 ## Logger
 
-ASP.NET Core 2 預設就把 Logger 放進 DI 容器，能直接透過 DI 取用 `ILogger` 實例。如下：  
+ASP.NET Core 2 預設就把 Logger 放進 DI 容器，能直接透過 DI 取用 `ILogger<T>` 實例。如下：  
 
 *Controllers\HomeController.cs*
 ```cs

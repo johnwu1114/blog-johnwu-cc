@@ -108,7 +108,7 @@ namespace MyWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ISample _singleton;
+        private readonly ISampleSingleton _singleton;
 
         public HomeController(ISampleSingleton singleton)
         {

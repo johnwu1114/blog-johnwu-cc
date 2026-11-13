@@ -92,7 +92,7 @@ namespace MyWebsite.Models
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=(LocalDB)\MSSQLLocalDB;Database=MyWebsite;"
+    "DefaultConnection": "Server=(LocalDB)\\MSSQLLocalDB;Database=MyWebsite;Trusted_Connection=True;"
   }
 }
 ```
@@ -250,7 +250,7 @@ namespace MyWebsite.Controllers
 ```
 > 仔細看一下 _context，會發現我都沒有對它做 Dispose。  
  不是 EF Core 改成自動 Dispose，而是 AddDbContext 服務幫我們實作了 Dispose。  
- 當 Request 進來時，MyContext 會開啟連線；Response 結束時，會關閉連線並呼叫 Dispose。  
+ MyContext 預設以 Request 為範圍，由 DI 容器在範圍結束時呼叫 Dispose；資料庫連線通常在各次資料庫操作前開啟、操作後關閉。  
 
 ## Repository Pattern
 

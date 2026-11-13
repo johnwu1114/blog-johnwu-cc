@@ -104,7 +104,7 @@ public class Program
     Response 傳送速率若低於每秒 N bytes，連續 Y 秒，則視為連線逾時。  
     *(預設連續 5 秒低於 240 bytes為連線逾時)*  
   * **RequestHeadersTimeout**  
-    Server 處理一個封包最長的時間。  
+    Server 接收 Request Header 的最長時間。  
     *(預設 30 秒)*  
 
 > 其它設定可以參考 KestrelHttpServer 的 GitHub 原始碼，目前還沒有線上文件，但 Summary 註解詳細。  
@@ -160,7 +160,7 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1   = localhost
-DNS.2   = 127.0.0.1
+IP.1    = 127.0.0.1
 ```
 
 透過 `openssl` 指令產生 Private Key 文字檔及 Certificate 文字檔：

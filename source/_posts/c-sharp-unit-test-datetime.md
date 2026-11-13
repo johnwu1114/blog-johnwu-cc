@@ -124,7 +124,7 @@ public static class SystemTime
 }
 ```
 
-如此一來就可以在測試方法中，透過 internal set `SystemTime.Now` 模擬回傳值。  
+先將被測試方法內的時間讀取改為 `var now = SystemTime.Now;`，再於測試方法中透過 internal set `SystemTime.Now` 模擬回傳值。  
 
 測試程式碼如下：  
 ```cs
@@ -171,7 +171,7 @@ public void Christmas_Discount()
         System.Fakes.ShimDateTime.NowGet = () => Convert.ToDateTime("2017/12/25");
 
         // Act
-        var actual = Discount(amount);
+        var actual = _target.Discount(amount);
 
         // Assert
         Assert.AreEqual(expected, actual);

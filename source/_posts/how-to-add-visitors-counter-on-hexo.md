@@ -66,8 +66,8 @@ $(function () {
 
 Add below html to layout, in themes\\*{your theme}*\\layout\\{where you want to show}.
 ```html
-<span id="visits">Visits: <font class="count">--<font></span>
-<span id="pageviews">Pageviews: <font class="count">--<font></span>
+<span id="visits">Visits: <font class="count">--</font></span>
+<span id="pageviews">Pageviews: <font class="count">--</font></span>
 ```
 
 ### Add references

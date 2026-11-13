@@ -147,7 +147,7 @@ namespace MyWebsite
 Server 快取可以設定的參數如下：  
 * `UseCaseSensitivePaths`  
   URL 是否區分大小寫為不同的 Response 快取。  
-  *(預設為 true)*  
+  *(預設為 false)*  
 * `MaximumBodySize`  
   單個 Response 快取的大小限制(單位是 Bytes)。  
   *(預設為 64 MB)*  

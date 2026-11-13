@@ -239,7 +239,7 @@ Filter 有兩種註冊方式，一種是全域註冊，另一種是用 `[Attribu
 
 ### 全域註冊
 
-在 `Startup.ConfigureServices` 的 MVC 服務中註冊 Filter，這樣就可以套用到所有的 Request。如下：
+在 `Startup.ConfigureServices` 的 MVC 服務中註冊 Filter，這樣就可以套用到進入 MVC Action 的 Request。如下：
 ```cs
 // ...
 public class Startup

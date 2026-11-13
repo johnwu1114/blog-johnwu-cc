@@ -67,9 +67,9 @@ ASP.NET Core 使用多國語言，需要 `Microsoft.AspNetCore.Localization` 套
 透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Microsoft.AspNetCore.Localization
-dotnet add package Microsoft.AspNetCore.Routing
+dotnet add package Microsoft.AspNetCore.Localization.Routing
 ```
-> ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Localization` 及 `Microsoft.AspNetCore.Routing`，所以不用再安裝。  
+> ASP.NET Core 2.0 以上版本，預設是參考 `Microsoft.AspNetCore.All`，已經包含 `Microsoft.AspNetCore.Localization` 及 `Microsoft.AspNetCore.Localization.Routing`，所以不用再安裝。  
 
 在 `Startup.ConfigureServices` 註冊多國語言需要的服務，以及修改多國語的 Routing 方式。如下：  
 

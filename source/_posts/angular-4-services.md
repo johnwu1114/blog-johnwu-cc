@@ -37,7 +37,7 @@ export class MyComponent {
 
 ## 1. 建立 Service
 
-要成為可被注入的 Service 必須要加上 `@Injectable()` 的 Metadata。如下：  
+建議為可被注入的 Service 加上 `@Injectable()` 的 Metadata。如下：  
 
 ```ts
 import { Injectable } from "@angular/core";

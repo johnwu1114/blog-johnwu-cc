@@ -32,7 +32,7 @@ public interface IApplicationLifetime
 }
 ```
 
-安裝完 `Microsoft.AspNetCore.Hosting` 後，就可以在 Startup.as 的 Configure 注入，在執行期間建立實例時，就可以拿到 IApplicationLifetime 的實體。如下：  
+安裝完 `Microsoft.AspNetCore.Hosting` 後，就可以在 Startup.cs 的 Configure 注入，在執行期間建立實例時，就可以拿到 IApplicationLifetime 的實體。如下：  
 
 ```cs
 // ...

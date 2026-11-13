@@ -109,4 +109,4 @@ export class FirstModule { }
 
 ## 程式碼下載
 
-[asp-net-core-angular-routing](https://github.com/johnwu1114/my-angular-lazy-loading-shared-module)  
+[my-angular-lazy-loading-shared-module](https://github.com/johnwu1114/my-angular-lazy-loading-shared-module)  

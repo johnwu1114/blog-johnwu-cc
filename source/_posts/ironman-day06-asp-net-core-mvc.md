@@ -139,7 +139,7 @@ View 跟 Controller 有相互的對應關係，預設在 Controller 使用 `View
 Hello~ 我是 @Model.Name
 ```
 
-在 `*.cshtml` 用 `@model` 綁定 Model 的型別，才可以使用 `@Model` 取得 Controller 傳入的物件。  
+在 `*.cshtml` 用 `@model` 綁定 Model 的型別，就可以使用強型別的 `@Model` 取得 Controller 傳入的物件。  
 
 ### 範例結果
 

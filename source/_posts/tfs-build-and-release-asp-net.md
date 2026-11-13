@@ -42,7 +42,7 @@ Build 完的 Output console 可以看到成品在 Server的位置，可以登到
 
 打開 Build 定義修改 Build solution 的 MSBuild Arguments，如下：
 ```bash
-/p:ReleaseOnBuild=True /p:ReleaseDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=$(build.artifactstagingdirectory)\website
+/p:DeployOnBuild=True /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl=$(build.artifactstagingdirectory)\website
 ```
 ![TFS - MSBuild Arguments](/images/a/176.png)
 再 Build 一次就可以看到有 website 的資料夾，裡面就是 Website Build 出來的內容了。  

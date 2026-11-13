@@ -161,7 +161,7 @@ webpack -p
 ![Angular 4 教學 - Webpack JIT](/images/a/348.png)
 
 到目前為止，只是改成用 Webpack 打包 Angular 的 Source Code，所以還只是 JIT 編譯。  
-由於本篇範例實在是太簡單了，看到載入的速度很快，才 400/ms 左右。  
+由於本篇範例實在是太簡單了，看到載入的速度很快，才 400 ms 左右。  
 
 ### 安裝 AOT 套件
 
@@ -266,7 +266,7 @@ platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 ```
 npm uninstall systemjs --save
 ```
-system.config.js 也可以隨之移除。
+systemjs.config.js 也可以隨之移除。
 
 改成用 AOT 編譯後，前端不再需要動態編譯，所以在 `bundle-vendors` 中可以把 `@angular/*` 移除：
 ```js

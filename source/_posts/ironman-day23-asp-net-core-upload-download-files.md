@@ -157,7 +157,7 @@ public async Task<IActionResult> Album(AlbumModel model)
 
 HTML Form 如下：  
 ```html
-<form method="post" enctype="multipart/form-data" action="/api/users/album">
+<form method="post" enctype="multipart/form-data" action="/api/files/album">
     名稱：<input type="text" name="title" /><br />
     日期：<input type="date" name="date" /><br />
     相片：<input type="file" name="photos" multiple accept="image/*" /><br />

@@ -105,7 +105,7 @@ export class AppComponent {
 
     constructor(private sanitizer: DomSanitizer) {
         let url = "https://blog.johnwu.cc/";
-        this.frameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url));
+        this.frameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
 }
 ```
