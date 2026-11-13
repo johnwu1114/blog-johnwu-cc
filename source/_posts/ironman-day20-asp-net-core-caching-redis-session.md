@@ -78,7 +78,7 @@ public class HomeController : Controller
 
 ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - 本機快取及分散式快取架構](/images/ironman/i20-1.png)  
 
-在 `Startup.ConfigureServices` 注入 `IDistributedCache` 使用分散式快取。如下：
+在 `Startup.ConfigureServices` 註冊 `IDistributedCache` 使用分散式快取。如下：
 
 *Startup.cs*  
 ```cs

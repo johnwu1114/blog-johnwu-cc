@@ -84,7 +84,7 @@ public class Sample : ISampleTransient, ISampleScoped, ISampleSingleton
 }
 ```
 
-在 `Main` 方法 *HostBuilder* 建置出的 *Host* 實例，再從 Service Provider 中獲取需要的服務。  
+在 `Main` 方法取得 *HostBuilder* 建置出的 *Host* 實例，再從 Service Provider 中獲取需要的服務。  
 
 **Singleton** 及 **Transient** 類型的服務，都可以直接透過 Service Provider 取出，但 **Scoped** 類型的服務，必須先建立出 Service Scope，才可以在該 Scope 內的 Service Provider 中取出服務。  
 範例如下：  

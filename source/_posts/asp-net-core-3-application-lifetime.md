@@ -192,7 +192,7 @@ namespace MyWebsite
 除了程式進入點外，WebHost 的啟停也是網站事件很重要一環，ASP.NET Core 不像 ASP.NET MVC 用繼承的方式捕捉啟動及停止事件。
 而是透過 `IHostApplicationLifetime` 來捕捉 WebHost 的停啟事件。  
 
-`IHostApplicationLifetime` 有三個註冊監聽事件及終止網站事件可以觸發。如下：  
+`IHostApplicationLifetime` 有三個可註冊監聽的事件，以及一個可觸發終止網站的方法。如下：  
 
 ```cs
 public interface IHostApplicationLifetime

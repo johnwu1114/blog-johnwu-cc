@@ -34,7 +34,7 @@ ASP.NET Core 使用 NLog 需要安裝 `NLog` 及 `NLog.Web.AspNetCore` 套件。
 dotnet add package NLog -v 4.5.0-rc02
 dotnet add package NLog.Web.AspNetCore -v 4.5.0-rc2
 ```
-> .NET Core 的版本目前還是 RC 版。  
+> NLog 支援 .NET Core 的版本目前還是 RC 版。  
 
 ### 組態設定檔
 
@@ -109,7 +109,7 @@ namespace MyWebsite
 2018-01-07 00:27:33.2519||INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 137.5115ms 200 text/plain; charset=utf-8 
 ```
 
-> 安裝完套件後，只要加一個設定檔及兩行程式碼就完成，可說是非常的友善使用。
+> 安裝完套件後，只要加一個設定檔及兩行程式碼就完成，可說是非常友善易用。
 
 ## Log4net
 

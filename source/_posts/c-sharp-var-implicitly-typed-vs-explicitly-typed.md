@@ -116,7 +116,7 @@ public int ExplicitlyTyped()
 
 ## 程式碼重構
 
-承上述例子，如果 **GetMembers()** 回傳型別從 `List<Member>` 改為 `IEnumerable<Member>`，所有使用到 **GetMembers()** 的地方都要跟著修改。  
+承上述例子，如果 **GetMembers()** 回傳型別從 `List<Member>` 改為 `IEnumerable<Member>`，所有以顯式型別接收 **GetMembers()** 的地方都要跟著修改。  
 在同專案還好，若是跨專案，又剛好是基底元件時，真的是很令人崩潰...
 
 > 這點是我強烈推薦使用 `var` 的原因，曾經大幅度重構前人留下的產物，被顯式型別搞得層層卡關，此後區域變數一律用 `var`！  

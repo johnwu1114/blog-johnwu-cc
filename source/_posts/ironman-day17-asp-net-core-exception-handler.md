@@ -222,7 +222,7 @@ public class Startup
 
 ### UseDeveloperExceptionPage
 
-通常在開發期間，還是希望能直接看到錯誤資訊，會比較方便除錯。`UseDeveloperExceptionPage` 是 ASP.NET Core 提供的錯誤資訊頁面服務，可以在 Application Builder 注入。  
+通常在開發期間，還是希望能直接看到錯誤資訊，會比較方便除錯。`UseDeveloperExceptionPage` 是 ASP.NET Core 提供的錯誤資訊頁面服務，可以在 Application Builder 註冊。  
 在 `Startup.Configure` 注入 `IHostingEnvironment` 取得環境變數，判斷在開發階段才套用，反之則用 Exception Handler。  
 
 *Startup.cs*

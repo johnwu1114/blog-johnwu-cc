@@ -158,7 +158,7 @@ LocalizationPipe 有兩個參數：
 上述範例我建了兩個類別 `Text` 及 `Message`，這都是自訂的類別，當然可以分更多類別或不分類。  
 我設定預設為找 `Text`，因為這會是我常用的多國語系資源。  
 
-建立完成後必須要注入至 Module 中才能使用。如下：  
+建立完成後必須要宣告至 Module 的 declarations 中才能使用。如下：  
 main.ts
 ```ts
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";

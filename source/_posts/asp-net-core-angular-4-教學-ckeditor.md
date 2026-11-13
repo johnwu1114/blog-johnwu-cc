@@ -39,7 +39,7 @@ npm install --save ckeditor
 ### CKEditorDirective
 
 因為 CKEditor 是透過 JavaScript 呼叫，為了方便在 Angular 中使用，我建立了一個 CKEditorDirective 包裝 CKEditor 成 Directive。  
-經由 CKEditorDirective 包裝後，使用存取 CKEditor 的值都是透過 ngModel，用起來就像 input text 一樣簡單。  
+經由 CKEditorDirective 包裝後，存取 CKEditor 的值都是透過 ngModel，用起來就像 input text 一樣簡單。  
 shared\directives\ckeditor.directive.ts
 ```js
 import { Directive, Input, Attribute, Output, EventEmitter, OnChanges } from "@angular/core";
@@ -80,7 +80,7 @@ export class CKEditorDirective implements OnChanges {
 
 ### 載入套件
 
-在 NgModule 的 declarations 注入 CKEditorDirective。  
+在 NgModule 的 declarations 宣告 CKEditorDirective。  
 app\main.ts
 ```js
 import { CKEditorDirective } from "./shared/directives/ckeditor.directive";

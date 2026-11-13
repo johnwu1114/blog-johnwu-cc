@@ -38,7 +38,7 @@ public class UserController : Controller {
 ```
 > xxx**Logic** 邏輯層分層命名，有興趣可以參考這篇：[軟體分層架構模式](https://blog.johnwu.cc/article/software-layered-architecture-pattern.html)  
 
-以上程式基本上沒什麼問題，但程式相依性就差了點。UserController **必須** 要依賴 UserLogic 才可以運作，就算拆出介面改成：  
+以上程式基本上沒什麼問題，但程式相依性就高了點。UserController **必須** 要依賴 UserLogic 才可以運作，就算拆出介面改成：  
 
 ```cs
 public interface IUserLogic {

@@ -87,7 +87,7 @@ public class ContactModel
 ### 2.3 設定 Startup
 
 1. 為了要讀取資料庫連線字串，在 Startup 的建構子載入 appsettings.json。  
-2. 在 ConfigureServices 注入 DbContext 的服務，並設定資料庫連線字串。  
+2. 在 ConfigureServices 註冊 DbContext 的服務，並設定資料庫連線字串。  
 3. 啟動 Website 時呼叫 dbContext.Database.EnsureCreated() 建立資料庫。  
 
 \Startup.cs
