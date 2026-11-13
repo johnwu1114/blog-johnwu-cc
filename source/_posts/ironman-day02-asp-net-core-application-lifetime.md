@@ -101,7 +101,7 @@ namespace MyWebsite
  ConfigureServices 是用來將服務註冊到 DI 容器用的。這個方法可不實作，並不是必要的方法。  
  *(DI 可以參考這篇：[[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入 (Dependency Injection)](/article/ironman-day04-asp-net-core-dependency-injection.html)。)*  
 * **Configure**  
- 這是必要的方法，一定要實做。但 `Configure` 方法的參數並不固定，參數的實例都是從 WebHost 注入進來，可依需求增減需要的參數。  
+ 這是必要的方法，一定要實作。但 `Configure` 方法的參數並不固定，參數的實例都是從 WebHost 注入進來，可依需求增減需要的參數。  
  * **IApplicationBuilder** 是最重要的參數也是必要的參數，Request 進出的 Pipeline 都是透過 ApplicationBuilder 來設定。  
  *(Pipeline 可以參考這篇：[[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](/article/ironman-day03-asp-net-core-middleware.html)。)*  
 

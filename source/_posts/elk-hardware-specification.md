@@ -49,7 +49,7 @@ featured_image: /images/featured/elasticsearch.png
 
 > Ｍaster/Slave 的機器規格都是一樣的。  
 
-產品執行超過半年，CPU 大約都落在 30% 左右，依照上述使用量，在阿里雲其中一台 ELK Server，近期一週的監控資訊：  
+產品運作超過半年，CPU 大約都落在 30% 左右，依照上述使用量，在阿里雲其中一台 ELK Server，近期一週的監控資訊：  
 
 ![ELK 筆記 - 硬體規格評估 - 阿里雲監控資訊](/images/b/35.png)  
 
