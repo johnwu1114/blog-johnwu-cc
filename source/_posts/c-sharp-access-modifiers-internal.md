@@ -10,7 +10,7 @@ featured_image: /images/a/381.png
 ---
 
 遇過不少 .NET 工程師，都知道 C# 存取修飾詞有四種，`public`、`protected`、`private`及`internal`。  
-前三種大部都可以很輕易的回答出來，但知道`internal`的工程師比例卻不高。  
+前三種大部分都可以很輕易的回答出來，但知道`internal`的工程師比例卻不高。  
 本篇來幫大家複習一下 C# 的存取修飾詞 `internal`。  
 
 <!-- more -->
@@ -52,7 +52,7 @@ namespace AssemblyB
     {
         public void Method()
         {
-          // 因為 Number 帶有 protected，所以在不同組建也能存取
+          // 因為 Number 帶有 protected，所以在不同組件也能存取
             Number = 20;
         }
     }

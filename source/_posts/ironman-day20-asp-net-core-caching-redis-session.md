@@ -14,7 +14,7 @@ featured_image: /images/ironman/i20-1.png
 ---
 
 為了程式效率，通常會利用記憶體存取速度遠高於磁碟讀取的特性，把常用但不常變動資料放在記憶體中，提升取用資料的速度。ASP.NET Core 有提供好用的快取機制，不用自己實作控制資料的快取物件。  
-本篇將介紹 ASP.NET Core 的本機快取及分散式快取，並用使用分散式快取實作 Redis Session，避免 Web Application 重啟後，用戶要重新登入。  
+本篇將介紹 ASP.NET Core 的本機快取及分散式快取，並使用分散式快取實作 Redis Session，避免 Web Application 重啟後，用戶要重新登入。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
 > [[Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session](https://ithelp.ithome.com.tw/articles/10196001)  
@@ -72,7 +72,7 @@ public class HomeController : Controller
 ## 分散式快取
 
 當 ASP.NET Core 網站有橫向擴充，架設多個站台需求時，分散式快取就是一個很好的同步快取資料解決方案。  
-基本上就是 NoSQL 的概念，把分散式快取的資料位置，指向外部的儲存空間，如：SQL Server、Redis 等等。只要繼承 `IDistributedCache`，就可以被當作分散式快取的服務使用。  
+基本上就是 NoSQL 的概念，把分散式快取的資料位置，指向外部的儲存空間，如：SQL Server、Redis 等等。只要實作 `IDistributedCache`，就可以被當作分散式快取的服務使用。  
 
 本機快取及分散式快取架構，如圖：  
 
@@ -147,11 +147,11 @@ public class HomeController : Controller
 
 ## Redis Session
 
-[[鐵人賽 Day11] ASP.NET Core 2 系列 - Cookies & Session](/article/ironman-day11-asp-net-core-cookies-session.html) 有用到 `AddDistributedMemoryCache`，由於 Session 的儲存位置是依賴分散式快取，但沒有外部分散式快取可用，所以用繼承 `IDistributedCache` 的本機分散式快取頂著。  
+[[鐵人賽 Day11] ASP.NET Core 2 系列 - Cookies & Session](/article/ironman-day11-asp-net-core-cookies-session.html) 有用到 `AddDistributedMemoryCache`，由於 Session 的儲存位置是依賴分散式快取，但沒有外部分散式快取可用，所以用實作 `IDistributedCache` 的本機分散式快取頂著。  
 
 ### 安裝套件  
 
-如果要在 ASP.NET Core 中使用的 Redis Cache，可以安裝 Microsoft 提供的套件 `Microsoft.Extensions.Caching.Redis.Core`。  
+如果要在 ASP.NET Core 中使用 Redis Cache，可以安裝 Microsoft 提供的套件 `Microsoft.Extensions.Caching.Redis.Core`。  
 透過 .NET Core CLI 在專案資料夾執行安裝指令：  
 ```sh
 dotnet add package Microsoft.Extensions.Caching.Redis.Core
@@ -183,17 +183,17 @@ public class Startup
 
 ### ASP.NET MVC 比較
 
-ASP.NET Core 的 Redis Session 跟 ASP.NET MVC 普遍用的 `StackExchange.Redis` 的運行方式有很大的差異。  
+ASP.NET Core 的 Redis Session 跟 ASP.NET MVC 普遍用的 `StackExchange.Redis` 的運作方式有很大的差異。  
 
 * **ASP.NET MVC Redis Session**  
  `StackExchange.Redis` 在使用 Redis 時，是把 Website 的 Session 備份到 Redis，讀取還是在 Website 的記憶體，寫入的話會再度備份到 Redis。  
  也就是說 Session 會存在於 Website 及 Redis Cache 中，HA 的概念。  
- 可以試著把 Redis Cache 中 Session 清掉，當使用者下一個 Requset 來的時候，又會重新出現在  Redis Cache 中。  
+ 可以試著把 Redis Cache 中 Session 清掉，當使用者下一個 Request 來的時候，又會重新出現在  Redis Cache 中。  
  運行方式如下圖：  
  ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET MVC - Redis Session 運行方式](/images/a/112.gif)
 
 * **ASP.NET Core Redis Session**  
- `IDistributedCache` 運作方式變成 Session 直接在 Redis Cache 存取，如果把 Redis Cache 中 Session 清掉，當使用者下一個 Requset 來的時候，就會發現 Session 被清空了。  
+ `IDistributedCache` 運作方式變成 Session 直接在 Redis Cache 存取，如果把 Redis Cache 中 Session 清掉，當使用者下一個 Request 來的時候，就會發現 Session 被清空了。  
  運行方式如下圖：  
  ![[鐵人賽 Day20] ASP.NET Core 2 系列 - 快取機制及 Redis Session - ASP.NET Core - Redis Session 運行方式](/images/a/113.gif)
 

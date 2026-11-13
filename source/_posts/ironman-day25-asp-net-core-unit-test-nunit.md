@@ -180,7 +180,7 @@ namespace MyWebsite.Tests.Controllers
 ## Visual Studio Code
 
 每次要測試都要打指令，顯得有點麻煩，而且透過指令執行顯示的測試結果，以純文字顯示也不怎麼好看。  
-VS Code 有測試專案用的擴充套件，可以直接在程式碼中看到那些測試案例成功或失敗。  
+VS Code 有測試專案用的擴充套件，可以直接在程式碼中看到哪些測試案例成功或失敗。  
 
 打開 VS Code 在 Extensions 搜尋列輸入 **test** ，便可以找到 `.NET Core Test Explorer` 的擴充套件安裝。如下圖：  
 
@@ -195,7 +195,7 @@ VS Code 有測試專案用的擴充套件，可以直接在程式碼中看到那
 }
 ```
 
-就可以透過 VS Code UI 執行單元測試，並且能在程式碼中看到那些測試案例成功或失敗。如下：  
+就可以透過 VS Code UI 執行單元測試，並且能在程式碼中看到哪些測試案例成功或失敗。如下：  
 
 ![[鐵人賽 Day25] ASP.NET Core 2 系列 - 單元測試 (NUnit) - .NET Core Test Explorer](/images/ironman/i25-6.png)
 

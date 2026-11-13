@@ -20,7 +20,7 @@ featured_image: /images/a/162.png
 Application 啟停事件對於除錯很重要，ASP.NET Core 不像 ASP.NET MVC 用繼承的方式捕捉啟動及停止事件。  
 是透過注入的 IApplicationLifetime 來捕捉，IApplicationLifetime 需要安裝套件 `Microsoft.AspNetCore.Hosting`。  
 
-IApplicationLifetime 有三個事件可以注冊監聽。如下：  
+IApplicationLifetime 有三個事件可以註冊監聽。如下：  
 
 ```cs
 public interface IApplicationLifetime
@@ -32,7 +32,7 @@ public interface IApplicationLifetime
 }
 ```
 
-安裝完 `Microsoft.AspNetCore.Hosting` 後，就可以在 Startup.as 的 Configure 注入，在執行其間建立實例時，就可以拿到 IApplicationLifetime 的實體。如下：  
+安裝完 `Microsoft.AspNetCore.Hosting` 後，就可以在 Startup.as 的 Configure 注入，在執行期間建立實例時，就可以拿到 IApplicationLifetime 的實體。如下：  
 
 ```cs
 // ...
@@ -78,7 +78,7 @@ public class Startup
 ```
 
 > 我特別用一個 Thread 來觸發停止 Application，這樣才能從 Log 看出觸發順序。  
-> 記得要拿掉阿！
+> 記得要拿掉啊！
 
 ## 執行結果
 

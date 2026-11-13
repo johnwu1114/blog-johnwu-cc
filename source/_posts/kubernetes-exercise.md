@@ -67,7 +67,7 @@ systemctl start kubelet
 kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
 
-修改權限，讓 root 以外的權限也可以使用 kubernetes
+修改權限，讓 root 以外的使用者也可以使用 kubernetes
 
 ```sh
 mkdir -p $HOME/.kube

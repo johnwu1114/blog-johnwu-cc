@@ -72,7 +72,7 @@ export class AppModule { }
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
-如過不想拆分模組，可以把 Routing 全部註冊在 app.routes.ts，例如：
+如果不想拆分模組，可以把 Routing 全部註冊在 app.routes.ts，例如：
 ```
 // ...
 

@@ -11,7 +11,7 @@ featured_image: /images/a/288.png
 ---
 ![Angular 4 - Webpack Ignore Plugin - moment](/images/a/288.png)
 
-最近在檢查 Angular 4 (Angular 2) 用 Webpack 打包出來的檔案，發現參考到 `moment` 套件有很多不必要的內容。沒用到的部分也被一併打包，搞的打包完的檔案很大。  
+最近在檢查 Angular 4 (Angular 2) 用 Webpack 打包出來的檔案，發現參考到 `moment` 套件有很多不必要的內容。沒用到的部分也被一併打包，搞得打包完的檔案很大。  
 本篇將介紹如何使 Webpack 打包忽略指定套件(Ignore Plugin)，把不必要的內容排除。  
 
 <!-- more -->

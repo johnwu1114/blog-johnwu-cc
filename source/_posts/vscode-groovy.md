@@ -21,9 +21,9 @@ featured_image: /images/a/335.png
 安裝軟體的部分我就沒有詳細介紹。
 
 1. Visual Studio Code [官網下載頁面](https://code.visualstudio.com/Download)  
-基本上 VS Code 就是純文字編輯工具，你要用 Sublime、Notepade++、Atom、TextEdit都可以。  
+基本上 VS Code 就是純文字編輯工具，你要用 Sublime、Notepad++、Atom、TextEdit都可以。  
 2. Java JDK [官網下載頁面](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
-Groovy 要透過 Java 運行，所以要裝一下 Java JDK，Groovy 2.x 以上版本，要用 JDK 7 以上版本。  
+Groovy 要透過 Java 執行，所以要裝一下 Java JDK，Groovy 2.x 以上版本，要用 JDK 7 以上版本。  
 3. Groovy CLI [官網下載頁面](https://goo.gl/skn5sD)  
 
 ## Groovy CLI
@@ -42,7 +42,7 @@ C:\Program Files (x86)\Groovy\Groovy-2.5.0\bin
 ## Groovy Script
 
 打開 VS Code 建立一個 `*.groovy` 的文字檔，就可以開始撰寫 Groovy 了。  
-> 附檔是 `*.groovy` 就會支援 Groovy 語法的 Syntax Highlighting。  
+> 副檔名是 `*.groovy` 就會支援 Groovy 語法的 Syntax Highlighting。  
 > 也可以在 VS Code 按 `F1` 輸入 `>change language mode`，選擇 `groovy`。  
 
 一段簡單的 Groovy Script：
@@ -61,7 +61,7 @@ Groovy Script 存檔後，VS Code 中按 `ctrl` + `~` 在 Terminal 輸入 `groov
 
 ## VS Code Extensions
 
-每次都要執行 Groovy Script 都要下指令有點麻煩，所以要推薦好用的 VS Code Extensions `Code Runner`。  
+每次執行 Groovy Script 都要下指令有點麻煩，所以要推薦好用的 VS Code Extensions `Code Runner`。  
 Code Runner 支援很多種不同的程式語言，基本上它是幫你呼叫 CLI，如果沒有安裝該語言的 CLI 它就沒辦法幫你執行了。
 
 安裝好 VS Code 後，可以在擴充工具搜尋 `Code Runner`，然後點擊 *Install*。如下圖：

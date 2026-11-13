@@ -38,7 +38,7 @@ npm install --save ckeditor
 
 ### CKEditorDirective
 
-因為 CKEditor 是透過 JavaScrupt 調用，為了方便在 Angular 中使用，我建立了一個 CKEditorDirective 包裝 CKEditor 成 Directive。  
+因為 CKEditor 是透過 JavaScript 呼叫，為了方便在 Angular 中使用，我建立了一個 CKEditorDirective 包裝 CKEditor 成 Directive。  
 經由 CKEditorDirective 包裝後，使用存取 CKEditor 的值都是透過 ngModel，用起來就像 input text 一樣簡單。  
 shared\directives\ckeditor.directive.ts
 ```js

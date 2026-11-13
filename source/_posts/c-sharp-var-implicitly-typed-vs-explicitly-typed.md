@@ -35,11 +35,11 @@ List<Member> members = GetMembers();
 
 ## 程式碼可讀性
 
-有些人喜歡明確宣告型別，從程式碼就可以看出類別。  
+有些人喜歡明確宣告型別，從程式碼就可以看出型別。  
 有些人則認為使用 `var` 讓程式碼更為簡潔比較好。  
 個人喜好的部分，比較不能論斷兩者之間的好壞，所以見仁見智。  
 
-> 但如果只是為了在撰寫期間想知道型別，現在的 IDE 都超強的，尤其 Visual Studio，只要滑鼠游標移上去就可以知道類別了。良好的變數命名規則，我相信會比宣告顯式型別容易閱讀。  
+> 但如果只是為了在撰寫期間想知道型別，現在的 IDE 都超強的，尤其 Visual Studio，只要滑鼠游標移上去就可以知道型別了。良好的變數命名規則，我相信會比宣告顯式型別容易閱讀。  
 
 ![C# - var 隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - Visual Studio](/images/a/343.png)
 
@@ -107,7 +107,7 @@ public int ExplicitlyTyped()
 }
 ```
 
-如果有裝 .NET Reflector，可以看到編異後的 C# 程式碼：  
+如果有裝 .NET Reflector，可以看到編譯後的 C# 程式碼：  
 
 ![C# - var 隱含型別(Implicitly Typed) vs 顯式型別(Explicitly Typed) - .NET Reflector](/images/a/344.png)
 
@@ -119,7 +119,7 @@ public int ExplicitlyTyped()
 承上述例子，如果 **GetMembers()** 回傳型別從 `List<Member>` 改為 `IEnumerable<Member>`，所有使用到 **GetMembers()** 的地方都要跟著修改。  
 在同專案還好，若是跨專案，又剛好是基底元件時，真的是很令人崩潰...
 
-> 這點是我強烈推薦使用 `var` 的原因，曾經大幅度重構前人留下的產物，被顯式型別搞的層層卡關，此後區域變數一律用 `var`！  
+> 這點是我強烈推薦使用 `var` 的原因，曾經大幅度重構前人留下的產物，被顯式型別搞得層層卡關，此後區域變數一律用 `var`！  
 
 ## 結論
 

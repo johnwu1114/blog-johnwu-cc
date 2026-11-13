@@ -13,7 +13,7 @@ featured_image: /images/a/186.png
 ![MSBuild - Result](/images/a/186.png)
 
 最近在重新檢視 CI/CD (Continuous Integration / Continuous Delivery) 流程，順手把 Build Config 的方式都改了。  
-目前有部分 Config 還是 XML 格式，其它大多以換成 JSON 格式，Config 我們都是透過 MSBuild 來置換個環境的變數。  
+目前有部分 Config 還是 XML 格式，其它大多已換成 JSON 格式，Config 我們都是透過 MSBuild 來置換各環境的變數。  
 本篇將介紹透過 MSBuild 替換 XML 的內容。  
 
 <!-- more -->

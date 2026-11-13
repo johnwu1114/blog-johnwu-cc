@@ -66,7 +66,7 @@ ASP.NET Web API 或 ASP.NET Core 在使用 HTTP Method `PUT` 或 `DELETE` 時，
 * 遇到 HTTP 405 錯誤時，修改了 `Web.config`，但並沒有所有環境都同步，導致不小心蓋掉已修正過的 `Web.config`。  
 * 設定新機器時，怕漏安裝 IIS 的套件，所以什麼都裝，`WebDAV` 就一起被裝上去了。  
 
-> 根據上述的兩種情境，我會建議沒有需要的套件，真的不要亂裝，尤其 IIS 的 HTTP Modules 多裝還會引響效能。  
+> 根據上述的兩種情境，我會建議沒有需要的套件，真的不要亂裝，尤其 IIS 的 HTTP Modules 多裝還會影響效能。  
 (可以參考這篇：[ASP.NET - 基本優化設定](/article/asp-net-optimized-setting.html))  
 
-> 如果你是使用 RESTful 風格，我建議一開始就在 `Web.config` 設定好移除 `WebDAV`，省的哪天被不知情的人士在 IIS 裝 `WebDAV` 影響到網站。
+> 如果你是使用 RESTful 風格，我建議一開始就在 `Web.config` 設定好移除 `WebDAV`，省得哪天被不知情的人士在 IIS 裝 `WebDAV` 影響到網站。

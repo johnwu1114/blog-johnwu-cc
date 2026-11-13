@@ -21,7 +21,7 @@ featured_image: /images/a/202.png
 
 ASP.NET Core 提供的多語系有幾項缺點：  
 1. ASP.NET Core 多語系是使用弱型別，弱型別無法在開發階段判斷 Resource Key 有沒有打錯字  
-2. 由於是弱型別，所以在開發時，若不查看 `*.resx` 就不知道有那些 Resource 可以使用  
+2. 由於是弱型別，所以在開發時，若不查看 `*.resx` 就不知道有哪些 Resource 可以使用  
 3. `*.resx` 檔案必須對應 Controller、View 等等的路徑位置，如果同樣的 Resource 在不同 Controller，就要維護好幾份 `*.resx`
 
 > 弱型別
@@ -529,7 +529,7 @@ public class HomeController : Controller
 
 ### 5.1. Controller
 
-在 Controller 要使用多國語言的話，需要在建構子加入 ILocalizer 參數，執行期間會把 Localizer 的實體注入近來。  
+在 Controller 要使用多國語言的話，需要在建構子加入 ILocalizer 參數，執行期間會把 Localizer 的實體注入進來。  
 把 Resource Key 丟入 Localizer，就可以得到值。
 
 ```cs

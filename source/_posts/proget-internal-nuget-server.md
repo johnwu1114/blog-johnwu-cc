@@ -57,10 +57,10 @@ ProGet 有分**付費版**跟**免費版**，免費版支援的 Feed 跟付費�
 * 如果已經有現成的 SQL Server 可以用，先建立好一個名稱為 `ProGet` 的資料庫，並給它資料庫的連線字串。  
 ![ProGet - 架設內部 NuGet Server](/images/a/392.png)
 
-選擇 Web Server，我在這邊是把 ProGet 架在 IIS 上面，如果沒有安裝 IIS 可以選擇有 Windows Service 的方式運行 ProGet：  
+選擇 Web Server，我在這邊是把 ProGet 架在 IIS 上面，如果沒有安裝 IIS 可以選擇以 Windows Service 的方式執行 ProGet：  
 ![ProGet - 架設內部 NuGet Server](/images/a/393.png)
 
-設定 ProGet Server 運行的權限：  
+設定 ProGet Server 執行的權限：  
 ![ProGet - 架設內部 NuGet Server](/images/a/394.png)
 
 設定完成開始安裝：  
@@ -70,7 +70,7 @@ ProGet 有分**付費版**跟**免費版**，免費版支援的 Feed 跟付費�
 
 安裝好後用瀏覽器開啟 ProGet 用 *Admin* 登入，打開 Feeds 頁面，選擇 `Create New Feed`：  
 > *Admin* 預設帳號密碼都是 *Admin*。  
-> 例如：安裝在本機 Prot 81 的話，開啟 URL 就是 `http://localhost:81`。  
+> 例如：安裝在本機 Port 81 的話，開啟 URL 就是 `http://localhost:81`。  
 
 ![ProGet - 架設內部 NuGet Server - Create New Feed](/images/a/396.png)
 

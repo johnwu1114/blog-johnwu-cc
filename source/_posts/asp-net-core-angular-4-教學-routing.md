@@ -263,7 +263,7 @@ namespace MyWebsite
     }
 }
 ```
-> 加入了一個 Middleware，當發生 StatusCode 404，並且 URL 不帶有附檔名時，就導頁到 index.html。
+> 加入了一個 Middleware，當發生 StatusCode 404，並且 URL 不帶有副檔名時，就導頁到 index.html。
 
 ### 重載頁面
 

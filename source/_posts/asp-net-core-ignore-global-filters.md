@@ -18,7 +18,7 @@ featured_image: /images/a/247.png
 
 ## 前言
 
-註冊成全域的 Global Filter 通常都是為了處理每個 Requset 的一致性邏輯。  
+註冊成全域的 Global Filter 通常都是為了處理每個 Request 的一致性邏輯。  
 如果少數 Action 邏輯不一致，不能套用 Global Filter 的話，有以下處理方式：  
 1. 在 Global Filter 針對特定的 Action 做例外處理。  
  但這種寫法沒彈性，又不符合單一職責原則。  
@@ -30,7 +30,7 @@ featured_image: /images/a/247.png
 第三種作法就是本篇要介紹的方法了，當使用 Global Filter 時，讓大部分的 Action 都可以保持一致性的邏輯，遇到特殊區域註冊的 Filter 時，就忽略 Global Filter 的邏輯處理。如下圖所示：
 ![ASP.NET Core 教學 - 忽略 Global Filter](/images/a/247.png)
 
-## 1. Igonre Filter
+## 1. Ignore Filter
 
 先建立一個 Action Filter，當作是要被忽略執行 Global Filter 的 Filter，如下：
 ```cs

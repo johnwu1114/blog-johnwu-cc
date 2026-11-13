@@ -35,7 +35,7 @@ featured_image: /images/a/334.png
    System.Web.HttpRuntime.ProcessRequestNotificationPrivate(IIS7WorkerRequest wr, HttpContext context) +188
 ```
 
-原來是我再升級 `System.Runtime` 時，ASP.NET 的 Web.config 被加上了 `System.Runtime` 的 `dependentAssembly`：
+原來是我在升級 `System.Runtime` 時，ASP.NET 的 Web.config 被加上了 `System.Runtime` 的 `dependentAssembly`：
 ```xml
 <dependentAssembly>
   <assemblyIdentity name="System.Runtime" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
@@ -43,7 +43,7 @@ featured_image: /images/a/334.png
 </dependentAssembly>
 ```
 
-解決方式就是把 `System.Runtime` 的 `dependentAssembly` 移除，ASP.NET 網站就可以正常運行了。
+解決方式就是把 `System.Runtime` 的 `dependentAssembly` 移除，ASP.NET 網站就可以正常執行了。
 
 ```xml
 <configuration>

@@ -24,7 +24,7 @@ featured_image: /images/ironman/i21-1.png
 
 ## 建立多國語言檔
 
-過去 ASP.NET 語系檔都是用 `*.resx` 格式，現在 ASP.NET Core 也是沿用此格式，但檔案結構確很不一樣。ASP.NET Core 語系檔命名規則**必須**要與類別的 `namespace` 階層相互對應。例如 Controllers、Views、Models 要用的語系檔跟類別對應如下：  
+過去 ASP.NET 語系檔都是用 `*.resx` 格式，現在 ASP.NET Core 也是沿用此格式，但檔案結構卻很不一樣。ASP.NET Core 語系檔命名規則**必須**要與類別的 `namespace` 階層相互對應。例如 Controllers、Views、Models 要用的語系檔跟類別對應如下：  
 * *Controllers\HomeController.cs* 要用的 en-GB 語系檔名稱：  
   * *Resources\Controllers\HomeController.en-GB.resx*  
   * 或 *Resources\Controllers.HomeController.en-GB.resx*  
@@ -156,7 +156,7 @@ namespace MyWebsite.Middlewares
     }
 }
 ```
-每個 Requset 都會執行 `RequestCultureProviders` 中的 `CultureProvider`，用來判斷語系資訊，套用正確的資源檔。  
+每個 Request 都會執行 `RequestCultureProviders` 中的 `CultureProvider`，用來判斷語系資訊，套用正確的資源檔。  
 `Microsoft.AspNetCore.Localization` 套件支援的 CultureProvider 有三種：  
 * **QueryStringRequestCultureProvider**  
   從 QueryString 判斷語系資訊。如：`http://localhost:500/?culture=zh-TW`  
@@ -184,7 +184,7 @@ public class HomeController : Controller
 
 ### Controller
 
-在 Controller 要使用多國語言的話，需要在建構子加入 `IStringLocalizer` 參數，執行期間會把 _localizer 的實體注入近來。  
+在 Controller 要使用多國語言的話，需要在建構子加入 `IStringLocalizer` 參數，執行期間會把 _localizer 的實體注入進來。  
 把 Resource Key 丟入 _localizer，就可以得到該語系的值。
 
 *Controllers\HomeController.cs*  

@@ -11,7 +11,7 @@ date: 2017-12-28 12:00
 featured_image: /images/ironman/i09-1.png
 ---
 
-ASP.NET Core MVC 的 Model Binding 會將 HTTP Request 資料，以映射的方式對應到相對到參數中。基本上跟 ASP.NET MVC 差不多，但能 Binding 的來源更多了一些。  
+ASP.NET Core MVC 的 Model Binding 會將 HTTP Request 資料，以映射的方式對應到相對應的參數中。基本上跟 ASP.NET MVC 差不多，但能 Binding 的來源更多了一些。  
 本篇將介紹 ASP.NET Core 的 Model Binding。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
@@ -36,8 +36,8 @@ namespace MyWebsite.Controllers
     }
 }
 ```
-`id` 就是從 HTTP Requset 的內容被 Binding 的 Model 參數。  
-預設的 Model Binding 會從 HTTP Requset 的三個地方取值 **(優先順序由上到下)** ：  
+`id` 就是從 HTTP Request 的內容被 Binding 的 Model 參數。  
+預設的 Model Binding 會從 HTTP Request 的三個地方取值 **(優先順序由上到下)** ：  
 * **Form**  
  透過 HTTP POST 的 form 取值。如下圖：  
  ![[鐵人賽 Day09] ASP.NET Core 2 系列 - Model Binding - Form](/images/ironman/i09-1.png)   
@@ -52,7 +52,7 @@ namespace MyWebsite.Controllers
 
 ## Binding Attributes
 
-除了預設的三種 Binding 來源外，還可以透過 Model Binding Attributes 從 HTTP Requset 的其它資訊中 Binding。有以下 6 種類別：  
+除了預設的三種 Binding 來源外，還可以透過 Model Binding Attributes 從 HTTP Request 的其它資訊中 Binding。有以下 6 種類別：  
 * **[FromHeader]**  
  從 HTTP Header 取值。  
 * **[FromForm]**  
@@ -75,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 }
  ```
 * **[FromServices]**  
- 這個比較特別，不是從 HTTP Requset 取值，而是從 DI 容器取值。  
+ 這個比較特別，不是從 HTTP Request 取值，而是從 DI 容器取值。  
  DI 預設是使用 Constructor Injection，但 Controller 可能會因為每個 Action 用到不一樣的 Service 導致很多參數，所以也可以在 Action 注入 Service。  
 
 ### 範例程式

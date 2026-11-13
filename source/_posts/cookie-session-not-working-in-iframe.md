@@ -29,7 +29,7 @@ featured_image: /images/a/38.png
 
 改變 Safari 的安全性設定，也可以解掉此問題。但我們的用戶散落在全世界，請他們改設定簡直天方夜譚。  
 
-我用一個偷吃步的方法，只需要修改 JavaScript 就能式解掉此問題。  
+我用一個偷吃步的方法，只需要修改 JavaScript 就能解掉此問題。  
 
 如上圖 iframe.com 無法存取 Cookie，導致 Session 也跟著無法使用。由於 parent.com 不是我們能控制跟存取的頁面，所以解決方式只會從 IFrame.com 著手。
 
@@ -39,7 +39,7 @@ featured_image: /images/a/38.png
 
 ### 判斷瀏覽器
 
-當 iframe.con/index 被打開後，先判斷瀏覽器，如果是 Safari，我們就將 window.top 轉向 iframe.com/redirect
+當 iframe.com/index 被打開後，先判斷瀏覽器，如果是 Safari，我們就將 window.top 轉向 iframe.com/redirect
 
 ``` javascript
 /* iframe.con/index */  

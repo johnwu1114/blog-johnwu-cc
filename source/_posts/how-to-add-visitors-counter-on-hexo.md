@@ -72,7 +72,7 @@ Add below html to layout, in themes\\*{your theme}*\\layout\\{where you want to 
 
 ### Add references
 
-Add below references to layout footer, must after jquery reference.
+Add below references to layout footer, must be placed after the jQuery reference.
 ```html
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script src="js/src/custom.js"></script>

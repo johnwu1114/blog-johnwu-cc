@@ -35,7 +35,7 @@ app/
 
 ## BrowserModule
 
-main.ts 代表著 Angular 的程式進入點 Mobule，AppMobule 必須載入 BrowserModule 如下：
+main.ts 代表著 Angular 的程式進入點 Module，AppModule 必須載入 BrowserModule 如下：
 
 ```ts
 // ...
@@ -109,7 +109,7 @@ export class SecondModule { }
 > 答案：不行，被載入的 Module 並不是 Single Instance。  
 FirstModule 載入時，SharedModule 會建立一個 Instance。  
 SecondModule 載入時，SharedModule 會建立另一個 Instance。  
-這意味著 BrowserModule 也會變載入兩次。
+這意味著 BrowserModule 也會被載入兩次。
 
 但往 SharedModule 這個出發點去想是好的，你可以改成如下：
 ```ts

@@ -19,7 +19,7 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 
 ## *ngIf
 
-在 HTML 的元素屬性中插入 `*ngIf="條件"`，當條件建立時，該 HTML 元素才會**顯示**在畫面上，反之則**不顯示**。
+在 HTML 的元素屬性中插入 `*ngIf="條件"`，當條件成立時，該 HTML 元素才會**顯示**在畫面上，反之則**不顯示**。
 ```html
 <div *ngIf="checked">
   *ngIf
@@ -35,7 +35,7 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 
 ## [hidden]
 
-在 HTML 的元素屬性中插入 `[hidden]="條件"`，當條件建立時，該 HTML 元素則**不顯示**在畫面上，反之才會**顯示**。
+在 HTML 的元素屬性中插入 `[hidden]="條件"`，當條件成立時，該 HTML 元素則**不顯示**在畫面上，反之才會**顯示**。
 ```html
 <div [hidden]="!checked">
   [hidden]
@@ -50,7 +50,7 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 
 ## [hidden] 陷阱
 
-由於 HTML 元素的 hidden 屬性是由 Browser 控制，效果同 CSS `display: none;`，如果該 HTML 元素有被賦予其它的 CSS，並複寫了 `display`，hidden 屬性就會被影響。  
+由於 HTML 元素的 hidden 屬性是由 Browser 控制，效果同 CSS `display: none;`，如果該 HTML 元素有被賦予其它的 CSS，並覆寫了 `display`，hidden 屬性就會被影響。  
 如下範例：
 ```html
 <style>
@@ -86,5 +86,5 @@ Angular 4 要顯示或隱藏 HTML 通常會用 `*ngIf` 或 `[hidden]`，但剛�
 ![Angular 4 教學 - *ngIf vs [hidden] 差異 - [hidden] 陷阱 - 1](/images/a/376.png)
 ![Angular 4 教學 - *ngIf vs [hidden] 差異 - [hidden] 陷阱 - 2](/images/a/377.png)
 
-當 checked 為 false 時，預期結果是 4 個範例都不在畫面中顯示，但實際上 Sample 4 的 `display` 被 displayBlock 複寫了，所以還是顯示在畫面上。  
+當 checked 為 false 時，預期結果是 4 個範例都不在畫面中顯示，但實際上 Sample 4 的 `display` 被 displayBlock 覆寫了，所以還是顯示在畫面上。  
 > 由於 hidden 屬性並不是使用 `display: none !important;`，所以沒控制好 CSS 就可能會發生超出你預期的結果。

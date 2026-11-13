@@ -84,7 +84,7 @@ ConstString = ConstString - 1
 ReadonlyString = ReadonlyString - 1
 ```
 
-輸出就如程式邏輯一樣，看似 `const` 跟 `static readonly` 有什麼差別。  
+輸出就如程式邏輯一樣，看似 `const` 跟 `static readonly` 沒有什麼差別。  
 但實際上編譯出來的內容卻差很多，`ExampleApp.Program.Main` 經過編譯後產生的 IL 如下：
 ```cs
 .method private hidebysig static void Main(string[] args) cil managed
@@ -110,7 +110,7 @@ ReadonlyString = ReadonlyString - 1
 }
 ```
 
-如果有裝 .NET Reflector，可以看到編異後的 C# 程式碼：  
+如果有裝 .NET Reflector，可以看到編譯後的 C# 程式碼：  
 
 ![C# - const vs static readonly - .NET Reflector](/images/a/346.png)
 

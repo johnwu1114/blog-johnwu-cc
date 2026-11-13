@@ -77,7 +77,7 @@ public void Login(string expectedMessage, string loginName, string password, Mem
 ### 2. TestCaseData
 
 測試案例用 Object Array 的方式傳入 TestCaseSourceAttribute，會遇到一個問題，就是測試結果不易閱讀。  
-TestCaseAttribute 可以帶入 TestName，測試結果可以清楚看到每一個測試案例的名稱，比要容易理解測試用途。如下：
+TestCaseAttribute 可以帶入 TestName，測試結果可以清楚看到每一個測試案例的名稱，比較容易理解測試用途。如下：
 ![NUnit - 測試案例 TestCaseAttribute - 測試結果](/images/a/244.png)
 
 用 TestCaseSourceAttribute 的話，從測試結果只能看到測試方法名稱及參數內容，當測試案例複雜的時候，很難一下子從參數內容反推測試案例的主要用途。如下：

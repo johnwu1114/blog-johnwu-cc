@@ -71,7 +71,7 @@ namespace MyWebsite
 
 ## 執行結果
 
-壓縮的好處是 Response 的封包變小，節省一些網路流量，但缺點是會消耗一點 CUP 效能。  
+壓縮的好處是 Response 的封包變小，節省一些網路流量，但缺點是會消耗一點 CPU 效能。  
 使用 Response Compression 後，原本沒有 Gzip 壓縮的 PNG 圖檔及 Font 檔都有被壓縮了，而且檔案也變小了。
 
 ![ASP.NET Core 教學 - Gzip 封包壓縮 - 執行結果](/images/a/262.png)

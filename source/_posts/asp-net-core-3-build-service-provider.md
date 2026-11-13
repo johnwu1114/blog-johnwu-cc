@@ -18,7 +18,7 @@ featured_image: /images/b/50.png
 
 ## 建置 Service Provider
 
-通常會在 `Startup.ConfigureServices` 方法中，註冊 Services，待 Host 成立實體後，即可透過 Constructor Injection，提供 Services。  
+通常會在 `Startup.ConfigureServices` 方法中，註冊 Services，待 Host 建立實體後，即可透過 Constructor Injection，提供 Services。  
 Host 建立實體前，若要使用 Service Provider，就需要透過 **IServiceCollection** 的擴充方法 `BuildServiceProvider` 建置，範例如下：  
 
 ```cs
@@ -71,7 +71,7 @@ Host 實例使用的 Service Provider 與自行建立的 Service Provider 是完
 
 ![ASP.NET Core 3 系列 - 自行建置 Service Provider - 圖例](/images/b/51.png)  
 
-實際運行上例程式碼，Log Output 的 Sample 實例 HashCode 與 Controller 注入的 Sample 實例 HashCode 並不一樣，表示這兩個式不同的實例，範例執行結果：  
+實際執行上例程式碼，Log Output 的 Sample 實例 HashCode 與 Controller 注入的 Sample 實例 HashCode 並不一樣，表示這兩個是不同的實例，範例執行結果：  
 
 ![ASP.NET Core 3 系列 - 自行建置 Service Provider - 範例執行結果](/images/b/50.png)  
 

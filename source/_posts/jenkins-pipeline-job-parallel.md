@@ -34,8 +34,8 @@ stage("Task 3") {
 } 
 ```
 
-若沒有相依關係就可以改成平行處理，平行處理透過調用 `parallel` 方法實現。  
-`parallel` 調用是以 `String` 為 key， `Delegate Method` 為 Value。  
+若沒有相依關係就可以改成平行處理，平行處理透過呼叫 `parallel` 方法實現。  
+`parallel` 呼叫是以 `String` 為 key， `Delegate Method` 為 Value。  
 範例如下：
 ```groovy
 parallel (

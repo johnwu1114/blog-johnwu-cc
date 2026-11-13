@@ -23,13 +23,13 @@ featured_image: /images/featured/elasticsearch.png
 2. 自己寫排程  
 
 我在得知有 Curator 之前，就已經用 Shell Script 把清除 Elasticsearch 資料的邏輯寫完...  
-為了不辜負我自已寫的東西，所以我要分享**自己寫排程**清除 Elasticsearch 資料。XD  
+為了不辜負我自己寫的東西，所以我要分享**自己寫排程**清除 Elasticsearch 資料。XD  
 
 ## Shell Script
 
 ### 1. Get Index Name
 
-由與我們公司的 Index 都是以**週為單位**區分，所以 Index 的名稱後綴都會再上 `-年.週`。  
+由於我們公司的 Index 都是以**週為單位**區分，所以 Index 的名稱後綴都會加上 `-年.週`。  
 用 `curl` 查詢 Elasticsearch 的 Indices Name：
 ```bash
 curl "http://localhost:9200/_cat/indices?v&h=i"

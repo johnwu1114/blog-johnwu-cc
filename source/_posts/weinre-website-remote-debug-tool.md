@@ -12,7 +12,7 @@ featured_image: /images/a/8.png
 ## Install Node.js
 
 Download & install Node.js stable version from official site: http://nodejs.org/  
-*Weinre* base on Node.js, need to install Node.js first.
+*Weinre* is based on Node.js, so you need to install Node.js first.
 
 ## Weinre
 

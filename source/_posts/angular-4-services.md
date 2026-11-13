@@ -12,7 +12,7 @@ featured_image: /images/a/234.png
 ---
 ![Angular 4 教學 - Service - Module Providers](/images/a/234.png)
 
-為了使 Component 程式碼更致力於與 Template 互動，同常會把邏輯或 Client 端的資料暫存用 Service 包裝，需要用到 Service 時，再透過建構子注入使用。  
+為了使 Component 程式碼更致力於與 Template 互動，通常會把邏輯或 Client 端的資料暫存用 Service 包裝，需要用到 Service 時，再透過建構子注入使用。  
 本篇將介紹 Angular 4 (Angular 2) 的 Service 包裝及 DI (Dependency Injection)。  
 
 <!-- more -->
@@ -98,7 +98,7 @@ export class MyComponent {
 }
 ```
 當 Module 被實例化時，會建立一個新的 Service 實體，Service 的實體是跟隨著 Module。  
-若註冊在 Module 則該 Mobulde 中的所有 Component 都會共用同一個實體。示意圖如下：
+若註冊在 Module 則該 Module 中的所有 Component 都會共用同一個實體。示意圖如下：
 
 ![Angular 4 教學 - Service - Module Providers](/images/a/233.png)
 > MyComponent、FirstComponent、SecondComponent 使用的 SampleService 會是同一個實體。  

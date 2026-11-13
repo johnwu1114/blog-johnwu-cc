@@ -24,9 +24,9 @@ featured_image: /images/ironman/i26-2.png
 1. blog.johnwu.cc  
   用於提供使用者瀏覽，存放 HTML、JS、CSS 等檔案。  
 2. api.johnwu.cc  
-  提供 Web API 給 JavaScript 調用。  
+  提供 Web API 給 JavaScript 呼叫。  
 
-當瀏覽器開啟 `http://blog.johnwu.cc` 頁面後，接著透過 AJAX 呼叫了 `http://api.johnwu.cc/cors-sample`，此時就形成的 A Domain 呼叫了 B Domain 的跨域請求 Cross-Origin Requests (CORS)，瀏覽器基於安全性考量，並不允許這種情況發生。情境圖如下：  
+當瀏覽器開啟 `http://blog.johnwu.cc` 頁面後，接著透過 AJAX 呼叫了 `http://api.johnwu.cc/cors-sample`，此時就形成了 A Domain 呼叫了 B Domain 的跨域請求 Cross-Origin Requests (CORS)，瀏覽器基於安全性考量，並不允許這種情況發生。情境圖如下：  
 
 ![[鐵人賽 Day26] ASP.NET Core 2 系列 - 跨域請求 (Cross-Origin Requests) - 情境 1](/images/ironman/i26-1.png)  
 

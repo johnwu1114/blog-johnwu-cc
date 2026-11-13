@@ -93,7 +93,7 @@ public class Startup
 `UseStaticFiles` 註冊的順序可以在外層一點，比較不會經過太多不必要的 Middleware。如圖：  
 
 ![[鐵人賽 Day05] ASP.NET Core 2 系列 - 瀏覽靜態檔案](/images/ironman/i05-1.png)  
-> 當 Requset 的 URL 檔案不存在，則會轉向到 `Run` 的事件(如灰色箭頭)。
+> 當 Request 的 URL 檔案不存在，則會轉向到 `Run` 的事件(如灰色箭頭)。
 
 
 ### 變更網站目錄
@@ -227,7 +227,7 @@ public class Startup
 }
 ```
 
-當連入 `http://localhost:5000/StaticFiles` 時，就指向到 **專案目錄\bin\** 目錄，並且可以直接瀏覽檔案目錄及檔案內，如下：  
+當連入 `http://localhost:5000/StaticFiles` 時，就指向到 **專案目錄\bin\** 目錄，並且可以直接瀏覽檔案目錄及檔案內容，如下：  
 
 ![[鐵人賽 Day05] ASP.NET Core 2 系列 - 瀏覽檔案清單](/images/ironman/i05-2.png)  
 

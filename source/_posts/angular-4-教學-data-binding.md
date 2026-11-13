@@ -50,7 +50,7 @@ export class AppComponent {
 
 ## 2. 屬性綁定(Property Binding)
 
-屬性綁定(Property Binding)是在 HTML 中的屬性加入 `[property]="value"`，執行期間 value 的變化，會值接影響 property。  
+屬性綁定(Property Binding)是在 HTML 中的屬性加入 `[property]="value"`，執行期間 value 的變化，會直接影響 property。  
 
 範例：
 ```ts
@@ -63,7 +63,7 @@ export class AppComponent {
 ```html
 <div [ngClass]="color">Font color</div>
 ```
-> 當 TypeScript 中的 color 改成其它 css 樣置，HTML div 中的顏色就會跟著改變。  
+> 當 TypeScript 中的 color 改成其它 css 樣式，HTML div 中的顏色就會跟著改變。  
 
 可以使用的 `property` 有以下幾種：
 1. Element property  
@@ -93,7 +93,7 @@ export class AppComponent {
 
 ## 3. 事件綁定(Event Binding)
 
-事件綁定(Event Binding)用法是在 HTML 中的加入 `(event)="functionName()"`，當發生指定 event 時，就會呼叫 TypeScript 中的 functionName 方法。  
+事件綁定(Event Binding)用法是在 HTML 中加入 `(event)="functionName()"`，當發生指定 event 時，就會呼叫 TypeScript 中的 functionName 方法。  
 
 範例：
 ```ts
@@ -111,7 +111,7 @@ export class AppComponent {
 
 ## 4. 雙向綁定(Two-way Data Binding)
 
-雙向綁定(Two-way Data Binding)用法是在 HTML 中的加入 `[(ngModel)]="value"`。  
+雙向綁定(Two-way Data Binding)用法是在 HTML 中加入 `[(ngModel)]="value"`。  
 雙向綁定用於可以讓使用者互動的 HTML 元素，如：`<input>`、`<select>`、`<textarea>`...等。  
 
 如上述所說，雙向綁定是屬性綁定加上事件綁定的組合，所以當 value 在 TypeScript 發生變化，HTML 就會跟著改變。  

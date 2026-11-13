@@ -12,7 +12,7 @@ featured_image: /images/a/402.png
 ---
 
 Logstash 在 ELK 架構中，是負責把收到的純文字資料，做特定的規則處理，就可以變成指定的欄位。  
-建立欄位的好處是可以方便搜尋，而且也能做到比全文檢索更好的分析，可說是**欄位切的好，查詢沒煩惱**。  
+建立欄位的好處是可以方便搜尋，而且也能做到比全文檢索更好的分析，可說是**欄位切得好，查詢沒煩惱**。  
 我個人認為 Logstash 中最精華的部分就屬 Grok Filter。  
 本篇將簡單教學如何透過 Logstash Grok Filter 建立 Elasticsearch 欄位。
 
@@ -50,7 +50,7 @@ Grok Patterns 的基本用法是：`%{Pattern名稱:欄位名稱:型別}`
 * **型別**  
  預設型別都是字串。可以參考[Field datatype](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)  
 
-舉例來說，我們有一個筆 Log 如下：
+舉例來說，我們有一筆 Log 如下：
 ```log
 2017-12-04 12:34:56,789 [1] INFO MemberController - Call SampleDB.SP_CreateMember [0.001234]
 ```

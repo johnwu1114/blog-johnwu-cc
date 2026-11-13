@@ -11,7 +11,7 @@ featured_image: /images/a/166.png
 ---
 ![Scrum - 回顧方法 - 4Ls](/images/a/166.png)
 
-4Ls 這個方法適合初導入 Srcum 的團隊，問題都是很基本的題型。。
+4Ls 這個方法適合初導入 Scrum 的團隊，問題都是很基本的題型。。
 
 <!-- more -->
 

@@ -13,7 +13,7 @@ featured_image: /images/a/206.png
 ---
 
 例外處理(Exception Handler)算是程式開發蠻重要的一件事，尤其程式暴露在外，要是不小心顯示了什麼不該讓使用者看到的東西就糟糕了。  
-要在 ASP.NET Core 做一個通用的 Exception Handler 可以透過 Middleware 或 Filter，但兩者之間的執行週期確大不相同。  
+要在 ASP.NET Core 做一個通用的 Exception Handler 可以透過 Middleware 或 Filter，但兩者之間的執行週期卻大不相同。  
 本篇將介紹 ASP.NET Core 透過 Middleware 及 Filter 異常處理的差異。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
@@ -21,7 +21,7 @@ featured_image: /images/a/206.png
  
 <!-- more -->
 
-> 實做 Exception Handler 前，需要先了解 **Middleware** 及 **Filter** 的特性。  
+> 實作 Exception Handler 前，需要先了解 **Middleware** 及 **Filter** 的特性。  
 可以參考這兩篇：  
 * [[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](/article/ironman-day03-asp-net-core-middleware.html)  
 * [[鐵人賽 Day14] ASP.NET Core 2 系列 - Filters](/article/ironman-day14-asp-net-core-filters.html)  
@@ -247,7 +247,7 @@ public class Startup
 }
 ```
 > `env.IsDevelopment()` 是從 `ASPNETCORE_ENVIRONMENT` 而來。  
- 詳細情參考這篇：[[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments)](/article/ironman-day16-asp-net-core-multiple-environments.html)
+ 詳細請參考這篇：[[鐵人賽 Day16] ASP.NET Core 2 系列 - 多重環境組態管理 (Multiple Environments)](/article/ironman-day16-asp-net-core-multiple-environments.html)
 
 開發環境的錯誤資訊頁面如下：  
 

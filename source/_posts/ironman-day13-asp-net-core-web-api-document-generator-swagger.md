@@ -12,7 +12,7 @@ date: 2018-01-01 12:00
 featured_image: /images/ironman/i13-1.png
 ---
 
-Swagger 也算是行之有年的 API 文件產生器，只要在 API 上使用 C# 的 `<summary />` 文件註解標籤，就可以產生精美的線上文件，並且對 RESTful API 有良好的支援。不僅支援產生文件，還支援模擬調用的互動功能，連 Postman 都不用打開就能測 API。  
+Swagger 也算是行之有年的 API 文件產生器，只要在 API 上使用 C# 的 `<summary />` 文件註解標籤，就可以產生精美的線上文件，並且對 RESTful API 有良好的支援。不僅支援產生文件，還支援模擬呼叫的互動功能，連 Postman 都不用打開就能測 API。  
 本篇將介紹如何透過 Swagger 產生 ASP.NET Core 的 RESTful API 文件。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
@@ -99,7 +99,7 @@ public class Startup
 
 > API 沿用 [[鐵人賽 Day12] ASP.NET Core 2 系列 - RESTful API](/article/ironman-day12-asp-net-core-restful-api.html) 的範例程式。  
 
-設定完成後，啟動網站就能開啟 Swagger UI 了。下面如下：  
+設定完成後，啟動網站就能開啟 Swagger UI 了。畫面如下：  
 
 ![[鐵人賽 Day13] ASP.NET Core 2 系列 - Swagger UI](/images/ironman/i13-1.png)  
 

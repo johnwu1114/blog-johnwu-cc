@@ -16,7 +16,7 @@ featured_image: /images/a/324.png
 ![Jenkins - Pipeline Job 平行處理 - 執行結果 - 2](/images/a/324.png)
 
 先前有介紹過 [Jenkins - Pipeline Job 平行處理](/article/jenkins-pipeline-job-parallel.html)，大致說明了基本用法。  
-本篇稍為進階一點，透過 JSON 檔案控製 Pipeline Job 平行處理的執行順序。
+本篇稍微進階一點，透過 JSON 檔案控制 Pipeline Job 平行處理的執行順序。
 
 <!-- more -->
 
@@ -197,7 +197,7 @@ Caused: java.io.NotSerializableException: java.util.TreeMap$Entry
 
 ### TreeMap to ArrayList
 
-解決方是只要把 `TreeMap` 轉換成 `ArrayList` 即可，建立一個簡短的轉換方法：
+解決方式是只要把 `TreeMap` 轉換成 `ArrayList` 即可，建立一個簡短的轉換方法：
 ```groovy
 def entrySet(m) { m.collect { k, v -> [ k, v ] } }
 ```

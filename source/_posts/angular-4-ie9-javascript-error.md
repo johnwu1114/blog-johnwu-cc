@@ -11,7 +11,7 @@ featured_image: /images/a/287.png
 ---
 ![Angular 4 - IE9 不支援 `apply` 錯誤](/images/a/287.png)
 
-Angular 4 (Angular 2) 在 IE9 運行發生整頁空白，看 Console Log 會發現拋出 JavaScript 不支援 `apply` 的錯誤。  
+Angular 4 (Angular 2) 在 IE9 執行時發生整頁空白，看 Console Log 會發現拋出 JavaScript 不支援 `apply` 的錯誤。  
 可以透過 Angular Shim/Polyfill for IE9 的套件解決此問題。  
 
 <!-- more -->
@@ -32,7 +32,7 @@ npm install --save angular2-ie9-shims
 
 ## 2. 載入套件
 
-把 `angular2-ie9-shims` 插入在載入之前，由於只要在 IE9 以下版本載入此套件，所以可以透過 HTML 的 Conditional Comments 載入：
+把 `angular2-ie9-shims` 插入在載入 Angular 之前，由於只要在 IE9 以下版本載入此套件，所以可以透過 HTML 的 Conditional Comments 載入：
 ```html
 <html>
   <head>
@@ -59,7 +59,7 @@ npm install --save angular2-ie9-shims
 </html>
 ```
 
-載入後再次執行就可以在 IE9 運行 Angular 了。
+載入後再次執行就可以在 IE9 執行 Angular 了。
 
 > Angular 不支援 IE8 (含)以下版本，如果是 IE8 以下版本就不用試了，改用 jQuery 吧！
 

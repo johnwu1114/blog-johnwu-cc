@@ -46,7 +46,7 @@ C:\Users\john.wu>dir
 ## 2. 顯示指令結果
 
 直接在字串接著 `.execute()` 執行，會沒辦法在 Jenkins 的 Output 看到指令的執行結果。為了方便除錯，建議還是將指令的執行過程及結果輸出到 Jenkins 比較好。  
-可以透過 `consumeProcessOutput` 方法，把指令的執行指令的結果接回 Groovy。如下：
+可以透過 `consumeProcessOutput` 方法，把指令的執行結果接回 Groovy。如下：
 
 ```groovy
 def sout = new StringBuffer()

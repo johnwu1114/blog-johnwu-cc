@@ -27,14 +27,14 @@ featured_image: /images/a/110p.png
 ## 1. 安裝 NuGet 套件
 
 由於我是要自己畫出圖形驗證碼，需要用到 System.Drawing，但現在微軟官方並沒有出 .NET Core 的 System.Drawing 可以使用。  
-總是有高手會出手相救，CoreCompat.System.Drawing 把 .NET Framework 的 System.Drawing 實作的相當完整，用起來也跟 .NET Framework 的 System.Drawing 一樣。  
-不過目前 CoreCompat.System.Drawing 還是 beta 版，所以要勾選搶鮮版才會找的到。  
+總是有高手會出手相救，CoreCompat.System.Drawing 把 .NET Framework 的 System.Drawing 實作得相當完整，用起來也跟 .NET Framework 的 System.Drawing 一樣。  
+不過目前 CoreCompat.System.Drawing 還是 beta 版，所以要勾選搶鮮版才會找得到。  
 以下是我用到的 NuGet 套件：
 ![ASP.NET Core + Angular 4 教學 - Captcha 安裝 NuGet 套件](/images/a/110.png)
 
 ## 2. 建立 Web API
 
-我建了一個 AuthenticationController 要給登入頁面使用，有 4 支 Api 可以調用，分別是：  
+我建了一個 AuthenticationController 要給登入頁面使用，有 4 支 Api 可以呼叫，分別是：  
 1. HttpGet /api/authentication 取得已登入的帳號  
 2. HttpPost /api/authentication 登入  
 3. HttpDelete /api/authentication 登出  

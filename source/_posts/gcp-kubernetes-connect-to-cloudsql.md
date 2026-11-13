@@ -46,7 +46,7 @@ featured_image: /images/featured/kubernetes.png
 gcloud sql connect cloudsql-mysql --user=root
 ```
 
-沒裝 mysql client 會出錯以下錯誤：  
+沒裝 mysql client 會出現以下錯誤：  
 
 ```log
 Whitelisting your IP for incoming connection for 5 minutes...done.

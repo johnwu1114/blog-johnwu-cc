@@ -13,8 +13,8 @@ featured_image: /images/a/303.png
 
 ![Jenkins - Groovy 調用其它工作 - 執行結果](/images/a/303.png)
 
-當多個 Jenkins 工作有聯貫性時，可以透過一個 Pipeline Job 包裝，由 Pipeline Job 依序自動執行。  
-本篇將介紹如何在 Pipeline Job 用 Groovy Script 調用其它 Jenkins 的工作。  
+當多個 Jenkins 工作有連貫性時，可以透過一個 Pipeline Job 包裝，由 Pipeline Job 依序自動執行。  
+本篇將介紹如何在 Pipeline Job 用 Groovy Script 呼叫其它 Jenkins 的工作。  
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ featured_image: /images/a/303.png
 ## Groovy
 
 先前有介紹過如何建立 Pipeline Job，可以參考 [Jenkins - Pipeline Job using Groovy](/article/jenkins-pipeline-job-using-groovy.html)。  
-在 Groovy 中調用其它 Jenkins 工作可以使用 `build` 方法，如下：
+在 Groovy 中呼叫其它 Jenkins 工作可以使用 `build` 方法，如下：
 
 ```groovy
 // MainlyPipelineJob 
@@ -61,7 +61,7 @@ build
     string(name: "CustomParam", value: custom)
   ]
 ```
-* Groovy 語法再調用方法時，`( )` 是可以被省略的。  
+* Groovy 語法在呼叫方法時，`( )` 是可以被省略的。  
 * parameters 還有另一種參數用法：
  * [ $class: "StringParameterValue", name: "name", value: "John Wu" ]  
    同 string(name: "name", value: "John Wu")  
@@ -70,12 +70,12 @@ build
 
 ### 2. SubPipelineJob
 
-在 SubPipelineJob 配置中，新增 String 參數，如圖：
+在 SubPipelineJob 設定中，新增 String 參數，如圖：
 
 ![Jenkins - Groovy 調用其它工作 - SubPipelineJob - 新增參數 - 1](/images/a/301.png)
 ![Jenkins - Groovy 調用其它工作 - SubPipelineJob - 新增參數 - 2](/images/a/302.png)
 
-在 Groovy 中可直接取用上層傳來的變處名稱使用。如下：
+在 Groovy 中可直接取用上層傳來的變數名稱使用。如下：
 ```groovy
 // SubPipelineJob 
 echo "This is ${env.JOB_NAME}"

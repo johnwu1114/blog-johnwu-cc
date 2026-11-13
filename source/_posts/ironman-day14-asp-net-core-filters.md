@@ -22,7 +22,7 @@ Filter 是延續 ASP.NET MVC 的產物，同樣保留了五種的 Filter，分�
 ## Filter 介紹
 
 Filter 的作用是在 Action **執行前**或**執行後**做一些加工處理。  
-某種程度來看，會跟 Middleware 很像，但執行的順序略有不同，用對 Filter 不僅可以減少程式碼，還可以減省執行效率。  
+某種程度來看，會跟 Middleware 很像，但執行的順序略有不同，用對 Filter 不僅可以減少程式碼，還可以提升執行效率。  
 
 ASP.NET Core 有以下五種 Filter 可以使用：  
 * **Authorization Filter**  
@@ -39,7 +39,7 @@ Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執
 ## Filter 運作方式
 
 ASP.NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 預設都會以先進後出的方式處理封包。  
-Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖：  
+Response 在某些 Filter 並不會做處理，會直接 Bypass。Request 及 Response 的運作流程如下圖：  
 
 ![[鐵人賽 Day14] ASP.NET Core 2 系列 - Filter - 運作方式](/images/a/198.png)
 * 黃色箭頭是正常情況流程  

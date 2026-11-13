@@ -25,10 +25,10 @@ featured_image: /images/a/339.png
 https://support.alexa.com/hc/en-us/articles/201514680-Alexa-widgets-have-been-retired-October-2016)已經在 2016 年 10 月終止了 Alexa Widget 服務。  
 (**先不要離開！！！**)  
 但是，到本文發佈時，API 都還是活著的！  
-> 在閱讀本文時，下面的範例如果都還看的到圖片，表示都還有效。  
-> 偶而會看到它顯示 *No data*，似乎是取的太頻繁才會這樣。  
+> 在閱讀本文時，下面的範例如果都還看得到圖片，表示都還有效。  
+> 偶而會看到它顯示 *No data*，似乎是取得太頻繁才會這樣。  
 
-要使用 Alexa Widget 不需要註冊，直要在網頁上插入一段 `<script />` 載入 JavaScript 即可。  
+要使用 Alexa Widget 不需要註冊，只要在網頁上插入一段 `<script />` 載入 JavaScript 即可。  
 Alexa Widget 提供了 2 種類型，各有 3 種大小格式。如下：
 
 ## Alexa Traffic Rank
@@ -290,7 +290,7 @@ Alexa Graph 的用法是在網址 `https://traffic.alexa.com/graph?u=blog.johnwu
          alt="Alexa Traffic for blog.johnwu.cc">
 </a>
 ```
-> 超連結看個人需求，有沒有都無訪。  
+> 超連結看個人需求，有沒有都無妨。  
 
 ### 範例結果
 

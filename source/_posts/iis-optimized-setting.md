@@ -10,9 +10,9 @@ date: 2017-08-26 01:47:00
 featured_image: /images/a/310.png
 ---
 
-運行 ASP.NET 基本上都是掛載在 IIS 上面，但 IIS 預設的設定，並不適合 24 小時不中斷的營運系統。  
+執行 ASP.NET 基本上都是掛載在 IIS 上面，但 IIS 預設的設定，並不適合 24 小時不中斷的營運系統。  
 如果沒有適當的調整，可能會造成使用者的感受不佳，而你又偏偏不會遇到。  
-本篇將介紹 IIS 運行 ASP.NET 網站的基本優化設定。
+本篇將介紹 IIS 執行 ASP.NET 網站的基本優化設定。
 
 <!-- more -->
 
@@ -26,7 +26,7 @@ featured_image: /images/a/310.png
 ### 佇列長度 (Queue Length)
 
 預設值是 **1000**，當封包數量在同一時間到達該指定值，之後的 Request 都會變成 HTTP Status 503 Service Unavailable。  
-> 例：當有同時間有 1001 個 Request 一起送到 IIS，第 1001 個 Request 會直接回傳 503，不會進到 ASP.NET 處理。  
+> 例：當同時間有 1001 個 Request 一起送到 IIS，第 1001 個 Request 會直接回傳 503，不會進到 ASP.NET 處理。  
 
 也不是無限大就好，也是要看伺服器等級。  
 > 假設調成 10000，也真的有同時 10000 的量，可能會演變成 *CPU High* 的問題。  

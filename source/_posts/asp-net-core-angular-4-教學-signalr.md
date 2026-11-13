@@ -128,7 +128,7 @@ namespace MyWebsite.Hubs
 
 ### SignalRService
 
-因為 SignalR 是透過 jQuery 調用，為了方便在 Angular 中使用，我建立了一個 SignalRService 包裝 SignalR。  
+因為 SignalR 是透過 jQuery 呼叫，為了方便在 Angular 中使用，我建立了一個 SignalRService 包裝 SignalR。  
 shared\services\signalr.service.ts
 ```js
 import { Injectable, Inject } from "@angular/core";

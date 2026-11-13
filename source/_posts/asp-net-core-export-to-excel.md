@@ -82,7 +82,7 @@ using (var document = SpreadsheetDocument.Create(memoryStream, SpreadsheetDocume
 
 ## 3. 插入資料
 
-如上述類別描述，資料要放在 `SheetData`，把 `SheetData` 當作表個的方式插入資料：
+如上述類別描述，資料要放在 `SheetData`，把 `SheetData` 當作表格的方式插入資料：
 
 ```cs
 // 從 Worksheet 取得要編輯的 SheetData

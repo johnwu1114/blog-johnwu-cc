@@ -198,7 +198,7 @@ Response Headers
 上述 CSP 套用在 Header 的格式實在很容易打錯字，而且又是弱型別，日後實在不易維護。  
 所以可以自製一個 CSP Middleware 來包裝這 CSP，方便日後使用。  
 
-把 CSP 指令都變成強強型，如下：  
+把 CSP 指令都變成強型別，如下：  
 
 * *CspDirective.cs*
 ```cs
@@ -356,7 +356,7 @@ Clickjacking 是一種透過 IFrame 的偽裝攻擊方式。
 
 ![[鐵人賽 Day27] ASP.NET Core 2 系列 - 網頁內容安全政策 (Content Security Policy) - Clickjacking 攻擊](/images/ironman/i27-4.png)  
 
-紅色框現內的 IFrame 用 **iT 邦幫忙** 的頁面，然後在 Main Frame 透過 JavaScript 攔截使用者的操作事件，範例程式碼：  
+紅色框線內的 IFrame 用 **iT 邦幫忙** 的頁面，然後在 Main Frame 透過 JavaScript 攔截使用者的操作事件，範例程式碼：  
 ```html
 <head>
     <meta name="viewport" content="width=device-width" />

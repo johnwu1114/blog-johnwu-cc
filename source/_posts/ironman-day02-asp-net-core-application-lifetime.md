@@ -12,7 +12,7 @@ featured_image: /images/ironman/i02-2.png
 
 要了解程式的運作原理，要先知道程式的進入點及生命週期。  
 過往 ASP.NET MVC 啟動方式，是繼承 `HttpApplication` 做為網站開始的進入點。  
-ASP.NET Core 改變了網站啟動的方式，變的比較像是 Console Application。  
+ASP.NET Core 改變了網站啟動的方式，變得比較像是 Console Application。  
 本篇將介紹 ASP.NET Core 的程式生命週期 (Application Lifetime) 及捕捉 Application 停啟事件。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  
@@ -98,10 +98,10 @@ namespace MyWebsite
 }
 ```
 * **ConfigureServices**  
- ConfigureServices 是用來將服務註冊到 DI 容器用的。這個方法可不實做，並不是必要的方法。  
+ ConfigureServices 是用來將服務註冊到 DI 容器用的。這個方法可不實作，並不是必要的方法。  
  *(DI 可以參考這篇：[[鐵人賽 Day04] ASP.NET Core 2 系列 - 依賴注入 (Dependency Injection)](/article/ironman-day04-asp-net-core-dependency-injection.html)。)*  
 * **Configure**  
- 這是必要的方法，一定要時做。但 `Configure` 方法的參數並不固定，參數的實例都是從 WebHost 注入進來，可依需求增減需要的參數。  
+ 這是必要的方法，一定要實做。但 `Configure` 方法的參數並不固定，參數的實例都是從 WebHost 注入進來，可依需求增減需要的參數。  
  * **IApplicationBuilder** 是最重要的參數也是必要的參數，Request 進出的 Pipeline 都是透過 ApplicationBuilder 來設定。  
  *(Pipeline 可以參考這篇：[[鐵人賽 Day03] ASP.NET Core 2 系列 - Middleware](/article/ironman-day03-asp-net-core-middleware.html)。)*  
 

@@ -13,9 +13,9 @@ featured_image: /images/a/299.png
 
 ![Jenkins - Pipeline Job 共用函數庫](/images/a/299.png)
 
-在 Pipeline Job 中撰寫的 Groovy 方法，沒有辦法互相共用，只能透過調用 Jenkins 的 Job 使用。  
+在 Pipeline Job 中撰寫的 Groovy 方法，沒有辦法互相共用，只能透過呼叫 Jenkins 的 Job 使用。  
 但共用方法拆成太多的 Jenkins Job，在維護上也不是很方便。  
-本篇將介紹如何製作 Pipeline Job 的 Groovy 共用函數庫，讓不同 Pipeline Job 都可以共同調用。  
+本篇將介紹如何製作 Pipeline Job 的 Groovy 共用函數庫，讓不同 Pipeline Job 都可以共同呼叫。  
 
 <!-- more -->
 
@@ -60,7 +60,7 @@ def call(cmd, execPath=null) {
     if(serr) error serr.toString().trim()
 }
 ```
-> 共用函數**檔案名稱**，就是在 Pipeline Job 中被調用的方法名稱
+> 共用函數**檔案名稱**，就是在 Pipeline Job 中被呼叫的方法名稱
 
 ### Groovy Script
 
@@ -79,7 +79,7 @@ execCmd("ping 8.8.8.8 -n 2")
 
 ## 3. Domain Specific Language (DSL)  
 
-如果參數比較多的時候，用上述方式時，調用上參數會顯得比較雜亂無章，所以可以用 DSL 的方式定義共用函數。  
+如果參數比較多的時候，用上述方式時，呼叫時參數會顯得比較雜亂無章，所以可以用 DSL 的方式定義共用函數。  
 在 GitHub 的 Repository 新增檔案 `vars/sampleDSL.groovy`，內容如下：
 ```groovy
 // vars/sampleDSL.groovy
@@ -99,7 +99,7 @@ def call(body) {
 
 ### Groovy Script
 
-在 Pipeline Job 調用方式如下：
+在 Pipeline Job 呼叫方式如下：
 ```groovy
 @Library("shared-library") _
 

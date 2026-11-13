@@ -33,7 +33,7 @@ public class MemberBLLTests
 }
 ```
 
-延伸上述程式碼，如果要對 ChangePassword 這個動做增加不同的測試案例，用 TestAttribute 的方式就要建立多個 Test Method。如下：
+延伸上述程式碼，如果要對 ChangePassword 這個動作增加不同的測試案例，用 TestAttribute 的方式就要建立多個 Test Method。如下：
 ```cs
 // ...
 
@@ -204,5 +204,5 @@ public bool ChangePassword(string loginName, string oldPassword, string newPassw
 ```
 
 當有多個測試案例的時候，用 TestCaseAttribute 就會比 TestAttribute 還要簡潔很多。  
-但 TestCaseAttribute 有個缺點，參數只能只使用基本型別，不能動態產生物件。  
+但 TestCaseAttribute 有個缺點，參數只能使用基本型別，不能動態產生物件。  
 如果測試案例的參數比較複雜，要改用 [TestCaseSourceAttribute](nunit-test-case-source-attribute.html)。  

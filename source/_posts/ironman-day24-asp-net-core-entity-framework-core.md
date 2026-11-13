@@ -249,7 +249,7 @@ namespace MyWebsite.Controllers
 }
 ```
 > 仔細看一下 _context，會發現我都沒有對它做 Dispose。  
- 不是 EF Core 改成自動 Dispose，而是 AddDbContext 服務幫我們實做了 Dispose。  
+ 不是 EF Core 改成自動 Dispose，而是 AddDbContext 服務幫我們實作了 Dispose。  
  當 Request 進來時，MyContext 會開啟連線；Response 結束時，會關閉連線並呼叫 Dispose。  
 
 ## Repository Pattern

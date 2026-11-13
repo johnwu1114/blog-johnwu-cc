@@ -128,10 +128,10 @@ namespace MyWebsite
 ```
 
 * **ConfigureServices**  
-  ConfigureServices 是用來將服務註冊到 DI 容器用的。這個方法可不實做，並不是必要的方法。  
+  ConfigureServices 是用來將服務註冊到 DI 容器用的。這個方法可不實作，並不是必要的方法。  
   *(DI 可以參考這篇：[ASP.NET Core 3 系列 - 依賴注入 (Dependency Injection)](/article/asp-net-core-3-dependency-injection.html))*  
 * **Configure**  
-  這是必要的方法，一定要時做。但 `Configure` 方法的參數並不固定，參數的實例都是從 WebHost 注入進來，可依需求增減需要的參數。  
+  這是必要的方法，一定要實作。但 `Configure` 方法的參數並不固定，參數的實例都是從 WebHost 注入進來，可依需求增減需要的參數。  
   * **IApplicationBuilder** 是最重要的參數也是必要的參數，Request 進出的 Pipeline 都是透過 ApplicationBuilder 來設定。  
   *(Pipeline 可以參考這篇：[ASP.NET Core 3 系列 - Middleware](/article/asp-net-core-3-middleware.html))*  
 

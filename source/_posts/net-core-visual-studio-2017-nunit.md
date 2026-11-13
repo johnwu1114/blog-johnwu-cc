@@ -28,7 +28,7 @@ NUnit 是很多 .NET 工程師的必備良伴，寫 .NET Core 當然也少不了
 2. NUnit  
 3. NUnit3TestAdapter  
 
-但編譯時確無法錯誤訊息(中文版)，如下：
+但編譯時卻出現錯誤訊息(中文版)，如下：
 ```
 測試探索程式 'NUnit3TestDiscoverer' 載入測試時發生例外狀況。例外狀況: Could not load file or assembly 'System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'. 系統找不到指定的檔案。
 ```

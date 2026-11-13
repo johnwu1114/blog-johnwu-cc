@@ -14,7 +14,7 @@ featured_image: /images/ironman/i19-1.png
 
 ![[鐵人賽 Day19] ASP.NET Core 2 系列 - NLog & Log4net](/images/ironman/i19-1.png)
 
-ASP.NET Core 提供的 Logging API，不僅可以方便調用 Logger，且支援多種 Log 輸出，也能把 Log 發送到多個地方，並支援第三方的 Logging Framework 套件。  
+ASP.NET Core 提供的 Logging API，不僅可以方便呼叫 Logger，且支援多種 Log 輸出，也能把 Log 發送到多個地方，並支援第三方的 Logging Framework 套件。  
 本篇將介紹 ASP.NET Core 的 Logging 搭配第三方 Logging Framework 套件，**NLog** 及 **Log4net** 的範例。  
 
 > iT 邦幫忙 2018 鐵人賽 - Modern Web 組參賽文章：  

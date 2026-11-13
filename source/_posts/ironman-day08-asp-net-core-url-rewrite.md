@@ -101,7 +101,7 @@ public class Startup
  ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 301 範例結果](/images/ironman/i08-5.png)  
 * **HTTP Status Code 302**  
  **302** 是告知搜尋引擎，雖然這次被轉址，但只是暫時性的。  
- 通常用於網站維護時，暫時原網址轉移到別的地方，如維修公告頁面。  
+ 通常用於網站維護時，將原網址暫時轉移到別的地方，如維修公告頁面。  
  範例結果：  
  ![[鐵人賽 Day08] ASP.NET Core 2 系列 - URL 重寫 (URL Rewrite) - URL 重寫 - HTTP Status Code 302 範例結果](/images/ironman/i08-1.png)  
 
